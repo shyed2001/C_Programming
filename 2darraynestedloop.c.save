@@ -1,0 +1,81 @@
+/*@Shyed Shahriar Housaini
+Copyright: @uthor*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <unistd.h>
+#include <windows.h>
+///#include <threads.h>
+#include <conio.h>
+#include <dos.h>
+
+
+int main(void)
+{
+
+///[3][3] number of elements in 2 dimensional array.
+///[3][2] number of elements in 2 dimensional array.
+
+int nums2[3][3] =
+  {   { 11, 12, 7},  /// 1 is indexed [0][0].
+
+        {13 , 14, 8},
+
+        {  1 , 16 , 9}
+    }; /// 2d array with undeclared elements.
+    
+    
+    printf("%d \n", nums2[0][0]);  /// 0 index number first element  of the first array indexed 0.
+    printf("%d \n", nums2[0][1]);
+    printf("  %d \n", nums2[0][2]);
+    printf("  %d \n", nums2[1][2]);
+    printf("  %d \n", nums2[0][3]);
+    printf("%d \n", nums2[1][0]);
+    printf("%d \n", nums2[1][1]);
+    printf("%d \n", nums2[1][2]);
+    printf("%d \n", nums2[2][1]);
+
+int nums[3][2] =
+    {   { 1, 2},  /// 1 is indexed [0][0].
+
+        {3 , 4},
+
+        {  5 , 6 }
+    };
+    printf("%d \n", nums[0][0]);  /// 0 index number first element  of the first array indexed 0.
+    printf("%d \n", nums[0][1]);
+    printf(" Bug %d \n", nums[0][2]);
+    printf(" Bug %d \n", nums[0][3]);
+    printf("%d \n", nums[1][0]);
+    printf("%d \n", nums[1][1]);
+
+    int nums3[4][4];  /// Declare a 2d array with 4 elements row and column.
+
+    nums3[1][0]=10; /// Assigning a variable element in the array.
+
+    
+    itn i,j;
+    
+    int nums2[3][3] =
+  {   { 11, 12, 7},  /// 1 is indexed [0][0].
+
+        {13 , 14, 8},
+
+        {  1 , 16 , 9} 
+    
+  }
+  
+    for (i=0; i< 3; i++)
+    {
+        for (j = 0 ; j < 3 , j++)
+        {
+            printf(" %d, ", nums2[i][j]);
+        }
+    }
+    
+    
+    
+return 0;
+
+}

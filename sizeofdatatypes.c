@@ -23,6 +23,7 @@ int main(void)
     printf("Memory Size of long long is: %ld byte\n", sizeof(long long));
     printf("Memory Size of double is: %ld byte\n", sizeof(double));
     printf("Memory Size of string is: ?????? byte\n");
+  
 
-         return 0;
+       return 0;
 }

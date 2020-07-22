@@ -1,0 +1,28 @@
+/*@Shyed Shahriar Housaini
+Copyright: @uthor*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+
+    double num1;
+    double num2;
+    char operators;
+    
+    printf("Enter the first number for addition:   ");
+    scanf("%lf", &num1);
+    
+    printf("Enter the operator, : + or - or * or /  ");
+    scanf("  %c", &operators);  /// Must give a space in front of %c to scan char. 
+    
+    printf("Enter the first number for addition:   ");
+    scanf("%lf", &num2);
+    
+    
+    if (operators = '+')
+    
+return 0;
+
+}
