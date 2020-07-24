@@ -4,7 +4,7 @@
 int main(void)
 {
     // Variables are containers to store various types of data.
-    // Give variables simple but easily recognized names.
+    // To store in a program Give variables simple but easily recognized names.
     char characterName[]= "Tom"; // [] used for collection of char. Generally char is a single letter or bite.
     // This is called character array.
     char characterName1 = 'k'; // '' for char or single character.

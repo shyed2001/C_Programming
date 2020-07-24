@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <unistd.h>
+#include <windows.h>
+///#include <threads.h>
+#include <conio.h>
+#include <dos.h>
+#include <direct.h>
+#include "cs50.h"
+#include <stdbool.h>
+
+double x, y, z, A, B;
+
+int valid_triangle_check( x , y , z );
+
+int main()
+{
+
+printf (" Please enter the first arm length of triangle :  ");
+
+scanf(" %d", &x);
+
+printf (" Please enter the second arm length of triangle :  ");
+
+scanf(" %d", &y);
+
+
+printf (" Please enter the third arm length of triangle :  ");
+
+scanf(" %d", &z);
+
+  if ( valid_triangle_check( x , y , z ) == true )
+
+  {
+      printf (" valid triangle\n");
+  }
+
+  else ///( valid_triangle_check( x , y , z ) == false )
+
+  {
+      printf (" Invalid triangle\n");
+  }
+
+
+
+return 0;
+
+}
+
+
+int valid_triangle_check( x , y , z )
+
+{
+
+    if ( x <=0 || y <= 0 || z <= 0 )
+    {
+        printf(" Invalid Arm Length\");
+        return false ;
+    }
+
+    else if ( x + y <z || y + z < x || z + x < y )
+
+    {
+        printf(" Invalid Triangle ");
+        return false ;
+    }
+
+    else
+    {
+        printf(" valid Triangle ");
+        return true ;
+    }
+
+}
