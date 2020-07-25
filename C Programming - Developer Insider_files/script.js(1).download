@@ -1,0 +1,378 @@
+var bannerWidth = 300;
+var bannerHeight = 600;
+
+var loopDuration = 15;
+var pauseLastLoopAfter = 14;
+
+var loopNumber = 1;
+
+var whiteoutSpeed = 0.1;
+
+var ctaEnable = false;
+var mouseEnable = false;
+
+
+
+var images = [
+    "logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png", "logo6.png", "logo7.png", "logo8.png", "logo9.png",
+    "defy.png", "cta_green.png", "cta_black.png", "play.png",
+
+    "bg_blue.png", "bg_red.png",
+    "intro.png", 
+
+    "badge.png"
+];
+
+
+
+var frameTime = 0.034;
+
+var tl_Frame = [];
+
+tl_Frame[1] = function() {
+    var tl = new TimelineMax();
+
+    var startDelay = 0.3;
+    
+    tl.set(bg_red, {opacity: 0});
+    tl.set(jett_bg, {opacity: 0});
+    tl.set(intro, {opacity: 0});
+    tl.set(badge, {opacity: 0, scale: 0.5, transformOrigin: "top left"});
+
+    for (var i = 0; i < 35; i++) {
+        tl.to(intro, 0, {x: -300 * i, opacity: 1, ease: Power0.easeNone}, frameTime * i + startDelay);
+
+        if (i == 14) {
+            tl.set(bg_red, {opacity: 1});
+            tl.set(bg_blue, {opacity: 0});
+        }
+    }
+    
+    return tl;
+}
+
+tl_Frame[2] = function() {
+    var tl = new TimelineMax();
+
+    tl.set([logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9], {scale: 0.5, transformOrigin: "top left", opacity: 0, y: 10}, 0);
+    tl.set(defy, {scale: 0.5, transformOrigin: "top left", opacity: 0, y: 10}, 0);
+    tl.set([cta_green, play], {scale: 0.5, transformOrigin: "top left", y: 60}, 0);
+    tl.set(cta_black, {scale: 0.5, transformOrigin: "top left", x: -4, y: 64}, 0);
+    tl.set(jett_bg, {opacity: 1}, 0);
+    
+    tl.to([bg_red, intro], 0.3, {opacity: 0, ease: Power0.easeNone}, 0);
+    tl.to(animation, 0.3, {opacity: 1, ease: Power0.easeNone}, 0);
+
+    function bgAnimation() {
+        var tl = new TimelineMax({repeat: -1});
+
+            for (var y = 0; y < 6; y++) {
+                for (var x = 0; x < 12; x++) {
+                    tl.to(animation, 0, {backgroundPositionX: -300 * x + "px", backgroundPositionY: -420 * y + "px", ease: Power0.easeNone}, "+=0.06");
+                }
+            }
+
+        return tl;
+    }
+
+    function logoAnimation() {
+        var tl = new TimelineMax();
+
+        var logoFrames = [];
+    
+        logoFrames.push(logo1);
+        logoFrames.push(logo2);
+        logoFrames.push(logo3);
+        logoFrames.push(logo4);
+        logoFrames.push(logo5);
+        logoFrames.push(logo6);
+        logoFrames.push(logo7);
+        logoFrames.push(logo8);
+        logoFrames.push(logo9);
+
+        for (var i = 0; i < logoFrames.length; i++) {
+            tl.to(logoFrames[i], 0.2, {opacity: 1, y: 0, ease: Power0.easeNone}, 0.1 * i);
+        }
+
+        return tl;
+    }
+
+    tl.add(bgAnimation, 0);
+    tl.add(logoAnimation, 0);
+
+    tl.to(defy, 0.2, {opacity: 1, y: 0, ease: Power0.easeNone, onComplete: function() {
+        setTimeout(function() {
+            ctaEnable = true;
+        }, 200);
+    }}, 0.8);
+
+    tl.to(badge, 0.5, {opacity: 1}, 0.8);
+    tl.to([cta_green, play], 0.2, {x: 0, y: 0}, 0.8);
+    tl.to(cta_black, 0.2, {x: -4, y: 4, onComplete: function() {
+        mouseEnable = true;
+    }}, 0.8);
+
+
+    return tl;
+}
+
+
+
+
+
+
+
+
+
+
+function clicktag_Click() {
+    if (dcSelect) {
+        Enabler.exit("Exit Click");
+//        Enabler.exitOverride("Exit Click", "https://www.google.com");
+        Enabler.counter("Counter Click");
+    } else {
+        window.open(window.clickTag);
+    }
+}
+
+
+function mouseEnter() {
+    if (ctaEnable) {
+        var tl = new TimelineMax();
+
+        ctaEnable = false;
+
+        var logoFrames = [];
+    
+        logoFrames.push(logo1);
+        logoFrames.push(logo2);
+        logoFrames.push(logo3);
+        logoFrames.push(logo4);
+        logoFrames.push(logo5);
+        logoFrames.push(logo6);
+        logoFrames.push(logo7);
+        logoFrames.push(logo8);
+        logoFrames.push(logo9);
+    
+        for (var i = 0; i < logoFrames.length; i++) {
+            tl.set(logoFrames[i], {opacity: 0, y: 10}, 0);
+        }
+    
+        for (var i = 0; i < logoFrames.length; i++) {
+            tl.to(logoFrames[i], 0.2, {opacity: 1, y: 0, ease: Power0.easeNone}, 0.1 * i);
+        }
+
+        tl.set(logoFrames[0], {opacity: 1, onComplete: function() {
+            ctaEnable = true;
+        }});
+    }
+
+    if (mouseEnable) {
+        TweenMax.to(cta_black, 0.08, {x: 0, y: 0, ease: Power3.easeIn});
+        TweenMax.to(play, 0.08, {x: 4, y: -4, ease: Power3.easeIn});
+    }
+}
+
+
+function mouseLeave() {
+    if (mouseEnable) {
+        TweenMax.to(cta_black, 0.2, {x: -4, y: 4, ease: Power3.easeOut});
+        TweenMax.to(play, 0.2, {x: 0, y: 0, ease: Power3.easeOut});
+    }
+}
+
+
+
+
+
+
+
+
+
+
+// ============================== Do not edit ============================== //
+
+var mTL;
+var loopCount = 1;
+var stopAnimations = false;
+
+var animation_timeline;
+var content;
+var main;
+var clicktag;
+var whiteout;
+
+
+
+
+
+function init() {
+    animation_timeline = document.getElementById("animation_timeline");
+    content = document.getElementById("content");
+    main = document.getElementById("main");
+    clicktag = document.getElementById("clicktag");
+    whiteout = document.getElementById("whiteout");
+    
+    content.style.width = bannerWidth+"px";
+    content.style.height = bannerHeight+"px";
+    
+    main.style.width = bannerWidth+"px";
+    main.style.height = bannerHeight+"px";
+    
+    clicktag.style.width = bannerWidth+"px";
+    clicktag.style.height = bannerHeight+"px";
+    
+    whiteout.style.width = bannerWidth+"px";
+    whiteout.style.height = bannerHeight+"px";
+    
+    for (var i = 0; i < images.length; i++) {
+        var imageId = images[i].split(".");
+        initImage(imageId[0], images[i]);
+    }  
+    
+    mTL = new TimelineMax();
+    
+    startMainTimeLine();
+}
+
+
+
+
+
+function initImage(id, src) {
+    var image = document.createElement("img");
+    image.setAttribute("id", id);
+    image.setAttribute("class", "image");
+    image.setAttribute("src", src);
+    main.appendChild(image);
+}
+
+
+
+
+
+function startMainTimeLine() {
+    for (var i = 1; i < tl_Frame.length; i++) {
+        mTL.add(tl_Frame[i]());   
+    }
+    
+    mTL.to(whiteout, whiteoutSpeed, {opacity: 0}, 0);
+    mTL.to(whiteout, whiteoutSpeed, {opacity: 1}, loopDuration - whiteoutSpeed);
+    
+    mTL.set(animation_timeline, {opacity: 0, onComplete: pauseMainTimeLine}, pauseLastLoopAfter);
+    mTL.set(animation_timeline, {opacity: 0, onComplete: resetMainTimeLine}, loopDuration);
+}
+
+function pauseMainTimeLine() {
+    if (loopCount == loopNumber) {
+        stopAnimations = true;
+        animationsPause();
+    }  
+}
+
+function resetMainTimeLine() {
+    loopCount++;
+    mTL.restart();
+}
+
+
+
+
+
+function animationsPause() {
+    mTL.pause();
+}
+
+function animationsPlay() {
+    mTL.play();
+}
+
+
+
+
+
+function stLoad() {
+    console.log("ready-Standalone");
+    
+    preLoadImages();
+}
+
+
+
+
+
+function dcLoad() {
+    if (Enabler.isInitialized()) {
+        enablerInitHandler();
+    } else {
+        Enabler.addEventListener(studio.events.StudioEvent.INIT, enablerInitHandler);
+    }
+}
+
+function enablerInitHandler() {
+    console.log("ready-DoubleClick");
+    
+    if (politeLoad) {
+        if (Enabler.isPageLoaded()) {
+            pageLoadedHandler();
+        } else {
+            Enabler.addEventListener(studio.events.StudioEvent.PAGE_LOADED, pageLoadedHandler);
+        }
+    } else {
+        preLoadImages();
+    }
+}
+
+function pageLoadedHandler() {
+    console.log("ready-polite");
+    
+    preLoadImages();
+}
+
+
+
+
+
+function preLoadImages() {
+    var extCSS = document.createElement("link");
+    extCSS.setAttribute("rel", "stylesheet");
+    extCSS.setAttribute("type", "text/css");
+    extCSS.setAttribute("href", "style.css");
+    document.getElementsByTagName("head")[0].appendChild(extCSS);
+    
+    var newImages = [];
+    var loadedImages = [];
+
+    for (var i=0; i < images.length; i++) {
+        newImages[i] = new Image();
+        newImages[i].src = images[i];
+        
+        newImages[i].onload = function() {
+            loadedImages.push(i);
+        }
+    }
+    
+    var bannerInit = setInterval(function() {
+        if (loadedImages.length == images.length) {
+            clearInterval(bannerInit);
+            init();
+        }
+    }, 10);
+}
+
+
+
+
+
+
+
+
+
+
+window.onload = function() {
+    if (dcSelect) {
+        dcLoad();
+    } else {
+        stLoad();
+    }   
+}

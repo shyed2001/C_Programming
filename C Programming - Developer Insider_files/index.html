@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://s0.2mdn.net/9786169/1591072663976/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="ad.size" content="width=728,height=90">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant</title>
+    
+<!--    <script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script>    -->
+    
+    <script src="./tweenmax_1.18.5_23b0de6da0ee295131e32a500470610c_min.js.download"></script>
+    <script type="text/javascript" src="./script.js.download"></script>
+    
+    
+<script>
+    var clickTag = "https://www.google.com";
+    
+    // DoubleClick Select
+    var dcSelect = false;
+    
+    // DoubleClick Polite Load Select
+    var politeLoad = false;
+</script>
+    
+<script type="text/javascript">
+    
+  (function() {
+    var MAX_URL_PARAM_LENGTH = 34;
+    var CLICK_X_URL_KEY = 'nx';
+    var CLICK_Y_URL_KEY = 'ny';
+    var CREATIVE_DIMENSIONS_KEY = 'dim';
+    var AD_URL_PARAM = '&adurl=';
+
+    var relegateNavigation = '';
+    var urlParamMap = {};
+
+    urlParamMap[CLICK_X_URL_KEY] = null;
+    urlParamMap[CLICK_Y_URL_KEY] = null;
+    urlParamMap[CREATIVE_DIMENSIONS_KEY] = null;
+
+    var handleClickTagMessage = function(e) {
+      try {
+        var eventData = JSON.parse(e.data);
+      } catch (err) {
+        return;
+      }
+      if (eventData.isInitClickTag) {
+        if (eventData.clickTags) {
+          for (var i = 0; i < eventData.clickTags.length; i++) {
+            var clkTag = eventData.clickTags[i];
+            window[clkTag.name] = clkTag.url;
+          }
+        } else if (eventData.clickTag) {
+          window.clickTag = eventData.clickTag;
+        }
+        relegateNavigation = eventData.relegateNavigation;
+      }
+    };
+
+    var storeClickCoordinates = function(e) {
+      urlParamMap[CLICK_X_URL_KEY] = Math.round(e.clientX);
+      urlParamMap[CLICK_Y_URL_KEY] = Math.round(e.clientY);
+    };
+
+    var getCreativeDimensions = function() {
+      return window.innerWidth + 'x' + window.innerHeight;
+    }
+
+    var getExitClickParams = function(e) {
+      urlParamMap[CREATIVE_DIMENSIONS_KEY] = getCreativeDimensions();
+
+      var exitParams = '';
+      for (var key in urlParamMap) {
+        exitParams += '&' + key + '=';
+        if (urlParamMap[key] !== null) {
+          exitParams += urlParamMap[key];
+        }
+      }
+      return exitParams;
+    }
+
+    var appendExitClickParams = function(url) {
+      var adUrlIndex = url.toLowerCase().indexOf(AD_URL_PARAM);
+      var paramsToBeAdded = getExitClickParams();
+      if (adUrlIndex > -1 && paramsToBeAdded.length <= MAX_URL_PARAM_LENGTH) {
+        url = url.substr(0, adUrlIndex) + paramsToBeAdded +
+          url.substr(adUrlIndex);
+      };
+      return url;
+    };
+
+    if (open.call) {
+      window.open = function(open) {
+        return function(url, name, features) {
+          url = appendExitClickParams(url);
+          if (relegateNavigation === 'parent') {
+            var message = {'clickTag': url, 'isPostClickTag': true};
+            parent.postMessage(JSON.stringify(message), '*');
+          } else {
+            var args = [url, name];
+            if (features) {
+              args.push(features);
+            }
+            open.apply(window, args);
+          }
+        };
+      }(window.open);
+    }
+
+    if (window.addEventListener) {
+      window.addEventListener(
+          'message', handleClickTagMessage, false);
+      window.addEventListener('mousedown', storeClickCoordinates, true);
+    } else {
+      window.attachEvent('onmessage', handleClickTagMessage);
+    }
+  })();
+    
+  </script><link rel="stylesheet" type="text/css" href="./style.css"></head>
+
+    
+<body>
+    
+    
+<div id="content" style="width: 728px; height: 90px;">
+
+    <div id="animation_timeline" style="opacity: 0;"></div>
+     
+    <div id="main" style="width: 728px; height: 90px;">
+        <img id="jett_bg" class="image" src="./jett_bg.png" style="opacity: 1;">
+        <div id="animation" style="opacity: 1; background-position: 0px -1530px;"></div>
+        
+    <img id="logo1" class="image" src="./logo1.png" style="opacity: 1; transform-origin: left top 0px; transform: matrix(0.49999, 8e-05, -8e-05, 0.49999, 0, 0);"><img id="logo2" class="image" src="./logo2.png" style="opacity: 1; transform-origin: left top 0px; transform: matrix(0.49999, 8e-05, -8e-05, 0.49999, 0, 0);"><img id="logo3" class="image" src="./logo3.png" style="opacity: 1; transform-origin: left top 0px; transform: matrix(0.49999, 8e-05, -8e-05, 0.49999, 0, 0);"><img id="logo4" class="image" src="./logo4.png" style="opacity: 1; transform-origin: left top 0px; transform: matrix(0.49999, 8e-05, -8e-05, 0.49999, 0, 0);"><img id="logo5" class="image" src="./logo5.png" style="opacity: 1; transform-origin: left top 0px; transform: matrix(0.49999, 8e-05, -8e-05, 0.49999, 0, 0);"><img id="logo6" class="image" src="./logo6.png" style="opacity: 1; transform-origin: left top 0px; transform: matrix(0.49999, 8e-05, -8e-05, 0.49999, 0, 0);"><img id="logo7" class="image" src="./logo7.png" style="opacity: 1; transform-origin: left top 0px; transform: matrix(0.49999, 8e-05, -8e-05, 0.49999, 0, 0);"><img id="logo8" class="image" src="./logo8.png" style="opacity: 1; transform-origin: left top 0px; transform: matrix(0.49999, 8e-05, -8e-05, 0.49999, 0, 0);"><img id="logo9" class="image" src="./logo9.png" style="opacity: 1; transform-origin: left top 0px; transform: matrix(0.49999, 8e-05, -8e-05, 0.49999, 0, 0);"><img id="defy" class="image" src="./defy.png" style="opacity: 1; transform-origin: left top 0px; transform: matrix(0.49999, 8e-05, -8e-05, 0.49999, 0, 0);"><img id="cta_green" class="image" src="./cta_green.png" style="transform-origin: left top 0px; transform: matrix(0.49999, 8e-05, -8e-05, 0.49999, 0, 0);"><img id="cta_black" class="image" src="./cta_black.png" style="transform-origin: left top 0px; transform: matrix(0.49999, 8e-05, -8e-05, 0.49999, -4, 4);"><img id="play" class="image" src="./play.png" style="transform-origin: left top 0px; transform: matrix(0.49999, 8e-05, -8e-05, 0.49999, 0, 0);"><img id="bg_blue" class="image" src="./bg_blue.png" style="opacity: 0;"><img id="bg_red" class="image" src="./bg_red.png" style="opacity: 0;"><img id="intro" class="image" src="./intro.png" style="opacity: 0; transform: matrix(1, 0.00017, -0.00017, 1, 0, -3060);"><img id="badge" class="image" src="./badge.png" style="transform-origin: left top 0px; opacity: 1; transform: matrix(0.49999, 8e-05, -8e-05, 0.49999, 0, 0);"></div>
+    
+    <div id="whiteout" style="width: 728px; height: 90px; opacity: 0;"></div>
+    
+    <a href="javascript: void(0);" onclick="javascript: clicktag_Click();">
+        <div id="clicktag" onmouseenter="mouseEnter()" onmouseleave="mouseLeave()" style="width: 728px; height: 90px;"></div>
+    </a>
+    
+</div>
+
+    
+
+    
+</body></html>

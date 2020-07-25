@@ -17,13 +17,13 @@ Copyright: @uthor*/
 /// This file only creates the function named int valid_triangle_check( x , y , z )
 
 
-/// Have to delete the main function. 
+/// Have to delete the main function.
 
-/// There should not be two main function ed linked in one file or in one project. 
+/// There should not be two main function ed linked in one file or in one project.
 
 
 int valid_triangle_check( x , y , z )
-
+/// or  bool valid_triangle_check( x , y , z ); can also be used 
 {
 
     if ( x <=0 || y <= 0 || z <= 0 )

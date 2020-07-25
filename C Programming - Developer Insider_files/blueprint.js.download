@@ -1,0 +1,246 @@
+window.blueprint = {
+	"width": 300,
+	"height": 600,
+	"images": [
+		"txt_1.png",
+		"txt_2.png",
+		"txt_3.png",
+		"cta_1.png",
+		"ctaHover_1.png",
+		"ad4.png",
+		"ad3.png",
+		"ad2.png",
+		"ad1.png",
+		"logo_vimeo.png",
+		"hand.png"
+	],
+	"elements": {
+		"stage": {
+			"parent": "banner",
+			"id": "stage",
+			"retina": false,
+			"left": 0,
+			"top": 0,
+			"safeArea": 0,
+			"lineHeight": 0,
+			"width": 300,
+			"height": 600
+		},
+		"bg": {
+			"parent": "banner",
+			"id": "bg",
+			"retina": false,
+			"left": 0,
+			"top": 0,
+			"safeArea": 0,
+			"lineHeight": 0,
+			"width": 300,
+			"height": 600
+		},
+		"txt_1": {
+			"parent": "banner",
+			"id": "txt_1",
+			"retina": true,
+			"left": -13,
+			"top": 78,
+			"safeArea": 45,
+			"lineHeight": 40.5,
+			"backgroundImage": "txt_1.png",
+			"width": 288,
+			"height": 243
+		},
+		"txt_2": {
+			"parent": "banner",
+			"id": "txt_2",
+			"retina": true,
+			"left": -13,
+			"top": 77.92,
+			"safeArea": 45,
+			"lineHeight": 37.985,
+			"backgroundImage": "txt_2.png",
+			"width": 313,
+			"height": 158
+		},
+		"txt_3": {
+			"parent": "banner",
+			"id": "txt_3",
+			"retina": true,
+			"left": 8,
+			"top": 182,
+			"safeArea": 24,
+			"lineHeight": 24.96,
+			"backgroundImage": "txt_3.png",
+			"width": 204,
+			"height": 93
+		},
+		"cta": {
+			"parent": "banner",
+			"id": "cta",
+			"retina": true,
+			"left": 32,
+			"top": 321.25,
+			"safeArea": 0,
+			"lineHeight": 15.600000000000001
+		},
+		"cta_1": {
+			"parent": "cta",
+			"id": "cta_1",
+			"retina": true,
+			"backgroundImage": "cta_1.png"
+		},
+		"ctaHover": {
+			"parent": "banner",
+			"id": "ctaHover",
+			"retina": true,
+			"left": 163,
+			"top": 377.25,
+			"safeArea": 0,
+			"lineHeight": 15.600000000000001
+		},
+		"ctaHover_1": {
+			"parent": "ctaHover",
+			"id": "ctaHover_1",
+			"retina": true,
+			"backgroundImage": "ctaHover_1.png"
+		},
+		"ad4": {
+			"parent": "banner",
+			"id": "ad4",
+			"retina": true,
+			"left": 57,
+			"top": 119,
+			"safeArea": 0,
+			"lineHeight": 0,
+			"backgroundImage": "ad4.png",
+			"width": 164,
+			"height": 114
+		},
+		"ad3": {
+			"parent": "banner",
+			"id": "ad3",
+			"retina": true,
+			"left": 89,
+			"top": 150,
+			"safeArea": 0,
+			"lineHeight": 0,
+			"backgroundImage": "ad3.png",
+			"width": 163,
+			"height": 115
+		},
+		"ad2": {
+			"parent": "banner",
+			"id": "ad2",
+			"retina": true,
+			"left": 70,
+			"top": 204,
+			"safeArea": 0,
+			"lineHeight": 0,
+			"backgroundImage": "ad2.png",
+			"width": 164,
+			"height": 114
+		},
+		"ad1": {
+			"parent": "banner",
+			"id": "ad1",
+			"retina": true,
+			"left": 35,
+			"top": 174,
+			"safeArea": 0,
+			"lineHeight": 0,
+			"backgroundImage": "ad1.png",
+			"width": 163,
+			"height": 115
+		},
+		"logo_vimeo": {
+			"parent": "banner",
+			"id": "logo_vimeo",
+			"retina": true,
+			"left": 32,
+			"top": 50,
+			"safeArea": 0,
+			"lineHeight": 0,
+			"backgroundImage": "logo_vimeo.png",
+			"width": 103,
+			"height": 30
+		},
+		"hand": {
+			"parent": "banner",
+			"id": "hand",
+			"retina": true,
+			"left": 300,
+			"top": 254,
+			"safeArea": 0,
+			"lineHeight": 0,
+			"backgroundImage": "hand.png",
+			"width": 43,
+			"height": 52
+		},
+		"top": {
+			"parent": "banner",
+			"id": "top",
+			"retina": false,
+			"left": 0,
+			"top": -10,
+			"safeArea": 0,
+			"lineHeight": 0,
+			"width": 300,
+			"height": 10
+		},
+		"bottom": {
+			"parent": "banner",
+			"id": "bottom",
+			"retina": false,
+			"left": 0,
+			"top": 600,
+			"safeArea": 0,
+			"lineHeight": 0,
+			"width": 300,
+			"height": 10
+		},
+		"left": {
+			"parent": "banner",
+			"id": "left",
+			"retina": false,
+			"left": -10,
+			"top": 0,
+			"safeArea": 0,
+			"lineHeight": 0,
+			"width": 10,
+			"height": 600
+		},
+		"right": {
+			"parent": "banner",
+			"id": "right",
+			"retina": false,
+			"left": 300,
+			"top": 0,
+			"safeArea": 0,
+			"lineHeight": 0,
+			"width": 10,
+			"height": 600
+		}
+	},
+	"settings": {
+		"filename": "Q3-2019_ES_mid-funnel_marketer_ad-free_1_learn-more_300x600_HTML5",
+		"market": "ES",
+		"campaign": "Q3-2019",
+		"funnel": "mid-funnel",
+		"segment": "marketer",
+		"feature": "ad-free",
+		"copyVariation": "1",
+		"size": "300x600",
+		"marketIndex": "2",
+		"id": "marketerad-free1",
+		"copy": {
+			"copy1": "Mantén los anuncios lejos de tu audiencia.",
+			"copy2": "Reproductor sin anuncios.",
+			"copy3": "Disponible en Vimeo",
+			"copy4": "Ver más",
+			"copy5": ""
+		},
+		"fileType": "jpg",
+		"fallback": true,
+		"HtmlfileType": "html",
+		"backgroundColor": "#ef97b9"
+	}
+};

@@ -12,23 +12,23 @@
 
 int x, y, z, A, B;
 
-int valid_triangle_check( x , y , z );
-
+bool valid_triangle_check( x , y , z );
+/// or int valid_triangle_check( x , y , z );
 int main()
 {
 
 printf (" Please enter the first arm length of triangle :  ");
 
-scanf(" %d", &x);
+scanf(" %d", &x); /// Have to use %d ?
 
 printf (" Please enter the second arm length of triangle :  ");
 
-scanf(" %d", &y);
+scanf(" %d", &y); /// Have to use %d ?
 
 
 printf (" Please enter the third arm length of triangle :  ");
 
-scanf(" %d", &z);
+scanf(" %d", &z); /// Have to use %d ?
 
 //A = valid_triangle_check( x , y , z );
 
@@ -51,8 +51,8 @@ return 0;
 }
 
 
-int valid_triangle_check( x , y , z )
-
+bool valid_triangle_check( x , y , z )
+///int valid_triangle_check( x , y , z );
 {
 
     if ( x <=0 || y <= 0 || z <= 0 )

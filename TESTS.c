@@ -12,16 +12,43 @@ Copyright: @uthor*/
 #include <direct.h>
 #include <math.h>
 #include <stdbool.h>
-#include "validtrianglecheck2.c"
+#include "validtrianglecheck2.c"   /// Saved file with function in same directory.
+
+
+
+int main() {
+    char c;
+    printf("Enter a character: ");
+    scanf("%c", &c);
+
+    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+        printf("%c is an alphabet.", c);
+    else
+        printf("%c is not an alphabet.", c);
+
+    return 0;
+}
 
 
 
 
 
-int x, y, z, A, B;
+
+/**
+*
+int main(void)
+{
+
+    float dnum = 7777.0000;
+    printf(" %f \n", dnum);
+        return 0;
+}
 
 
-int valid_triangle_check( x , y , z );
+int x, y, z, A, B;  /// Have to use int ?
+
+
+int valid_triangle_check( x , y , z ); ///  imported function   Saved file with function in same directory.
 
 int main()
 {
@@ -29,16 +56,16 @@ int main()
 
 printf (" Please enter the first arm length of triangle :  ");
 
-scanf(" %d", &x);
+scanf(" %d", &x);   /// Have to use %d ?
 
 printf (" Please enter the second arm length of triangle :  ");
 
-scanf(" %d", &y);
+scanf(" %d", &y); /// Have to use %d ?
 
 
 printf (" Please enter the third arm length of triangle :  ");
 
-scanf(" %d", &z);
+scanf(" %d", &z); /// Have to use %d ?
 
 printf (" Result\n ");
 
@@ -59,7 +86,7 @@ printf (" Result\n ");
     {
         printf(" Valid Triangle ");
         //return 1 ;
-    } **/
+
 
 
       if ( valid_triangle_check( x , y , z ) == true )
@@ -77,7 +104,7 @@ printf (" Result\n ");
 return 0;
 
 }
-
+    } **/
 
 
 

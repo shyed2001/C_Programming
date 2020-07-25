@@ -23,7 +23,7 @@ Copyright: @uthor*/
 
 
 int valid_triangle_check( x , y , z )
-
+/// or  bool valid_triangle_check( x , y , z ); can also be used
 {
 
     if ( x <=0 || y <= 0 || z <= 0 )

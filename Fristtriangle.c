@@ -1,6 +1,8 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+///#include <stdlib.h>  /// not needed
+///#include <time.h>   /// not needed
+
+
 int main(void)
 {
     printf("-------\n");

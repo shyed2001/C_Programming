@@ -8,8 +8,12 @@ Copyright: @uthor*/
 #include <windows.h>
 ///#include <threads.h>
 #include <conio.h>
-/// #include <dos.h>
+#include <dos.h>
 #include <direct.h>
+#include <math.h>
+#include <stdbool.h>
+#include<ctype.h>
+
 int main(void)
 {
     printf("The amount of storage required for each of these types varies by platform.\\n");
@@ -23,7 +27,7 @@ int main(void)
     printf("Memory Size of long long is: %ld byte\n", sizeof(long long));
     printf("Memory Size of double is: %ld byte\n", sizeof(double));
     printf("Memory Size of string is: ?????? byte\n");
-  
+    printf("sizeof(long double) = %d\n", sizeof(long double));
 
        return 0;
 }

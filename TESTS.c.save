@@ -12,16 +12,25 @@ Copyright: @uthor*/
 #include <direct.h>
 #include <math.h>
 #include <stdbool.h>
-#include "validtrianglecheck2.c"   /// Saved file with function in same directory. 
+#include "validtrianglecheck2.c"   /// Saved file with function in same directory.
 
 
 
 
+*
+int main(void)
+{
 
-int x, y, z, A, B;  /// Have to use int ? 
+    float dnum = 7777.0000;
+    printf(" %f \n", dnum);
+        return 0;
+}
 
 
-int valid_triangle_check( x , y , z ); ///  imported function   Saved file with function in same directory. 
+int x, y, z, A, B;  /// Have to use int ?
+
+
+int valid_triangle_check( x , y , z ); ///  imported function   Saved file with function in same directory.
 
 int main()
 {

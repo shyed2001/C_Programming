@@ -12,8 +12,8 @@
 
 int x, y, z, A, B;
 
-int valid_triangle_check( x , y , z );
-
+bool valid_triangle_check( x , y , z );
+/// or int valid_triangle_check( x , y , z );
 int main()
 {
 
@@ -51,8 +51,8 @@ return 0;
 }
 
 
-int valid_triangle_check( x , y , z )
-
+bool valid_triangle_check( x , y , z )
+///int valid_triangle_check( x , y , z );
 {
 
     if ( x <=0 || y <= 0 || z <= 0 )
