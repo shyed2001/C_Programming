@@ -12,52 +12,72 @@ Copyright: @uthor*/
 #include <direct.h>
 #include <math.h>
 #include <stdbool.h>
-
+#include <string.h>
+#include <strings.h>
+#include "arrays.c"
 
 int main(void)
 
+
 {
-printf (" https://docs.microsoft.com/en-us/cpp/c-language/organization-of-the-c-language-reference?view=vs-2019  . \n \n");
+printf("https://docs.microsoft.com/en-us/cpp/c-language/organization-of-the-c-language-reference?view=vs-2019.\n \n");
 
-printf ("  https://docs.microsoft.com/en-us/cpp/c-language/?view=vs-2019 . \n \n");
+printf(" https://docs.microsoft.com/en-us/cpp/c-language/?view=vs-2019 . \n \n");
 
-printf ("  https://docs.microsoft.com/en-us/cpp/c-language/c-language-reference?view=vs-2019 . \n \n");
+printf(" https://docs.microsoft.com/en-us/cpp/c-language/c-language-reference?view=vs-2019 . \n \n");
+
+printf(" https://docs.microsoft.com/en-us/cpp/build/reference/c-cpp-building-reference?view=vs-2019 . \n \n");
+
+printf("https://docs.microsoft.com/en-us/cpp/build/reference/c-cpp-building-reference?view=vs-2019 . \n \n");
+
+printf("https://docs.microsoft.com/en-us/cpp/?view=vs-2019 . \n \n");
+
+printf("https://docs.microsoft.com/en-us/cpp/c-runtime-library/c-run-time-library-reference?view=vs-2019 . \n \n");
+
+ ///int luckyNumbers[] = {1, 3, 5, 7, 9, 11, 13, 15}; /// 1 is the first element in this array.
+
+     /// 5 is the third element.   /// 1 or the first element is indexed 0.  Last element is indexed n-1, if there is n elements in the array.
+
+     printf(" Reference about 'arrays' data type in c, look in arrays.c file \n ");
+
+        printf(" Variable is a container where we can store single information. \n ");
+
+        printf(" Arrays is a data structure and a container where we can store many information. \n\n");
+printf("\n");
+        printf(" Arrays holds same data types at a container where we can store many information \n at continuous \ memory locations. \n\n");
+
+        printf(R"(More reading material at - https://www.geeksforgeeks.org/const-qualifier-in-c/;\n\n)");
+printf("\n");
+printf(R"(char stringarray[] = "Array"; /// This is an array of char.)");
+printf("\n");
+printf(R"(hello\nworld\n)");
+printf("\n");
+
+  printf(R"( More references for Raw string in Rawstring.c file. )");
+  printf("\n");
+  printf(R"(.C with a Capital C file format does not support raw string )");
+  printf("\n");
+  printf(R"(.c with a small c file format does support raw string )");
+  printf("\n");
+  printf(R"( Raw string did not support \n new line. have to use seperate \n printf line for sepetation. )");
+  printf("\n");
+
+  printf(R"(          )");
+  printf("\n\n");
 
 
-printf ("   https://docs.microsoft.com/en-us/cpp/build/reference/c-cpp-building-reference?view=vs-2019 . \n \n");
+printf ("   . \n \n");
+printf ("   . \n \n");
+printf ("   . \n \n");
+printf ("   . \n \n");
+printf ("   . \n \n");
 
 
-printf ("  https://docs.microsoft.com/en-us/cpp/build/reference/c-cpp-building-reference?view=vs-2019 . \n \n");
-
-
-printf ("  https://docs.microsoft.com/en-us/cpp/?view=vs-2019 . \n \n");
-
+    printf(R"(          )");
+  printf("\n\n");
 
 
 
-printf ("  https://docs.microsoft.com/en-us/cpp/c-runtime-library/c-run-time-library-reference?view=vs-2019 . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
 
 
 printf ("  A single \\ backslash is used before a spatial character in printf . \n \n");
@@ -85,45 +105,181 @@ printf (" There should not be two main () function linked in one file or in one 
 
 printf (" Is it always safe to declare double and take input scanf with \n conversion specifier or format specifier %lf and printf as format specifier or conversion specifier %f? . \n\n ");
 
-printf ("       .  \n\n ");
 
-printf ("       .  \n\n ");
-printf ("       .  \n\n ");
+    printf(R"(          )");
+  printf("\n\n");
 
-printf ("       .  \n\n ");
-
-printf ("       .  \n\n ");
-
-printf ("       .  \n\n ");
-
-printf ("       .  \n\n ");
-
-printf ("       .  \n\n ");
-
-printf ("       .  \n\n ");
-
-printf ("       .  \n\n ");
-
-printf ("       .  \n\n ");
-
-printf ("       .  \n\n ");
+    printf(R"(          )");
+  printf("\n\n");
 
 
-printf ("       .  \n\n ");
+    printf(R"(          )");
+  printf("\n\n");
 
-printf ("       .  \n\n ");
 
-printf ("       .  \n\n ");
+    printf(R"(          )");
+  printf("\n\n");
 
-printf ("       .  \n\n ");
 
-printf ("       .  \n\n ");
+    printf(R"(          )");
+  printf("\n\n");
 
-printf ("       .  \n\n ");
 
-printf ("       .  \n\n ");
+    printf(R"(          )");
+  printf("\n\n");
 
-printf ("       .  \n\n ");
+
+  printf ("   . \n \n");
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+    printf(R"(          )");
+  printf("\n\n");
+
+  printf ("   . \n \n");
+printf ("   . \n \n");
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+    printf(R"(          )");
+  printf("\n\n");
+
+printf ("   . \n \n");
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+    printf(R"(          )");
+  printf("\n\n");
+
+  printf ("   . \n \n");
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+
+    printf(R"(          )");
+  printf("\n\n");
+
+  printf ("   . \n \n");
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+
+  printf ("   . \n \n");
+printf ("   . \n \n");
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+
+
+
+
+
+
+
+printf(R"(          )"); printf("\n\n");
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+printf(R"(          )"); printf("\n\n");
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+printf(R"(          )"); printf("\n\n");
+
+    printf(R"(          )"); printf("\n\n");
+
+
+
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+printf(R"(          )"); printf("\n\n");
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+printf(R"(          )"); printf("\n\n");
+
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+printf ("   . \n \n");
+printf ("   . \n \n"););
+
+printf(R"(          )"); printf("\n\n");
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+printf(R"(          )"); printf("\n\n");
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+printf(R"(          )"); printf("\n\n");
+    printf(R"(          )");
+  printf("\n\n");
+
+
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+printf(R"(          )"); printf("\n\n");
 
 printf ("    Operator Overloading Similar to function overloading, operator overloading allows programmers to redefine operators such as +, - and *. For example, in a class for complex numbers where each number has a real and imaginary part, overloaded operators allow code such as this to work: As long as + is overloaded for the type complex. Advantages of Overloading When Writing Code You end up with code that is easier to read \n \
 Overloading is convenient and intuitive Avoids clunky syntax Consistency in naming and notation \n \

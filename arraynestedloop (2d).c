@@ -13,6 +13,12 @@ Copyright: @uthor*/
 
 int main(void)
 {
+        printf(" Variable is a container where we can store single information. \n ");
+
+        printf(" Arrays is a data structure and a container where we can store many information. \n\n");
+
+                printf(" Arrays holds same data types at a container where we can store many information \n at continuous  memory locations. \n\n");
+
 
 ///[3][3] number of elements in 2 dimensional array.
 ///[3][2] number of elements in 2 dimensional array.

@@ -18,8 +18,7 @@ int main(void)
 
                 printf(" Arrays holds same data types at a container where we can store many information \n at continuous  memory locations. \n\n");
 
-
-                    printf(R"(Arrays data structure allows us to read [-3] or [101] element even it has elements from [0] to [100], this is segmentation error)");
+                                    printf(R"(Arrays data structure allows us to read [-3] or [101] element even it has elements from [0] to [100], this is segmentation error)");
    printf("\n");
 
         printf(" %d \n \n", luckyNumbers [3] ); /// 3 is the index position of 7 in this array.

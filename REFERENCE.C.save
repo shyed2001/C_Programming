@@ -12,52 +12,67 @@ Copyright: @uthor*/
 #include <direct.h>
 #include <math.h>
 #include <stdbool.h>
-
+#include <string.h>
+#include <strings.h>
 
 int main(void)
 
+
 {
-printf (" https://docs.microsoft.com/en-us/cpp/c-language/organization-of-the-c-language-reference?view=vs-2019  . \n \n");
+printf("https://docs.microsoft.com/en-us/cpp/c-language/organization-of-the-c-language-reference?view=vs-2019.\n \n");
 
-printf ("  https://docs.microsoft.com/en-us/cpp/c-language/?view=vs-2019 . \n \n");
+printf(" https://docs.microsoft.com/en-us/cpp/c-language/?view=vs-2019 . \n \n");
 
-printf ("  https://docs.microsoft.com/en-us/cpp/c-language/c-language-reference?view=vs-2019 . \n \n");
+printf(" https://docs.microsoft.com/en-us/cpp/c-language/c-language-reference?view=vs-2019 . \n \n");
+
+printf(" https://docs.microsoft.com/en-us/cpp/build/reference/c-cpp-building-reference?view=vs-2019 . \n \n");
+
+printf("https://docs.microsoft.com/en-us/cpp/build/reference/c-cpp-building-reference?view=vs-2019 . \n \n");
+
+printf("https://docs.microsoft.com/en-us/cpp/?view=vs-2019 . \n \n");
+
+printf("https://docs.microsoft.com/en-us/cpp/c-runtime-library/c-run-time-library-reference?view=vs-2019 . \n \n");
+
+ ///int luckyNumbers[] = {1, 3, 5, 7, 9, 11, 13, 15}; /// 1 is the first element in this array.
+
+     /// 5 is the third element.   /// 1 or the first element is indexed 0.
+
+        printf(" Variable is a container where we can store single information. \n ");
+
+        printf(" Arrays is a data structure and a container where we can store many information. \n\n");
+printf("\n");
+        printf(R"(More reading material at - https://www.geeksforgeeks.org/const-qualifier-in-c/;\n\n)");
+printf("\n");
+printf(R"(char stringarray[] = "Array"; /// This is an array of char.)");
+printf("\n");
+printf(R"(hello\nworld\n)");
+printf("\n");
+
+  printf(R"( More references for Raw string in Rawstring.c file. )");
+  printf("\n");
+  printf(R"(.C with a Capital C file format does not support raw string )");
+  printf("\n");
+  printf(R"(.c with a small c file format does support raw string )");
+  printf("\n");
+  printf(R"( Raw string did not support \n new line. have to use seperate \n printf line for sepetation. )");
+  printf("\n");
+
+  printf(R"(          )");
+  printf("\n\n");
 
 
-printf ("   https://docs.microsoft.com/en-us/cpp/build/reference/c-cpp-building-reference?view=vs-2019 . \n \n");
+printf ("   . \n \n");
+printf ("   . \n \n");
+printf ("   . \n \n");
+printf ("   . \n \n");
+printf ("   . \n \n");
 
 
-printf ("  https://docs.microsoft.com/en-us/cpp/build/reference/c-cpp-building-reference?view=vs-2019 . \n \n");
-
-
-printf ("  https://docs.microsoft.com/en-us/cpp/?view=vs-2019 . \n \n");
-
+    printf(R"(          )");
+  printf("\n\n");
 
 
 
-printf ("  https://docs.microsoft.com/en-us/cpp/c-runtime-library/c-run-time-library-reference?view=vs-2019 . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
-printf ("   . \n \n");
 
 
 printf ("  A single \\ backslash is used before a spatial character in printf . \n \n");
@@ -85,45 +100,181 @@ printf (" There should not be two main () function linked in one file or in one 
 
 printf (" Is it always safe to declare double and take input scanf with \n conversion specifier or format specifier %lf and printf as format specifier or conversion specifier %f? . \n\n ");
 
-printf ("       .  \n\n ");
 
-printf ("       .  \n\n ");
-printf ("       .  \n\n ");
+    printf(R"(          )");
+  printf("\n\n");
 
-printf ("       .  \n\n ");
-
-printf ("       .  \n\n ");
-
-printf ("       .  \n\n ");
-
-printf ("       .  \n\n ");
-
-printf ("       .  \n\n ");
-
-printf ("       .  \n\n ");
-
-printf ("       .  \n\n ");
-
-printf ("       .  \n\n ");
-
-printf ("       .  \n\n ");
+    printf(R"(          )");
+  printf("\n\n");
 
 
-printf ("       .  \n\n ");
+    printf(R"(          )");
+  printf("\n\n");
 
-printf ("       .  \n\n ");
 
-printf ("       .  \n\n ");
+    printf(R"(          )");
+  printf("\n\n");
 
-printf ("       .  \n\n ");
 
-printf ("       .  \n\n ");
+    printf(R"(          )");
+  printf("\n\n");
 
-printf ("       .  \n\n ");
 
-printf ("       .  \n\n ");
+    printf(R"(          )");
+  printf("\n\n");
 
-printf ("       .  \n\n ");
+
+  printf ("   . \n \n");
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+    printf(R"(          )");
+  printf("\n\n");
+
+  printf ("   . \n \n");
+printf ("   . \n \n");
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+    printf(R"(          )");
+  printf("\n\n");
+
+printf ("   . \n \n");
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+    printf(R"(          )");
+  printf("\n\n");
+
+  printf ("   . \n \n");
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+
+    printf(R"(          )");
+  printf("\n\n");
+
+  printf ("   . \n \n");
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+
+  printf ("   . \n \n");
+printf ("   . \n \n");
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+
+
+
+
+
+
+
+printf(R"(          )"); printf("\n\n");
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+printf(R"(          )"); printf("\n\n");
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+printf(R"(          )"); printf("\n\n");
+
+    printf(R"(          )"); printf("\n\n");
+ 
+
+
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+printf(R"(          )"); printf("\n\n");
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+printf(R"(          )"); printf("\n\n");
+
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+printf ("   . \n \n");
+printf ("   . \n \n"););
+
+printf(R"(          )"); printf("\n\n");
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+printf(R"(          )"); printf("\n\n");
+
+    printf(R"(          )");
+  printf("\n\n");
+
+
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+printf(R"(          )"); printf("\n\n");
+    printf(R"(          )");
+  printf("\n\n");
+
+
+printf ("   . \n \n");
+printf ("   . \n \n");
+
+printf(R"(          )"); printf("\n\n");
 
 printf ("    Operator Overloading Similar to function overloading, operator overloading allows programmers to redefine operators such as +, - and *. For example, in a class for complex numbers where each number has a real and imaginary part, overloaded operators allow code such as this to work: As long as + is overloaded for the type complex. Advantages of Overloading When Writing Code You end up with code that is easier to read \n \
 Overloading is convenient and intuitive Avoids clunky syntax Consistency in naming and notation \n \
@@ -136,6 +287,42 @@ printf ("    In C, C++, C# and other programming languages, an identifier is a n
         https://docs.microsoft.com/en-us/cpp/c-language/c-identifiers?view=vs-2019  .  \n\n ");
 
 return 0;
+
+/// Portability in C:
+
+/** When we talk about C source code portability, we’re talking about writing the code so that it can be easily moved (ported) to another environment, so that after recompiling and relinking, it will behave the same way it did originally (ideally without any changes to the source code itself, but in practice, with only minimal changes).
+
+What do we mean by “another environment?”
+
+Moving to a different operating system on the same hardware.
+Moving to a different version of the same operating system on the same hardware.
+Moving to a different variant/flavor/distribution of an operating system.
+Moving to a different CPU hardware architecture.
+Moving to a different C compiler on the same hardware and operating system.
+Moving to a different version of the same C compiler on the same hardware and operating system. (Yes, code can break between versions of a compiler offered by the same compiler vendor.)
+Why do we want portable code?
+
+The act of porting the code takes time and effort (and therefore has a cost), in terms of understanding exactly what has to change, making the change(s), and testing the modified code. If we can reduce the number of required changes to zero, or to a very small number of isolated changes, we can reduce the porting effort and project cost.
+
+So, how do we strive to achieve portability?
+
+Here is a partial list to give you some idea of what to worry about:
+
+Don’t assume the size of any data type. Data type sizes can and do vary from one environment to another. For example, an int might be 16 bits, 32 bits, 64 bits, or more. It might vary between compilers for the exact same hardware. It might change from one compiler version to another. The size of an int may or may not have any relationship to the natural word size of the CPU hardware.
+Don’t assume that a pointer (to anything) is the same size as an int or the same size as any other data type. Pointers are sometimes the same size as an int, but are often a different size from an int. For example, in many popular compilers, building for a 32-bit target gives you a 32-bit int and a 32-bit pointer, but building the same code with the same compiler for a 64-bit target gives you a 32-bit int and a 64-bit pointer.
+Don’t make calls directly to the operating system. Instead, use standard library functions.
+Don’t make assumptions about the underlying hardware, speed, memory size, memory map, I/O map, etc.
+Don’t assume a specific endianness (byte ordering) of the target system. Not only can endianness vary from one CPU architecture to another, but some CPU architectures allow switching between big and little endian.
+Avoid the use of bit fields in structures, if you’re relying on a specific packing/ordering of the bit fields. Handling of bit fields varies between implementations.
+Don’t assume that structure packing/padding will be the same in all environments. Packing and padding behaviors can and do vary between compiler implementations, even when targeting the same CPU hardware.
+Don’t embed assembly language in the source code. By definition, the code will break if you try to port it to a different CPU architecture.
+Don’t use compiler intrinsics or compiler-specific keywords and pragmas. Obviously, not ever compiler implementation will have these features, so for maximum portability, avoid them.
+Avoid the use of newer language features that have not been widely adopted. Some people are really taken aback by this rule, but it has a very practical purpose. For example, variable-length arrays have been part of the C standard since C99. But many compiler implementations have never supported the feature, so porting code that uses this feature becomes a problem. (The C11 standard has demoted this language feature to optional, so it’s even more likely that many compilers will never implement the feature.)
+Avoid all other undefined behavior and implementation-specific behavior. Your code might appear to work in one environment, and fall apart as soon as you try to port it another environment. This requires some common sense and a knowledge of what is undefined and implementation-specific. Many compilers produce helpful warnings when code ventures into these areas, but many don’t say anything at all.
+If you must violate these rules for some reason, it’s best to isolate that code in a separate module, so that the porting work is isolated and minimized.
+
+Even if you don’t intend to port your code beyond its initial target, it’s a good idea to keep portability in mind in all projects - you just never know where your code is going to end up.  **/
+
 
 /// In stdlib.h the macros EXIT_SUCCESS and EXIT_FAILURE are defined like this : #define EXIT_SUCCESS 0; #define EXIT_FAILURE 1
 

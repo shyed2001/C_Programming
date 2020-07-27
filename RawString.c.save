@@ -14,7 +14,7 @@ Copyright: @uthor*/
 int main(void)
 
 {
-    printf("Hello world\nHello world");
+    printf(""Hello world\nHello world");
     printf("\n");
     printf("Hello world\\nHello world !@#$%^&*()_+=-");
     printf("\n");
