@@ -23,13 +23,13 @@ int main(void)
 ///[3][3] number of elements in 2 dimensional array.
 ///[3][2] number of elements in 2 dimensional array.
 
-int nums2[3][3] =     /// This is a 3 by 3 grid or matrix or table.
+int nums2[3][3] =     /// This is a 3 by 3 grid or matrix or table. 
   {   { 11, 12, 7},  /// 1 is indexed [0][0].
 
         {13 , 14, 8},
 
         {  1 , 16 , 9}
-    }; /// 2d array with undeclared elements. This is a 3 by 3 grid or matrix or table. , in memory this is an 9 element one dimentional array only.
+    }; /// 2d array with undeclared elements. in memory this is an 9 element one dimentional array only.
 
 
 

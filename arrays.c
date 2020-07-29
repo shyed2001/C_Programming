@@ -4,9 +4,12 @@ Copyright: @uthor*/
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 int main(void)
 {
+
+
 
     int luckyNumbers[] = {1, 3, 5, 7, 9, 11, 13, 15}; /// 1 is the first element in this array.
 
@@ -18,8 +21,7 @@ int main(void)
 
                 printf(" Arrays holds same data types at a container where we can store many information \n at continuous  memory locations. \n\n");
 
-
-                    printf(R"(Arrays data structure allows us to read [-3] or [101] element even it has elements from [0] to [100], this is segmentation error)");
+                                    printf(R"(Arrays data structure allows us to read [-3] or [101] element even it has elements from [0] to [100], this is segmentation error)");
    printf("\n");
 
         printf(" %d \n \n", luckyNumbers [3] ); /// 3 is the index position of 7 in this array.
@@ -56,7 +58,135 @@ printf(R"(char stringarray[] = "Array"; /// This is an array of char.)");
 
 
 
-// single character, integer type
+      bool turthtable[3];   /// To use bool type array #include <stdbool.h>
+/// Declaring an empty bool type array and printing randomly printed the first argument in the {} of an if statement.
+
+    if (turthtable[0] != true)
+      {
+          printf("True \n");
+      }
+      else printf("False\n");
+
+      if (turthtable[1] == true)
+      {
+          printf("True \n");
+      }
+      else printf("False\n");
+
+            if (turthtable[2] == true)
+      {
+          printf("True \n");
+      }
+      else printf("False\n");
+
+            if (turthtable[3] == true)
+      {
+          printf("True \n");
+      }
+      else printf("False\n");
+
+            if (turthtable[-2] == true)
+      {
+          printf("True \n");
+      }
+      else printf("False\n");
+
+
+      bool turthtable2[3] = {true, false, true};
+      /// or bool turthtable2[] = {true, false, true};  this is same as above Array
+      /// bool turthtable2[3] ;
+      /// turthtable2[0] = true;
+      /// turthtable2[1] = false;
+      /// turthtable2[2] = true;
+      ///  We can use any of the above to create the same array.
+
+       if (turthtable2[0] != true)
+      {
+          printf("True \n");
+      }
+      else printf("False\n");
+
+      if (turthtable2[1] == true)
+      {
+          printf("True \n");
+      }
+      else printf("False\n");
+
+            if (turthtable2[2] == true)
+      {
+          printf("True \n");
+      }
+      else printf("False\n");
+
+            if (turthtable2[3] == true)
+      {
+          printf("True \n");
+      }
+      else printf("False\n");
+
+            if (turthtable2[-2] == true)
+      {
+          printf("True \n");
+      }
+      else printf("False\n");
+
+       /// This does not work   printf("turthtable2[2] is %c%c%c%c\n", turthtable2[2] );
+
+
+
+
+    /// We can treat individual elements of an array as element but we can not treat the entire array as a variable themselves.
+    /// In c we can not assign one array to another array using = or any assignment operators.
+    /// we have to use loop to copy individual element of an array to another array.
+
+
+/// Exercise creating array with a loop.
+
+
+    int k;
+
+    for ( k = 0; k <= 9; k+=1)  /// K++ or K+=1 are same.
+    {
+        int battleship[10];
+         battleship[k] = k;
+
+         printf (" \n %d \n" ,battleship[k]);
+
+       /// printf (" \n %d \n" ,k );
+    }
+
+
+    printf(R"(   int flats[] = {1,2,3,4,5,6,7};       )");
+  printf("\n\n");
+
+  int flats[] = {1,2,3,4,5,6,7};
+      printf(R"(      int rooms[];     )");
+  printf("\n\n");
+
+    int rooms[10];
+
+      printf(R"(  in C     falts[] = rooms[]; /// this will not work.      )");
+  printf("\n\n");
+
+        printf(R"(   We have to copy individual elements each seperately in C .    )");
+  printf("\n\n");
+
+  /// falts[] = rooms[]; /// this will not work.
+
+
+   for (int m = 0; m <= 7; m++ )
+   {
+       rooms[m] = flats[m];
+       printf(" rooms[%d] = %d \n ", m, flats[m]);
+
+   }
+
+
+
+
+
+
+/// single character, integer type
     char letter = 'A'; // 65
 
     // string literal, stored as read-only data

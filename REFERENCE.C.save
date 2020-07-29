@@ -14,6 +14,7 @@ Copyright: @uthor*/
 #include <stdbool.h>
 #include <string.h>
 #include <strings.h>
+#include "arrays.c"
 
 int main(void)
 
@@ -35,12 +36,16 @@ printf("https://docs.microsoft.com/en-us/cpp/c-runtime-library/c-run-time-librar
 
  ///int luckyNumbers[] = {1, 3, 5, 7, 9, 11, 13, 15}; /// 1 is the first element in this array.
 
-     /// 5 is the third element.   /// 1 or the first element is indexed 0.
+     /// 5 is the third element.   /// 1 or the first element is indexed 0.  Last element is indexed n-1, if there is n elements in the array.
+
+     printf(" Reference about 'arrays' data type in c, look in arrays.c file \n ");
 
         printf(" Variable is a container where we can store single information. \n ");
 
         printf(" Arrays is a data structure and a container where we can store many information. \n\n");
 printf("\n");
+        printf(" Arrays holds same data types at a container where we can store many information \n at continuous \ memory locations. \n\n");
+
         printf(R"(More reading material at - https://www.geeksforgeeks.org/const-qualifier-in-c/;\n\n)");
 printf("\n");
 printf(R"(char stringarray[] = "Array"; /// This is an array of char.)");
@@ -223,7 +228,7 @@ printf ("   . \n \n");
 printf(R"(          )"); printf("\n\n");
 
     printf(R"(          )"); printf("\n\n");
- 
+
 
 
 printf ("   . \n \n");
@@ -800,6 +805,1432 @@ unsigned int
 long
 %n	Prints nothing
 %%	Prints % character
+
+
+**/
+
+
+/**
+Definition of Unsigned; https://www.thoughtco.com/definition-of-unsigned-958174
+The term "unsigned" in computer programming indicates a variable that can hold only positive numbers. The term "signed" in computer code indicates that a variable can hold negative and positive values. The property can be applied to most of the numeric data types including int, char, short and long.
+
+Unsigned Variable Type of Integer
+An unsigned variable type of int can hold zero and positive numbers, and a signed int holds negative, zero and positive numbers.
+
+In 32-bit integers, an unsigned integer has a range of 0 to 232-1 = 0 to 4,294,967,295 or about 4 billion. The signed version goes from -231-1 to 231, which is –2,147,483,648 to 2,147,483,647 or about -2 billion to +2 billion. The range is the same, but it is shifted on the number line.
+
+An int type in C, C++, and C# is signed by default. If negative numbers are involved, the int must be signed; an unsigned int cannot represent a negative number.
+
+Unsigned Char
+In the case of chars, which are only 1 byte, the range of an unsigned char is 0 to 256, while the range of a signed char is -127 to 127.
+
+Stand-Alone Type Specifiers and Other Usages
+Unsigned (and signed) can also serve as standalone type specifiers, but when either is used alone, they default to int.
+
+Objects of type long can be declared as signed long or unsigned long. Signed long is the same as long because signed is the default. The same applies to long and short.​
+
+
+https://stackoverflow.com/questions/5739888/what-is-the-difference-between-signed-and-unsigned-int#:~:text=In%20laymen's%20terms%20an%20unsigned,negative%20values%20it%20can%20assume.
+In laymen's terms an unsigned int is an integer that can not be negative and thus has a higher range of positive values that it can assume. A signed int is an integer that can be negative but has a lower positive range in exchange for more negative values it can assume.
+
+As you are probably aware, ints are stored internally in binary. Typically an int contains 32 bits, but in some environments might contain 16 or 64 bits (or even a different number, usually but not necessarily a power of two).
+
+But for this example, let's look at 4-bit integers. Tiny, but useful for illustration purposes.
+
+Since there are four bits in such an integer, it can assume one of 16 values; 16 is two to the fourth power, or 2 times 2 times 2 times 2. What are those values? The answer depends on whether this integer is a signed int or an unsigned int. With an unsigned int, the value is never negative; there is no sign associated with the value. Here are the 16 possible values of a four-bit unsigned int:
+
+Unsigned can hold a larger positive value, and no negative value. Unsigneduses the leading bit as a part of the value, while the signed version uses the left-most-bit to identify if the number is positive or negative. signed integers can hold both positive andnegative numbers.” - From StackOverflow
+
+bits  value
+0000    0
+0001    1
+0010    2
+0011    3
+0100    4
+0101    5
+0110    6
+0111    7
+1000    8
+1001    9
+1010   10
+1011   11
+1100   12
+1101   13
+1110   14
+1111   15
+... and Here are the 16 possible values of a four-bit signed int:
+
+bits  value
+0000    0
+0001    1
+0010    2
+0011    3
+0100    4
+0101    5
+0110    6
+0111    7
+1000   -8
+1001   -7
+1010   -6
+1011   -5
+1100   -4
+1101   -3
+1110   -2
+1111   -1
+As you can see, for signed ints the most significant bit is 1 if and only if the number is negative. That is why, for signed ints, this bit is known as the "sign bit".
+
+One important detail:
+
+The ANSI C standard defines how unsigned integer overflow works. The code behavior during signed integer overflow may differ between compilers.
+
+This is why you may see code that temporarily casts signed integers to unsigned before addition. This is to make sure that the code behaves the exact same way on any compiler (portability).
+
+Targetlink (a Simulink based code generator) generates such C code.
+https://www.quora.com/How-do-I-convert-long-long-to-unsigned-int-in-C-C
+
+use %lu as format specifier to print unsigned long int
+
+ written c code as below
+
+void main()
+{
+	int unsigned long number;
+
+	printf("Enter Unsigned Long Int");
+	scanf("%lu",&number);
+
+	printf("The Number is %lu ",number);
+
+}
+
+Format specifiers in C
+The format specifier is used during input and output. It is a way to tell the compiler what type of data is in a variable during taking input using scanf() or printing using printf(). Some examples are %c, %d, %f, etc.
+
+The format specifier in printf() and scanf() are mostly the same but there is some difference which we will see.
+
+printf(char *format, arg1, arg2, …)
+This function prints the character on standard output and returns the number of character printed the format is a string starting with % and ends with conversion character (like c, i, f, d, etc.).
+Between both, there can be elements governing the printing format. Below is its description
+
+A minus(-) sign tells left alignment.
+A number after % specifies the minimum field width to be printed if the characters are less than the size of width the remaining space is filled with space and if it is greater than it printed as it is without truncation.
+A period( . ) symbol separate field width with the precision.
+Precision tells the maximum number of digits in integer, characters in string and number of digits after decimal part in floating value.
+
+Lets see these..
+Character format specifier : %c
+
+
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+#include <stdio.h>
+int main()
+{
+    char ch = 'A';
+    printf("%c\n", ch);
+    return 0;
+}
+Output:
+A
+Integer format specifier : %d, %i
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+#include <stdio.h>
+int main()
+{
+    int x = 45, y = 90;
+    printf("%d\n", x);
+    printf("%i\n", x);
+    return 0;
+}
+Output:
+45
+45
+Floating-point format specifier : %f, %e or %E
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+#include <stdio.h>
+int main()
+{
+    float a = 12.67;
+    printf("%f\n", a);
+    printf("%e\n", a);
+    return 0;
+}
+Output:
+12.670000
+1.267000e+01
+Unsigned Octal number for integer : %o
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+#include <stdio.h>
+int main()
+{
+    int a = 67;
+    printf("%o\n", a);
+    return 0;
+}
+Output:
+103
+Unsigned Hexadecimal for integer : %x, %X
+
+
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+#include <stdio.h>
+int main()
+{
+    int a = 15;
+    printf("%x\n", a);
+    return 0;
+}
+Output:
+f
+String printing : %s
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+#include <stdio.h>
+int main()
+{
+    char a[] = "geeksforgeeks";
+    printf("%s\n", a);
+    return 0;
+}
+Output:
+geeksforgeeks
+More formatting
+filter_none
+edit
+play_arrow
+
+brightness_4
+#include <stdio.h>
+int main()
+{
+    char str[] = "geeksforgeeks";
+    printf("%20s\n", str);
+    printf("%-20s\n", str);
+    printf("%20.5s\n", str);
+    printf("%-20.5s\n", str);
+    return 0;
+}
+Output:
+       geeksforgeeks
+geeksforgeeks
+               geeks
+geeks
+scanf(char *format, arg1, arg2, …)
+This function take input using standard input (keyboard) and store it in variable accordingly. It returns the number of items successfully read. Formal parameter arg1, agr2, .. must be a pointer
+
+decimal integer : %d
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+#include <stdio.h>
+int main()
+{
+    int a = 0;
+    scanf("%d", &a); // input is 45
+    printf("%d\n", a);
+    return 0;
+}
+Integer may be octal or in hexadecimal : %i
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+#include <stdio.h>
+int main()
+{
+    int a = 0;
+    scanf("%i", &a); // input is 017 (octal of 15 )
+    printf("%d\n", a);
+    scanf("%i", &a); // input is 0xf (hexadecimal of 15 )
+    printf("%d\n", a);
+    return 0;
+}
+Double floating-point number : %lf
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+#include <stdio.h>
+int main()
+{
+    double a = 0.0;
+    scanf("%lf", &a); // input is 45.65
+    printf("%lf\n", a);
+    return 0;
+}
+Output:
+45.650000
+String input : %s
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+#include <stdio.h>
+int main()
+{
+    char str[20];
+    scanf("%s", str); // input is geeksforgeeks
+    printf("%s\n", str);
+    return 0;
+}
+Output:
+P@
+Character input : %c
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+#include <stdio.h>
+int main()
+{
+    char ch;
+    scanf("%c", &ch); // input is A
+    printf("%c\n", ch);
+    return 0;
+}
+Many other format specifiers are also there
+1.%u for an unsigned integer.
+2.%lld for long long int.
+3.%o octal integer without leading zero
+4.%x hexadecimal integer without 0x before the number.
+
+Attention reader! Don’t stop learning now. Get hold of all the important DSA concepts with the DSA Self Paced Course at a student-friendly price and become industry ready.
+
+
+
+
+Recommended Posts:
+Format specifiers in different Programming Languages
+C program to print characters without using format specifiers
+Using a variable as format specifier in C
+Format String Vulnerability and Prevention with Example
+Difference between %d and %i format specifier in C language
+C program to write an image in PGM format
+Encode an ASCII string into Base-64 Format
+C program to invert (making negative) an image content in PGM format
+Header files in C/C++ with Examples
+C Programming For Beginners - A 20 Day Curriculum!
+Tr0ll 3 Walkthrough of Check the Flag or CTF Problem
+What are the C programming concepts used as Data Structures
+Array of Structures vs. Array within a Structure in C/C++
+How to store a very large number of more than 100 digits in C++
+
+him0000
+Check out this Author's contributed articles.
+If you like GeeksforGeeks and would like to contribute, you can also write an article using contribute.geeksforgeeks.org or mail your article to contribute@geeksforgeeks.org. See your article appearing on the GeeksforGeeks main page and help other Geeks.
+
+Please Improve this article if you find anything incorrect by clicking on the "Improve Article" button below.
+
+
+
+Difference between %d and %i format specifier in C language
+A format specifier is a sequence formed by an initial percentage sign (%) indicates a format specifier, which is used to specify the type and format of the data to be retrieved from the stream and stored into the locations pointed by the additional arguments. In short it tell us which type of data to store and which type of data to print.
+
+For example – If we want to read and print integer using scanf() and printf() function, either %i or %d is used but there is subtle difference in both %i and %d format specifier.
+
+%d specifies signed decimal integer while %i specifies integer.
+
+%d and %i behave similar with printf
+
+There is no difference between the %i and %d format specifiers for printf. Consider a following example.
+
+
+
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+// C program to demonstrate
+// the behavior of %i and %d
+// with printf statement
+#include <stdio.h>
+
+int main()
+{
+    int num = 9;
+
+    // print value using %d
+    printf("Value of num using %%d is = %d\n", num);
+
+    // print value using %i
+    printf("Value of num using %%i is = %i\n", num);
+
+    return 0;
+}
+Output:
+Value of num using %d is = 9
+Value of num using %i is = 9
+%d and %i behavior is different in scanf
+
+%d assume base 10 while %i auto detects the base. Therefore, both specifiers behaves differently while they are used with an input specifier. So, 012 would be 10 with %i but 12 with %d.
+
+%d takes integer value as signed decimal integer i.e. it takes negative values along with positive values but values should be in decimal otherwise it will print garbage value. Consider a following example.
+%i takes integer value as integer value with decimal, hexadecimal or octal type.
+To enter a value in hexadecimal format – value should be provided by preceding “0x” and value in octal format – value should be provided by preceding “0”.
+Consider a following example.
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+// C program to demonstrate the difference
+// between %i and %d specifier
+#include <stdio.h>
+
+int main()
+{
+    int a, b, c;
+
+    printf("Enter value of a in decimal format:");
+    scanf("%d", &a);
+
+    printf("Enter value of b in octal format: ");
+    scanf("%i", &b);
+
+    printf("Enter value of c in hexadecimal format: ");
+    scanf("%i", &c);
+
+    printf("a = %i, b = %i, c = %i", a, b, c);
+
+    return 0;
+}
+Output:
+Enter value of a in decimal format:12
+Enter value of b in octal format: 012
+Enter value of c in hexadecimal format: 0x12
+a = 12, b = 10, c = 18
+Explanation:
+The decimal value of a as 12 is 12
+The decimal value of b as 12(octal) is 10
+The decimal value of c as 12(hexadecimal) is 18
+
+This article is contributed by Shubham Bansal. If you like GeeksforGeeks and would like to contribute, you can also write an article using contribute.geeksforgeeks.org or mail your article to contribute@geeksforgeeks.org. See your article appearing on the GeeksforGeeks main page and help other Geeks.
+
+Attention reader! Don’t stop learning now. Get hold of all the important DSA concepts with the DSA Self Paced Course at a student-friendly price and become industry ready.
+
+Format specifiers define the type of data to be printed on standard output. You need to use format specifiers whether you're printing formatted output with printf() or  accepting input with scanf().
+
+Some of the % specifiers that you can use in ANSI C are as follows:
+
+SPECIFIER	USED FOR
+%c	a single character
+%s	a string
+%hi	short (signed)
+%hu	short (unsigned)
+%Lf	long double
+%n	prints nothing
+%d	a decimal integer (assumes base 10)
+%i	a decimal integer (detects the base automatically)
+%o	an octal (base 8) integer
+%x	a hexadecimal (base 16) integer
+%p	an address (or pointer)
+%f	a floating point number for floats
+%u	int unsigned decimal
+%e	a floating point number in scientific notation
+%E	a floating point number in scientific notation
+%%	the % symbol
+Examples:
+%c single character format specifier:
+#include <stdio.h>
+
+int main() {
+  char first_ch = 'f';
+  printf("%c\n", first_ch);
+  return 0;
+}
+Output:
+
+f
+%s string format specifier:
+#include <stdio.h>
+
+int main() {
+  char str[] = "freeCodeCamp";
+  printf("%s\n", str);
+  return 0;
+}
+Output:
+
+freeCodeCamp
+Character input with the %c format specifier:
+#include <stdio.h>
+
+int main() {
+  char user_ch;
+  scanf("%c", &user_ch); // user inputs Y
+  printf("%c\n", user_ch);
+  return 0;
+}
+Output:
+
+Y
+String input with the %s format specifier:
+#include <stdio.h>
+
+int main() {
+  char user_str[20];
+  scanf("%s", user_str); // user inputs fCC
+  printf("%s\n", user_str);
+  return 0;
+}
+Output:
+
+fCC
+%d and %i decimal integer format specifiers:
+#include <stdio.h>
+
+int main() {
+  int found = 2015, curr = 2020;
+  printf("%d\n", found);
+  printf("%i\n", curr);
+  return 0;
+}
+Output:
+
+2015
+2020
+%f and %e floating point number format specifiers:
+#include <stdio.h>
+
+int main() {
+  float num = 19.99;
+  printf("%f\n", num);
+  printf("%e\n", num);
+  return 0;
+}
+Output:
+
+19.990000
+1.999000e+01
+%o octal integer format specifier:
+#include <stdio.h>
+
+int main() {
+  int num = 31;
+  printf("%o\n", num);
+  return 0;
+}
+Output:
+
+37
+%x hexadecimal integer format specifier:
+#include <stdio.h>
+
+int main() {
+  int c = 28;
+  printf("%x\n", c);
+  return 0;
+}
+Output:
+
+1c
+**/
+
+
+
+
+/**
+
+C Keywords and Identifiers
+In this tutorial, you will learn about keywords; reserved words in C programming that are part of the syntax. Also, you will learn about identifiers and how to name them.
+
+Character set
+A character set is a set of alphabets, letters and some special characters that are valid in C language.
+
+Alphabets
+Uppercase: A B C ................................... X Y Z
+Lowercase: a b c ...................................... x y z
+C accepts both lowercase and uppercase alphabets as variables and functions.
+
+Digits
+0 1 2 3 4 5 6 7 8 9
+Special Characters
+Special Characters in C Programming
+,	<	>	.	_
+(	)	;	$	:
+%	[	]	#	?
+'	&	{	}	"
+^	!	*	/	|
+-	\	~	+
+White space Characters
+
+Blank space, newline, horizontal tab, carriage, return and form feed.
+
+C Keywords
+Keywords are predefined, reserved words used in programming that have special meanings to the compiler. Keywords are part of the syntax and they cannot be used as an identifier. For example:
+
+int money;
+
+Here, int is a keyword that indicates money is a variable of type int (integer).
+
+As C is a case sensitive language, all keywords must be written in lowercase. Here is a list of all keywords allowed in ANSI C.
+
+C Keywords
+auto	double	int	struct
+break	else	long	switch
+case	enum	register	typedef
+char	extern	return	union
+continue	for	signed	void
+do	if	static	while
+default	goto	sizeof	volatile
+const	float	short	unsigned
+All these keywords, their syntax, and application will be discussed in their respective topics. However, if you want a brief overview of these keywords without going further, visit List of all keywords in C programming.
+
+C Identifiers
+Identifier refers to name given to entities such as variables, functions, structures etc.
+
+Identifiers must be unique. They are created to give a unique name to an entity to identify it during the execution of the program. For example:
+
+int money;
+double accountBalance;
+Here, money and accountBalance are identifiers.
+
+Also remember, identifier names must be different from keywords. You cannot use int as an identifier because int is a keyword.
+
+Rules for naming identifiers
+A valid identifier can have letters (both uppercase and lowercase letters), digits and underscores.
+The first letter of an identifier should be either a letter or an underscore.
+You cannot use keywords as identifiers.
+There is no rule on how long an identifier can be. However, you may run into problems in some compilers if the identifier is longer than 31 characters.
+You can choose any name as an identifier if you follow the above rule, however, give meaningful names to identifiers that make sense.
+
+
+C Variables, Constants and Literals
+In this tutorial, you will learn about variables and rules for naming a variable. You will also learn about different literals in C programming and how to create constants.
+
+
+Variables
+In programming, a variable is a container (storage area) to hold data.
+
+To indicate the storage area, each variable should be given a unique name (identifier). Variable names are just the symbolic representation of a memory location. For example:
+
+int playerScore = 95;
+Here, playerScore is a variable of int type. Here, the variable is assigned an integer value 95.
+
+The value of a variable can be changed, hence the name variable.
+
+char ch = 'a';
+// some code
+ch = 'l';
+Rules for naming a variable
+A variable name can only have letters (both uppercase and lowercase letters), digits and underscore.
+The first letter of a variable should be either a letter or an underscore.
+There is no rule on how long a variable name (identifier) can be. However, you may run into problems in some compilers if the variable name is longer than 31 characters.
+Note: You should always try to give meaningful names to variables. For example: firstName is a better variable name than fn.
+
+C is a strongly typed language. This means that the variable type cannot be changed once it is declared. For example:
+
+int number = 5;      // integer variable
+number = 5.5;        // error
+double number;       // error
+Here, the type of number variable is int. You cannot assign a floating-point (decimal) value 5.5 to this variable. Also, you cannot redefine the data type of the variable to double. By the way, to store the decimal values in C, you need to declare its type to either double or float.
+
+Visit this page to learn more about different types of data a variable can store.
+
+Literals
+Literals are data used for representing fixed values. They can be used directly in the code. For example: 1, 2.5, 'c' etc.
+
+Here, 1, 2.5 and 'c' are literals. Why? You cannot assign different values to these terms.
+
+1. Integers
+An integer is a numeric literal(associated with numbers) without any fractional or exponential part. There are three types of integer literals in C programming:
+
+decimal (base 10)
+octal (base 8)
+hexadecimal (base 16)
+
+
+For example:
+
+Decimal: 0, -9, 22 etc
+Octal: 021, 077, 033 etc
+Hexadecimal: 0x7f, 0x2a, 0x521 etc
+In C programming, octal starts with a 0, and hexadecimal starts with a 0x.
+
+2. Floating-point Literals
+A floating-point literal is a numeric literal that has either a fractional form or an exponent form. For example:
+
+-2.0
+0.0000234
+-0.22E-5
+Note: E-5 = 10-5
+
+3. Characters
+A character literal is created by enclosing a single character inside single quotation marks. For example: 'a', 'm', 'F', '2', '}' etc.
+
+4. Escape Sequences
+Sometimes, it is necessary to use characters that cannot be typed or has special meaning in C programming. For example: newline(enter), tab, question mark etc.
+
+In order to use these characters, escape sequences are used.
+
+Escape Sequences
+Escape Sequences	Character
+\b	Backspace
+\f	Form feed
+\n	Newline
+\r	Return
+\t	Horizontal tab
+\v	Vertical tab
+\\	Backslash
+\'	Single quotation mark
+\"	Double quotation mark
+\?	Question mark
+\0	Null character
+For example: \n is used for a newline. The backslash \ causes escape from the normal way the characters are handled by the compiler.
+
+5. String Literals
+A string literal is a sequence of characters enclosed in double-quote marks. For example:
+
+"good"                  //string constant
+""                     //null string constant
+"      "               //string constant of six white space
+"x"                    //string constant having a single character.
+"Earth is round\n"         //prints string with a newline
+Constants
+If you want to define a variable whose value cannot be changed, you can use the const keyword. This will create a constant. For example,
+
+const double PI = 3.14;
+Notice, we have added keyword const.
+
+Here, PI is a symbolic constant; its value cannot be changed.
+
+const double PI = 3.14;
+PI = 2.9; //Error
+You can also define a constant using the #define preprocessor directive. We will learn about it in C Macros tutorial.
+
+
+C Data Types
+In this tutorial, you will learn about basic data types such as int, float, char etc. in C programming.
+
+In C programming, data types are declarations for variables. This determines the type and size of data associated with variables. For example,
+
+int myVar;
+Here, myVar is a variable of int (integer) type. The size of int is 4 bytes.
+
+
+Basic types
+Here's a table containing commonly used types in C programming for quick access.
+
+Type	Size (bytes)	Format Specifier
+int	at least 2, usually 4	%d, %i
+char	1	%c
+float	4	%f
+double	8	%lf
+short int	2 usually	%hd
+unsigned int	at least 2, usually 4	%u
+long int	at least 4, usually 8	%ld, %li
+long long int	at least 8	%lld, %lli
+unsigned long int	at least 4	%lu
+unsigned long long int	at least 8	%llu
+signed char	1	%c
+unsigned char	1	%c
+long double	at least 10, usually 12 or 16	%Lf
+int
+Integers are whole numbers that can have both zero, positive and negative values but no decimal values. For example, 0, -5, 10
+
+We can use int for declaring an integer variable.
+
+int id;
+Here, id is a variable of type integer.
+
+You can declare multiple variables at once in C programming. For example,
+
+int id, age;
+The size of int is usually 4 bytes (32 bits). And, it can take 232 distinct states from -2147483648 to 2147483647.
+
+float and double
+float and double are used to hold real numbers.
+
+float salary;
+double price;
+In C, floating-point numbers can also be represented in exponential. For example,
+
+float normalizationFactor = 22.442e2;
+
+
+What's the difference between float and double?
+
+The size of float (single precision float data type) is 4 bytes. And the size of double (double precision float data type) is 8 bytes.
+
+char
+Keyword char is used for declaring character type variables. For example,
+
+char test = 'h';
+The size of the character variable is 1 byte.
+
+void
+void is an incomplete type. It means "nothing" or "no type". You can think of void as absent.
+
+For example, if a function is not returning anything, its return type should be void.
+
+Note that, you cannot create variables of void type.
+
+short and long
+If you need to use a large number, you can use a type specifier long. Here's how:
+
+long a;
+long long b;
+long double c;
+Here variables a and b can store integer values. And, c can store a floating-point number.
+
+If you are sure, only a small integer ([−32,767, +32,767] range) will be used, you can use short.
+
+short d;
+You can always check the size of a variable using the sizeof() operator.
+
+#include <stdio.h>
+int main() {
+  short a;
+  long b;
+  long long c;
+  long double d;
+
+  printf("size of short = %d bytes\n", sizeof(a));
+  printf("size of long = %d bytes\n", sizeof(b));
+  printf("size of long long = %d bytes\n", sizeof(c));
+  printf("size of long double= %d bytes\n", sizeof(d));
+  return 0;
+}
+signed and unsigned
+In C, signed and unsigned are type modifiers. You can alter the data storage of a data type by using them. For example,
+
+unsigned int x;
+int y;
+Here, the variable x can hold only zero and positive values because we have used the unsigned modifier.
+
+Considering the size of int is 4 bytes, variable y can hold values from -231 to 231-1, whereas variable x can hold values from 0 to 232-1.
+
+Other data types defined in C programming are:
+
+bool Type
+Enumerated type
+Complex types
+Derived Data Types
+Data types that are derived from fundamental data types are derived types. For example: arrays, pointers, function types, structures, etc.
+
+We will learn about these derived data types in later tutorials.
+
+/**
+
+C Input Output (I/O)
+In this tutorial, you will learn to use scanf() function to take input from the user, and printf() function to display output to the user.
+
+C Output
+In C programming, printf() is one of the main output function. The function sends formatted output to the screen. For example,
+
+Example 1: C Output
+#include <stdio.h>
+int main()
+{
+    // Displays the string inside quotations
+    printf("C Programming");
+    return 0;
+}
+Output
+
+C Programming
+How does this program work?
+
+All valid C programs must contain the main() function. The code execution begins from the start of the main() function.
+The printf() is a library function to send formatted output to the screen. The function prints the string inside quotations.
+To use printf() in our program, we need to include stdio.h header file using the #include <stdio.h> statement.
+The return 0; statement inside the main() function is the "Exit status" of the program. It's optional.
+Example 2: Integer Output
+#include <stdio.h>
+int main()
+{
+    int testInteger = 5;
+    printf("Number = %d", testInteger);
+    return 0;
+}
+Output
+
+Number = 5
+We use %d format specifier to print int types. Here, the %d inside the quotations will be replaced by the value of testInteger.
+
+Example 3: float and double Output
+#include <stdio.h>
+int main()
+{
+    float number1 = 13.5;
+    double number2 = 12.4;
+
+    printf("number1 = %f\n", number1);
+    printf("number2 = %lf", number2);
+    return 0;
+}
+Output
+
+number1 = 13.500000
+number2 = 12.400000
+To print float, we use %f format specifier. Similarly, we use %lf to print double values.
+
+Example 4: Print Characters
+#include <stdio.h>
+int main()
+{
+    char chr = 'a';
+    printf("character = %c", chr);
+    return 0;
+}
+Output
+
+character = a
+
+To print char, we use %c format specifier.
+
+C Input
+In C programming, scanf() is one of the commonly used function to take input from the user. The scanf() function reads formatted input from the standard input such as keyboards.
+
+Example 5: Integer Input/Output
+#include <stdio.h>
+int main()
+{
+    int testInteger;
+    printf("Enter an integer: ");
+    scanf("%d", &testInteger);
+    printf("Number = %d",testInteger);
+    return 0;
+}
+Output
+
+Enter an integer: 4
+Number = 4
+Here, we have used %d format specifier inside the scanf() function to take int input from the user. When the user enters an integer, it is stored in the testInteger variable.
+
+Notice, that we have used &testInteger inside scanf(). It is because &testInteger gets the address of testInteger, and the value entered by the user is stored in that address.
+
+Example 6: Float and Double Input/Output
+#include <stdio.h>
+int main()
+{
+    float num1;
+    double num2;
+
+    printf("Enter a number: ");
+    scanf("%f", &num1);
+    printf("Enter another number: ");
+    scanf("%lf", &num2);
+
+    printf("num1 = %f\n", num1);
+    printf("num2 = %lf", num2);
+
+    return 0;
+}
+Output
+
+Enter a number: 12.523
+Enter another number: 10.2
+num1 = 12.523000
+num2 = 10.200000
+We use %f and %lf format specifier for float and double respectively.
+
+Example 7: C Character I/O
+#include <stdio.h>
+int main()
+{
+    char chr;
+    printf("Enter a character: ");
+    scanf("%c",&chr);
+    printf("You entered %c.", chr);
+    return 0;
+}
+Output
+
+Enter a character: g
+You entered g
+When a character is entered by the user in the above program, the character itself is not stored. Instead, an integer value (ASCII value) is stored.
+
+And when we display that value using %c text format, the entered character is displayed. If we use %d to display the character, it's ASCII value is printed.
+
+Example 8: ASCII Value
+#include <stdio.h>
+int main()
+{
+    char chr;
+    printf("Enter a character: ");
+    scanf("%c", &chr);
+
+    // When %c is used, a character is displayed
+    printf("You entered %c.\n",chr);
+
+    // When %d is used, ASCII value is displayed
+    printf("ASCII value is %d.", chr);
+    return 0;
+}
+Output
+
+Enter a character: g
+You entered g.
+ASCII value is 103.
+I/O Multiple Values
+Here's how you can take multiple inputs from the user and display them.
+
+#include <stdio.h>
+int main()
+{
+    int a;
+    float b;
+
+    printf("Enter integer and then a float: ");
+
+    // Taking multiple inputs
+    scanf("%d%f", &a, &b);
+
+    printf("You entered %d and %f", a, b);
+    return 0;
+}
+Output
+
+Enter integer and then a float: -3
+3.4
+You entered -3 and 3.400000
+Format Specifiers for I/O
+As you can see from the above examples, we use
+
+%d for int
+%f for float
+%lf for double
+%c for char
+Here's a list of commonly used C data types and their format specifiers.
+
+Data Type	Format Specifier
+int	%d
+char	%c
+float	%f
+double	%lf
+short int	%hd
+unsigned int	%u
+long int	%li
+long long int	%lli
+unsigned long int	%lu
+unsigned long long int	%llu
+signed char	%c
+unsigned char	%c
+long double	%Lf
+
+
+**/
+
+
+/**
+
+C Programming Operators
+In this tutorial, you will learn about different operators in C programming with the help of examples.
+
+An operator is a symbol that operates on a value or a variable. For example: + is an operator to perform addition.
+
+C has a wide range of operators to perform various operations.
+
+C Arithmetic Operators
+An arithmetic operator performs mathematical operations such as addition, subtraction, multiplication, division etc on numerical values (constants and variables).
+
+Operator	Meaning of Operator
++	addition or unary plus
+-	subtraction or unary minus
+*	multiplication
+/	division
+%	remainder after division (modulo division)
+Example 1: Arithmetic Operators
+// Working of arithmetic operators
+#include <stdio.h>
+int main()
+{
+    int a = 9,b = 4, c;
+
+    c = a+b;
+    printf("a+b = %d \n",c);
+    c = a-b;
+    printf("a-b = %d \n",c);
+    c = a*b;
+    printf("a*b = %d \n",c);
+    c = a/b;
+    printf("a/b = %d \n",c);
+    c = a%b;
+    printf("Remainder when a divided by b = %d \n",c);
+
+    return 0;
+}
+
+Output
+
+a+b = 13
+a-b = 5
+a*b = 36
+a/b = 2
+Remainder when a divided by b=1
+The operators +, - and * computes addition, subtraction, and multiplication respectively as you might have expected.
+
+In normal calculation, 9/4 = 2.25. However, the output is 2 in the program.
+
+It is because both the variables a and b are integers. Hence, the output is also an integer. The compiler neglects the term after the decimal point and shows answer 2 instead of 2.25.
+
+The modulo operator % computes the remainder. When a=9 is divided by b=4, the remainder is 1. The % operator can only be used with integers.
+
+Suppose a = 5.0, b = 2.0, c = 5 and d = 2. Then in C programming,
+
+// Either one of the operands is a floating-point number
+a/b = 2.5
+a/d = 2.5
+c/b = 2.5
+
+// Both operands are integers
+c/d = 2
+C Increment and Decrement Operators
+C programming has two operators increment ++ and decrement -- to change the value of an operand (constant or variable) by 1.
+
+Increment ++ increases the value by 1 whereas decrement -- decreases the value by 1. These two operators are unary operators, meaning they only operate on a single operand.
+
+Example 2: Increment and Decrement Operators
+// Working of increment and decrement operators
+#include <stdio.h>
+int main()
+{
+    int a = 10, b = 100;
+    float c = 10.5, d = 100.5;
+
+    printf("++a = %d \n", ++a);
+    printf("--b = %d \n", --b);
+    printf("++c = %f \n", ++c);
+    printf("--d = %f \n", --d);
+
+    return 0;
+}
+Output
+
+++a = 11
+--b = 99
+++c = 11.500000
+++d = 99.500000
+Here, the operators ++ and -- are used as prefixes. These two operators can also be used as postfixes like a++ and a--. Visit this page to learn more about how increment and decrement operators work when used as postfix.
+
+C Assignment Operators
+An assignment operator is used for assigning a value to a variable. The most common assignment operator is =
+
+Operator	Example	Same as
+=	a = b	a = b
++=	a += b	a = a+b
+-=	a -= b	a = a-b
+*=	a *= b	a = a*b
+/=	a /= b	a = a/b
+%=	a %= b	a = a%b
+Example 3: Assignment Operators
+// Working of assignment operators
+#include <stdio.h>
+int main()
+{
+    int a = 5, c;
+
+    c = a;      // c is 5
+    printf("c = %d\n", c);
+    c += a;     // c is 10
+    printf("c = %d\n", c);
+    c -= a;     // c is 5
+    printf("c = %d\n", c);
+    c *= a;     // c is 25
+    printf("c = %d\n", c);
+    c /= a;     // c is 5
+    printf("c = %d\n", c);
+    c %= a;     // c = 0
+    printf("c = %d\n", c);
+
+    return 0;
+}
+Output
+
+c = 5
+c = 10
+c = 5
+c = 25
+c = 5
+c = 0
+C Relational Operators
+A relational operator checks the relationship between two operands. If the relation is true, it returns 1; if the relation is false, it returns value 0.
+
+Relational operators are used in decision making and loops.
+
+Operator	Meaning of Operator	Example
+==	Equal to	5 == 3 is evaluated to 0
+>	Greater than	5 > 3 is evaluated to 1
+<	Less than	5 < 3 is evaluated to 0
+!=	Not equal to	5 != 3 is evaluated to 1
+>=	Greater than or equal to	5 >= 3 is evaluated to 1
+<=	Less than or equal to	5 <= 3 is evaluated to 0
+Example 4: Relational Operators
+// Working of relational operators
+#include <stdio.h>
+int main()
+{
+    int a = 5, b = 5, c = 10;
+
+    printf("%d == %d is %d \n", a, b, a == b);
+    printf("%d == %d is %d \n", a, c, a == c);
+    printf("%d > %d is %d \n", a, b, a > b);
+    printf("%d > %d is %d \n", a, c, a > c);
+    printf("%d < %d is %d \n", a, b, a < b);
+    printf("%d < %d is %d \n", a, c, a < c);
+    printf("%d != %d is %d \n", a, b, a != b);
+    printf("%d != %d is %d \n", a, c, a != c);
+    printf("%d >= %d is %d \n", a, b, a >= b);
+    printf("%d >= %d is %d \n", a, c, a >= c);
+    printf("%d <= %d is %d \n", a, b, a <= b);
+    printf("%d <= %d is %d \n", a, c, a <= c);
+
+    return 0;
+}
+Output
+
+5 == 5 is 1
+5 == 10 is 0
+5 > 5 is 0
+5 > 10 is 0
+5 < 5 is 0
+5 < 10 is 1
+5 != 5 is 0
+5 != 10 is 1
+5 >= 5 is 1
+5 >= 10 is 0
+5 <= 5 is 1
+5 <= 10 is 1
+C Logical Operators
+An expression containing logical operator returns either 0 or 1 depending upon whether expression results true or false. Logical operators are commonly used in decision making in C programming.
+
+Operator	Meaning	Example
+&&	Logical AND. True only if all operands are true	If c = 5 and d = 2 then, expression ((c==5) && (d>5)) equals to 0.
+||	Logical OR. True only if either one operand is true	If c = 5 and d = 2 then, expression ((c==5) || (d>5)) equals to 1.
+!	Logical NOT. True only if the operand is 0	If c = 5 then, expression !(c==5) equals to 0.
+Example 5: Logical Operators
+// Working of logical operators
+
+#include <stdio.h>
+int main()
+{
+    int a = 5, b = 5, c = 10, result;
+
+    result = (a == b) && (c > b);
+    printf("(a == b) && (c > b) is %d \n", result);
+    result = (a == b) && (c < b);
+    printf("(a == b) && (c < b) is %d \n", result);
+    result = (a == b) || (c < b);
+    printf("(a == b) || (c < b) is %d \n", result);
+    result = (a != b) || (c < b);
+    printf("(a != b) || (c < b) is %d \n", result);
+    result = !(a != b);
+    printf("!(a == b) is %d \n", result);
+    result = !(a == b);
+    printf("!(a == b) is %d \n", result);
+
+    return 0;
+}
+Output
+
+(a == b) && (c > b) is 1
+(a == b) && (c < b) is 0
+(a == b) || (c < b) is 1
+(a != b) || (c < b) is 0
+!(a != b) is 1
+!(a == b) is 0
+Explanation of logical operator program
+
+(a == b) && (c > 5) evaluates to 1 because both operands (a == b) and (c > b) is 1 (true).
+(a == b) && (c < b) evaluates to 0 because operand (c < b) is 0 (false).
+(a == b) || (c < b) evaluates to 1 because (a = b) is 1 (true).
+(a != b) || (c < b) evaluates to 0 because both operand (a != b) and (c < b) are 0 (false).
+!(a != b) evaluates to 1 because operand (a != b) is 0 (false). Hence, !(a != b) is 1 (true).
+!(a == b) evaluates to 0 because (a == b) is 1 (true). Hence, !(a == b) is 0 (false).
+C Bitwise Operators
+During computation, mathematical operations like: addition, subtraction, multiplication, division, etc are converted to bit-level which makes processing faster and saves power.
+
+Bitwise operators are used in C programming to perform bit-level operations.
+
+Operators	Meaning of operators
+&	Bitwise AND
+|	Bitwise OR
+^	Bitwise exclusive OR
+~	Bitwise complement
+<<	Shift left
+>>	Shift right
+Visit bitwise operator in C to learn more.
+
+Other Operators
+Comma Operator
+Comma operators are used to link related expressions together. For example:
+
+int a, c = 5, d;
+The sizeof operator
+The sizeof is a unary operator that returns the size of data (constants, variables, array, structure, etc).
+
+Example 6: sizeof Operator
+#include <stdio.h>
+int main()
+{
+    int a;
+    float b;
+    double c;
+    char d;
+    printf("Size of int=%lu bytes\n",sizeof(a));
+    printf("Size of float=%lu bytes\n",sizeof(b));
+    printf("Size of double=%lu bytes\n",sizeof(c));
+    printf("Size of char=%lu byte\n",sizeof(d));
+
+    return 0;
+}
+Output
+
+Size of int = 4 bytes
+Size of float = 4 bytes
+Size of double = 8 bytes
+Size of char = 1 byte
+Other operators such as ternary operator ?:, reference operator &, dereference operator * and member selection operator -> will be discussed in later tutorials.
+
+
+https://www.programiz.com/c-programming/c-introduction-examples
+
+https://www.programiz.com/c-programming/
+
+https://www.w3schools.in/c-tutorial
+
+**/
+
+
+
+
+
+
+/**
+
+
+https://www.tutorialspoint.com/format-specifiers-in-c
+
+
+More reference in Formatspecifiers.c file
+
+
+**/
+
+/** Array
+
+      bool turthtable2[3] = {true, false, true};
+      /// or bool turthtable2[] = {true, false, true};  this is same as above Array
+      /// bool turthtable2[3] ;
+      /// turthtable2[0] = true;
+      /// turthtable2[1] = false;
+      /// turthtable2[2] = true;
+      ///  We can use any of the above to create the same array.
+
+**/
+
+
+/**
+
+In programming on the basis of passing parameters to a function we classified function invocation into two : Call by value and Call by reference.As name suggest in both invocations we are calling function by type of parameters in one we are passing actual value of parameter and in other we are passing the location/reference of parameter.
+
+Following are the important differences between Call by Value and Call by Reference.
+
+Sr. No.	Key	Call by Value	Call by Reference
+1	Naming Convention	As in this type the value of parameter is get passed for function invocation hence it is named as Call by Value.	On other hand in this type the reference of parameter is get passed for invoking the function so it is named as Call by Reference.
+2	Internal implementation	In Call by value the value of parameter we passed during calling of function are get copied to the actual local argument of the function.	In Call by reference the location address/reference of passed parameter is get copied and assigned to the local argument of the function so both passed parameter and actual argument refers to the same location.
+3	Effects of changes	As value of passed parameter is copied to argument of function so any change done in argument inside the function do not get reflected in the passed parameter.	As both argument and passed parameter refers to the same location hence any change done to argument inside the function get reflected in the passed parameter.
+4	Referred Memory location	Memory location referred both passed parameter and actual arguments of function is different.	Memory location referred by both passed parameter and actual argument of function is same.
+5	Supported languages.	Call by value is get supported by languages such as : C++.PHP. Visual Basic NET, and C#.	Call by reference is primarily get supported by JAVA.
+Example of Call by value vs Call by reference
+ByValue.c
+
+#include <stdio.h>
+class ByValue{
+   void swapByValue(int, int); // Prototype
+   int main(){
+      int n1 = 10, n2 = 20;
+      swapByValue(n1, n2);
+      printf("n1: %d, n2: %d\n", n1, n2);
+   }
+   void swapByValue(int a, int b){
+      int t;
+      t = a; a = b; b = t;
+   }
+}
+Output
+n1: 10, n2: 20
+Example
+ByReference.c
+
+#include <stdio.h>
+class ByReference{
+   void swapByReference(int*, int*);
+   int main(){
+      int n1 = 10, n2 = 20;
+      swapByReference(&n1, &n2);
+      printf("n1: %d, n2: %d\n", n1, n2);
+   }
+   void swapByReference(int *a, int *b){
+      int t;
+      t = *a; *a = *b; *b = t;
+   }
+}
+Output
+n1: 20, n2: 10
+
+More Example at passbyvalue.c and passbyreference.c files. 
+
+
+void setarray(int array[4]);
+void setint(int x));
+
+int main(void)
+{
+
+int a = 10;
+
+int b[4] = {0,1,2,3};
+
+setint(a);
+setarray(b);
+
+
+
+}
 
 
 **/
