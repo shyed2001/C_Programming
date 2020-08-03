@@ -9,7 +9,7 @@ Copyright: @uthor*/
 int main(void)
 {
 
-
+   printf("???  Variable is a container where \0 we can store single information. \n ");
 
     int luckyNumbers[] = {1, 3, 5, 7, 9, 11, 13, 15}; /// 1 is the first element in this array.
 

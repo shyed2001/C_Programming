@@ -5,24 +5,26 @@ Copyright: @uthor*/
 Copyright: @uthor*/
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <unistd.h>
+//#include <stdlib.h>
+//#include <time.h>
+//#include <unistd.h>
 /// #include <windows.h>
 ///#include <threads.h>
 ///#include <conio.h>
 //#include <dos.h>
 ///#include <direct.h>
-#include <math.h>
+//#include <math.h>
 
 
 #define  N 3
 
+#define KK 33
+
 const int D = 7;
 
-const double F = 10;
+const double F = 10;  /// Good to use all capital letter const names.
 
-const double  A = 7;
+const double  A = 7;   /// Good to use all capital letter const names.
 
 int main(void)
 
@@ -33,6 +35,9 @@ int main(void)
    int sum2 = 20;
    int sum = 10;
 
+
+       printf(" a header #define KK 33 \
+              will show/printf KK = %d \n", KK);
 
         printf("Average %d \n", (sum + sum1 + sum2)/N);
 
@@ -155,4 +160,6 @@ int main()
 }
 This C program would also print the following:
 
-TechOnTheNet.com is over 10 years old. */
+TechOnTheNet.com is over 10 years old.
+
+ */

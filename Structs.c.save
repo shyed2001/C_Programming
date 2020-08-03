@@ -5,10 +5,11 @@ Copyright: @uthor*/
 #include <stdlib.h>
 //#include <string.h>
 
-struct Student
+struct Student   /// Good to give capital letter at start of struct name. 
 {
 
     char name[50];
+    name[51] = (/0); 
     char major[50];
     int age;
     double gpa;
@@ -25,17 +26,25 @@ int main()
     strcpy(rollno1.name, " Rohim");
     strcpy(rollno1.major, " science");
 
-    printf("%i \n", rollno1.age);
+    printf(" \n %i \n", rollno1.age);
     printf("%d \n", rollno1.age);
     printf("%d \n", rollno1.gpa);
     printf("%f \n", rollno1.gpa);
     printf("%s \n", rollno1.name);
 
     struct Student rollno2;
-    rollno2.age = 22;
-    rollno2.gpa = 3.5;
-    strcpy(rollno2.name, " Rohim");
-    strcpy(rollno1.major, " science");
+    rollno2.age = 32;
+    rollno2.gpa = 3.0;
+    strcpy(rollno2.name, " Korim");
+    strcpy(rollno2.major, " Political science");
+
+    printf("\n %i \n", rollno2.age);
+    printf("%d \n", rollno2.age);
+    printf("%d \n", rollno2.gpa);
+    printf("%f \n", rollno2.gpa);
+    printf("%s \n", rollno2.name);
+    printf("%c \n", rollno2.name[5]);
+    
     
 return 0;
 

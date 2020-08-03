@@ -9,7 +9,7 @@ Copyright: @uthor*/
 int main(void)
 {
 
-
+   printf("???  Variable is a container where \0 we can store single information. \n ");
 
     int luckyNumbers[] = {1, 3, 5, 7, 9, 11, 13, 15}; /// 1 is the first element in this array.
 
@@ -174,11 +174,11 @@ printf(R"(char stringarray[] = "Array"; /// This is an array of char.)");
   /// falts[] = rooms[]; /// this will not work.
 
 
-   for (int m = o; m <= 7, m++ )
+   for (int m = 0; m <= 7; m++ )
    {
-       flats[m]=rooms[m];
-       printf(" flats[%d = ");
-       
+       rooms[m] = flats[m];
+       printf(" rooms[%d] = %d \n ", m, flats[m]);
+
    }
 
 
