@@ -21,9 +21,14 @@ int main(void)
 
 /**
 
+https://stackoverflow.com/questions/28594606/scanning-and-printing-variable-data-type-double-in-c
+
+https://www.google.com/search?client=opera&hs=mbc&sxsrf=ALeKk01i4Whd3cvlBusztiHVr2rdN98thw%3A1596615022635&ei=bmkqX8C2JomGyAOU8Ii4Cg&q=scanf+and+printf+of+double+and+float+in+c&oq=scanf+and+printf+of+double+and+float+in+c&gs_lcp=CgZwc3ktYWIQAzoECAAQRzoHCCMQsAIQJzoICAAQCBAHEB46CAgAEA0QBRAeOgQIIRAKUN-jAVjx8wFg-vkBaABwAXgAgAHJAogBlB2SAQgwLjE2LjMuMZgBAKABAaoBB2d3cy13aXrAAQE&sclient=psy-ab&ved=0ahUKEwjApZG6zoPrAhUJA3IKHRQ4AqcQ4dUDCAs&uact=5
+
+https://stackoverflow.com/questions/19952200/scanf-printf-double-variable-c#:~:text=For%20variable%20argument%20functions%20like,and%20%25lf%20for%20double*%20.
+
+
 https://www.tutorialspoint.com/format-specifiers-in-c
-
-
 
 The format specifiers are used in C for input and output purposes. Using this concept the compiler can understand that what type of data is in a variable during taking input using the scanf() function and printing using printf() function. Here is a list of format specifiers.
 

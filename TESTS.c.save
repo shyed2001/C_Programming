@@ -18,15 +18,25 @@ Copyright: @uthor*/
 #include <string.h>
 #include <strings.h>
 
-void swap(int fistVariable, int secondVariable);
 
- int tempVariable;
- int fistVariable;
- int secondVariable;
+
+
+
+/**
+#include <cs50.h>
+#include <stdio.h>
+
+
+**/
+
+/**
+void swap(int firstVariable, int secondVariable);
+
 
 
 int main(void)
 {
+    int tempVariable;
   int a = 100;
   int b = 200;
 
@@ -44,29 +54,15 @@ int main(void)
 
 }
 
-void swap(int fistVariable, int secondVariable)
+void swap(int firstVariable, int secondVariable)
 {
-
-  // create a temporary variable to hold one of the values to perform the swap
-  // int tempVariable;
-  //  int fistVariable;
-  // int secondVariable;
-
-  tempVariable = firstVariable;  /* temporarily save the value of the first variable */
-  firstVariable = secondVariable;  /* swap the vale of the first variable with the value of the second variable */
-  secondVariable = tempVariable;  /* put the value of the first variable into the second variable */
+ int tempVariable;
+  tempVariable = firstVariable;  /* temporarily save the value of the first variable 
+  firstVariable = secondVariable;  /* swap the vale of the first variable with the value of the second variable 
+  secondVariable = tempVariable;  /* put the value of the first variable into the second variable 
 
   return;
 }
-
-
-
-/**
-
-**/
-
-/**
-
 **/
 
 /**

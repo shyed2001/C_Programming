@@ -21,7 +21,8 @@ int main(void)
 
 {
 printf("https://docs.microsoft.com/en-us/cpp/c-language/organization-of-the-c-language-reference?view=vs-2019.\n \n");
-
+  printf(R"(More reading material at - https://www.geeksforgeeks.org/const-qualifier-in-c/;)");
+  /// Raw string.
 printf(" https://docs.microsoft.com/en-us/cpp/c-language/?view=vs-2019 . \n \n");
 
 printf(" https://docs.microsoft.com/en-us/cpp/c-language/c-language-reference?view=vs-2019 . \n \n");
@@ -1851,6 +1852,14 @@ signed char	%c
 unsigned char	%c
 long double	%Lf
 
+https://www.google.com/search?client=opera&hs=mbc&sxsrf=ALeKk01i4Whd3cvlBusztiHVr2rdN98thw%3A1596615022635&ei=bmkqX8C2JomGyAOU8Ii4Cg&q=scanf+and+printf+of+double+and+float+in+c&oq=scanf+and+printf+of+double+and+float+in+c&gs_lcp=CgZwc3ktYWIQAzoECAAQRzoHCCMQsAIQJzoICAAQCBAHEB46CAgAEA0QBRAeOgQIIRAKUN-jAVjx8wFg-vkBaABwAXgAgAHJAogBlB2SAQgwLjE2LjMuMZgBAKABAaoBB2d3cy13aXrAAQE&sclient=psy-ab&ved=0ahUKEwjApZG6zoPrAhUJA3IKHRQ4AqcQ4dUDCAs&uact=5
+
+
+
+https://stackoverflow.com/questions/19952200/scanf-printf-double-variable-c#:~:text=For%20variable%20argument%20functions%20like,and%20%25lf%20for%20double*%20.
+
+https://stackoverflow.com/questions/28594606/scanning-and-printing-variable-data-type-double-in-c
+
 
 **/
 
@@ -2401,4 +2410,16 @@ Look in ConstDefinedVariables.c
 
 Structs.c for reference on structs
 
-Good to give capital letter at start of struct name. **/
+Good to give capital letter at start of struct name.
+
+
+**/
+
+
+/**
+
+Reference about strings in c is in stringreference.c file
+
+https://www.tutorialspoint.com/cprogramming/c_strings.htm
+
+**/

@@ -19,13 +19,13 @@ int main(void)
 
 {
   // Get number of scores
-    int number_of_scores;
+    int n;
     printf("Number of Student Scores:  ");
-    scanf("%i",&number_of_scores);
-    printf("Please enter %i Number of Scores\n", number_of_scores );
+    scanf("%i",&n);
+    printf("Please enter %i Number of Scores\n", n );
     // Get scores
-    float scores[number_of_scores];
-    for (int i = 0; i < number_of_scores; i++)
+    float scores[n];
+    for (int i = 0; i < n; i++)
     {
         //scores[i] = get_int("Score %i: ", i + 1);
         printf("Score %i: ", i+1);
@@ -34,7 +34,7 @@ int main(void)
     }
 
      // Print average
-    printf("Average: %.3f\n", average(number_of_scores, scores));
+    printf("Average: %f\n", average(n, scores));
 }
 
 float average(int score_numbers, float array[])
@@ -43,10 +43,10 @@ float average(int score_numbers, float array[])
     for (int i = 0; i < score_numbers; i++)
     {
         scores_sum += array[i];  /// scores_sum = scores_sum + array[i];
-        printf(" Roll Number= %i:  \n", i+1);
-        printf("Student[%i] = %.3f:  \n", i+1, array[i]);
+        printf(" i= %i:  \n", i);
+        printf("Student[%i] = %f:  \n", i+1, array[i]);
     }
-    printf("Total scores_sum of all scores %.3f:  \n", scores_sum);
+    printf("Total scores_sum of all scores %f:  \n", scores_sum);
     printf("Student Number %i:  \n", score_numbers);
     return scores_sum/score_numbers;
 

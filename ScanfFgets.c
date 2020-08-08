@@ -30,7 +30,7 @@ char name[19];
 ///[19] is used to limit the input char number.
 printf("Enter your name:   \n");
 
-scanf(" %s", name); ///[19] is not needed.
+scanf(" %s", name); ///[19] is not needed. For string does not need pointers &
 printf("your name: %s\n", name);
 printf("but scanf will not take string value after first space.");
 printf("So we have to use fgets for only strings, fgets dont get values like int floar double etc.");
