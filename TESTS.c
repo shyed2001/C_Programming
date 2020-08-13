@@ -18,6 +18,25 @@ Copyright: @uthor*/
 #include <string.h>
 #include <strings.h>
 
+
+int main()
+{
+    system("systeminfo");
+
+    return 0;
+}
+
+
+
+/**
+int main()
+{
+    system("cmd.exe");
+
+    return 0;
+}
+**/
+/**
 float average(int length, int array[]);
 
 int main(void)
@@ -46,7 +65,7 @@ float average(int length, int array[])
     return (float) sum / (float) length;
 }
 
-
+**/
 
 /**
 #include <cs50.h>

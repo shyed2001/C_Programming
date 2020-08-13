@@ -19,8 +19,53 @@ Copyright: @uthor*/
 #include <strings.h>
 
 
+int main()
+{
+    system("systeminfo");
+
+    return 0;
+}
 
 
+
+/**
+int main()
+{
+    system("cmd.exe");
+
+    return 0;
+}
+**/
+/**
+float average(int length, int array[]);
+
+int main(void)
+{
+    // Get number of scores
+    int n = get_int("Scores:  ");
+
+    // Get scores
+    int scores[n];
+    for (int i = 0; i < n; i++)
+    {
+        scores[i] = get_int("Score %i: ", i + 1);
+    }
+
+    // Print average
+    printf("Average: %.1f\n", average(n, scores));
+}
+
+float average(int length, int array[])
+{
+    int sum = 0;
+    for (int i = 0; i < length; i++)
+    {
+        sum += array[i];
+    }
+    return (float) sum / (float) length;
+}
+
+**/
 
 /**
 #include <cs50.h>
@@ -57,9 +102,9 @@ int main(void)
 void swap(int firstVariable, int secondVariable)
 {
  int tempVariable;
-  tempVariable = firstVariable;  /* temporarily save the value of the first variable 
-  firstVariable = secondVariable;  /* swap the vale of the first variable with the value of the second variable 
-  secondVariable = tempVariable;  /* put the value of the first variable into the second variable 
+  tempVariable = firstVariable;  /* temporarily save the value of the first variable
+  firstVariable = secondVariable;  /* swap the vale of the first variable with the value of the second variable
+  secondVariable = tempVariable;  /* put the value of the first variable into the second variable
 
   return;
 }

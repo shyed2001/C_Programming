@@ -1,0 +1,175 @@
+/*@Shyed Shahriar Housaini
+Copyright: @uthor*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <unistd.h>
+#include <windows.h>
+///#include <threads.h>
+#include <conio.h>
+#include <dos.h>
+#include <direct.h>
+#include <math.h>
+#include <stdbool.h>
+#include<ctype.h>
+#include <string.h>
+#include <strings.h>
+
+/// A common way to check if we can run commands using system() in an OS?\
+/// If we pass null pointer in place of string for command parameter, system returns nonzero if command processor /// exists (or system can run). Otherwise returns 0.
+
+
+{
+    
+     int x;
+
+    if (system(NULL))
+       {puts("'system' - Command processor exists");
+        return x=0;
+       }
+
+    else
+       {puts("system' - Command processor doesn't exists");
+        return x=1;
+       }
+       if (x==0)
+        system("systeminfo");
+
+}
+
+
+/**
+
+system() in C/C++
+Last Updated: 29-05-2017
+system() is used to invoke an operating system command from a C/C++ program.
+
+    int system(const char *command);
+Note: stdlib.h or cstdlib needs to be included to call system.
+
+Using system(), we can execute any command that can run on terminal if operating system allows. For example, we can call system(“dir”) on Windows and system(“ls”) to list contents of a directory.
+
+Writing a C/C++ program that compiles and runs other program?
+We can invoke gcc from our program using system(). See below code written for Linux. We can easily change code to run on windows.
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+// A C++ program that compiles and runs another C++
+// program
+#include <bits/stdc++.h>
+using namespace std;
+int main ()
+{
+    char filename[100];
+    cout << "Enter file name to compile ";
+    cin.getline(filename, 100);
+
+    // Build command to execute.  For example if the input
+    // file name is a.cpp, then str holds "gcc -o a.out a.cpp"
+    // Here -o is used to specify executable file name
+    string str = "gcc ";
+    str = str + " -o a.out " + filename;
+
+    // Convert string to const char * as system requires
+    // parameter of type const char *
+    const char *command = str.c_str();
+
+    cout << "Compiling file using " << command << endl;
+    system(command);
+
+    cout << "\nRunning file ";
+    system("./a.out");
+
+    return 0;
+}
+
+
+system() vs using library functions:
+Some common uses of system() in Windows OS are, system(“pause”) which is used to execute pause command and make the screen/terminal wait for a key press, and system(“cls”) which is used to make the screen/terminal clear.
+
+
+
+
+However, making a call to system command should be avoided due to the following reasons:
+
+It’s a very expensive and resource heavy function call
+It’s not portable: Using system() makes the program very non-portable i.e. this works only on systems that have the pause command at the system level, like DOS or Windows. But not Linux, MAC OSX and most others.
+Let us take a simple C++ code to output Hello World using system(“pause”):
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+// A C++ program that pauses screen at the end in Windows OS
+#include <iostream>
+using namespace std;
+int main ()
+{
+    cout << "Hello World!" << endl;
+    system("pause");
+    return 0;
+}
+The output of the above program in Windows OS:
+
+Hello World!
+Press any key to continue…
+This program is OS dependent and uses following heavy steps.
+
+It suspends your program and simultaneously calls the operating system to opens the operating system shell.
+The OS finds the pause and allocate the memory to execute the command.
+It then deallocate the memory, exit the Operating System and resumes the program.
+Instead of using the system(“pause”), we can also use the functions that are defined natively in C/C++.
+
+Let us take a simple example to output Hello World with cin.get():
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+// Replacing system() with library function
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+int main ()
+{
+    cout << "Hello World!" << endl;
+    cin.get();  // or getchar()
+    return 0;
+}
+The output of the program is :
+
+ Hello World!
+Thus, we see that, both system(“pause”) and cin.get() are actually performing a wait for a key to be pressed, but, cin.get() is not OS dependent and neither it follows the above mentioned steps to pause the program.
+Similarly, in C language, getchar() can be used to pause the program without printing the message “Press any key to continue…”.
+
+A common way to check if we can run commands using system() in an OS?
+If we pass null pointer in place of string for command parameter, system returns nonzero if command processor exists (or system can run). Otherwise returns 0.
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+// C++ program to check if we can run commands using
+// system()
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+int main ()
+{
+    if (system(NULL))
+       cout << "Command processor exists";
+    else
+       cout << "Command processor doesn't exists";
+
+    return 0;
+}
+Note that the above programs may not work on online compiler as System command is disabled in most of the online compilers
+
+**/
