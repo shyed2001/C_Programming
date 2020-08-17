@@ -27,6 +27,8 @@ int main()
         puts("systeminfo==");
        system("C:\\Windows\\System32\\systeminfo");
 
+       /// system("systeminfo");
+
     return 0;
        }
 

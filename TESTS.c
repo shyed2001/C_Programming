@@ -19,6 +19,25 @@ Copyright: @uthor*/
 #include <strings.h>
 
 
+int main(int argc, char *argv[])
+{
+
+char s[9];
+s[] = argv[1];
+
+printf("%s", s);
+puts("\n");
+
+
+
+    return 0;
+}
+
+
+
+/**
+
+
 int main()
 {
     system("systeminfo");
@@ -27,6 +46,7 @@ int main()
 }
 
 
+**/
 
 /**
 int main()
