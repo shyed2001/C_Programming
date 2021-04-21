@@ -37,9 +37,9 @@ int main(void)
             y=z;
             /// break;
         } while(x<255);
-        printf("\nOut of do while\n");
+        printf("\n Out of do while. \n");
     }   Sleep(777);
-printf("\nOut of while\n");
+printf("\n Out of while. \n");
 
 return 0;
 

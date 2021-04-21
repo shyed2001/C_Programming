@@ -1,5 +1,6 @@
-/*@Shyed Shahriar Housaini
-Copyright: @uthor*/
+/*author/owner == Shyed Shahriar Housaini
+Lisence == MIT + terms and conditions of author/owner
+Copyright: author/owner*/
 
 #include <stdio.h>
 #include <stdlib.h>
