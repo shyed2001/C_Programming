@@ -227,6 +227,14 @@ default if static while  do int struct _Packed  double  */
     letter = 'a';//DEFINE or INITIALIZE or ASSIGN a character value
     printf("The letter is %c\n",letter);
 
+        ///Activity: print characters
+    char letter1, letter2, letter3 ;//DECLARE A CHARACTER VARIABLE
+
+    letter1 = 'i';//DEFINE or INITIALIZE or ASSIGN a character value
+    letter2 = 'n';
+    letter3 = 'c';
+    printf ("Programming %c%c %c\n", letter1, letter2, letter3);
+
 
     /*
 
@@ -298,6 +306,34 @@ int index = 0;
         printf("sum equals %d\n",sum);
 
     }
+
+///Read characters from the user input
+
+    char letter11;
+    char letter21;
+    char letter31;
+    char letter41;
+    printf("Please enter two letters separated by a comma:");
+    scanf("%c,%c", &letter11, &letter21);
+
+    printf("I read the letters %c and %c.\n", letter11, letter21 );
+
+    printf("Please enter two letters separated by a space:\n");
+    scanf("%c %c", &letter31 , &letter41 );
+    printf("I read the letters %c and %c", letter31 , letter41 );
+
+
+    /// Activity: read characters
+
+
+ char sign;
+
+ scanf("%c", &sign); printf("++++%c++++\n+++%c%c%c+++\n++%c%c%c%c%c++\n+%c%c%c%c%c%c%c+\n%c%c%c%c%c%c%c%c%c",sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign);
+
+
+
+
+
 
 
    /// free();
