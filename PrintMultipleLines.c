@@ -9,6 +9,7 @@ Copyright: author/owner*/
 
 int main(void) // main function
 {
+
     printf("Hello, world!\n");
     printf ("I already know how to:\n"); /// '\n' is an escape sequence which starts a new line.
     printf ("  - Print text to the screen.\n");
@@ -169,12 +170,11 @@ int main(void) // main function
     ///Declare and initialize variables in 1-step, with type name and definition
 
 
-    int balance;//DECLARATION
-    int Balance;//DECLARATION 2  /// Variables are case sensitive
     balance = 40;//DEFINITION
     Balance = 30;
     printf("I have %d dollars in my account\n", balance);//USE
     printf("I have %d dollars in my account\n", Balance);//USE
+
     /// Variables are case sensitive
     ///Name your variables: do's and don'ts
     /* Variable names can use:
@@ -201,14 +201,125 @@ const for signed void  continue goto sizeof volatile
 default if static while  do int struct _Packed  double  */
 
 
+/// Use variables in loops
+    int numberOfHazelnuts = 0;
+    int distanceTraveled = 0;
+    for(i = 0; i < 9 ; i++) {
+        printf("At %d miles I have %d hazelnuts.\n", distanceTraveled, numberOfHazelnuts);
+        distanceTraveled = distanceTraveled + 1;
+        numberOfHazelnuts = numberOfHazelnuts + 3;
+    }
+    int Times = 0;
+    int Result = 0;
+    int Number = 8;
+
+    for (i = 0; i < 11; i++)
+    {
+        printf("%dx%d = %d\n", Times,Number,Result);
+
+        Times = Times+1;
+        Result = Times*Number;
+    }
+
+    /// Declare, assign and print characters with the %c format specifier
+
+    char letter;//DECLARE A CHARACTER VARIABLE
+    letter = 'a';//DEFINE or INITIALIZE or ASSIGN a character value
+    printf("The letter is %c\n",letter);
+
+
+    /*
+
+    When you declare:
+
+int column, row, index = 0;
+Only index is set to zero.
+
+However you can do the following:
+
+int column, row, index;
+column = index = row = 0;
+But personally I prefer the following which has been pointed out.
+It's a more readable form in my view.
+
+int column = 0, row = 0, index = 0;
+or
+
+int column = 0;
+int row = 0;
+int index = 0;
+
+    */
+
+    Times = Result = Number = 0;
+    puts("PLEASE Enter a Number \n ");
+    scanf("%d", &Number);
+    for (i = 0; i < 11; i++)
+    {
+        printf("%dx%d = %d\n", Times,Number,Result);
+
+        Times = Times+1;
+        Result = Times*Number;
+    }
+
+    /// Read integer user input using scanf()
+
+    int age2;//DECLARE
+    printf("Whare is your age ?\n");
+    scanf("%d",&age2);
+    printf("You are %d years old\n", age2);//USE
+
+
+    ///Read multiple integers using one scanf() statement
+    int first, second, third;
+    printf("Please enter three integers: ");
+    scanf("%d%d%d", &first, &second, &third);
+    printf("You entered: %d for first, %d for second, %d for third.\n", first, second, third);
+
+    long double first1, second1, third1;
+    printf("Please enter three integers: ");
+    scanf("%ld%ld%ld", &first1, &second1, &third1);
+    printf("You entered: %ld for first, %ld for second, %ld for third.\n", first1, second1, third1);
+    /// Previous 4 linesof code does not work properly
+
+
+   /// Use scanf() inside a loop to read multiple user inputs
+
+    int howMany = 0;
+    int sum = 0;
+    int numberRead = 0;
+    printf("How many items do you want to add?\n");
+    scanf("%d",&howMany);
+    for(int i = 0; i < howMany; i++){
+        printf("What item do you want to add?\n");
+        scanf("%d",&numberRead);
+        printf("I have read %d from the input terminal\n",numberRead);
+        sum = sum + numberRead;
+        printf("sum equals %d\n",sum);
+
+    }
+
+
+   /// free();
+    free(Times);
+    free(Result);
+    free(Number);
+    //free();
+    free(first);
+    free(second);
+    free(third);
     free(i); free(variable);
-    free(age);/// Free up memory
+    free(age);
+    free(age2); /// Free up memory
     free(X);
     free(Y); /// Free up memory
     free(Z);
     free(Balance); /// Free up memory
     free(balance); /// Free up memory
-
-    // return statement
+    free(numberOfHazelnuts);
+    free(distanceTraveled);
+        /// return statement
     return 0;
-}
+
+
+    }
