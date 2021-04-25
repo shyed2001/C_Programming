@@ -1,0 +1,622 @@
+Skip to content
+
+Blog Home
+Data Science
+Categories
+Courses
+
+Search for:
+Search …
+Header Files in C/C++ | Create Header Files Within Seconds
+Are you aware of the various Header Files in C/C++? If not, there’s no need to worry. We are going to discuss each and everything about header files in C/C++. Each program requires at least one header file to work.
+
+Before we begin our discussion, it is important to understand, what are preprocessor directives? These are the basic building blocks of header files in C and C++. The term “preprocessor” is self-explanatory. The word “pre” means “before” and the word “processor” means “to make something”. Before the source code is compiled, it gets automatically processed due to the presence of preprocessor directives.
+
+So, let’s start and explore the depth of header files of C/C++, which will be helping you out in numerous ways.
+
+C and C++ Header Files
+
+
+
+1. What is a Header File in C and C++?
+The C/C++ Standard Library offers its users a variety of functions, one of which is header files.
+
+In C++, all the header files may or may not end with the .h extension but in C, all the header files must necessarily begin with the.h extension.
+
+A header file in C/C++ contains:
+
+Function definitions
+Data type definitions
+Macros
+Header files offer these features by importing them into your program with the help of a preprocessor directive called #include. These preprocessor directives are responsible for instructing the C/C++ compiler that these files need to be processed before compilation.
+
+Every C program should necessarily contain the header file <stdio.h> which stands for standard input and output used to take input with the help of scanf() function and display the output using printf() function.
+
+C++ program should necessarily contain the header file <iostream> which stands for input and output stream used to take input with the help of “cin>>” function and display the output using “cout<<” function.
+
+From this example, it is clear that each header file of C and C++ has its own specific function associated with it.
+
+Basically, header files are of 2 types:
+
+Standard library header files:  These are the pre-existing header files already available in the C/C++ compiler.
+User-defined header files:  Header files starting #define can be designed by the user.
+Don’t forget to check- Basic structure of C Programming
+
+2. Syntax of Header File in C/C++
+We can define the syntax of the header file in 2 ways:
+
+#include<filename.h>
+The name of the header file is enclosed within angular brackets. It is the most common way of defining a header file. As discussed earlier, in C, all header files would compulsorily begin with the .h extension otherwise, you would get a compilation error but it is not the case in C++.
+
+For example,
+
+#include<string.h> // Supported both in C and C++
+
+And,
+
+#include<vector> // An exclusive feature of C++
+
+#include“filename.h” or #include “filename”
+The name of the header file is enclosed within double-quotes. It is usually preferred when defining user-defined header files.
+
+For example,
+
+#include”stdlib.h” // Available in both C and C++
+
+And,
+
+#inlcude”iostream” // Exclusive to C++
+
+Key takeaway: We cannot include the same header file in the same program twice.
+
+Are you aware of the Rules of Syntax in C Programming
+
+3. How Header Files Work?
+The source file contains #include which is responsible for directing the C/C++ compiler that this file needs to be processed before compilation and includes all the necessary data type and function definitions.
+
+4. How to Create your own Header File in C/C++?
+Instead of writing a large and complex code, you can create your own header files and include it in the C/C++ library to use it whenever you wish as frequently as you like. It enhances code functionality and readability.
+
+Let us understand how to create your own header file in C++ with the help of an example.
+
+Consider a problem where you want to compute the factorial of a number. Since it not pre-defined in the standard C++ library, you can create it by yourself!
+
+The Steps involved are-
+Step – 1
+Write your own code in C++ and save the file with a .h extension instead of a .cpp, because you are creating a header file, not a C++ program. The name of the file you save with .h extension would be the name of your header file. Suppose you named it factorial.h.
+
+int factorial(int number)
+{
+  int iteration, factorial=1;
+  for(iteration=1; iteration<=number; iteration++)
+  {
+      factorial=factorial*iteration;
+  }
+  return factorial;
+}
+Code on Screen-
+
+Step - 1 to craete your own C header File
+
+Step – 2
+Open a fresh window and include your header file. In this case, you can write in two ways:
+
+#include“factorial.h” – Enclosing the header file name within double quotes signifies that the header file of C and C++ is located in the present folder you are working with. It is a preferred practice to include user-defined header files in this manner.
+
+Must Check the Reasons Behind the Popularity of C
+
+#include<factorial.h> – Enclosing the header file name within angular brackets signifies that the header file is located in the standard folder of all other header files of C/C++.
+
+Step – 3
+After the code is written using your file with the .h extension, compile and run your program. This is a C++ program to find the factorial of a number using a self-created header file:
+
+#include <iostream>
+#include"factorial.h"
+using namespace std;
+int main()
+{
+cout<<"Welcome to DataFlair tutorials!"<<endl<<endl;
+int positive_integer;
+cout<<"Enter a positive integer: "<<endl;
+cin>>positive_integer;
+cout<<"The factorial of " << positive_integer << " is: " << factorial(positive_integer) <<endl;
+return 0;
+}
+Code-
+
+C++ Program Factorial Example
+
+Output-
+
+C++ Program Factorial Output
+
+Key takeaway: The header file and your C/C++ program should be in the same folder.
+
+Different Types of C/C++ Header File
+Do you ever think, how many header files are there in C/C++ Programming Language?
+
+There are many header files present in C and C++. Even we can create them according to our requirement. In order to access the Standard Library functions, certain header files in C/C++ need to be included before writing the body of the program.
+
+C/C++ Header File
+Let’s have a look at these Header files in C and C++:.
+
+1. #include<stdio.h>  (Standard input-output header)
+Used to perform input and output operations in C like scanf() and printf().
+
+2. #include<string.h> (String header)
+Perform string manipulation operations like strlen and strcpy.
+
+3. #include<conio.h> (Console input-output header)
+Perform console input and console output operations like clrscr() to clear the screen and getch() to get the character from the keyboard.
+
+4. #include<stdlib.h> (Standard library header)
+Perform standard utility functions like dynamic memory allocation, using functions such as malloc() and calloc().
+
+5. #include<math.h> (Math header )
+Perform mathematical operations like sqrt() and pow(). To obtain the square root and the power of a number respectively.
+
+6. #include<ctype.h>(Character type header)
+Perform character type functions like isaplha() and isdigit(). To find whether the given character is an alphabet or a digit respectively.
+
+7. #include<time.h>(Time header)
+Perform functions related to date and time like setdate() and getdate(). To modify the system date and get the CPU time respectively.
+
+8. #include<assert.h> (Assertion header)
+It is used in program assertion functions like assert(). To get an integer data type in C/C++ as a parameter which prints stderr only if the parameter passed is 0.
+
+9. #include<locale.h> (Localization header)
+Perform localization functions like setlocale() and localeconv(). To set locale and get locale conventions respectively.
+
+10. #include<signal.h> (Signal header)
+Perform signal handling functions like signal() and raise(). To install signal handler and to raise the signal in the program respectively
+
+11. #include<setjmp.h> (Jump header)
+Perform jump functions.
+
+12. #include<stdarg.h> (Standard argument header)
+Perform standard argument functions like va_start and va_arg(). To indicate start of the variable-length argument list and to fetch the arguments from the variable-length argument list in the program respectively.
+
+13. #include<errno.h> (Error handling header)
+Used to perform error handling operations like errno(). To indicate errors in the program by initially assigning the value of this function to 0 and then later changing it to indicate errors.
+
+Learn the 6 Types of Operators in C/C++ to enhance your fundamental skills
+
+List of C++ Header File
+Following are some C++ header files which are not supported in C-
+
+#inlcude<iostream> (Input Output Stream) – Used as a stream of Input and Output.
+#include<iomanip.h> (Input-Output Manipulation) – Used to access set() and setprecision().
+#include<fstream.h> (File stream) – Used to control the data to read from a file as an input and data to write into the file as an output.
+Summary
+A C/C++ programmer should be well acquainted with the use of header files. In this tutorial, we got to know about the various header files available in C/C++, how they are defined, how they work and how to create a user-defined header file. We ended our discussion by summarizing the function of various kinds of header files.
+
+Macros in C Programming – Don’t Consider it as an Outdated Feature
+
+Don’t forget to share your precious reviews. Comment down, if you have any queries.
+
+Tags: C header filesExample of Header Files in CHeader File Available in CHow many Header Files in CHow we use Header Files in CTypes of Header FileTypes of Header Files in C++What is Header Files
+
+RELATED POSTS
+15 RESPONSES
+Comments15
+Pingbacks0
+Erin Ryan July 29, 2019 at 11:08 pm
+Unfortunately this example has the entire code for the function in the header. I was looking for an example of a class header, and if I need to have prototypes for the constructors & member functions, as well as the structure of the data types in the class object.
+
+Reply
+PopeJorgeMario November 7, 2019 at 12:05 pm
+We don’t always get what we want. We must learn to cherish what we have and stay satisfied with what God has given us when we can’t find what we want. May God put you in this path to righteousness.
+
+Reply
+omar February 10, 2020 at 12:42 am
+very very good and helpful
+
+Reply
+DataFlair Team February 12, 2020 at 9:34 am
+Hey Omar,
+
+Glad that you liked our article, refer to our sidebar for more C and C++ articles.
+
+Reply
+Muhammad Ahmad Hassan February 27, 2020 at 6:25 pm
+Most helpfull
+
+Reply
+Aditi May 18, 2020 at 9:03 pm
+Very nicely and elaborately explained 👏🏻
+
+Reply
+Genesis May 23, 2020 at 8:19 am
+Very helpful like me as am trying to refresh my c++ during my college days
+
+Reply
+DataFlair Team March 22, 2021 at 5:24 pm
+Glad to see that DataFlair C Tutorials are helping you. Let us know if you want to learn any other technology, will be glad to help you with that as well.
+
+Reply
+IBRAHIM KYARI May 30, 2020 at 3:06 am
+– THANK YOU SO MUCH YOU HAVE HELPED ME AND I APPRICIATE IT
+I AM YOUR FOLLOWER AND I AM FROM NIGERIA.
+
+Reply
+DataFlair Team March 22, 2021 at 5:25 pm
+Glad to see that DataFlair C Tutorials are helping you. Let us know if you want to learn any other technology, will be glad to help you with that as well.
+
+Reply
+Javier July 10, 2020 at 11:44 pm
+Thanks your help was very helpful, I am from Venezuela
+
+Reply
+DataFlair Team March 22, 2021 at 5:25 pm
+Glad to see that DataFlair C Tutorials are helping you. Let us know if you want to learn any other technology, will be glad to help you with that as well.
+
+Reply
+muneeb January 13, 2021 at 12:05 am
+it was a lot of knowledge ang exaxct answer but a littel difficult wording
+
+Reply
+Andrew080121 February 9, 2021 at 11:20 pm
+The autor didn`t show how to create a header for C++ classes
+
+Reply
+Manish Kumar February 22, 2021 at 4:09 pm
+hi
+I had tried your way of creating factorial.h file and all that, but I didn’t get the result .where should I save my factorial.h file in order to run successfully.
+
+Reply
+LEAVE A REPLY
+Comment
+
+Name *
+Email *
+This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+Home About us Contact us Terms and Conditions Privacy Policy Disclaimer Write For Us Success Stories
+
+
+DataFlair © 2021. All Rights Reserved.
+
+
+
+cppreference.com
+
+Create account
+Page
+Discussion
+View
+Edit
+History
+ads via Carbon
+Limited time offer: Get 10 free Adobe Stock images.
+ADS VIA CARBON
+C Standard Library header files
+ C
+The interface of C standard library is defined by the following collection of headers.
+
+<assert.h>	Conditionally compiled macro that compares its argument to zero
+<complex.h> (C99)	Complex number arithmetic
+<ctype.h>	Functions to determine the type contained in character data
+<errno.h>	Macros reporting error conditions
+<fenv.h> (C99)	Floating-point environment
+<float.h>	Limits of float types
+<inttypes.h> (C99)	Format conversion of integer types
+<iso646.h> (C95)	Alternative operator spellings
+<limits.h>	Sizes of basic types
+<locale.h>	Localization utilities
+<math.h>	Common mathematics functions
+<setjmp.h>	Nonlocal jumps
+<signal.h>	Signal handling
+<stdalign.h> (C11)	alignas and alignof convenience macros
+<stdarg.h>	Variable arguments
+<stdatomic.h> (C11)	Atomic types
+<stdbool.h> (C99)	Macros for boolean type
+<stddef.h>	Common macro definitions
+<stdint.h> (C99)	Fixed-width integer types
+<stdio.h>	Input/output
+<stdlib.h>	General utilities: memory management, program utilities, string conversions, random numbers, algorithms
+<stdnoreturn.h> (C11)	noreturn convenience macros
+<string.h>	String handling
+<tgmath.h> (C99)	Type-generic math (macros wrapping math.h and complex.h)
+<threads.h> (C11)	Thread library
+<time.h>	Time/date utilities
+<uchar.h> (C11)	UTF-16 and UTF-32 character utilities
+<wchar.h> (C95)	Extended multibyte and wide character utilities
+<wctype.h> (C95)	Functions to determine the type contained in wide character data
+References
+C17 standard (ISO/IEC 9899:2018):
+7.1.2 Standard headers (p: 131-132)
+C11 standard (ISO/IEC 9899:2011):
+7.1.2 Standard headers (p: 181-182)
+C99 standard (ISO/IEC 9899:1999):
+7.1.2 Standard headers (p: 165)
+C89/C90 standard (ISO/IEC 9899:1990):
+4.1.2 Standard headers
+See also
+C++ documentation for C++ Standard Library header files
+Support usRecent changesFAQOffline version
+What links hereRelated changesUpload fileSpecial pagesPrintable versionPermanent linkPage information
+In other languages
+العربيةČeskyDeutschEspañolFrançaisItaliano日本語한국어PolskiPortuguêsРусскийTürkçe中文
+This page was last modified on 12 December 2020, at 19:01.
+Privacy policy About cppreference.com Disclaimers
+Powered by MediaWiki Powered by GeSHi Hosted by Tiger Technologies
+
+Skip to content
+
+Blog Home
+Data Science
+Categories
+Courses
+
+Search for:
+Search …
+Header Files in C/C++ | Create Header Files Within Seconds
+Are you aware of the various Header Files in C/C++? If not, there’s no need to worry. We are going to discuss each and everything about header files in C/C++. Each program requires at least one header file to work.
+
+Before we begin our discussion, it is important to understand, what are preprocessor directives? These are the basic building blocks of header files in C and C++. The term “preprocessor” is self-explanatory. The word “pre” means “before” and the word “processor” means “to make something”. Before the source code is compiled, it gets automatically processed due to the presence of preprocessor directives.
+
+So, let’s start and explore the depth of header files of C/C++, which will be helping you out in numerous ways.
+
+C and C++ Header Files
+
+
+
+1. What is a Header File in C and C++?
+The C/C++ Standard Library offers its users a variety of functions, one of which is header files.
+
+In C++, all the header files may or may not end with the .h extension but in C, all the header files must necessarily begin with the.h extension.
+
+A header file in C/C++ contains:
+
+Function definitions
+Data type definitions
+Macros
+Header files offer these features by importing them into your program with the help of a preprocessor directive called #include. These preprocessor directives are responsible for instructing the C/C++ compiler that these files need to be processed before compilation.
+
+Every C program should necessarily contain the header file <stdio.h> which stands for standard input and output used to take input with the help of scanf() function and display the output using printf() function.
+
+C++ program should necessarily contain the header file <iostream> which stands for input and output stream used to take input with the help of “cin>>” function and display the output using “cout<<” function.
+
+From this example, it is clear that each header file of C and C++ has its own specific function associated with it.
+
+Basically, header files are of 2 types:
+
+Standard library header files:  These are the pre-existing header files already available in the C/C++ compiler.
+User-defined header files:  Header files starting #define can be designed by the user.
+Don’t forget to check- Basic structure of C Programming
+
+2. Syntax of Header File in C/C++
+We can define the syntax of the header file in 2 ways:
+
+#include<filename.h>
+The name of the header file is enclosed within angular brackets. It is the most common way of defining a header file. As discussed earlier, in C, all header files would compulsorily begin with the .h extension otherwise, you would get a compilation error but it is not the case in C++.
+
+For example,
+
+#include<string.h> // Supported both in C and C++
+
+And,
+
+#include<vector> // An exclusive feature of C++
+
+#include“filename.h” or #include “filename”
+The name of the header file is enclosed within double-quotes. It is usually preferred when defining user-defined header files.
+
+For example,
+
+#include”stdlib.h” // Available in both C and C++
+
+And,
+
+#inlcude”iostream” // Exclusive to C++
+
+Key takeaway: We cannot include the same header file in the same program twice.
+
+Are you aware of the Rules of Syntax in C Programming
+
+3. How Header Files Work?
+The source file contains #include which is responsible for directing the C/C++ compiler that this file needs to be processed before compilation and includes all the necessary data type and function definitions.
+
+4. How to Create your own Header File in C/C++?
+Instead of writing a large and complex code, you can create your own header files and include it in the C/C++ library to use it whenever you wish as frequently as you like. It enhances code functionality and readability.
+
+Let us understand how to create your own header file in C++ with the help of an example.
+
+Consider a problem where you want to compute the factorial of a number. Since it not pre-defined in the standard C++ library, you can create it by yourself!
+
+The Steps involved are-
+Step – 1
+Write your own code in C++ and save the file with a .h extension instead of a .cpp, because you are creating a header file, not a C++ program. The name of the file you save with .h extension would be the name of your header file. Suppose you named it factorial.h.
+
+int factorial(int number)
+{
+  int iteration, factorial=1;
+  for(iteration=1; iteration<=number; iteration++)
+  {
+      factorial=factorial*iteration;
+  }
+  return factorial;
+}
+Code on Screen-
+
+Step - 1 to craete your own C header File
+
+Step – 2
+Open a fresh window and include your header file. In this case, you can write in two ways:
+
+#include“factorial.h” – Enclosing the header file name within double quotes signifies that the header file of C and C++ is located in the present folder you are working with. It is a preferred practice to include user-defined header files in this manner.
+
+Must Check the Reasons Behind the Popularity of C
+
+#include<factorial.h> – Enclosing the header file name within angular brackets signifies that the header file is located in the standard folder of all other header files of C/C++.
+
+Step – 3
+After the code is written using your file with the .h extension, compile and run your program. This is a C++ program to find the factorial of a number using a self-created header file:
+
+#include <iostream>
+#include"factorial.h"
+using namespace std;
+int main()
+{
+cout<<"Welcome to DataFlair tutorials!"<<endl<<endl;
+int positive_integer;
+cout<<"Enter a positive integer: "<<endl;
+cin>>positive_integer;
+cout<<"The factorial of " << positive_integer << " is: " << factorial(positive_integer) <<endl;
+return 0;
+}
+Code-
+
+C++ Program Factorial Example
+
+Output-
+
+C++ Program Factorial Output
+
+Key takeaway: The header file and your C/C++ program should be in the same folder.
+
+Different Types of C/C++ Header File
+Do you ever think, how many header files are there in C/C++ Programming Language?
+
+There are many header files present in C and C++. Even we can create them according to our requirement. In order to access the Standard Library functions, certain header files in C/C++ need to be included before writing the body of the program.
+
+C/C++ Header File
+Let’s have a look at these Header files in C and C++:.
+
+1. #include<stdio.h>  (Standard input-output header)
+Used to perform input and output operations in C like scanf() and printf().
+
+2. #include<string.h> (String header)
+Perform string manipulation operations like strlen and strcpy.
+
+3. #include<conio.h> (Console input-output header)
+Perform console input and console output operations like clrscr() to clear the screen and getch() to get the character from the keyboard.
+
+4. #include<stdlib.h> (Standard library header)
+Perform standard utility functions like dynamic memory allocation, using functions such as malloc() and calloc().
+
+5. #include<math.h> (Math header )
+Perform mathematical operations like sqrt() and pow(). To obtain the square root and the power of a number respectively.
+
+6. #include<ctype.h>(Character type header)
+Perform character type functions like isaplha() and isdigit(). To find whether the given character is an alphabet or a digit respectively.
+
+7. #include<time.h>(Time header)
+Perform functions related to date and time like setdate() and getdate(). To modify the system date and get the CPU time respectively.
+
+8. #include<assert.h> (Assertion header)
+It is used in program assertion functions like assert(). To get an integer data type in C/C++ as a parameter which prints stderr only if the parameter passed is 0.
+
+9. #include<locale.h> (Localization header)
+Perform localization functions like setlocale() and localeconv(). To set locale and get locale conventions respectively.
+
+10. #include<signal.h> (Signal header)
+Perform signal handling functions like signal() and raise(). To install signal handler and to raise the signal in the program respectively
+
+11. #include<setjmp.h> (Jump header)
+Perform jump functions.
+
+12. #include<stdarg.h> (Standard argument header)
+Perform standard argument functions like va_start and va_arg(). To indicate start of the variable-length argument list and to fetch the arguments from the variable-length argument list in the program respectively.
+
+13. #include<errno.h> (Error handling header)
+Used to perform error handling operations like errno(). To indicate errors in the program by initially assigning the value of this function to 0 and then later changing it to indicate errors.
+
+Learn the 6 Types of Operators in C/C++ to enhance your fundamental skills
+
+List of C++ Header File
+Following are some C++ header files which are not supported in C-
+
+#inlcude<iostream> (Input Output Stream) – Used as a stream of Input and Output.
+#include<iomanip.h> (Input-Output Manipulation) – Used to access set() and setprecision().
+#include<fstream.h> (File stream) – Used to control the data to read from a file as an input and data to write into the file as an output.
+Summary
+A C/C++ programmer should be well acquainted with the use of header files. In this tutorial, we got to know about the various header files available in C/C++, how they are defined, how they work and how to create a user-defined header file. We ended our discussion by summarizing the function of various kinds of header files.
+
+Macros in C Programming – Don’t Consider it as an Outdated Feature
+
+Don’t forget to share your precious reviews. Comment down, if you have any queries.
+
+Your opinion matters
+Please write your valuable feedback about DataFlair on Google | Facebook
+
+Tags: C header filesExample of Header Files in CHeader File Available in CHow many Header Files in CHow we use Header Files in CTypes of Header FileTypes of Header Files in C++What is Header Files
+
+RELATED POSTS
+15 RESPONSES
+Comments15
+Pingbacks0
+Erin Ryan July 29, 2019 at 11:08 pm
+Unfortunately this example has the entire code for the function in the header. I was looking for an example of a class header, and if I need to have prototypes for the constructors & member functions, as well as the structure of the data types in the class object.
+
+Reply
+PopeJorgeMario November 7, 2019 at 12:05 pm
+We don’t always get what we want. We must learn to cherish what we have and stay satisfied with what God has given us when we can’t find what we want. May God put you in this path to righteousness.
+
+Reply
+omar February 10, 2020 at 12:42 am
+very very good and helpful
+
+Reply
+DataFlair Team February 12, 2020 at 9:34 am
+Hey Omar,
+
+Glad that you liked our article, refer to our sidebar for more C and C++ articles.
+
+Reply
+Muhammad Ahmad Hassan February 27, 2020 at 6:25 pm
+Most helpfull
+
+Reply
+Aditi May 18, 2020 at 9:03 pm
+Very nicely and elaborately explained 👏🏻
+
+Reply
+Genesis May 23, 2020 at 8:19 am
+Very helpful like me as am trying to refresh my c++ during my college days
+
+Reply
+DataFlair Team March 22, 2021 at 5:24 pm
+Glad to see that DataFlair C Tutorials are helping you. Let us know if you want to learn any other technology, will be glad to help you with that as well.
+
+Reply
+IBRAHIM KYARI May 30, 2020 at 3:06 am
+– THANK YOU SO MUCH YOU HAVE HELPED ME AND I APPRICIATE IT
+I AM YOUR FOLLOWER AND I AM FROM NIGERIA.
+
+Reply
+DataFlair Team March 22, 2021 at 5:25 pm
+Glad to see that DataFlair C Tutorials are helping you. Let us know if you want to learn any other technology, will be glad to help you with that as well.
+
+Reply
+Javier July 10, 2020 at 11:44 pm
+Thanks your help was very helpful, I am from Venezuela
+
+Reply
+DataFlair Team March 22, 2021 at 5:25 pm
+Glad to see that DataFlair C Tutorials are helping you. Let us know if you want to learn any other technology, will be glad to help you with that as well.
+
+Reply
+muneeb January 13, 2021 at 12:05 am
+it was a lot of knowledge ang exaxct answer but a littel difficult wording
+
+Reply
+Andrew080121 February 9, 2021 at 11:20 pm
+The autor didn`t show how to create a header for C++ classes
+
+Reply
+Manish Kumar February 22, 2021 at 4:09 pm
+hi
+I had tried your way of creating factorial.h file and all that, but I didn’t get the result .where should I save my factorial.h file in order to run successfully.
+
+Reply
+LEAVE A REPLY
+Comment
+
+Name *
+Email *
+This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+Home About us Contact us Terms and Conditions Privacy Policy Disclaimer Write For Us Success Stories
+
+
+DataFlair © 2021. All Rights Reserved.
+

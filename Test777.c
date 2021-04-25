@@ -1,25 +1,40 @@
 #include <stdio.h>
-int main(void) {
 
-    char letter11;
-    char letter21;
-    char letter31;
-    char letter41;
-    char letter00, letter20;
+int main (void)
 
-    printf("Please enter two letters: ");
-    scanf("%c%c", &letter00, &letter20);
-    printf("I read the letters %c and %c.\n", letter00, letter20);
+{
+    puts( "Activity: divide decimals with round-off (External resource))" );
 
-    printf("Please enter two letters separated by a comma: ");
-    scanf("%c,%c", &letter11, &letter21);
+    int CementPricePerBag = 45;
 
-    printf("I read the letters %c and %c\n", letter11, letter21);
+    int CementAmountPerBag = 120;
+    double CementPoundNeeded, CementBagsNeeded;
 
-    printf("Please enter two letters separated by a space: ");
+    int TotalCementPoundPrice = 0;
+    CementPoundNeeded = TotalCementPoundPrice = CementBagsNeeded = 0;
 
-    scanf("%c %c", &letter31, &letter41);
-    printf("I read the letters %c and %c.\n", letter31, letter41);
+    puts( " Enter the amount of Cement you need for new Building Foundation" );
+
+    scanf("%lf", &CementPoundNeeded);
+
+    puts( " Price or average price of each 120-pound bags are 45 dollars once" );
+
+    puts( " Cement Amount Per Bag = 120 pounds" );
+
+
+    CementBagsNeeded = CementPoundNeeded/CementAmountPerBag ;
+
+    int CementBagsNeededFinal = 0;
+
+    CementBagsNeededFinal = (int) CementBagsNeeded +1;
+
+    TotalCementPoundPrice = (CementBagsNeededFinal*CementPricePerBag );
+
+    printf( "%d\n",CementBagsNeededFinal);
+
+
+    printf( " Total price %d",TotalCementPoundPrice );
+
 
     return 0;
 }

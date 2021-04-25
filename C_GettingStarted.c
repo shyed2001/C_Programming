@@ -3,6 +3,7 @@ License == MIT + terms and conditions of author/owner
 Copyright: author/owner*/
 // Multiple lines were commented.
 
+
 #include <stdio.h>
 #include <stdlib.h>
 // preprocessor directive
@@ -52,29 +53,30 @@ int main(void) // main function
     {
         printf("We can do everything with it!\n");
     }
-        printf("\n");
-        for(i = 0; i < 3; i++ ) {
+    printf("\n");
+    for(i = 0; i < 3; i++ )
+    {
         printf("Hello ");
         printf("world!\n");
     }
-  ///Discover the effect of simple looping errors
+    ///Discover the effect of simple looping errors
 
     for(i = 0; i < 3 ; i++ ) ///Simple looping errors
-        {
+    {
         printf("Hello ");
         printf("world!\n");
     }
     printf("\n");
     for(i = 0; i < 3 ; i++ ) // Simple looping errors
         printf("Hello ");
-        printf("world!\n");
+    printf("world!\n");
     printf("\n");
 
     for(i = 0; i < 3 ; i++ )
         printf("Hello ");
     printf("world!\n");
 
-        printf("+");
+    printf("+");
     for (i = 0; i < 23; i++)
         printf("-");
     printf("+\n");
@@ -87,10 +89,10 @@ int main(void) // main function
         printf("\n");
     }
 
-    	printf("+");
-	for (i = 0; i < 23; i++)
-		printf("-");
-	printf("+");
+    printf("+");
+    for (i = 0; i < 23; i++)
+        printf("-");
+    printf("+");
 
     puts("If I have 3 bills worth 5 dollars each then I have 15 dollars."); /// puts gives an \n after the line
 
@@ -117,16 +119,16 @@ int main(void) // main function
     ///Review: Declare and initialize integer variables
     //Perform simple integer arithmetic (+, -, *, ())
     ///Activity: perform simple arithmetic in C
-    int X , Y , Z ;
+    int X, Y, Z ;
     puts("Dear Procrastinator,\n");
     X=25-23;
     Y = (60 * 24 * X) ;
     Z = 60 * Y;
-    printf("You still have to wait for %d days (%d minutes or %d seconds) before you can procrastinate!", X, Y , Z);
+    printf("You still have to wait for %d days (%d minutes or %d seconds) before you can procrastinate!", X, Y, Z);
 
     ///Store integers in variables
 
-        //Create a variable to store an integer value
+    //Create a variable to store an integer value
     int age;
     //Assigne a value to that variable
     age = 34;
@@ -189,22 +191,23 @@ int main(void) // main function
 
     Please Note:
 
-The list below has the keywords reserved by the C language. When the current programming language is C or C++,
-these keywords cannot be abbreviated, used as variable names, or used as any other type of identifiers.
+    The list below has the keywords reserved by the C language. When the current programming language is C or C++,
+    these keywords cannot be abbreviated, used as variable names, or used as any other type of identifiers.
 
-auto else long switch
+    auto else long switch
 
-break enum register typedef  case extern return union char float short unsigned
+    break enum register typedef  case extern return union char float short unsigned
 
-const for signed void  continue goto sizeof volatile
+    const for signed void  continue goto sizeof volatile
 
-default if static while  do int struct _Packed  double  */
+    default if static while  do int struct _Packed  double  */
 
 
 /// Use variables in loops
     int numberOfHazelnuts = 0;
     int distanceTraveled = 0;
-    for(i = 0; i < 9 ; i++) {
+    for(i = 0; i < 9 ; i++)
+    {
         printf("At %d miles I have %d hazelnuts.\n", distanceTraveled, numberOfHazelnuts);
         distanceTraveled = distanceTraveled + 1;
         numberOfHazelnuts = numberOfHazelnuts + 3;
@@ -227,7 +230,7 @@ default if static while  do int struct _Packed  double  */
     letter = 'a';//DEFINE or INITIALIZE or ASSIGN a character value
     printf("The letter is %c\n",letter);
 
-        ///Activity: print characters
+    ///Activity: print characters
     char letter1, letter2, letter3 ;//DECLARE A CHARACTER VARIABLE
 
     letter1 = 'i';//DEFINE or INITIALIZE or ASSIGN a character value
@@ -235,29 +238,143 @@ default if static while  do int struct _Packed  double  */
     letter3 = 'c';
     printf ("Programming %c%c %c\n", letter1, letter2, letter3);
 
+    /// Declare, assign and print decimal numbers
+
+    double h1, h2, h3, h4, h5;
+    h1 = 1.9945;
+    h2 = 1.9590;
+    h3 = 0.995;
+    h4 = 0.8999;
+    h5 = 1.459;
+    printf("I am %.1lf or %.1lf or %.1lf or %.1lf or %.1lf meters tall.\n",h1, h2, h3, h4, h5);
+    printf("I am %.2lf or %.2lf or %.2lf or %.2lf or %.2lf meters tall.\n",h1, h2, h3, h4, h5);
+    printf("I am %lf or %lf or %lf or %lf or %lf meters tall.\n",h1, h2, h3, h4, h5);
+
+    puts("\n Read decimal numbers from user input with scanf() \n" );  /// may use scan\(\) for spacial character.
+
+
+
+
+    ///Divide in C
+
+    // integer division
+
+    printf("5/2 d equals %d\n", 5/2);
+    printf("5/2 i equals %i\n", 5/2);
+    printf("5/2 ld equals %ld\n", 5/2);
+    printf("5/2 lf equals %lf\n", 5/2);
+    printf("5/2 lf equals %f\n", 5/2);
+    // floating point division
+    printf("5.0/2.0 lf equals %lf\n", 5.0/2.0);
+    printf("5.0/2.0  d equals %d\n", 5.0/2.0);
+    printf("5/2.0 lf equals %lf\n", 5/2.0);
+    printf("5/2.0 f equals %f\n", 5/2.0);
+    printf("5.0/2 lf equals %lf\n", 5.0/2);
+    printf("5.0/2 ld equals %ld\n", 5.0/2);
+
+    puts( "Divide with integer and double variables" );
+
+    int intFive = 5;
+    int intTwo = 2;
+    double doubFive = 5.0;
+    double doubTwo = 2.0;
+    float ans = (5/2);
+    float ANS = (5.0/2.0);
+    printf("ANS=(doubFive/doubtTwo) d equals %d\n", ANS);
+    printf("ANS=(doubFive/doubTwo) f equals %f\n", ANS);
+    printf("ANS=(doubFive/doubTwo)ld equals %ld\n", ANS);
+    printf("ANS=(doubFive/doubTwo)lf equals %lf\n", ANS);
+
+    printf("intFive/intTwo equals %d\n", intFive/intTwo);
+    printf("intFive/intTwo equals %lf\n", intFive/intTwo);
+    printf("doubFive/doubTwo equals %lf\n", doubFive/doubTwo);
+    printf("doubFive/intTwo equals %lf\n", doubFive/intTwo);
+    printf("intFive/doubTwo equals %lf\n", intFive/doubTwo);
+
+
+
+
+    puts( "Find the remainder in integer division\n" );
+
+    /// pay 166 dollars using 20-dollar bills, rest with 1-dollar bills
+    int twenties = 166/20;
+    int rest = 166%20;
+    printf("I will pay %d dollars with 20-dollar bills.\n", twenties * 20);
+    printf("I will then pay %d dollars with 1-dollar bills.\n", rest);
+
+
+
+
+    double height;
+    printf("How tall are you (Type in meters and press enter )? \n");
+    scanf("%lf", &height);
+    printf("I am %.2lf meters tall.\n", height);
+
+
+    puts( " Read integers and doubles with scanf()\n" );
+    //int age;
+    //double height;
+    printf("What is your age?");
+    scanf("%d",&age);
+    printf("What is your height?");
+    scanf("%lf",&height);
+    printf("\nYou are %d years old and %.2lf meters tall.\n",age,height);
+
+
+    puts( " Read integers and doubles with one scanf() statement \n" );
+
+    printf("What is your age and height (separate with spaces)?\n");
+    scanf("%d %lf",&age,&height);
+    printf("You are %d years old and %.2lf meters tall.\n",age,height);
+
+
+    /// Activity: read a decimal number
+    double km = 0;
+    double mile = 0;
+
+    puts( "\nPlease type distance in kilometers and press enter\n" );
+
+    scanf("%lf", &km);
+    mile = (km*0.621371);
+    printf("%lf\n",km*0.621371);
+
+
 
     /*
+        When you declare:
 
-    When you declare:
+        int column, row, index = 0;
+        Only index is set to zero.
 
-int column, row, index = 0;
-Only index is set to zero.
+        However you can do the following:
 
-However you can do the following:
+        int column, row, index;
+        column = index = row = 0;
+        But personally I prefer the following which has been pointed out.
+        It's a more readable form in my view.
 
-int column, row, index;
-column = index = row = 0;
-But personally I prefer the following which has been pointed out.
-It's a more readable form in my view.
+        int column = 0, row = 0, index = 0;
+        or
 
-int column = 0, row = 0, index = 0;
-or
+        int column = 0;
+        int row = 0;
+        int index = 0;
 
-int column = 0;
-int row = 0;
-int index = 0;
+        */
 
-    */
+
+    puts( "Activity: find the remainder in integer division" );
+
+    int sticks =0;
+    int sticksPerBox = 0;
+    int box,left;
+    box = left = 0;
+    printf( " Please type Total stick numbers and sticks per box, then press enter" );
+
+    scanf("%d %d", &sticks, &sticksPerBox);
+    box = sticks/sticksPerBox;
+    left = sticks%sticksPerBox;
+    printf("%d\n%d", box, left);
 
     Times = Result = Number = 0;
     puts("PLEASE Enter a Number \n ");
@@ -286,19 +403,20 @@ int index = 0;
 
     long double first1, second1, third1;
     printf("Please enter three integers: ");
-    scanf("%ld%ld%ld", &first1, &second1, &third1);
+    scanf("%ld%i%d", &first1, &second1, &third1);
     printf("You entered: %ld for first, %ld for second, %ld for third.\n", first1, second1, third1);
     /// Previous 4 linesof code does not work properly
 
 
-   /// Use scanf() inside a loop to read multiple user inputs
+    /// Use scanf() inside a loop to read multiple user inputs
 
     int howMany = 0;
     int sum = 0;
     int numberRead = 0;
     printf("How many items do you want to add?\n");
     scanf("%d",&howMany);
-    for(int i = 0; i < howMany; i++){
+    for(int i = 0; i < howMany; i++)
+    {
         printf("What item do you want to add?\n");
         scanf("%d",&numberRead);
         printf("I have read %d from the input terminal\n",numberRead);
@@ -306,6 +424,46 @@ int index = 0;
         printf("sum equals %d\n",sum);
 
     }
+
+    puts( "\nConvert double to integers\n" );
+
+    double dOne, dTwo;
+    int iOne, iTwo;
+    printf("Please enter two decimals: ");
+    scanf("%lf %lf", &dOne, &dTwo);
+    printf("I read dOne = %lf, dTwo = %lf.\n", dOne, dTwo);
+    iOne = (int) dOne;
+    iTwo = (int) dTwo;
+    printf("iOne = %d, iTwo = %d.\n", iOne, iTwo);
+    printf("%d / %d = %d.\n", iOne, iTwo, iOne/iTwo);
+
+
+
+
+
+
+
+
+    puts( "\nAverage of grades and Convert integers into doubles\n" );
+
+    int IhowMany = 0;
+    double SUM = 0;
+    int NumberRead = 0;
+    double avg = 0;
+    printf("How many grades do you want to average?\n");
+    scanf("%d",&IhowMany);
+    for(int i = 0; i < IhowMany; i++)
+    {
+        printf("What grade do you want to add?\n");
+        scanf("%d",&NumberRead);
+        printf("I have read %d from the input terminal\n",NumberRead);
+        SUM = SUM + NumberRead;
+        double howMany = (double)IhowMany;
+        avg = (SUM/howMany);
+        printf("SUM and avg equals %lf and %lf\n",SUM, avg);
+    }
+
+    printf("\n%.2lf\n", avg);
 
 ///Read characters from the user input
 
@@ -319,43 +477,127 @@ int index = 0;
     printf("I read the letters %c and %c.\n", letter11, letter21 );
 
     printf("Please enter two letters separated by a space:\n");
-    scanf("%c %c", &letter31 , &letter41 );
-    printf("I read the letters %c and %c", letter31 , letter41 );
+    scanf("%c %c", &letter31, &letter41 );
+    printf("I read the letters %c and %c", letter31, letter41 );
 
+
+    puts( " Activity: convert doubles to integers (External resource)\n  Get expected total population from current population and growth rate" );
+    double TotalPopulation;
+
+    int totalPopulation;
+
+    int CurrentPopulation = 0;
+
+    double groth = 0;
+
+    puts( "Please enter the current population \n" );
+
+    scanf("%d", &CurrentPopulation);
+
+    puts( "Please enter the growth rate in percentage\n" );
+
+    scanf("%lf", &groth);
+
+    double GROTH = groth/100;
+
+    TotalPopulation = CurrentPopulation + CurrentPopulation*GROTH;
+
+    totalPopulation = (int) TotalPopulation;
+
+    printf(" Estimated total population in future = %d\n", totalPopulation);
+
+
+    puts( "Activity: divide decimals (External resource)" );
+
+    double money, bookPrice;
+
+    money = bookPrice = 0;
+
+    puts( " Enter the amount of money you have" );
+
+    scanf("%lf", &money );
+
+    puts( " Enter the price or average price of each book once" );
+
+    scanf("%lf", &bookPrice );
+
+    int booknumber = money/bookPrice;
+
+    printf( "You will be able to buy %d books\n", booknumber );
+
+    puts( "Activity: divide decimals with round-off (External resource))" );
+
+    int CementPricePerBag = 45;
+
+    int CementAmountPerBag = 120;
+    double CementPoundNeeded, CementBagsNeeded;
+
+    int TotalCementPoundPrice = 0;
+    CementPoundNeeded = TotalCementPoundPrice = CementBagsNeeded = 0;
+
+    puts( " Enter the amount of Cement you need for new Building Foundation" );
+
+    scanf("%lf", &CementPoundNeeded);
+
+    puts( " Price or average price of each 120-pound bags are 45 dollars once" );
+
+    puts( " Cement Amount Per Bag = 120 pounds" );
+
+
+    CementBagsNeeded = CementPoundNeeded/CementAmountPerBag ;
+
+    int CementBagsNeededFinal = 0;
+
+    CementBagsNeededFinal = (int) CementBagsNeeded +1;
+
+    TotalCementPoundPrice = (CementBagsNeededFinal*CementPricePerBag );
+
+    printf( "%d\n",CementBagsNeededFinal);
+
+
+    printf( " Total price %d",TotalCementPoundPrice );
 
     /// Activity: read characters
 
 
- char sign;
+    char sign;
 
- scanf("%c", &sign); printf("++++%c++++\n+++%c%c%c+++\n++%c%c%c%c%c++\n+%c%c%c%c%c%c%c+\n%c%c%c%c%c%c%c%c%c",sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign);
-
-
-
+    scanf("%c", &sign);
+    printf("++++%c++++\n+++%c%c%c+++\n++%c%c%c%c%c++\n+%c%c%c%c%c%c%c+\n%c%c%c%c%c%c%c%c%c",sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign,sign);
 
 
+    puts( "Activity: divide numbers, convert temperatures" );
+    double TemperatureF =0 ;
+    double TemperatureC =0;
 
 
-   /// free();
+
+    scanf("%lf", &TemperatureC);
+    TemperatureF = TemperatureC * 9.0 / 5.0 + 32.0;
+    printf("%.1lf", TemperatureF);
+
+
+
+
+    /// free();
     free(Times);
-    free(Result);
-    free(Number);
     //free();
     free(first);
-    free(second);
-    free(third);
-    free(i); free(variable);
-    free(age);
     free(age2); /// Free up memory
-    free(X);
     free(Y); /// Free up memory
-    free(Z);
     free(Balance); /// Free up memory
-    free(balance); /// Free up memory
-    free(numberOfHazelnuts);
-    free(distanceTraveled);
-        /// return statement
+
+    /// return statement
     return 0;
 
 
-    }
+
+
+}
+/// Shortcut in Code::Blocks
+/// SourceCode Formatter -  Ctrl+Alt+i
+/// line comment  Ctrl+Shift+C
+/// Abbreviations Ctrl+j
+/// open new file  Ctrl+Shift+n
+
+
