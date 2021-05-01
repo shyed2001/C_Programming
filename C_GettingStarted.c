@@ -439,7 +439,17 @@ int main(void) // main function
 
 
 
+    printf("Doubles or floats converted to integers , lose their value after decimal point");
 
+     int XX1 = (double) 6.7;
+     int XX2 = (double) 6.1;
+     int XX3 = (double) 6.9;       
+
+     printf( "\n int XX1 = (double) 6.7, XX1 =  %d", XX1 );
+
+      printf( " \n int XX2 = (double) 6.1 XX2 = %d", XX2 );
+
+       printf( " \n  int XX3 = (double) 6.9, XX3 =  %d", XX3 );
 
 
 
