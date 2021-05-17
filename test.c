@@ -2,72 +2,75 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <math.h>
+#include <time.h>
 
-
-
-/*
-1. All American Express numbers start with 34 or 37 ; uses 15-digit numbers,
-2. MasterCard numbers start with 51, 52, 53, 54, or 55 : uses 16-digit numbers,
-(they also have some other potential starting numbers which we won’t concern ourselves with for this problem);
-3. all Visa numbers start with 4. Visa uses 13- and 16-digit numbers.
-
-$ ./credit
-Number: 4003-6000-0000-0014
-Number: foo
-Number: 4003600000000014
-VISA
-
-20 % 10 = 0; /// Remainder is 0, % is modulo operator.
-5 % 2 = 1 /// remainder is 1.
-*/
-
-
+#include <stdbool.h>
 int main(void)
 {
 
-    long number;
-    do
-    {
-        number = get_long("Enter Credit Card number is number:  "); // for user input at least once.
-    }
-    while (number < 4000000000000 );
-
-    printf(" The number is %ld \n", number);
+    clock_t tStart = clock();
 
 
-    if (number >= 4000000000000  && number <= 4999999999999)
-    {
-        printf(" The number is Visa Card number\n");
-    }
 
-    else if (340000000000000 <= number && number <= 379999999999999)
-    {
-        printf(" The number is American Express number\n");
-    }
+     printf("Branch program flow using floating point numbers");
 
 
-        else if ( number >= 400000000000000 && number <= 4999999999999999)
-    {
-        printf(" The number is Visa Card number\n");
+     // + - * / % : arithmetic operations
+    // <  >  <=  >=  !=  ==  :  comparison operations
+    double a = 5.0;
+    double b = 2.0;
+    int result;
+    printf("Check: Is a == b ?\n");
+    result = a == b;
+    printf("result is %d\n", result);
+    if(result){
+        printf("TRUE\n");
+    }else{
+        printf("FALSE\n");
     }
 
-        else if (5100000000000000 <= number && number <= 5599999999999999)
-    {
-        printf(" The number is Master Card number\n");
+
+printf("// Double data types have precisions of 15 digits after decimal points,\n")
+
+    double a = 5.0000000000000000001; /// Double data types have precisions of 15 digits after decimal points,
+    double b = 5.0000000000000000000;
+    int result;
+    printf("Check: Is a == b ?\n");
+    result = a == b;
+    printf("result is %d\n", result);
+    if(result){
+        printf("TRUE\n");
+    }else{
+        printf("FALSE\n");
     }
 
-    else
-
-    { printf(" INVALID \n"); }
+    printf("// double data types have precisions of 15 digits after decimal points,\n")
 
 
-   /* do
-    {
-        number = get_long("Enter card number :  "); // for user input at least once.
+    double a = 5.00000001; // Double data types have precisions of 15 digits after decimal points,
+    double b = 5.00000000;
+    int result;
+    printf("Check: Is a == b ?\n");
+    result = a == b;
+    printf("result is %d\n", result);
+    if(result){
+        printf("TRUE\n");
+    }else{
+        printf("FALSE\n");
     }
-    while (number <=0);       // Fix range of input.
 
-    */
 
- return 0;
+
+
+
+
+    printf("Time taken: %.5fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
+
+    return 0;
+    system("pause>null");
+
+    /// system() is a library function that makes calls to OS commands/programs. system("pause") calls the "pause"
+    /// command in DOS/Windows. Run the pause command in a command shell to see what it does.
+    /// will cause the black dos window (where you see your output) to be paused untill you press any key.
+    printf("Time taken: %.5fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
 }

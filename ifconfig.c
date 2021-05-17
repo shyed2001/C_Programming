@@ -23,7 +23,9 @@ int main()
       puts(" ==============    ");
    puts(" ==============    ");
 
-   system("C:\\Windows\\System32\\ifconfig"); /// Only works for linux.
+    system("C:\\Windows\\System32\\ifconfig");
+
+    /// Only works for linux.
 
       puts(" ==============    ");
    puts(" ==============    ");
@@ -36,4 +38,6 @@ int main()
 
 
   return 0;
+
+  system("pause>null");
 }
