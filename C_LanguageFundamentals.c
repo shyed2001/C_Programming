@@ -1210,6 +1210,28 @@ Your program should read the height and the number of leaflets of a given tree (
     free(arrayinputInGrams[10]);
     free(Secondarray[5]);
 
+
+
+
+     puts( " Explore details of the for loop" );
+
+
+         int i;
+    // i++ is short for i = i+1
+    for (i = 2; i<=5; i = i+2) {
+        printf("i has the value %d.\n", i);
+    }
+
+
+
+
+
+
+
+
+
+
+
     return 0;
 
     system("pause>null");
