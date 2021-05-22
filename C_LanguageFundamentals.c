@@ -1187,7 +1187,7 @@ Your program should read the height and the number of leaflets of a given tree (
 
     for ( int i = 0; i< 10 ; i++)
     {
-        /// puts( "Enter number as input (in grams):   " );
+        puts( "Enter number as input (in grams):   " );
         scanf("%d", &inputInGrams);
 
         arrayinputInGrams[CellNumber] = inputInGrams ;
@@ -1196,7 +1196,7 @@ Your program should read the height and the number of leaflets of a given tree (
 
     }
 
-    ///puts( "Enter an integer which represents an ingredient's ID number (between 0 and 9):   " );
+    puts( "Enter an integer which represents an ingredient's ID number (between 0 and 9):   " );
 
     scanf("%d", &IDnumber);
     printf("\n%d\n", arrayinputInGrams[IDnumber]);
@@ -1213,25 +1213,407 @@ Your program should read the height and the number of leaflets of a given tree (
 
 
 
-     puts( " Explore details of the for loop" );
+    puts( " Explore details of the for loop" );
 
 
-         int i;
-    // i++ is short for i = i+1
-    for (i = 2; i<=5; i = i+2) {
+    /// int i;
+
+    for (i = 0; i<3; i = i+1)
+    {
         printf("i has the value %d.\n", i);
+    }
+
+
+
+    /// watch the execution of for loop step by step .
+
+
+    // i++ is short for i = i+1
+
+    for (i = 2; i<=5; i = i+2)
+
+        /// i is initialized inside for loop once only.
+
+        /// i is initialized inside for loop once only.
+
+        /// middle condition is checked, we enter the loop, then action in { } takes place, then i is incremented.
+
+        /// when condition is false, we exit the loop.
+
+    {
+        printf("i has the value %d.\n", i);
+
+    }
+
+
+    for (i = 3; i>0; i = i-1)
+    {
+        printf("i has the value %d.\n", i);
+    }
+
+
+
+    puts(" // while loop is a modified and simple for loop ");
+
+    /// while loop is a modified and simple for loop
+    while ( i<3 )
+    {
+        printf("i has the value %d.\n", i);
+        i += 1;   ///i = i+1 = i += 1;;
+    }
+
+
+    puts( " Store doubles in an array " );
+
+    puts( " Store doubles in an array " );
+
+
+    double Array[3];
+    double ReadValue = 0.0;
+    CellNumber = 0;
+    /// int i = 0;
+    for(i=0; i<3; i++)
+    {
+        printf("Enter a decimal value:");
+        scanf("%lf",&ReadValue);
+        Array[cellNumber] = ReadValue;
+        printf("Cell number %d contains %.3lf\n", CellNumber, Array[CellNumber]);  /// 3 digit precision after decimal place.
+        CellNumber = CellNumber + 1;
+    }
+
+
+    puts( " Activity: use an array to balance weights " );
+
+    puts( " Activity: use an array to balance weights (External resource) " );
+
+
+    puts( " You are responsible for a rail convoy of goods consisting of several boxcars.  \n\
+         You start the train and after a few minutes you realize that some boxcars are overloaded \n\
+         and weigh too heavily on the rails while others are dangerously light. So you decide to stop  \n\
+         the train and spread the weight more evenly so that all the boxcars have exactly the same weight  \n\
+         (without changing the total weight). For that you write a program which helps you in the distribution of the weight. \n\
+         Your program should first read the number of cars to be weighed (integer) followed by the weights of the cars (doubles). \n\
+         Then your program should calculate and display how much weight to add or subtract from each car such that every car has  \n\
+         the same weight. The total weight of all of the cars should not change. These additions and subtractions of weights should   \n\
+         be displayed with one decimal place. You may assume that there are no more than 50 boxcars. \n\
+        Example 1 \n\
+In this example, there are 5 boxcars with different weights summing to 110.0. \n\
+The output shows that we are modifying all the boxcars so that they each carry a weight of 22.0  \n\
+(which makes a total of 110.0 for the entire train). So we remove 18.0 for the first boxcar, \n\
+ we add 10.0 for the second, we add 2.0 for the third, etc. \n\
+Input 5 40.0 12.0 20.0 5.0 33.0 Output -18.0 10.0 2.0 17.0 -11.0  \n\
+This task offers 2 hints :  Hint 1 : Sometimes it is necessary to set a variable to 0 before using it in a loop.  \n\
+Hint 2 : Use an array to store the boxcar weights. To do so, you can simply declare an array of 50 doubles   \n\
+since you are told that there are no more than 50 boxcars.   \n\  " );
+
+
+
+
+    int NumberOfCars = 0;
+    ///  int i = 0 ;
+
+    int CarNumber = 0;
+
+    double WeightOfCar =0;
+
+    double WeightOfCars[50] ;
+
+    double SumOfCarWeights = 0.0;
+
+    SumOfCarWeights = WeightOfCar;
+
+    double AverageCarWeight = 0.0 ;
+
+
+    puts(" \n Please enter an integer number for number of cars: ");
+
+    scanf("%d", &NumberOfCars);
+
+    for ( i = 0 ; i < NumberOfCars ; i++ )
+    {
+
+        puts(" \n Please enter weight of car: ");
+
+        scanf("%lf", &WeightOfCar);
+
+        WeightOfCars[CarNumber] = WeightOfCar;
+        SumOfCarWeights = SumOfCarWeights + WeightOfCar;
+
+        CarNumber++;
+
+    }
+
+    printf(" Sum of weight %.3lf\n", SumOfCarWeights);
+
+    AverageCarWeight = SumOfCarWeights/NumberOfCars;
+
+    printf(" Average weight %.3lf\n", AverageCarWeight);
+
+//    printf("%.3lf\n", WeightOfCars[0]);
+//
+//    printf("%.3lf\n", WeightOfCars[1]);
+//
+//    printf("%.3lf\n", WeightOfCars[2]);
+
+
+    CarNumber = 0;
+
+    double ChangeWeightOfCar;
+
+    for ( i = 0 ; i < NumberOfCars ; i++ )
+    {
+
+        ChangeWeightOfCar =  AverageCarWeight - WeightOfCars[CarNumber] ;
+
+        printf("%.1lf\n", ChangeWeightOfCar);
+
+        /// SumOfCarWeights = SumOfCarWeights + WeightOfCar;
+
+        CarNumber++;
+
+    }
+
+
+    puts( " Find the largest array element" );
+
+    puts( " Find the largest array element in this case age, and show the difference " );
+
+    puts( " Compute with arrays" );
+
+
+    int ages[10];
+    /// int i;
+    int ageMax = 0; /// Initialize the biggest element to 0
+    for (i=0; i<10; i++)
+    {
+
+        printf(" Please enter age of Number %d person,  maximum 10 person :\n", i+1);
+        scanf("%d", &ages[i]);
+        if (ages[i] > ageMax)
+        {
+            ageMax = ages[i];
+        }
+    }
+    printf("The maximum age is %d.\n", ageMax);
+    printf("Age differences with the eldest person:\n");
+    for(i=0; i<10; i++)
+    {
+        printf("%d:%d ", ages[i],ageMax-ages[i]);
+    }
+
+
+
+    puts( " Compute with arrays" );
+    puts( " Find the smallest array element" );
+
+    puts( " Find the smallest array element in this case youngest age, and show the difference " );
+
+
+    int Smallages[10];
+    //int i;
+    int ageMin;
+    ageMin = Smallages[0];  /// Initialize the smallest element to the first element.
+    for (i=0; i<10; i++)
+    {
+
+        printf(" Please enter age of Number %d person,  maximum 10 person :\n", i+1);
+        scanf("%d", &Smallages[i]);
+
+        if (Smallages[i] < ageMin)
+        {
+            ageMin = Smallages[i];
+        }
+    }
+    printf("The minimum age is %d.\n", ageMin);
+    printf("Age differences with the youngest person:\n");
+    for(i=0; i<10; i++)
+    {
+        printf("%d:%d ", ages[i],ages[i] - ageMin);
     }
 
 
 
 
 
+    puts( " Compute with arrays" );
+    puts( " Activity: array computation" );
+
+    puts( " Activity: array computation (External resource)" );
+
+    puts( "  You plan to make a delicious meal and want to take the money you need to buy the ingredients. \n \
+        Fortunately you know in advance the price per pound of each ingredient as well as the exact amount you need. \n \
+        The program should read in the number of ingredients (up to a maximum of 10 ingredients), \n \
+        then for each ingredient the price per pound. Finally your program should read the weight necessary for the recipe \n \
+        (for each ingredient in the same order). Your program should calculate the total cost of these purchases, \n \
+        then display it with 6 decimal places. \n \
+          Example : \n \
+          There are 4 ingredients and they all have a different price per pound: 9.90, 5.50, 12.0, and 15.0. \n \
+          You must take 0.25 lbs of the first, 1.5 lbs of the second, 0.3 lbs of the third and 1 lb of the fourth. \n \
+          It will cost exactly $29.325000." );
+
+
+    int NumberOfIngredients = 0;
+
+    int ItemNumberSerial = 0 ;
+
+    double arrayPricePerPound[10];
+    double PricePerPound = 0 ;
+
+    double arrayWeightPerItem[10];
+    double WeightPerItem = 0 ;
+
+    double Cost = 0 ;
+    double TotalCost = 0 ;
+
+    puts(" \n Please enter an integer number for number of  ingredients (up to a maximum of 10 ingredients): ");
+
+    scanf("%d", &NumberOfIngredients);
+
+    if (NumberOfIngredients > 10)
+    {
+        puts ("You have more than 10 items " ) ;
+        return 1;
+    }
+
+
+
+    for ( int i = 0 ; i < NumberOfIngredients ; i++ )
+    {
+
+        puts(" \n Please enter different price per pound of items: ");
+
+        scanf("%lf", &PricePerPound );
+
+        arrayPricePerPound[ItemNumberSerial] = PricePerPound;
+
+        ItemNumberSerial++;
+
+    }
+
+
+    ItemNumberSerial = 0;
+
+    for ( int i = 0 ; i < NumberOfIngredients ; i++ )
+    {
+
+        puts(" \n Please enter weights of ingredient (for each ingredient in the same order): ");
+
+        scanf("%lf", &WeightPerItem  );
+
+        arrayWeightPerItem [ItemNumberSerial] = WeightPerItem  ;
+
+        Cost = arrayWeightPerItem [ItemNumberSerial] * arrayPricePerPound[ItemNumberSerial];
+
+        TotalCost = TotalCost + Cost ;
+
+        ItemNumberSerial++;
+
+    }
+
+
+    printf("Total Cost: %.6lf\n", TotalCost);
+
+
+
+        puts( " Nest if and for " );
+
+    puts( " Nest if and for " );
+
+
+    int target;
+    int i;
+    printf("Please enter a target number: ");
+    scanf("%d", &target);
+    if (target >= 0)
+    {
+        for (i=0; i<target; i++)  /// for (i=1; i<target; i+2) without the nested if statement
+        {
+            if (i%2) /// or  if (i%2 == 1)
+            {
+                printf("\n%d", i);
+            }
+        }
+    }
+    else
+    {
+        printf("Nothing to do!\n");
+    }
+
+
+
+    puts( "\n Activity: branch inside a loop, how many big cities?" );
+
+    puts( "\n Activity: branch inside a loop, how many big cities? (External resource) " );
+
+    puts( "\n You want to determine the number of cities in a given region that have a population \n \
+          strictly greater than 10,000. To do this, you write a program that first reads the number \n \
+         of cities in a region as an integer, and then the populations for each city one by one (also integers). \n \
+         Example, Input 6 1000 5000 15000 4780 0 23590 Output 2 , This task offers 1 hint : Hint 1 : \n \
+          Try using an if-statement inside of a for-loop." );
+
+
+
+    int NumberOfCities = 0;
+
+    int PopulationsOfCity = 0;
+
+    int BigCity = 0;
+
+    puts( " Enter the number of cities in a region as an integer:  " );
+    scanf("%d", &NumberOfCities );
+
+    for (i = 0 ; i < NumberOfCities; i++ )
+    {
+        puts( " Enter the populations for each city one by one (also integers):  " );
+        scanf("%d", &PopulationsOfCity);
+
+        if (PopulationsOfCity > 10000)
+        {
+            BigCity++;
+        }
+    }
+
+    printf( "Number of Big city inn the region is %d", BigCity );
+
+
+
+    puts( " Take user input for number of dice throwers and numbers of dice, then show output \n \
+              for Sum of dice values for each thrower" );
+
+
+    puts( " \n \ input is \n \
+                   5 4 \n \
+                1 4 2 3 \n \
+                3 2 6 4 \n \
+                2 4 1 4 \n \
+                2 2 1 4 \n \
+                3 6 1 2 \n \ " );
+
+        int nbThrows = 0;
+    int nbDice = 0;
+    int diceValue = 0;
+    int throwSum = 0;
+    int throw = 0;
+    int dice = 0;
+    puts( " Enter values for number of throwers and number of dices" );
+    scanf("%d%d", &nbThrows, &nbDice);
+    for(throw = 0; throw<nbThrows; throw++)
+    {
+        puts( " Enter values for dices" );
+        for(dice = 0; dice<nbDice; dice++)
+        {
+
+            scanf("%d", &diceValue);
+            throwSum = throwSum + diceValue;
+        }
+        printf("throw %d sum equals %d\n", throw, throwSum);
+        throwSum = 0;
+    }
 
 
 
 
-
-
+    printf("Time taken: %.5fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
     return 0;
 
     system("pause>null");
