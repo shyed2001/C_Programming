@@ -11,82 +11,62 @@ int main(void)
     clock_t tStart = clock();
 
 
+    puts ("  While-loops are perfect for when you want to execute an undetermined number of iterations. ");
+
+    puts ("  Activity: compute budget using a while loop (External resource) ");
+
+    puts ("  Much of the work of a university administration (in addition to managing \n \
+           teachers, researchers, students, courses, etc.) is to ensure the proper \n \
+          functioning of the university and in particular that the accounting job is well done. \n \
+           Once a year, an annual report of expenditures must be made. \n \
+           All expenses for the year have been recorded and classified in a multitude of \n \
+           files and the sum of all these expenses must now be calculated. \n \
+           But no one knows exactly how many different expenses have been made in the past year! \n \
+           Your program will have to read a sequence of positive integers and display their sum. \n \
+            We do not know how many integers there will be, but the sequence always ends with the value -1 \n \
+            (which is not an expense, just an end marker). Example 1 Input 1000 2000 500 -1 Output 3500 \n \
+           Example 2 Input -1  Output 0 Example 3 Input 150 250 350 4500 240 120 -1 Output 5610");
 
 
 
-        puts( " Activity: print a square of stars using nested loops" );
+    double ExpenValue = 0 ;
+
+    double ExpenSum = 0 ;
+
+     while ( ExpenValue != -1)
+     {
+         puts("Please enter values of expenses and end with -1 as escape character");
+         scanf("%lf", &ExpenValue );
+
+         ExpenSum = ExpenSum + ExpenValue;
+
+     }
+
+     printf("%.0lf", ExpenSum+1);
 
 
-        puts( " Activity: print a square of stars using nested loops (External resource)" );
+     /*
 
+     The above code can also be executed by the following code
+     #include <stdio.h>
 
-         puts( " Create a program that displays on the screen a square of n x n stars, with the integer n given as an input." );
-
-
-     int nbStars = 0;
-    int width = 0;
-    int height = 0;
-    puts( " Enter a values for number of stars in height and width" );
-    scanf("%d", &nbStars );
-    for(width = 0; width <nbStars ; width++)
+int main()
+{
+    int expense;
+    scanf("%d",&expense);
+    int sumOfExpenses = 0;
+    while (expense != -1)
     {
-        for(height  = 0; height  <nbStars ; height ++)
-        {
-
-        printf("*");
-
-        }
-        printf("\n");
-
+        sumOfExpenses = sumOfExpenses + expense;
+        scanf("%d",&expense);
     }
-        puts( " Repeat instructions using a while loop - introduction" );
+    printf("%d\n",sumOfExpenses);
 
-        puts( " Repeat instructions using a while loop - introduction" );
-
-
-        puts( " while loop is used when the range of loop can not be known in advance. " );
+    return 0;
+}
 
 
-         puts( " program to read value of integers until the integer value is 6" );
-
-    int nbThrows = 0; /// Start counting at Zero at first throw, have to modify and add one to output
-    int diceValue;
-    puts("Please enter value of 6 to get out of this while loop");
-    scanf("%d", &diceValue);
-    /// notSix = diceValue != 6;
-    while (diceValue != 6) {
-        scanf("%d", &diceValue);
-        /// notSix = diceValue != 6;
-        nbThrows = nbThrows + 1;
-    }
-      printf("We needed %d number of throws to get the value 6\n", nbThrows+1); /// nbThrows+1 needed.
-
-    /// below code will show same results
-    int notSix;
-    puts("Please enter value of 6 to get out of this while loop");
-    scanf("%d", &diceValue);
-    notSix = diceValue != 6;
-    nbThrows = 1; /// Start counting at one at first throw
-    while (notSix)
-    {
-        scanf("%d", &diceValue);
-        notSix = diceValue != 6;
-        nbThrows = nbThrows + 1;
-    }
-
-     printf("We needed %d number of throws to get the value 6\n", nbThrows);
-
-
-
-
-
-
-
-
-
-
-
-
+     */
 
 
 

@@ -1612,6 +1612,75 @@ since you are told that there are no more than 50 boxcars.   \n\  " );
 
 
 
+        puts( " Activity: print a square of stars using nested loops" );
+
+
+    puts( " Activity: print a square of stars using nested loops (External resource)" );
+
+
+    puts( " Create a program that displays on the screen a square of n x n stars, with the integer n given as an input." );
+
+
+    int nbStars = 0;
+    int width = 0;
+    int height = 0;
+    puts( " Enter a values for number of stars in height and width" );
+    scanf("%d", &nbStars );
+    for(width = 0; width <nbStars ; width++)
+    {
+        for(height  = 0; height  <nbStars ; height ++)
+        {
+
+            printf("*");
+
+        }
+        printf("\n");
+
+    }
+    puts( " Repeat instructions using a while loop - introduction" );
+
+    puts( " Repeat instructions using a while loop - introduction" );
+
+
+    puts( " while loop is used when the range of loop can not be known in advance. " );
+
+
+    puts( " program to read value of integers until the integer value is 6" );
+
+    int nbThrows = 0; /// Start counting at Zero at first throw, have to modify and add one to output
+    int diceValue;
+    puts("Please enter value of 6 to get out of this while loop");
+    scanf("%d", &diceValue);
+    /// notSix = diceValue != 6;
+    while (diceValue != 6)
+    {
+        scanf("%d", &diceValue);
+        /// notSix = diceValue != 6;
+        nbThrows = nbThrows + 1;
+    }
+    printf("We needed %d number of throws to get the value 6\n", nbThrows+1); /// nbThrows+1 needed.
+
+    /// below code will show same results
+    int notSix;
+    puts("Please enter value of 6 to get out of this while loop");
+    scanf("%d", &diceValue);
+    notSix = diceValue != 6;
+    nbThrows = 1; /// Start counting at one at first throw
+    while (notSix)
+    {
+        scanf("%d", &diceValue);
+        notSix = diceValue != 6;
+        nbThrows = nbThrows + 1;
+    }
+
+    printf("We needed %d number of throws to get the value 6\n", nbThrows);
+
+
+
+
+
+
+
 
     printf("Time taken: %.5fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
     return 0;
