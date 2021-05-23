@@ -47,24 +47,34 @@ int main(void)
         puts( " while loop is used when the range of loop can not be known in advance. " );
 
 
+         puts( " program to read value of integers until the integer value is 6" );
+
+    int nbThrows = 0; /// Start counting at Zero at first throw, have to modify and add one to output
     int diceValue;
-    int notSix;
+    puts("Please enter value of 6 to get out of this while loop");
     scanf("%d", &diceValue);
     /// notSix = diceValue != 6;
     while (diceValue != 6) {
         scanf("%d", &diceValue);
         /// notSix = diceValue != 6;
+        nbThrows = nbThrows + 1;
     }
+      printf("We needed %d number of throws to get the value 6\n", nbThrows+1); /// nbThrows+1 needed.
 
-
-    /// below code will result
+    /// below code will show same results
+    int notSix;
+    puts("Please enter value of 6 to get out of this while loop");
     scanf("%d", &diceValue);
     notSix = diceValue != 6;
-    while (notSix) {
+    nbThrows = 1; /// Start counting at one at first throw
+    while (notSix)
+    {
         scanf("%d", &diceValue);
         notSix = diceValue != 6;
+        nbThrows = nbThrows + 1;
     }
 
+     printf("We needed %d number of throws to get the value 6\n", nbThrows);
 
 
 
