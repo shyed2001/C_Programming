@@ -33,83 +33,179 @@ int main(void)
 
     double ExpenSum = 0 ;
 
-     while ( ExpenValue != -1)
-     {
-         puts("Please enter values of expenses and end with -1 as escape character");
-         scanf("%lf", &ExpenValue );
+    puts("Please enter values of expenses and end with -1 as escape character");
 
-         ExpenSum = ExpenSum + ExpenValue;
-
-     }
-
-     printf("%.0lf", ExpenSum+1);
-
-
-     /*
-
-     The above code can also be executed by the following code
-     #include <stdio.h>
-
-int main()
-{
-    int expense;
-    scanf("%d",&expense);
-    int sumOfExpenses = 0;
-    while (expense != -1)
+    while ( ExpenValue != -1)
     {
-        sumOfExpenses = sumOfExpenses + expense;
-        scanf("%d",&expense);
+
+        scanf("%lf", &ExpenValue );
+
+        ExpenSum = ExpenSum + ExpenValue;
+
     }
-    printf("%d\n",sumOfExpenses);
 
-    return 0;
-}
+    printf("%.0lf \n", ExpenSum+1);
 
 
-     */
+    puts( " Write a program to determine - How many days are needed to get Required number of (from user input) signatures. \n \
+         Initially there are n signatures (from user input), Each day every one with a new signature is required to get two other \n \
+         signatures in the next day " );
 
 
+    int signaturesNeeded = 0;
 
+    int day = 0;
 
+    int newSignatures = 0;
 
-    /*
+    int totalSignatures = 0;
 
-    IF-ELSE statement shortcut in C
+    puts( " Please enter the number of Required signatures " );
 
-    C has the following syntax for a shorthand IF-ELSE statement
+    scanf(" %d", &signaturesNeeded  );
 
-    (integer == 5) ? (TRUE) : (FALSE);
-    I often find myself requiring only one portion (TRUE or FALSE) of the statement and use this
+    puts( " Please enter the number of Initial signatures.  " );
 
-    (integer == 5) ? (TRUE) : (0);
-    I was just wondering if there was a way to not include the ELSE portion of the statement using this shorthand notation?
+    scanf(" %d", &newSignatures  );
 
-    The operator ?: must return a value. If you didn't have the "else" part, what would it return when the boolean
-    expression is false? A sensible default in some other languages may be null, but probably not for C. If you just
-    need to do the "if" and you don't need it to return a value, then typing if is a lot easier.
-    Question is whether we can somehow write the following expression without both then and else parts
+    totalSignatures =  newSignatures ;
 
-    (integer == 5) ? (THENEXPR) : (ELSEEXPR);
-    If you only need the then part you can use &&:
-
-    (integer == 5) && (THENEXPR)
-    If you only need the else part use ||:
-
-    (integer == 5) || (ELSEEXPR)
-
-       */
-
-
-    printf(" \n Time taken: %.5f s\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
+    while (totalSignatures < signaturesNeeded)
+    {
+        day++;
+        newSignatures = 2*newSignatures;
+        printf("Day %d: %d new signatures! ", day, newSignatures);
+        totalSignatures = totalSignatures + newSignatures;
+        printf("Total: %d\n", totalSignatures);
+    }
 
 
 
+    puts( " Activity: controlling an epidemic " );
 
-    return 0;
-    system("pause>null");
+    puts( " Activity: controlling an epidemic (External resource) " );
 
-    /// system() is a library function that makes calls to OS commands/programs. system("pause") calls the "pause"
-    /// command in DOS/Windows. Run the pause command in a command shell to see what it does.
-    /// will cause the black dos window (where you see your output) to be paused untill you press any key.
-    printf("Time taken: %.5fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
+
+
+    puts(" In order to be able to better fight various epidemics in a region, the department of medicine of a major university \n \
+          has launched a large study. Researchers are interested in how fast an epidemic spreads, and therefore the speed at which  \n \
+           health measures must be put in place. Your program should first read an integer representing the total population of the area. \n \
+            Knowing that a person was infected on day 1 and that each infected person contaminates two new people every day, \n \
+            you must calculate the day at which the entire population of the area will be infected.    \n \
+            Examples : For a total population of 3 inhabitants, on day 1 a single person is infected. The next day, \n \
+            that person contaminates 2 new people so there are 3 infected people in total. This is the entire population, \n \
+            so it takes 2 days to contaminate the entire population. \n \
+            Input: 3 Output: 2 \n \
+            For a total population of 10 inhabitants, on day 1 a single person is infected. \n \
+             This is followed by 2 new people on the second day for a total of 3 infected people. \n \
+             On the third day,  6 new people are infected for a total of 9 infected people. \n \
+             On the fourth day the last of the 10 people is infected (though the epedemic had the potential to \n \
+            infect 18 people on the fourth day) so your program should output '4'.   Input: 10 Output: 4   \n \  " );
+
+   int CityPopulation = 0;
+
+    int Day = 1;  /// initial contamination.
+
+    int newInfections = 1;
+
+    int totalInfections = 1;
+
+    scanf(" %d", &CityPopulation  );
+
+    // totalInfections =  newInfections ;
+
+    while (totalInfections < CityPopulation )
+
+    {
+
+        newInfections = 2*totalInfections ;
+        /// Be careful that each day, all infected people contaminate two more people, not only the newly infected ones.
+
+        totalInfections = totalInfections + newInfections;
+    /// Each day, all infected people contaminate two other ones, not only the newly infected ones.
+        Day++;
+
+    }
+
+
+        printf("%d", Day);
+
+
+
+
+
+
+
+
+
+
+
+
+         /*
+
+         The above code can also be executed by the following code
+         #include <stdio.h>
+
+         int main()
+         {
+         int expense;
+         scanf("%d",&expense);
+         int sumOfExpenses = 0;
+         while (expense != -1)
+         {
+            sumOfExpenses = sumOfExpenses + expense;
+            scanf("%d",&expense);
+         }
+         printf("%d\n",sumOfExpenses);
+
+         return 0;
+         }
+
+
+         */
+
+
+
+
+
+         /*
+
+         IF-ELSE statement shortcut in C
+
+         C has the following syntax for a shorthand IF-ELSE statement
+
+         (integer == 5) ? (TRUE) : (FALSE);
+         I often find myself requiring only one portion (TRUE or FALSE) of the statement and use this
+
+         (integer == 5) ? (TRUE) : (0);
+         I was just wondering if there was a way to not include the ELSE portion of the statement using this shorthand notation?
+
+         The operator ?: must return a value. If you didn't have the "else" part, what would it return when the boolean
+         expression is false? A sensible default in some other languages may be null, but probably not for C. If you just
+         need to do the "if" and you don't need it to return a value, then typing if is a lot easier.
+         Question is whether we can somehow write the following expression without both then and else parts
+
+         (integer == 5) ? (THENEXPR) : (ELSEEXPR);
+         If you only need the then part you can use &&:
+
+         (integer == 5) && (THENEXPR)
+         If you only need the else part use ||:
+
+         (integer == 5) || (ELSEEXPR)
+
+            */
+
+
+         printf(" \n Time taken: %.5f s\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
+
+
+
+
+         return 0;
+         system("pause>null");
+
+         /// system() is a library function that makes calls to OS commands/programs. system("pause") calls the "pause"
+         /// command in DOS/Windows. Run the pause command in a command shell to see what it does.
+         /// will cause the black dos window (where you see your output) to be paused untill you press any key.
+         printf("Time taken: %.5fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
 }
