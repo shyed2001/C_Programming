@@ -102,6 +102,51 @@ scanf("%[^\n]%*c", sen);
 printf("%s",sen);
 
 
+
+
+
+        puts( " " );
+
+    puts( " " );
+
+    puts( " Please input two word of less than 6 letters/characters" );
+
+    char word1[7];
+    char word2[7];
+    scanf("%s %s", word1, word2);
+
+    printf(" You entered %s %s\n", word1, word2);
+
+
+
+
+        puts( " " );
+
+    puts( " " );
+
+    puts( " Replacing word1[3] = '\0';  word2[2] = '\0';" );
+
+
+    puts( " Please input two word of less than 6 letters/characters" );
+
+    word1[7];
+    word2[7];
+    scanf("%s %s", word1, word2);
+
+    printf(" You entered %s %s\n", word1, word2);
+
+    puts( " Replacing word1[3] = '\0';  word2[2] = '\0';" );
+    word1[3] = '\0';
+    word2[2] = '\0';
+    printf(" You entered %s %s\n", word1, word2);
+
+
+
+
+
+
+
+
     printf(" \n Time taken: %.5f s\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
 
 
