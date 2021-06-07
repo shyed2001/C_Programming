@@ -8,6 +8,7 @@
 
 #define RUNS 1000UL
 
+#define maxCount 500
 
 int main(void)
 {
@@ -1376,9 +1377,9 @@ since you are told that there are no more than 50 boxcars.   \n\  " );
 
     puts( " Find the largest array element" );
 
-    puts( " Find the largest array element in this case age, and show the difference " );
+    puts( " Find the largest / biggest array element in this case age, and show the difference " );
 
-    puts( " Compute with arrays" );
+    puts( " Compute with arrays, compare smaller  or bigger" );
 
 
     int ages[10];
@@ -1403,9 +1404,10 @@ since you are told that there are no more than 50 boxcars.   \n\  " );
 
 
 
+    puts( " Compute with arrays, compare smaller  or bigger" );
     puts( " Compute with arrays" );
     puts( " Find the smallest array element" );
-
+    puts( " Compute with arrays, compare smaller  or bigger" );
     puts( " Find the smallest array element in this case youngest age, and show the difference " );
 
 
@@ -1515,13 +1517,13 @@ since you are told that there are no more than 50 boxcars.   \n\  " );
 
 
 
-        puts( " Nest if and for " );
+    puts( " Nest if and for " );
 
     puts( " Nest if and for " );
 
 
     int target;
-    int i;
+    i = 0;
     printf("Please enter a target number: ");
     scanf("%d", &target);
     if (target >= 0)
@@ -1589,7 +1591,7 @@ since you are told that there are no more than 50 boxcars.   \n\  " );
                 2 2 1 4 \n \
                 3 6 1 2 \n \ " );
 
-        int nbThrows = 0;
+    int nbThrows = 0;
     int nbDice = 0;
     int diceValue = 0;
     int throwSum = 0;
@@ -1612,7 +1614,7 @@ since you are told that there are no more than 50 boxcars.   \n\  " );
 
 
 
-        puts( " Activity: print a square of stars using nested loops" );
+    puts( " Activity: print a square of stars using nested loops" );
 
 
     puts( " Activity: print a square of stars using nested loops (External resource)" );
@@ -1647,8 +1649,8 @@ since you are told that there are no more than 50 boxcars.   \n\  " );
 
     puts( " program to read value of integers until the integer value is 6" );
 
-    int nbThrows = 0; /// Start counting at Zero at first throw, have to modify and add one to output
-    int diceValue;
+    nbThrows = 0; /// Start counting at Zero at first throw, have to modify and add one to output
+    diceValue = 0;
     puts("Please enter value of 6 to get out of this while loop");
     scanf("%d", &diceValue);
     /// notSix = diceValue != 6;
@@ -1768,7 +1770,7 @@ since you are told that there are no more than 50 boxcars.   \n\  " );
              On the fourth day the last of the 10 people is infected (though the epedemic had the potential to \n \
             infect 18 people on the fourth day) so your program should output '4'.   Input: 10 Output: 4   \n \  " );
 
-   int CityPopulation = 0;
+    int CityPopulation = 0;
 
     int Day = 1;  /// initial contamination.
 
@@ -1788,17 +1790,17 @@ since you are told that there are no more than 50 boxcars.   \n\  " );
         /// Be careful that each day, all infected people contaminate two more people, not only the newly infected ones.
 
         totalInfections = totalInfections + newInfections;
-    /// Each day, all infected people contaminate two other ones, not only the newly infected ones.
+        /// Each day, all infected people contaminate two other ones, not only the newly infected ones.
         Day++;
 
     }
 
 
-        printf("%d", Day);
+    printf("%d", Day);
 
 
 
-            //! showArray(word, cursors[i])
+    //! showArray(word, cursors[i])
 
     char word[51]; //arrray of characters (string)
 
@@ -1950,7 +1952,7 @@ since you are told that there are no more than 50 boxcars.   \n\  " );
 
     puts( " PLease enter an integer , for number of names to be entererd " );
 
-    scannf ( "%d", &NumOfContributorNames);
+    scanf ( "%d", &NumOfContributorNames);
 
 
     for ( i = 0; i < NumOfContributorNames; i++ )
@@ -1958,7 +1960,7 @@ since you are told that there are no more than 50 boxcars.   \n\  " );
     {
         puts( " Please enter a name " );
 
-        scannf ( "%s %s", FirstContributorName, LastContributorName );
+        scanf ( "%s %s", FirstContributorName, LastContributorName );
 
         printf("%s %s",LastContributorName, FirstContributorName);
 
@@ -1972,13 +1974,344 @@ since you are told that there are no more than 50 boxcars.   \n\  " );
 
     puts( " Find the length of a string" );
 
-    char word[30];
-    int i = 0;
+    char wordinput[30];
+    i = 0;
     printf("Please enter a word: ");
-    scanf("%s", word);
-    while (word[i]!='\0')
+    scanf("%s", wordinput);
+    while (wordinput[i]!='\0')
         i++;
-    printf("%s has word length %d.\n", word, i);
+    printf("%s has word length %d.\n", wordinput, i);
+
+
+
+
+    puts( " Activity: guess my number " );
+
+    puts( " Activity: guess my number (External resource) " );
+
+
+
+    puts( " We would like you to develop a program capable of making a child play automatically the game of \n \
+            \"more or less\" -- the child must try to guess a secret number. The program should respond to each guess with \n \
+            \"it is more\ or \"it is less\" until the child finds the right number. \n \
+           Your program must first read an integer indicating the number that the child will have to find during the game.  \n \
+          Next the program should repeatedly read the player's guesses and display the text \"it is more\" if the child has submitted a smaller  \n \
+           number or \"it is less\" if they have submitted a larger number. Once the correct number is reached, the program should print \n \
+           \"Number of tries needed:\" followed by a new line and the integer number of tries that it took the guesser. \n \
+           Example 1 Input 5  \n \
+           1 2 3 4 5 \n \
+          it is more it is more it is more it is more Number of tries needed: 5 \n \
+          Example 2 Input 10 \n \
+          5 15 8 12 11 10 \n \
+          it is more it is less it is more it is less it is less Number of tries needed: 6 \n \ " );
+
+
+
+    int rRandom = 0 ;
+    puts( " please enter a secret number between 1 to 99  to find via guess " );
+    scanf("%d", &rRandom);
+
+    int UserGuess = 0 ;
+
+    int NumTriesGuess = 1;
+
+    puts( " please enter a secret number between 1 to 99 as a guess " );
+    scanf("%d", &UserGuess);
+    while ( UserGuess != rRandom )
+    {
+
+        NumTriesGuess++;
+        if( UserGuess < rRandom )
+        {
+            puts( "it is more" );
+        }
+
+        else
+        {
+            puts( "it is less" );
+        }
+
+        puts( " please enter a secret number between 1 to 99 as a guess " );
+        scanf("%d", &UserGuess);
+    }
+
+    printf(" Number of tries needed:\n %d", NumTriesGuess);
+
+
+    puts( " " );
+
+    puts( " " );
+
+    puts( " " );
+
+    puts( " " );
+
+    /* random int between 0 and 19
+    int r = rand() % 20;
+
+    */
+
+    srand(time(NULL));   // Initialization, should only be called once.
+    /// int r = rand();      // Returns a pseudo-random integer between 0 and RAND_MAX.
+    /* random int between 0 and 99 */
+
+    rRandom = rand() % 99;
+
+    // int rRandom = 9 ;
+
+    UserGuess = 0 ;
+
+
+    NumTriesGuess = 1;
+
+    /// printf(" The secret Number was: %d", rRandom);
+
+    puts( " please enter a number between 0 to 99 as a guess " );
+    scanf("%d", &UserGuess);
+    while ( UserGuess != rRandom )
+    {
+
+        NumTriesGuess++;
+        if( UserGuess < rRandom )
+        {
+            puts( "it is more" );
+        }
+
+        else
+        {
+            puts( "it is less" );
+        }
+
+        scanf("%d", &UserGuess);
+    }
+
+    printf(" Number of tries needed: %d", NumTriesGuess);
+    puts( " " );
+
+
+    printf(" The secret Number was: %d", rRandom);
+
+
+
+    puts( "Activity: monitoring a chemical experiment " );
+
+    puts( "Activity: monitoring a chemical experiment (External resource) " );
+
+    puts( "   \n \
+               University chemists have developed a new process for the manufacturing of a drug that heals wounds extremely quickly. \n \
+               The manufacturing process is very lengthy and requires monitoring the chemicals at all times, sometimes for hours! \n \
+               Entrusting this task to a student is not possible; students tend to fall asleep or not pay close attention after a while. \n \
+               Therefore you need to program an automatic device to monitor the manufacturing of the drug. \n \
+               The device measures the temperature every 15 seconds and provides these measurement to your program. \n \
+               Your program should first read two integers representing the minimum and maximum safe temperatures. \n \
+               Next, your program should continuously read temperatures (integers) that are being provided by the device. \n \
+               Once the chemical reaction is complete the device will send a value of -999, \n \
+               indicating to you that temperature readings are done. For each recorded temperature that is in the correct range \n \
+               (it could also be equal to the min or max values), your program should display the text \"Nothing to report\".  \n \
+               But as soon as a temperature reaches an unsafe level your program must display the text \"Alert!\" \n \
+                and stop reading temperatures (although the device may continue sending temperature values). \n \
+              Examples Input: 10 20 \n \
+              15 10 20 0 15 -999 \n \
+                Output: Nothing to report \n \  Nothing to report \n \ Nothing to report \n \   Alert! \n \
+                Input: 0 100 \n \
+                15 50 75 -999 \n \
+                Output: \n \  Nothing to report \n \  Nothing to report \n \   Nothing to report \n \   " );
+
+    puts( "This task offers 1 hint : Hint 1 : Use a while loop to continue reading temperatures until \n \
+                     the program reads -999 or an unsafe temperature. " );
+
+
+
+    int minimumSafeTemperatures = 0;
+
+    int maximumSafeTemperatures = 0;
+
+    int ReadTemp = 0 ;
+
+    puts( " Your should first input two integers representing the minimum and maximum safe temperatures. " );
+
+    scanf("%d", &minimumSafeTemperatures );
+
+    scanf("%d", &maximumSafeTemperatures );
+
+    while ( ReadTemp != -999)
+    {
+        puts( " Your should integers representing the temperatures, enter -999 to stop. " );
+
+        scanf("%d", &ReadTemp );
+
+        if( ReadTemp >= minimumSafeTemperatures && ReadTemp <= maximumSafeTemperatures )
+        {
+            puts( "Nothing to report" );
+        }
+
+        else if ( ReadTemp == -999)
+        {
+            /// puts( "End of Input" );
+
+            break;
+        }
+
+        else
+        {
+            puts( "Alert!" );
+
+            break;
+        }
+
+
+
+    }
+
+
+
+    puts( " Activity: even or odd number of letters in a word?" );
+
+    puts( " Activity: odd even length of string (External resource) " );
+
+
+
+    puts( " At the annual meeting of MOOC fans, participants register on the first day of the event in order to receive their name tags, \n \
+         brochures and banquet vouchers. Unfortunately this often results in long lines. In an attempt to speed things up, \n \
+          there are now two people working the registration desk: one person who has the registration materials \n \
+          for those fans whose names contain an odd number of letters, the other for those whose names have an even number of letters. \n \
+            Your job is to write a C-program that will tell a fan which line to stand in. \n \
+            To simplify the program, you may assume that student names are less than 50 characters long and contain no spaces. \n \
+         Your program should output an integer value (1 or 2) depending on whether the fan should join \n \
+         line 1 (name has even number of letters) or line 2 (name has odd number of letters). " );
+
+    puts( " Examples Input: Sharrock , Output: 1. Input: Bonfert, Output: 2 " );
+
+    puts( " Remember that strings are null terminated, so you can count characters until you reach the \0 character to find the string's length. " );
+
+    puts( " Activity: even or odd number of letters in a word?" );
+
+    puts( " Activity: odd even length of string (External resource) " );
+
+
+
+    char wordName[50]; /// Initialize the word
+    int iName = 0; /// Initialize the word length
+    printf("Please enter a Name: ");
+    scanf("%s", wordName);
+    while (wordName[iName]!='\0')
+        iName++;
+    printf("%s has word length %d.\n", wordName,iName);
+
+    if ( iName % 2 == 0)
+        puts( "1" );
+    else
+        puts( "2" );
+
+
+    puts( " " );
+
+    puts( " Find the frequencies of word lengths " );
+
+    puts( " First input number of words in the string, then input the String of several words \n \
+              in a sentence, Then Find the frequencies of word lengths " );
+
+
+    int i = 0;
+    int t = 0;
+    int l = 0;
+    int j = 0;
+    int nbWords = 0;
+    char word[11]; /// Maximum 10 characters.
+    int length[10];//length[5] number of 5-letter-long words in the text
+    for(i=0; i<10; i++) /// Put zero value in all length number frequency
+
+    {
+        length[i]=0;
+    }
+    scanf("%d", &nbWords);
+    for(t=0; t<nbWords; t++)
+    {
+        scanf("%s", word);
+        l = 0;   /// start counting l at 0 for each word length.
+        while(word[l]!='\0')
+        {
+            l++;
+        }
+        length[l] = length[l] + 1;  /// or  length[l]++
+        printf("%s %d ", word,l);
+    }
+    for(j=0; j<10; j++)
+    {
+        printf("There are %d words with %d letters.\n", length[j], j);
+    }
+
+
+
+
+
+    puts( " Activity: find the longest word in a text " );
+
+    puts( " Activity: find longest string length (External resource) " );
+
+
+
+
+    puts( " Your job is to find the length of the longest word in a text with no punctuation \n \
+           or special characters of any kind - only contains words. To do so, please write a C-program  \n \
+           that takes as a input first the number of words in a text, followed by all of the words in the text. \n \
+            The output of your program should be the length of the longest word in the text. \n \
+           To simplify your program, you can assume that the longest word will not exceed 100 characters.  \n \
+           \n \
+          Examples Input: 14 \n \
+          This is a simple example text \n \
+          we have to find the largest word length \n \
+          Output: 7 \n \
+          Input:  7 \n \
+          All cats are grey in the dark \n \
+          Output:   4 \n \
+         Remember that the last character in a C string is always a null terminator, \\0. \n \
+         This means you can count characters until you reach a \\0 to calculate a words length. \n \ " );
+
+
+
+
+
+
+    int WordLengthMax = 0 ;  /// Initialize the maximum word length.
+
+    int inputWordNumber = 0 ; /// takes as a input first the number of words in a text, followed by all of the words in the text.
+
+    char inputReadWords[101]; /// To simplify your program, you can assume that the longest word will not exceed 100 characters.
+
+    puts( "Enter an input first the number of words in a text," );
+    scanf("%d", &inputWordNumber ); /// takes as a input first the number of words in a text,
+
+    for ( int i = 0 ; i < inputWordNumber ; i++)
+    {
+        scanf("%s", inputReadWords );  /// takes as a input all of the words in the text.
+
+        printf("%s ",inputReadWords);
+
+        int WordLength = 0 ; // Initialize the word length.
+
+        while( inputReadWords[WordLength]!= '\0' )
+        {
+            WordLength++;
+        }
+
+        printf(" %d ",WordLength);
+
+
+        if (WordLength > WordLengthMax )
+        {
+            WordLengthMax = WordLength ;
+        }
+
+
+    }
+
+    printf(" Longest Word %d ",WordLengthMax);
+
+
+
+
+
 
 
 

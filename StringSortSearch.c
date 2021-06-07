@@ -19,84 +19,239 @@ int main(void)
 
     puts( " " );
 
-    puts( " " );
 
 
-    puts( " Activity: even or odd number of letters in a word?" );
+    puts( " Sort strings alphabetically " );
 
-    puts( " Activity: odd even length of string (External resource) " );
-
-
-
-    puts( " At the annual meeting of MOOC fans, participants register on the first day of the event in order to receive their name tags, \n \
-         brochures and banquet vouchers. Unfortunately this often results in long lines. In an attempt to speed things up, \n \
-          there are now two people working the registration desk: one person who has the registration materials \n \
-          for those fans whose names contain an odd number of letters, the other for those whose names have an even number of letters. \n \
-            Your job is to write a C-program that will tell a fan which line to stand in. \n \
-            To simplify the program, you may assume that student names are less than 50 characters long and contain no spaces. \n \
-         Your program should output an integer value (1 or 2) depending on whether the fan should join \n \
-         line 1 (name has even number of letters) or line 2 (name has odd number of letters). " );
-
-    puts( " Examples Input: Sharrock , Output: 1. Input: Bonfert, Output: 2 " );
-
-    puts( " Remember that strings are null terminated, so you can count characters until you reach the \0 character to find the string's length. " );
-
-    puts( " Activity: even or odd number of letters in a word?" );
-
-    puts( " Activity: odd even length of string (External resource) " );
+    puts( " Organize reorganize rearrange Sort strings words alphabetically " );
 
 
+    char word1[50];
+    char word2[50];
+    int i = 0;
 
-    char wordName[50];
-    int iName = 0;
-    printf("Please enter a Name: ");
-    scanf("%s", wordName);
-    while (wordName[iName]!='\0')
-        iName++;
-    printf("%s has word length %d.\n", wordName,iName);
+    printf("Please enter a word: ");
+    scanf("%s", word1);
+    printf("And another: ");
+    scanf("%s", word2);
+    // Find first letter in which words differ
+    while (word1[i]!='\0' && word2[i]!= '\0' && word1[i] == word2[i])
+        i++;
+    if (word1[i] < word2[i])  /// Words are stored as ASCII code numbers. In ASCII Uppercase letters comes first.
+        printf("%s comes before %s in the alphabet.\n", word1, word2);
+    else if (word1[i]>word2[i])
+        printf("%s comes after %s in the alphabet.\n", word1, word2);
+    else printf("You entered the same word, %s, twice.\n", word1);
 
-         if ( iName % 2 == 0)
-            puts( "1" );
-         else
-             puts( "2" );
+    /// In ASCII table \0 NULL character has the value of Zero 0.
 
 
 
+    puts( " Search for a number in an array using linear search " );
+
+    puts( " Strings, sort and search algorithms / Sorting strings" );
+    puts( "Search for a number in an array using linear search " );
 
 
-    puts( " " );
+    int list[] = {6, -2, 5, 12, 7, 3, 8, 18, -10, 1};  /// Array or a list of numbers
+    int n = 10; /// Number of member of that array.
+    int item, found;
 
-    puts( " " );
+    printf("Which number are you looking for? ");
+    scanf("%d", &item);
+    found = 0;
+    i = 0;
+    while (!found && i<n) /// !found == 0 ; which is true.
+    {
+        if (item == list[i])
+        {
+            found = 1;
+        }
+        else
+        {
+            i++;
+        }
+    }
 
-    puts( " " );
-
-    puts( " " );
-
-    puts( " " );
-
-    puts( " " );
-
-    puts( " " );
-
-    puts( " " );
-
-    puts( " " );
-
-
-
-
-    printf(" \n Time taken: %.5f s\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
+    if (!found)
+    {
+        printf("%d is not a member of this list. \n", item);
+    }
+    else
+    {
+        printf("I found %d at index %d in the list. \n", item, i);
+    }
 
 
 
 
-    return 0;
-    system("pause>null");
 
-    /// system() is a library function that makes calls to OS commands/programs. system("pause") calls the "pause"
-    /// command in DOS/Windows. Run the pause command in a command shell to see what it does.
-    /// will cause the black dos window (where you see your output) to be paused untill you press any key.
-    printf("Time taken: %.5fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
+
+    puts( " Activity: is there a 't' in this word? " );
+
+    puts( " Activity: searching for letter in word (External resource)" );
+
+
+
+
+    puts( " You are conducting a linguistic study and are interested in \n \
+          finding words that contain the letter 't' or 'T' in the first half \n \
+         of the word (including the middle letter if there is one). Specifically, \n \
+         if the first half of the word does contain a 't' or a 'T', your program should output a 1. \n \
+            If the first half does not contain the letter 't' or 'T', but the second half does, \n \
+          then your program should output a 2. Otherwise, if there is no 't' or 'T' in the word at all, \n \
+          your program's output should be -1. You may assume that the word entered does not have more than 50 letters. \n \
+          Examples Input: apple Output: -1 , Input: raincoat , Output: 2, Input: enter , Output: 1 , Input: Taylor, Output: 1  " );
+
+    puts( " This task offers 1 hint : Hint 1 : Travel through the word, keeping track of whether or not \n \
+         you have passed the halfway point, and compare the current letter to the desired one ('T' or 't'). \n \
+         Use the results of this search to produce the required output. " );
+
+    /*
+
+    #include <stdio.h>
+int main(void)
+{
+	char word[51];
+	int length = 0;
+	int i,found, maxindex;
+
+	scanf("%s", word);
+
+	while (word[length]!='\0')
+	    length++;
+	if (length%2==0)
+	    maxindex = length/2-1;
+	else
+	    maxindex = length/2;
+
+	i = 0;
+	found = 0;
+	while (!found && i < length) {
+		if (word[i]=='t' || word[i]=='T') found++;
+		else i++;
+	}
+
+	if (!found)
+	    printf("-1");
+	else if (i <= maxindex) printf("1");
+	else printf("2");
+
+	return 0;
+}
+
+    */
+
+
+    puts( " \n \ " );
+
+
+    int i = 0 ;
+    char TwordName[51]; /// Initialize the word for 50 chars, with one extra for NULL place terminator.
+    int TName = 0; /// Initialize the word length
+    printf("Please enter a word: ");
+
+    scanf("%s", TwordName);
+
+
+
+    while (TwordName[TName]!='\0')
+        TName++;
+
+
+    printf("%s has word length %d.\n", TwordName,TName);
+
+
+    int found = 0;
+
+    while (!found && i < TName )
+    {
+        if ( TName % 2 == 0)
+        {
+            for (int i = 0 ; i < (TName/2) ; i++)
+            {
+                if (TwordName[i]== 'T' || TwordName[i]=='t')
+                {
+                    puts( "1" );
+                    found = 1;
+                }
+
+            }
+
+            for (i = (TName/2) ; i < TName; i++)
+            {
+                if (TwordName[i]=='T' || TwordName[i]=='t')
+                {
+                    puts( "2" );
+                    found = 1;
+                }
+
+            }
+
+        }
+
+
+        else /// if ( TName % 2 == 1)
+        {
+
+            for (i = 0 ; i < ((TName/2)+1); i++)
+            {
+                if (TwordName[i]=='T' || TwordName[i]=='t')
+                {
+                    puts( "1" );
+                    found = 1;
+                }
+
+            }
+
+            for (i = ((TName/2)+1) ; i < TName; i++)
+            {
+                if (TwordName[i]=='T' || TwordName[i]=='t')
+                {
+                    puts( "2" );
+                    found = 1;
+                }
+
+            }
+
+        }
+
+    }
+
+
+    if (!found)
+    {
+        puts( "-1" );
+    }
+
+
+
+
+          puts( " " );
+
+          puts( " " );
+
+          puts( " " );
+
+          puts( " " );
+
+          puts( " " );
+
+
+
+
+          printf(" \n Time taken: %.5f s\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
+
+
+
+
+          return 0;
+          system("pause>null");
+
+          /// system() is a library function that makes calls to OS commands/programs. system("pause") calls the "pause"
+          /// command in DOS/Windows. Run the pause command in a command shell to see what it does.
+          /// will cause the black dos window (where you see your output) to be paused untill you press any key.
+          printf("Time taken: %.5fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
 }
 
 
