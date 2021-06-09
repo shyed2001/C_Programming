@@ -11,104 +11,168 @@ int main(void)
 
     clock_t tStart = clock();
 
+    puts( " Activity: find repeat letters in a word " );
 
 
-    puts( " Search for a number in a sorted list using bisection" );
+    puts( "  Activity: sorting and searching repetitive letters (External resource) \n \ " );
 
-    puts( " This algorithm needs a sorted list " );
+    puts( " You are still conducting linguistic research! This time, \n \
+          you'd like to write a program to find out how many letters occur multiple times in a given word. \n \
+          Your program should read a word from the input and then sort the letters of the word alphabetically  \n \
+          (by their ASCII codes). Next, your program should iterate through the letters of the word and \n \
+          compare each letter with the one following it. If these equal each other, you increase a counter by 1,  \n \
+          making sure to then skip ahead far enough so that letters that occur more than twice are not counted again. \n \
+          You may assume that the word you read from the input has no more than 50 letters, and that the word is all lowercase.  \n \
+          \n \
+          Examples Input: apple, Output: 1 \n \
+          Input: keeper, Output: 1 \n \
+          Input: erroneousnesses Output: 5 \n \
+          Input: taylor ,  Output: 0 \n \
+          \n \ \n \ " );
 
+    char SortWordChar[51];
+    char LetterSortWordChar[51];
+    int CharCount = 0 ;
+    int RepeatCharCount = 0 ;
 
-    int list[] = {-10, -3, 2, 5, 8, 14, 77, 106, 759, 900}; /* sorted list */
-    int n = 10;
-    int item;
-    int ia, ib, mid, found;
+    int i, j, k ;
+    i = j = k = 0;
+    puts( " Please enter a word with repeating Letters in lowercase within 50 characters " );
 
-    printf("Which number are you looking for? ");
-    scanf("%d", &item);
-    ia = 0;
-    ib = n-1;
-    found = 0;
+    scanf("%s", SortWordChar);
 
-    while (!found && (ia <= ib))
+    while ( SortWordChar[i] != '\0' && CharCount < 51)
     {
-        mid = (ia + ib)/2; // middle index
-        if (item == list[mid])
-        {
-            found = 1;  // found item!
-        }
-        else if (item<list[mid])
-        {
-            ib = mid-1; // toss the top half
-        }
-        else
-        {
-            ia = mid + 1; // toss the bottom half
-        }
+        printf(" \n CharCount = %d \n  ", CharCount);
+        printf(" \n i = %d \n  ", i);
+
+        LetterSortWordChar[i] = SortWordChar[i] ;
+
+        printf(" SortWordChar[i] = %c \n", SortWordChar[i] );
+        printf(" SortWordChar = %s \n", SortWordChar);
+        printf(" LetterSortWordChar[i] =  %c   ", LetterSortWordChar[i] );
+        printf(" \n LetterSortWordChar = %s \n  ", LetterSortWordChar);
+        printf(" ASCII of SortWordChar[i] as decimal =  %d   ", SortWordChar[i] );
+        printf(" \n ASCII of SortWordChar as decimal = %d \n  ", SortWordChar);
+        printf(" ASCII of LetterSortWordChar[i] as decimal =  %d   ", LetterSortWordChar[i] );
+        printf(" \n ASCII of LetterSortWordChar as decimal = %d \n  ", LetterSortWordChar);
+
+        i++; /// Word Char index
+        CharCount++ ;  /// Word char Counter
     }
 
-    if (!found)
+    printf(" \n CharCount = %d \n  ", CharCount);
+
+    printf(" \n i = %d \n  ", i);
+
+    printf(" \n CharCount = %d \n  ", CharCount);
+    printf(" \n i = %d \n  ", i);
+
+    LetterSortWordChar[i] = SortWordChar[i] ;
+
+    printf(" SortWordChar[i] = %c \n", SortWordChar[i] );
+    printf(" SortWordChar = %s \n", SortWordChar);
+    printf(" LetterSortWordChar[i] =  %c   ", LetterSortWordChar[i] );
+    printf(" \n LetterSortWordChar = %s \n  ", LetterSortWordChar);
+
+    printf(" ASCII of SortWordChar[i] as decimal =  %d   ", SortWordChar[i] );
+    printf(" \n ASCII of SortWordChar as decimal = %d \n  ", SortWordChar);
+    printf(" ASCII of LetterSortWordChar[i] as decimal =  %d   ", LetterSortWordChar[i] );
+    printf(" \n ASCII of LetterSortWordChar as decimal = %d \n  ", LetterSortWordChar);
+
+    char swap;
+    for (j=0; j<CharCount-1; j++)
     {
-        printf("Number %d was not found in the array. \n", item);
-    }
-    else
-    {
-        printf("Number %d was found at index %d in the array.\n", item, mid);
-    }
-
-
-
-    puts( " Sort an array using bubble sort" );
-    puts( " Sort an array using bubble sort" );
-
-
-    int list[] = {759, 14, 2, 900, 106, 77, -10, 8, -3, 5}; /* unsorted list */
-    int n = 10;
-    int i, j;
-    int swap;
-
-    printf("Unsorted list: \n");
-    for (i=0; i<n; i++)
-    {
-        printf("%d ", list[i]);
-    }
-
-    for (j=0; j<n-1; j++)
-    {
-        for (i=0; i<n-1; i++)
+        for (i=0; i<CharCount-1; i++)
         {
-            if (list[i] > list[i+1])
+            if (SortWordChar[i] > SortWordChar[i+1])
             {
-                swap = list[i];
-                list[i] = list[i+1];
-                list[i+1] = swap;
+                swap = SortWordChar[i];
+                SortWordChar[i] = SortWordChar[i+1];
+                SortWordChar[i+1] = swap;
             }
         }
     }
 
-    printf("\nSorted list: \n");
-    for (i=0; i<n; i++)
+    printf("\nSorted LIST: \n");
+    for (i=0; i<CharCount; i++)
     {
-        printf("%d ", list[i]);
+       /// printf("%d ", SortWordChar[i]);
+        printf("%c ", SortWordChar[i]);
     }
 
 
+
+
+
+
+
+
+
+
+
+    SortWordChar[51];
+    LetterSortWordChar[51];
+    CharCount = 0 ;
+    RepeatCharCount = 0 ;
+    int count = 0;
+    int Totalcount =0;
+
+
+    i = j = k = 0;
+    /// puts( " Please enter a word with repeating Letters in lowercase within 50 characters " );
+
+    scanf("%s", SortWordChar);
+
+    while ( SortWordChar[i] != '\0' && CharCount < 51)
+    {
+        LetterSortWordChar[i] = SortWordChar[i] ;
+        i++; /// Word Char index
+        CharCount++ ;  /// Word char Counter
+    }
+
+    //Counts each character present in the string
+    for(int i = 0; i < CharCount; i++) {
+        count = 1;
+        for(int j = i+1; j < CharCount; j++) {
+            if(SortWordChar[i] == SortWordChar[j] && SortWordChar[i] != ' ')
+
+            {
+                count++;
+                //Set string[j] to 0 to avoid printing visited character
+                SortWordChar[j] = '0';
+            }
+        }
+        //A character is considered as duplicate if count is greater than 1
+        if(count > 1 && SortWordChar[i] != '0')
+        {
+           ///  printf("%c\n", SortWordChar[i]);
+            Totalcount++;
+
+        }
+    }
+  /// printf("Totalcount = %d ", Totalcount);
+   printf("%d", Totalcount);
+
+
+    puts( "   \n \ " );
+
+
+
+    puts( " " );
+
+
+    puts( "   \n \ " );
+
     puts( " " );
 
 
     puts( "   \n \ " );
 
 
-    puts( " " );
-
-
-    puts( "   \n \ " );
 
 
 
-    puts( " " );
-
-
-    puts( "   \n \ " );
 
 
     /*

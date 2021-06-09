@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 {
 
 char s[9];
-s[] = argv[1];
+s[9] = argv[1];
 
 printf("%s", s);
 puts("\n");

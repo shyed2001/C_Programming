@@ -146,7 +146,7 @@ int main(void)
     puts( " \n \ " );
 
 
-    int i = 0 ;
+    i = 0 ;
     char TwordName[51]; /// Initialize the word for 50 chars, with one extra for NULL place terminator.
     int TName = 0; /// Initialize the word length
     printf("Please enter a word: ");
@@ -162,7 +162,7 @@ int main(void)
     printf("%s has word length %d.\n", TwordName,TName);
 
 
-    int found = 0;
+    found = 0;
 
     while (!found && i < TName )
     {
@@ -230,6 +230,87 @@ int main(void)
           puts( " " );
 
           puts( " " );
+
+              puts( " Search for a number in a sorted list using bisection" );
+
+    puts( " This algorithm needs a sorted list " );
+
+
+    int List[] = {-10, -3, 2, 5, 8, 14, 77, 106, 759, 900}; /* sorted List */
+    n = 10;
+    int Item;
+    int ia, ib, mid, Found;
+
+    printf("Which number are you looking for? ");
+    scanf("%d", &Item);
+    ia = 0;
+    ib = n-1;
+    Found = 0;
+
+    while (!Found && (ia <= ib))
+    {
+        mid = (ia + ib)/2; // middle index
+        if (Item == List[mid])
+        {
+            Found = 1;  // Found Item!
+        }
+        else if (Item<List[mid])
+        {
+            ib = mid-1; // toss the top half
+        }
+        else
+        {
+            ia = mid + 1; // toss the bottom half
+        }
+    }
+
+    if (!Found)
+    {
+        printf("Number %d was not Found in the array. \n", Item);
+    }
+    else
+    {
+        printf("Number %d was Found at index %d in the array.\n", Item, mid);
+    }
+
+
+
+    puts( " Sort an array using bubble sort" );
+    puts( " Sort an array using bubble sort" );
+
+
+    int LIST[] = {759, 14, 2, 900, 106, 77, -10, 8, -3, 5}; /* unsorted LIST */
+    n = 10;
+    int  j;
+    int swap;
+
+    printf("Unsorted LIST: \n");
+    for (i=0; i<n; i++)
+    {
+        printf("%d ", LIST[i]);
+    }
+
+    for (j=0; j<n-1; j++)
+    {
+        for (i=0; i<n-1; i++)
+        {
+            if (LIST[i] > LIST[i+1])
+            {
+                swap = LIST[i];
+                LIST[i] = LIST[i+1];
+                LIST[i+1] = swap;
+            }
+        }
+    }
+
+    printf("\nSorted LIST: \n");
+    for (i=0; i<n; i++)
+    {
+        printf("%d ", LIST[i]);
+    }
+
+
+    puts( " " );
 
           puts( " " );
 
