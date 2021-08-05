@@ -53,6 +53,12 @@ int minimum (int Userinput, int minValue);
 
 int factorial(int n);
 
+int fibonacci(int);
+
+int sum_of_digit(int Number);
+
+int sumOfDigits(int n);
+
 int main(void)
 
 {
@@ -316,7 +322,412 @@ int main(void)
         ///Use recursion to make a function use itself: the Fibonacci example
         /// Use recursion to make a function use itself: the Fibonacci example
 
+/// Fibonacci numbers: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, ...
 
+
+
+    //! showMemory(start=65520)
+    int N, fib;
+    printf("Which Fibonacci number would you like: ");
+    scanf("%d", &N);
+    if (N<=0) {
+        printf("%d is not positive. Aborting!\n", N);
+    } else {
+        fib = fibonacci(N);
+        printf("The %dth Fibonacci number is %d.\n", N, fib);
+    }
+
+
+
+    /*
+
+    Please write a C-program that uses a recursive function called "sumOfDigits()" to compute the sum of the digits
+     of a number. To do so, your main function should first read an integer number as input
+     and then call sumOfDigits(), which should in turn call itself until there are no digits left to sum,
+      at which point the final sum should display to the user.
+
+Here is the main idea of how the recursion in sumOfDigits() should work:
+
+sumOfDigits(6452) = 2 + sumOfDigits(645)
+
+sumOfDigits(645) = 5 + sumOfDigits(64)
+
+...
+
+sumOfDigits(6) = 6
+
+Examples
+Input
+47253
+Output
+21
+
+
+Input
+643
+Output
+13
+
+This task offers 2 hints :
+
+Hint 1 :
+
+To isolate the value of each digit, sumOfDigits() can utilize the modulus operator (%)
+
+Hint 2 :
+
+sumOfDigits() should check whether it is examining the last digit by determining if the value of the number passed in is less than 10.
+
+    */
+
+/* C Program to Find Sum of Digits of a Number using Recursion */
+
+
+
+int Number1, Sum1 = 0;
+
+  printf("\nPlease Enter any number\n");
+  scanf("%d", &Number1);
+
+  Sum1 = sumOfDigits(Number1);
+
+  printf("\nSum of the digits of Given Number = %d", Sum1);
+
+
+// Recursive C program to find sum of digits
+// of a number
+
+
+
+// Function to check sum of digit using recursion
+
+
+// Driven Program to check above
+
+
+
+
+
+    int Number, Sum = 0;
+    printf("\nPlease Enter any number\n");
+    scanf("%d", &Number);
+
+    Sum = sum_of_digit(Number);
+    printf("Sum of digits in %d is %d\n", Number, Sum);
+
+
+
+
+
+
+
+    ///  Memory and the scope of variables Introducing memory organization.
+    /// You will better understand how a computer is organized and where the memory processes take place in the computer.
+
+    /*
+    At the end of the unit, you will be able to:
+
+Identify components of the Von Neumann architecture model
+Recall how computer memory is organized and addressed
+Use the sizeof() function to find out how much space a variable of a certain type uses up in memory on a given computer system
+Recognize overflow and roundoff errors and their causes
+Identify the scope of a variable within a C program including blocks and functions
+
+
+    */
+
+
+    /// Get and print the size of basic typesGet and print the size of basic types
+    /// Get and print the size of basic types
+
+    /// printf("Memory Size of bool is: %ld byte \n", sizeof(bool));   /// This line causes error.
+    printf("Memory Size of char is: %ld byte\n", sizeof(char));
+    printf("Memory Size of int is: %ld byte\n", sizeof(int));
+    printf("Memory Size of float is: %ld byte\n", sizeof(float));
+    printf("Memory Size of long is: %ld byte\n", sizeof(long));
+    printf("Memory Size of long long is: %ld byte\n", sizeof(long long));
+    printf("Memory Size of double is: %ld byte\n", sizeof(double));
+    printf("Memory Size of long double is: %ld byte\n", sizeof(long double));
+    printf("Memory Size of string is: ?????? byte\n");
+
+    /// space used in memory to store a variable might vary.
+    ///To figure out how much space is used, you will learn how to manipulate sizeof.
+
+
+    char c;
+    int i;
+    double d;
+    char listChar[3];
+    int listInt[3];
+    double listDouble[3];
+
+    printf("%zu\n", sizeof(char));
+    printf("%zu\n", sizeof(int));
+    printf("%zu\n", sizeof(double));
+
+    printf("%zu\n", sizeof(c));
+    printf("%zu\n", sizeof(i));
+    printf("%zu\n", sizeof(d));
+
+
+    printf("%zu\n", sizeof(listChar));
+    printf("%zu\n", sizeof(listInt));
+    printf("%zu\n", sizeof(listDouble));
+
+/// Activity: compute space
+/// Activity: compute space (External resource)
+
+
+/*
+
+A delivery company has hired you to manage their tracking services division. It is your job to store all of the currently used tracking codes in the company's database. These codes consist of either all integers, all decimal numbers, or all characters. The chief technology officer has warned you that the database is old and has limited space, so you want to determine how much memory the tracking codes will occupy before storing them. You decide to write a program to assist you in this process.
+
+Your program should first read an integer number indicating how many tracking codes you plan on entering. Next, for each successive tracking code your program should read in the integer length of code followed by a space and then the type of code ('i' for integer, 'd' for decimal, or 'c' for character). Finally your program should print the total amount of space required to store all of the tracking codes (in bytes). If the user enters an incorrect type for any tracking number, the program should print 'Invalid tracking code type' and exit.
+
+Examples
+Input:
+3
+10 i
+7 c
+12 d
+Output:
+143 bytes
+
+
+Input:
+2
+3 c
+20 d
+Output:
+163 bytes
+
+Input:
+4
+5 i
+2 d
+10 a
+3 c
+Output:
+Invalid tracking code type
+
+
+*/
+
+
+   int numberofTrackingCode = 0;
+   char CodeDataType;
+   int TotalDatatTypeMemorySize = 0;
+    int CodeDigitValue = 0 ;
+    int intDatatTypeMemorySize, doubleDatatTypeMemorySize, charDatatTypeMemorySize ;
+
+    intDatatTypeMemorySize = doubleDatatTypeMemorySize = charDatatTypeMemorySize = 0 ;
+
+
+    puts("How many tracking code would you like to enter, please enter a positive number? ");
+    scanf("%d", &numberofTrackingCode);
+
+    /// int i;
+    for (int j = 0; j < numberofTrackingCode; j++)
+    {
+        puts("Please enter the code number followed by a space and then the type of code ");
+        puts(" ('i' for integer, 'd' for decimal, or 'c' for character).");
+
+        scanf("%d %c", &CodeDigitValue, &CodeDataType );
+
+        if (CodeDataType == 'i')
+        {
+            intDatatTypeMemorySize = sizeof(int)* CodeDigitValue;
+            TotalDatatTypeMemorySize = TotalDatatTypeMemorySize  + intDatatTypeMemorySize ;
+        }
+
+        else if (CodeDataType == 'd')
+        {
+            doubleDatatTypeMemorySize = sizeof(double)* CodeDigitValue ;
+            TotalDatatTypeMemorySize = TotalDatatTypeMemorySize + doubleDatatTypeMemorySize;
+        }
+
+        else if (CodeDataType == 'c')
+        {
+            charDatatTypeMemorySize = sizeof(char)* CodeDigitValue ;
+            TotalDatatTypeMemorySize = TotalDatatTypeMemorySize + charDatatTypeMemorySize;
+        }
+
+        else
+        {
+            puts("Invalid tracking code type");
+            printf("\n %c Invalid tracking code type \n", CodeDataType);
+        }
+
+
+    }
+    puts("\n");
+    printf (" Total memory Size Required for Code Data storage is %d bytes \n", TotalDatatTypeMemorySize );
+
+
+
+
+ /// What is the largest integer that you could store in the system?
+ /// What is the largest integer that you could store in the system?
+ /// Be aware of the largest possible value for an integer!
+ /// Be aware of the largest possible value for an integer!
+
+
+    //! showMemory(start=65520)
+    int num = 2147483645;
+    int i;
+
+    for (i=0; i<8; i++) {
+        printf("%d\n", num);
+        num = num+1;
+    }
+/*
+    num = 0;
+    do {
+    printf("value of num: %d\n", num);
+    num = num+1;
+    }while( num > 0 );
+
+*/
+
+
+
+  /// Round off numbers and circumvent errors
+  /// Round off numbers and circumvent errors
+
+
+
+
+        double dnum1 = 0.25;
+
+    printf("double dnum1 = 0.25; the number is %lf\n", dnum1);
+
+    printf("double dnum1 = 0.25; the number is %.20lf\n", dnum1);
+
+    printf(" double dnum1 = 0.25;the number is %.40lf\n", dnum1);
+
+
+    double dnum2 = 0.3;
+
+        printf(" double dnum2 = 0.3 the number is %lf\n", dnum2);
+
+    printf(" double dnum2 = 0.3 the number is %.20lf\n", dnum2);
+
+    printf(" double dnum2 = 0.3 the number is %.40lf\n", dnum2);
+
+
+
+        long double ldnum1 = 0.25;
+
+    printf("long double ldnum1 = 0.25; the number is %Lf\n", ldnum1);
+
+    printf("long double ldnum1 = 0.25; the number is %.20Lf\n", ldnum1);
+
+    printf(" long double ldnum1 = 0.25;the number is %.40Lf\n", ldnum1);
+
+
+
+    long double ldnum2 = 0.3;
+
+        printf(" long double ldnum2 = 0.3 the number is %Lf\n", ldnum2);
+
+    printf(" long double ldnum2 = 0.3 the number is %.20Lf\n", ldnum2);
+
+    printf(" long double ldnum2 = 0.3 the number is %.40Lf\n", ldnum2);
+
+
+
+             long long llnum1 = 0.25;
+
+    printf("long long llnum1 = 0.25; the number is %lld\n", llnum1);
+
+    printf("long long llnum1 = 0.25; the number is %.20lld\n", llnum1);
+
+    printf(" long long llnum1 = 0.25; the number is %.40lld\n", llnum1);
+
+
+
+    long long llnum2 = 0.3;
+
+        printf(" long long llnum2 = 0.3 the number is %lld\n", llnum2);
+
+    printf(" long long llnum2 = 0.3 the number is %.20lld\n", llnum2);
+
+    printf(" long long llnum2 = 0.3 the number is %.40lld\n", llnum2);
+
+
+
+        long long llnum3 = 4;
+
+        printf(" long long llnum3 =4 the number is %lld\n", llnum3);
+
+    printf(" long long llnum3 = 4 the number is %.20lld\n", llnum3);
+
+    printf(" long long llnum3 = 4 the number is %.40lld\n", llnum3);
+
+
+    float fnum1 = 0.10;
+
+    printf(" float fnum1 = 0.10 the number is %f\n", fnum1  );
+
+    printf("float fnum1 = 0.10 the number is %.20f\n", fnum1 );
+
+    printf(" float fnum1 = 0.10 the number is %.40f\n", fnum1 );
+
+
+
+       float fnum2 = 0.25;
+
+    printf(" float fnum2  = 0.25 the number is %f\n", fnum2  );
+
+    printf("float fnum2  = 0.25 the number is %.20f\n", fnum2  );
+
+    printf(" float fnum2  = 0.25 the number is %.40f\n", fnum2  );
+
+
+
+    float fnum3 = 0.30;
+
+    printf(" float fnum3  = 0.30 the number is %f\n", fnum3  );
+
+    printf("float fnum3  = 0.30 the number is %.20f\n", fnum3  );
+
+    printf(" float fnum3  = 0.30 the number is %.40f\n", fnum3  );
+
+
+
+
+    /*
+
+    You are programming a toaster! The toaster does not have a lot of memory, so you need to be careful about the data types you use (remember that different data types use different amounts of memory). To make this easier, you'd like an easy way to track how much memory your variables are going to use.
+
+Your job is to write a program that shows, in human-readable form (see below for specifics), how much memory a set of variables of a certain type will use. Your program should read a character that identifies the data type ('i' for int, 's' for short, 'c' for char, 'd' for double). Next it should read an integer that indicates how many variables of the given type you wish to store.
+
+Your program should then calculate the amount of memory required to store the given variables. Your program needs to be written in such a way that it would also perform correctly on other computers. In other words, rather than hard-coding specific sizes for the different variable types, your program needs to use the "sizeof()" function to determine how much memory an individual variable of a given type needs.
+
+Finally, you need to output the amount of space required by your variables to the screen. You need to make sure you provide this output in a form that is easy to read for humans. The following examples illustrate what this means:
+
+Examples
+If the user input were:
+
+i 36794
+then the amount of space needed (if we assume that an integer uses 4 bytes in memory) would be 4*36794 = 147176 bytes. This corresponds to 147 kilobytes and 176 bytes, so the output should be:
+
+147 KB and 176 B
+
+
+Input:
+d 654250
+Output:
+5 MB and 234 KB and 0 B
+
+
+Input:
+d 35
+Output:
+280 B
+
+
+    */
 
 
 
@@ -328,6 +739,25 @@ int main(void)
         system("pause>nul"); /// for windows only
 
     }
+
+
+
+/// system() is a library function that makes calls to OS commands/programs. system("pause") calls the "pause"
+/// command in DOS/Windows. Run the pause command in a command shell to see what it does.
+/// will cause the black dos window (where you see your output) to be paused until you press any key.
+/// printf("Time taken: %.5fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
+/// Shortcut in Code::Blocks
+/// SourceCode Formatter -  Ctrl+Alt+i
+/// line comment  Ctrl+Shift+C
+/// Abbreviations Ctrl+j
+/// open new file  Ctrl+Shift+n
+
+
+
+
+/// Functions
+/// Function Definitions
+
 
 /// Definition of sum function
     int sum(int x, int y) /// PARAMETERS, type defines /// When a function is called, values are copied into parameters.
@@ -432,12 +862,37 @@ int main(void)
 
     }
 
-/// system() is a library function that makes calls to OS commands/programs. system("pause") calls the "pause"
-/// command in DOS/Windows. Run the pause command in a command shell to see what it does.
-/// will cause the black dos window (where you see your output) to be paused until you press any key.
-/// printf("Time taken: %.5fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
-/// Shortcut in Code::Blocks
-/// SourceCode Formatter -  Ctrl+Alt+i
-/// line comment  Ctrl+Shift+C
-/// Abbreviations Ctrl+j
-/// open new file  Ctrl+Shift+n
+
+    int fibonacci(int n) {
+    if (n==1) {
+        return 0;
+    } else if (n==2) {
+        return 1;
+    } else {
+        return (fibonacci(n-1) + fibonacci(n-2));
+    }
+}
+
+int sumOfDigits(int Number)
+{
+  static int Reminder, Sum=0;
+
+  if(Number > 0)
+  {
+    Reminder = Number % 10;
+    Sum=Sum+ Reminder;
+    sumOfDigits(Number / 10);
+    return Sum;
+  }
+ else
+   return 0;
+}
+
+
+int sum_of_digit(int n)
+{
+    if (n == 0)
+       return 0;
+    return (n % 10 + sum_of_digit(n / 10));
+}
+
