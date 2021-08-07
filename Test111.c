@@ -4,140 +4,129 @@ Copyright: @uthor*/
 #include <stdio.h>
 #include <stdlib.h>
 
-
+void reverseArray(int * ARR);
 int main(void)
 {
-printf("Comments tag // \n");
-printf("Comments tag // \n");
-printf("Multi line Comments tag /*  */ \n");
-printf("Comments tag /// \n");
 
+	    int arr[3] = {15, 16, 17};
+    printf("%p\n",arr);
+    printf("%d\n",arr[0]);
+    printf("%d\n",arr[1]);
+    printf("%d\n",arr[2]);
+    int * ptr = arr;
+    * ptr = 2; // * arr   0R  arr[0]
+    * (ptr + 1) = 3; // * (arr + 1)   OR  arr[1]
+    * (ptr + 2) = 5;// * (arr + 2)   OR arr[2]
 
+    printf("%d\n",arr[0]);
+    printf("%d\n",arr[1]);
+    printf("%d\n",arr[2]);
 
+    /// * ptr + 1 = 3 will not work, dereferencing and pointer arithmetic.
 
-    char c;
-    int i;
-    double d;
-    char listChar[3];
-    int listInt[3];
-    double listDouble[3];
 
-    printf("%zu\n", sizeof(char));
-    printf("%zu\n", sizeof(int));
-    printf("%zu\n", sizeof(double));
+int array[] = {4, 6, 12, -5, -7, 3, 1, 0, -10};
 
-    printf("%zu\n", sizeof(c));
-    printf("%zu\n", sizeof(i));
-    printf("%zu\n", sizeof(d));
+    printf("%p\n",array); /// address of first element
+    printf("%d\n",array[0]);
+    printf("%d\n",array[1]);
+    printf("%d\n",array[2]);
 
+int *ptr1, *ptr2;
+ptr1 = array+2;  /// by adding 2 address go to the address of third element.
+ptr2 = &ptr1[5]; /// go to 5th index element considering ptr1 is 0 index
 
-    printf("%zu\n", sizeof(listChar));
-    printf("%zu\n", sizeof(listInt));
-    printf("%zu\n", sizeof(listDouble));
+    printf("%d\n",*(ptr1+1)); /// add 1 element address, 4 bytes in memory..
+    printf("%d\n",*(ptr2-3)); /// subtract 3 elements , 12 bytes in memory.
 
 
 
-        double dnum1 = 0.25;
+        reset1(arr);
 
-    printf("double dnum1 = 0.25; the number is %lf\n", dnum1);
+            printf("%d\n",arr[0]);
+    printf("%d\n",arr[1]);
+    printf("%d\n",arr[2]);
 
-    printf("double dnum1 = 0.25; the number is %.20lf\n", dnum1);
+            reset2(arr);
 
-    printf(" double dnum1 = 0.25;the number is %.40lf\n", dnum1);
+    printf("%d\n",arr[0]);
+    printf("%d\n",arr[1]);
+    printf("%d\n",arr[2]);
 
+                reset3(arr);
+    printf("%d\n",arr[0]);
+    printf("%d\n",arr[1]);
+    printf("%d\n",arr[2]);
 
-    double dnum2 = 0.3;
 
-        printf(" double dnum2 = 0.3 the number is %lf\n", dnum2);
 
-    printf(" double dnum2 = 0.3 the number is %.20lf\n", dnum2);
+/*Within this program, we will pass an array with 6 integers to a function, have the function swap the first and last integer, the second and the second to last integer, the third and the third to last integer.
 
-    printf(" double dnum2 = 0.3 the number is %.40lf\n", dnum2);
+The function is called reverseArray and doesn't return anything (void). It should take one parameter, representing the array of integers.
 
+The main function first reads 6 integers from the input, and assigns them to the array. The main function then calls reverseArray, passing the array as an argument.
 
+The main function then prints the reversed array.
 
-        long double ldnum1 = 0.25;
+Examples
+Input:
+1 2 3 4 5 6
+Output:
+6 5 4 3 2 1
 
-    printf("long double ldnum1 = 0.25; the number is %Lf\n", ldnum1);
 
-    printf("long double ldnum1 = 0.25; the number is %.20Lf\n", ldnum1);
+Input:
+9 12 3 25 11 5
+Output:
+5 11 25 3 12 9
 
-    printf(" long double ldnum1 = 0.25;the number is %.40Lf\n", ldnum1);
 
+Note:
+You may submit as many solutions as you wish. Only your highest score will be kept.
 
 
-    long double ldnum2 = 0.3;
+ */
+   int ARRAY[6];
+    puts (" Please enter 6 array integer elements with spaces")
 
-        printf(" long double ldnum2 = 0.3 the number is %Lf\n", ldnum2);
 
-    printf(" long double ldnum2 = 0.3 the number is %.20Lf\n", ldnum2);
+    for ( i = 0, i < 6, i++)
+    {
+        int value = 0;
+        scanf("%d",&values);
+        ARRAY[i] = value;
 
-    printf(" long double ldnum2 = 0.3 the number is %.40Lf\n", ldnum2);
+    }
 
+    reverseArray(ARRAY);
 
+       for ( i = 0, i < 6, i++)
+    {
 
-             long long llnum1 = 0.25;
+        printf("%d",ARRAY[i]);
 
-    printf("long long llnum1 = 0.25; the number is %lld\n", llnum1);
 
-    printf("long long llnum1 = 0.25; the number is %.20lld\n", llnum1);
-
-    printf(" long long llnum1 = 0.25; the number is %.40lld\n", llnum1);
-
-
-
-    long long llnum2 = 0.3;
-
-        printf(" long long llnum2 = 0.3 the number is %lld\n", llnum2);
-
-    printf(" long long llnum2 = 0.3 the number is %.20lld\n", llnum2);
-
-    printf(" long long llnum2 = 0.3 the number is %.40lld\n", llnum2);
-
-
-
-        long long llnum3 = 4;
-
-        printf(" long long llnum3 =4 the number is %lld\n", llnum3);
-
-    printf(" long long llnum3 = 4 the number is %.20lld\n", llnum3);
-
-    printf(" long long llnum3 = 4 the number is %.40lld\n", llnum3);
-
-
-    float fnum1 = 0.10;
-
-    printf(" float fnum1 = 0.10 the number is %f\n", fnum1  );
-
-    printf("float fnum1 = 0.10 the number is %.20f\n", fnum1 );
-
-    printf(" float fnum1 = 0.10 the number is %.40f\n", fnum1 );
-
-
-
-       float fnum2 = 0.25;
-
-    printf(" float fnum2  = 0.25 the number is %f\n", fnum2  );
-
-    printf("float fnum2  = 0.25 the number is %.20f\n", fnum2  );
-
-    printf(" float fnum2  = 0.25 the number is %.40f\n", fnum2  );
-
-
-
-    float fnum3 = 0.30;
-
-    printf(" float fnum3  = 0.30 the number is %f\n", fnum3  );
-
-    printf("float fnum3  = 0.30 the number is %.20f\n", fnum3  );
-
-    printf(" float fnum3  = 0.30 the number is %.40f\n", fnum3  );
-
-
-
+    }
 
 
   return 0;
+}
+void reset1(int * ptr){
+    *    ptr  = 0;
+    *(ptr +1) = 0;
+    *(ptr +2) = 0;
+}
+
+void reset2(int ptr[]){
+    *(ptr + 0) = 1;
+    *(ptr +1) = 2;
+    *(ptr +2) = 3;
+}
+
+void reset3(int * ptr){
+    *(ptr + 0) = 3;
+    *(ptr +1) = 3;
+    *(ptr +2) = 3;
 }
 
 

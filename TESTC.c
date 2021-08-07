@@ -1,10 +1,13 @@
 #include<stdio.h>
+#include<stdlib.h>
+
+void reverseArray(int * ARR);
+void SWAPpointer(int * a, int * b);
 
 int main (void)
 {
   char z;
-
-  printf("Comments tag // \n");
+ printf("Comments tag // \n");
 printf("Comments tag // \n");
 printf("Multi line Comments tag /*  */ \n");
 printf("Comments tag /// \n");
@@ -20,52 +23,54 @@ printf("Multi line Comments tag /*  */ \n");
 printf("Comments tag /// \n");
 
 
- /// What is the largest integer that you could store in the system?
- /// Be aware of the largest possible value for an integer!
- /// Be aware of the largest possible value for an integer!
+
+   int ARRAY[6];
+    puts (" Please enter 6 array integer elements with spaces");
+
+     int value = 0;
+    for (int i = 0; i < 6; i++)
+    {
+
+        scanf("%d",&value);
+        ARRAY[i] = value;
+
+    }
+
+  //printf("%d %d",ARRAY[0],ARRAY[5]);
+  //printf("%d %d",ARRAY[1],ARRAY[4]);
+  //printf("%d %d",ARRAY[2],ARRAY[4]);
 
 
-   char VariableDataType;
-   int TotalDatatTypeMemorySizeofVariables= 0;
-    int NumberofthatVariable = 0 ;
-    int intDatatTypeMemorySize, doubleDatatTypeMemorySize, charDatatTypeMemorySize, shortDatatTypeMemorySize ;
+    reverseArray(ARRAY);
+
+       for (int i = 0; i < 6; i++)
+    {
+
+        printf("%d ",ARRAY[i]);
+
+    }
 
 
-        puts("Firstly character that identifies the data type ('i' for int, 's' for short, 'c' for char, 'd' for double). ");
-        puts("Please enter the Variable number followed by a space avter the type of variable ");
-
-        scanf("%d %c", &NumberofthatVariable, &VariableDataType );
-
-        if (VariableDataType == 'i')
-        {
-            intDatatTypeMemorySize = sizeof(int)* NumberofthatVariable;
-            TotalDatatTypeMemorySizeofVariables = TotalDatatTypeMemorySizeofVariables  + intDatatTypeMemorySize ;
-        }
-
-        else if (VariableDataType == 'd')
-        {
-            doubleDatatTypeMemorySize = sizeof(double)* NumberofthatVariable ;
-            TotalDatatTypeMemorySizeofVariables = TotalDatatTypeMemorySizeofVariables + doubleDatatTypeMemorySize;
-        }
-
-        else if (VariableDataType == 'c')
-        {
-            charDatatTypeMemorySize = sizeof(char)* NumberofthatVariable ;
-            TotalDatatTypeMemorySizeofVariables = TotalDatatTypeMemorySizeofVariables + charDatatTypeMemorySize;
-        }
-
-        else
-        {
-            puts("Invalid tracking code type");
-            printf("\n %c Invalid tracking code type \n", VariableDataType);
-        }
-
-
-    puts("\n");
-    printf (" Total memory Size Required for Code Data storage is %d bytes \n", TotalDatatTypeMemorySizeofVariables );
 
 
 
   return 0;
 
 }
+void reverseArray(int * ARR)
+
+{
+
+SWAPpointer(ARR[0],ARR[5]);
+SWAPpointer(ARR[1],ARR[4]);
+SWAPpointer(ARR[2],ARR[3]);
+
+}
+
+void SWAPpointer(int *a, int *b)
+{
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+

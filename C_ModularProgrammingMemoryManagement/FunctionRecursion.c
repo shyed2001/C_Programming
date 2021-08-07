@@ -59,9 +59,44 @@ int sum_of_digit(int Number);
 
 int sumOfDigits(int n);
 
+void doSomething(int h);
+
+int funnyadd(int j, int i);
+
+
+void swap(int a, int b);
+
+void swapPointer(int * a, int * b);
+
+void addThree(int a);
+
+void addThreePointer(int * a);
+
+//Write your function prototype here
+void ageChange (int * age);
+
+
+
+void reset1(int * ptr);
+
+void reset2(int ptr[]);
+
+void reset3(int * ptr);
+
+void reverseArray(int * ARR);
+
+
+
+
 int main(void)
 
 {
+
+    printf("Comments tag // \n");
+printf("Comments tag // \n");
+printf("Multi line Comments tag /*  */ \n");
+printf("Comments tag /// \n");
+
     clock_t tStart = clock();
 
     int a,b;
@@ -454,8 +489,8 @@ Identify the scope of a variable within a C program including blocks and functio
     ///To figure out how much space is used, you will learn how to manipulate sizeof.
 
 
-    char c;
-    int i;
+   ///  char c;
+    /// int i;
     double d;
     char listChar[3];
     int listInt[3];
@@ -574,7 +609,7 @@ Invalid tracking code type
 
     //! showMemory(start=65520)
     int num = 2147483645;
-    int i;
+    /// int i;
 
     for (i=0; i<8; i++) {
         printf("%d\n", num);
@@ -729,6 +764,513 @@ Output:
 
     */
 
+/// Activity: memory usage displayed
+
+/// Activity: memory usage displayed (External resource)
+
+/// convert bits to bytes to KiloBytes KB to Megabytes MB to BigaBytes GB
+
+
+
+
+   char VariableDataType;
+   int TotalDataTypeMemorySizeofVariables= 0;
+    int NumberofthatVariable = 0 ;
+    int intDataTypeMemorySize, doubleDataTypeMemorySize, charDataTypeMemorySize, shortDataTypeMemorySize, longDataTypeMemorySize  ;
+
+
+        puts("Firstly enter the character that identifies the data type (i for int, s for short, c for char, d for double, l for long). ");
+        puts("Please enter the Variable number followed by a space after the type of variable ");
+
+        scanf("%c%d", &VariableDataType, &NumberofthatVariable );
+
+        if (VariableDataType == 'i')
+        {
+            intDataTypeMemorySize = sizeof(int)* NumberofthatVariable;
+            TotalDataTypeMemorySizeofVariables =  intDataTypeMemorySize ;
+        }
+
+        else if (VariableDataType == 'd')
+        {
+            doubleDataTypeMemorySize = sizeof(double)* NumberofthatVariable ;
+            TotalDataTypeMemorySizeofVariables =  doubleDataTypeMemorySize;
+        }
+
+        else if (VariableDataType == 'c')
+        {
+            charDataTypeMemorySize = sizeof(char)* NumberofthatVariable ;
+            TotalDataTypeMemorySizeofVariables =  charDataTypeMemorySize;
+        }
+
+        else if (VariableDataType == 's')
+        {
+            charDataTypeMemorySize = sizeof(short)* NumberofthatVariable ;
+            TotalDataTypeMemorySizeofVariables =  charDataTypeMemorySize;
+        }
+
+        else if (VariableDataType == 'l')
+        {
+            charDataTypeMemorySize = sizeof(long)* NumberofthatVariable ;
+            TotalDataTypeMemorySizeofVariables =  charDataTypeMemorySize;
+        }
+
+        else
+        {
+            puts("Invalid tracking code type");
+            printf("\n %c Invalid tracking code type \n", VariableDataType);
+            return 0;
+        }
+
+    puts("\n");
+
+    printf (" Total memory Size Required for Code Data storage is %d bytes \n", TotalDataTypeMemorySizeofVariables );
+     printf("Your VariableDataType is  %c\n", VariableDataType );
+
+
+
+    //getch();
+   //system("cls");   //For windows
+
+    /// system("clear"); //For Linux
+
+    /*local variable definition*/
+
+/*
+        puts("Firstly enter the character that identifies the data type ('i' for int, 's' for short, 'c' for char, 'd' for double). ");
+        puts("Please enter the Variable number followed by a space avter the type of variable ");
+
+        scanf("%c%d", &VariableDataType, &NumberofthatVariable );
+printf("Your VariableDataType & NumberofthatVariable  is  %c %d\n", VariableDataType, NumberofthatVariable   );
+
+   switch(VariableDataType) {
+      case 'd' :
+            doubleDataTypeMemorySize = sizeof(double)* NumberofthatVariable ;
+             TotalDataTypeMemorySizeofVariables =  doubleDataTypeMemorySize;
+                puts("\n");
+
+    printf (" Total memory Size Required for Code Data storage is %d bytes \n", TotalDataTypeMemorySizeofVariables );
+         break;
+      case 'i' :
+            intDataTypeMemorySize = sizeof(int)* NumberofthatVariable;
+            TotalDataTypeMemorySizeofVariables =  intDataTypeMemorySize ;
+               puts("\n");
+
+    printf (" Total memory Size Required for Code Data storage is %d bytes \n", TotalDataTypeMemorySizeofVariables );
+            break;
+      case 'c' :
+            charDataTypeMemorySize = sizeof(char)* NumberofthatVariable ;
+            TotalDataTypeMemorySizeofVariables =  charDataTypeMemorySize;
+               puts("\n");
+
+    printf (" Total memory Size Required for Code Data storage is %d bytes \n", TotalDataTypeMemorySizeofVariables );
+            break;
+      case 's' :
+            shortDataTypeMemorySize = sizeof(short)* NumberofthatVariable ;
+            TotalDataTypeMemorySizeofVariables =  shortDataTypeMemorySize;
+               puts("\n");
+
+    printf (" Total memory Size Required for Code Data storage is %d bytes \n", TotalDataTypeMemorySizeofVariables );
+            break;
+      case 'l' :
+            longDataTypeMemorySize = sizeof(long)* NumberofthatVariable ;
+            TotalDataTypeMemorySizeofVariables =  longDataTypeMemorySize;
+               puts("\n");
+
+    printf (" Total memory Size Required for Code Data storage is %d bytes \n", TotalDataTypeMemorySizeofVariables );
+            break;
+      default :
+            puts("Invalid tracking code type");
+            printf("\n %c Invalid tracking code type \n", VariableDataType);
+   }
+
+   printf("Your VariableDataType is  %c\n", VariableDataType );
+
+*/
+    int TB, GB, MB, KB, MemorySize = 0;
+
+
+  if (TotalDataTypeMemorySizeofVariables < 1000 )
+        {
+            MemorySize = TotalDataTypeMemorySizeofVariables;
+             printf (" Total memory Size Required for Code Data storage is %d B bytes  \n", TotalDataTypeMemorySizeofVariables );
+        }
+
+  else /// ( TotalDataTypeMemorySizeofVariables >= 1000 )
+        {
+            KB = TotalDataTypeMemorySizeofVariables / 1000 ;
+            MemorySize = TotalDataTypeMemorySizeofVariables % 1000 ;
+
+                if ( KB < 1000)
+            {
+                printf ("%d KB and %d B", KB , MemorySize);
+            }
+
+                else /// (KB >= 1000)
+            {
+                MB = KB / 1000;
+                KB = KB % 1000;
+
+                    if ( MB < 1000)
+                        printf ("%d MB and %d KB and %d B", MB, KB , MemorySize);
+
+
+                     else
+                     {
+                         GB = MB / 1000;
+                         MB = MB % 1000;
+                         printf ("%d GB %d MB and %d KB and %d B", GB, MB, KB , MemorySize);
+                     }
+
+            }
+        }
+
+
+        /// Scope and blocks in C: scope of variables when using blocks
+        ///Scope and blocks in C: scope of variables when using blocks
+
+
+          a = 10;
+        b = 11;
+    {
+        int c = 12;
+        int d = 13;
+        int e = a + c;
+        c = b + d;
+        printf("c: %d\n", c);
+        printf("e: %d\n", e);
+    }
+    int f = 14;
+    int gg = 15;
+    /// int h = c + f ;   /// this will give error   c memory reused and values changed
+    /// int l = d + e ;    /// this will give error // d & e memory reused and values changed
+    printf("f: %d\n",f);
+    printf("gg: %d", gg);
+
+
+
+/// Scope and functions in C: scope of variables when using functions
+/// Scope and functions in C: scope of variables when using functions
+
+
+
+     a = 10;
+    b = 11;
+     f = 14;
+    gg = 15;
+    doSomething(b);
+    printf("f: %d\n",f);
+
+
+/// Activity: scope of variables
+// Activity: scope of variables
+
+ i = 5;
+       j = 7;
+      i = funnyadd(i,j);
+      printf("%d", i);
+      return(0);
+
+
+
+
+      /*
+
+      At the end of the unit, you will be able to:
+
+visualize in memory the concept of a pointer
+use pointers to pass variables by reference to functions
+perform simple pointer arithmetic
+demonstrate that an array name is a pointer by performing pointer arithmetic
+create functions to which arrays can be passed and that can modify arrays
+
+      */
+
+
+
+
+    /// Get and print the address of a variable using pointers
+
+     a = 42;
+     d = 58.394;
+     c = 'r';
+    int * addressOfA = &a;
+    printf("address of a: %p\n", addressOfA);
+    double * addressOfD = &d;
+    printf("address of d: %p\n", addressOfD);
+    char * addressOfC = &c;
+    printf("address of c: %p\n", addressOfC);
+
+
+    /// Dereference a pointer: get the value stored at a specific address
+    /// Dereference a pointer: get the value stored at a specific address
+
+
+       double aa= 42.98;
+    double * addressOfAA = &aa;
+    printf("At the address %p there is the value %.2lf\n",addressOfAA,* addressOfAA);
+     c = 'm';
+    char * addressOfCc = &c;
+    char dd = * addressOfCc;
+    * addressOfAA = 32;
+    * addressOfAA = * addressOfAA + 1;
+    printf("At the address %p there is the value %.2lf\n",addressOfAA,* addressOfAA);
+
+
+/// Activity: use pointers to create elixir
+/// Activity: use pointers to create elixir
+
+
+    int age;
+
+     // add a line here that declares an integer pointer named "ageptr"
+
+    int * ageptr ;
+
+
+
+    scanf("%d", &age);
+
+     // add a line here that stores the address of age in ageptr
+
+    ageptr =  &age ;
+
+    puts("The secret address is... ");
+
+    // add a line here that prints out the address stored in ageptr
+
+    printf("%p \n", ageptr );
+
+
+    printf("Now take three drops of the magic elixir. \n");
+
+   * ageptr = * ageptr -5 ;
+
+   // add a line that uses only ageptr to lower the age by 5 years
+
+    printf("Did the elixir work? You are %d years old!", age);
+
+
+///Swap two integer variable values
+/// Swap two integer variable values
+
+      a = 9;
+      b = 1;
+     int tmp = a;
+     a = b;
+     b = tmp;
+     printf("%d %d\n",a,b);
+
+
+
+     ///Swap two integer variable values using functions
+/// Swap two integer variable values using functions
+
+     /// void swap(int a, int b)
+     a = 9;
+      b = 1;
+     swap(a,b);
+     printf("%d %d\n",a,b);
+
+
+
+///Swap two integer variable values using functions and pointers
+/// Swap two integer variable values using functions and pointers
+
+
+      a = 9;
+      b = 1;
+     swapPointer(&a,&b);
+     printf("%d %d\n",a,b);
+
+
+
+     ///Modify an integer variable value using a function
+     /// Modify an integer variable value using a function
+
+
+          a = 5;
+    addThree(a);
+    printf("inside main, value of a: %d\n",a);
+
+
+
+
+    /// Modify an integer variable value using a function with pointers
+    /// Modify an integer variable value using a function with pointers
+
+
+
+         a = 5;
+    addThreePointer(&a);
+    printf("inside main, value of a: %d\n",a);
+
+/// Activity: use pointers to improve elixir
+/// Activity: use pointers to improve elixir
+
+
+
+
+
+	age;
+
+	int *ageAddr = &age;
+
+    puts("Please enter your age");
+
+	/*
+	int *ageAddr = &age; So ageAddr contains address of variable age. *ageAddr doesnt mean address of ageAddr.
+	 *ageAddr will point value at address of the age. so you should pass the address to the scanf function either
+	 you should give &age or ageAddr (which contain address of age )
+	*/
+	scanf("%d", ageAddr);
+
+	printf("Your current age is %d.\n", age);
+
+	//Write your function call here
+
+    ageChange(&age);
+
+	printf("Your new age will be %d!\n", age);
+
+
+
+
+	/// Introduction to pointer arithmetic: arrays, addresses and pointers
+	/// Introduction to pointer arithmetic: arrays, addresses and pointers
+
+
+	    int arr[3] = {15, 16, 17};
+    printf("%p\n",arr);
+    int * ptr = arr;
+    * ptr = 2; // * arr   0R  arr[0]
+    * (ptr + 1) = 3; // * (arr + 1)   OR  arr[1]
+    * (ptr + 2) = 5;// * (arr + 2)   OR arr[2]
+
+    /// * ptr + 1 = 3 will not work, dereferencing and pointer arithmetic.
+
+
+
+/// pointer arithmetics
+
+int arry[3] = {15, 16, 17};
+    printf("%p\n",arry);
+    printf("%d\n",arry[0]);
+    printf("%d\n",arry[1]);
+    printf("%d\n",arry[2]);
+    int * ptrx = arry;
+    * ptrx = 2; // * arry   0R  arr[0]
+    * (ptrx + 1) = 3; // * (arry + 1)   OR  arry[1]
+    * (ptrx + 2) = 5;// * (arry + 2)   OR arry[2]
+
+    printf("%d\n",arry[0]);
+    printf("%d\n",arry[1]);
+    printf("%d\n",arry[2]);
+
+    /// * ptr + 1 = 3 will not work, dereferencing and pointer arithmetic.
+
+
+int array[] = {4, 6, 12, -5, -7, 3, 1, 0, -10};
+
+    printf("%p\n",array); /// address of first element
+    printf("%d\n",array[0]);
+    printf("%d\n",array[1]);
+    printf("%d\n",array[2]);
+
+int *ptr1, *ptr2;
+ptr1 = array+2;  /// by adding 2 address go to the address of third element.
+ptr2 = &ptr1[5]; /// go to 5th index element considering ptr1 is 0 index
+
+    printf("%d\n",*(ptr1+1)); /// add 1 element address, 4 bytes in memory..
+    printf("%d\n",*(ptr2-3)); /// subtract 3 elements , 12 bytes in memory.
+
+
+
+///  Pointers / Passing arrays to functions
+
+
+///  Pointers / Passing arrays to functions
+
+
+
+        reset1(arr);
+
+            printf("%d\n",arr[0]);
+    printf("%d\n",arr[1]);
+    printf("%d\n",arr[2]);
+
+            reset2(arr);
+
+    printf("%d\n",arr[0]);
+    printf("%d\n",arr[1]);
+    printf("%d\n",arr[2]);
+
+                reset3(arr);
+    printf("%d\n",arr[0]);
+    printf("%d\n",arr[1]);
+    printf("%d\n",arr[2]);
+
+
+
+    /// Activity: arrays and functions
+
+    /// Swap by pointer
+
+    /// Activity: passing array to function to swap (External resource)
+
+
+
+   int ARRAY[6];
+    puts (" Please enter 6 array integer elements with spaces");
+
+     int value = 0;
+    for (int i = 0; i < 6; i++)
+    {
+
+        scanf("%d",&value);
+        ARRAY[i] = value;
+
+    }
+
+  //printf("%d %d",ARRAY[0],ARRAY[5]);
+  //printf("%d %d",ARRAY[1],ARRAY[4]);
+  //printf("%d %d",ARRAY[2],ARRAY[4]);
+
+
+    reverseArray(ARRAY);
+
+       for (int i = 0; i < 6; i++)
+    {
+
+        printf("%d ",ARRAY[i]);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -752,9 +1294,34 @@ Output:
 /// Abbreviations Ctrl+j
 /// open new file  Ctrl+Shift+n
 
+    //getch();
+   //system("cls");   //For windows
+
+    /// system("clear"); //For Linux
+
+/*
+You can use the OS commands to clear the contents of the console.
+
+#include<stdlib.h>
+int main(){
+
+system("cls");   //For windows
+system("clear"); //For Linux
+
+}
+
+This is actually a quite simple problem. All you have to do is use printf. You don't even need printf or any headers, for that matter.
+
+printf("\e[1;1H\e[2J");
+The \e[1;1H sets the screen to the 1st row and 1st column. the 2J overwrites all characters currently on the screen.
+
+You can also use this:
+
+write(0,"\e[1;1H\e[2J",12);
+Then you don't need stdio.h.
 
 
-
+*/
 /// Functions
 /// Function Definitions
 
@@ -894,5 +1461,89 @@ int sum_of_digit(int n)
     if (n == 0)
        return 0;
     return (n % 10 + sum_of_digit(n / 10));
+}
+
+void doSomething(int h)
+{
+        int a = 20;
+
+        int c = 12;
+        int d = 13;
+        int e = a + c;
+        c = h + d;
+        printf("c: %d\n",c);
+        printf("e: %d\n",e);
+}
+
+int funnyadd(int j, int i)
+{
+      int a = 2;
+      return(a*j+i);
+}
+
+void swap(int a, int b){
+    int tmp = a;
+    a = b;
+    b = tmp;
+}
+
+void swapPointer(int * a, int * b){
+    int tmp = * a;
+    * a = * b;
+    * b = tmp;
+}
+
+void addThree(int a){
+    a = a + 3;
+    printf("inside addThree, value of a: %d\n",a);
+}
+
+void addThreePointer(int * a){
+    *a = *a + 3;
+    printf("inside addThree, value of a: %d\n",*a);
+}
+
+void ageChange (int * age)
+{
+
+    if (*age <= 20)
+    {
+        *age = (*age) * 2 ;
+    }
+
+    else
+    {
+        *age = (*age) - 10 ;
+    }
+
+}
+
+void reset1(int * ptr){
+    *    ptr  = 0;
+    *(ptr +1) = 0;
+    *(ptr +2) = 0;
+}
+
+void reset2(int ptr[]){
+    *(ptr + 0) = 1;
+    *(ptr +1) = 2;
+    *(ptr +2) = 3;
+}
+
+void reset3(int * ptr){
+    *(ptr + 0) = 3;
+    *(ptr +1) = 3;
+    *(ptr +2) = 3;
+}
+
+
+void reverseArray(int * ARR)
+
+{
+
+swapPointer(&ARR[0],&ARR[5]);
+swapPointer(&ARR[1],&ARR[4]);
+swapPointer(&ARR[2],&ARR[3]);
+
 }
 
