@@ -448,7 +448,7 @@ printf("Comments tag /// \n");
 
 
     puts( " You arrive in front of a bridge that you must cross to reach a village before dark. \
-       Crossing the bridge is not free - the bridgekeeper asks you to roll two dice to determine the cost. \
+       Crossing the bridge is not free - the bridge keeper asks you to roll two dice to determine the cost. \
        You decide to write a program to verify that he is charging the right price. \
        Your program should read two integers, between 1 and 6, representing the values of each die.  \
        If the sum is greater than or equal to 10, then you must pay a special fee (36 coins). \
@@ -1379,9 +1379,9 @@ since you are told that there are no more than 50 boxcars.   \n\  " );
     }
 
 
-    puts( " Find the largest array element" );
+    puts( " Find the largest array element max or maximum" );
 
-    puts( " Find the largest / biggest array element in this case age, and show the difference " );
+    puts( " Find the max or maximum / largest / biggest array element in this case age, and show the difference " );
 
     puts( " Compute with arrays, compare smaller  or bigger" );
 
@@ -1391,7 +1391,6 @@ since you are told that there are no more than 50 boxcars.   \n\  " );
     int ageMax = 0; /// Initialize the biggest element to 0
     for (i=0; i<10; i++)
     {
-
         printf(" Please enter age of Number %d person,  maximum 10 person :\n", i+1);
         scanf("%d", &ages[i]);
         if (ages[i] > ageMax)
@@ -1408,8 +1407,8 @@ since you are told that there are no more than 50 boxcars.   \n\  " );
 
 
 
-    puts( " Compute with arrays, compare smaller  or bigger" );
-    puts( " Compute with arrays" );
+    puts( " Compute with arrays, compare small min minimum smaller  or bigger" );
+    puts( " Compute with arrays small min minimum" );
     puts( " Find the smallest array element" );
     puts( " Compute with arrays, compare smaller  or bigger" );
     puts( " Find the smallest array element in this case youngest age, and show the difference " );
