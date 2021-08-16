@@ -4,6 +4,8 @@ Copyright :== author/owner*/
 
 #include <stdio.h>
 #include <stdlib.h>
+
+
 #include <stdbool.h>
 #include <time.h>
 #include <unistd.h>
@@ -42,6 +44,11 @@ void squareArray(int *, int);
 void behind(int * pointerArry, int numberofPlayers );
 
 void setToZero(short ** t);
+
+int * allocateIntArray(int);
+double findAverage(int *,int);
+
+
 
 int main(int argc, char* argv[])
 
@@ -582,6 +589,92 @@ them quickly and so that human beings can understand them clearly.
         printf("%s ", Words[i]);
     }
 
+/*
+Activity: malloc (External resource)
+Activity: malloc (External resource)
+
+/
+Unit 4.3: Dynamic memory allocation
+/
+Allocating memory at runtime
+
+
+
+    //! showMemory(start=272)
+    int * intptr;
+    double * doubleptr;
+    intptr = (int *) malloc(sizeof(int)); // casting
+    * intptr = 5;
+    doubleptr = (double *) malloc(sizeof(double)); // casting
+    * doubleptr = 9.0;
+
+    free (intptr);
+    free (doubleptr);
+
+ /
+Unit 4.3: Dynamic memory allocation
+/
+Freeing dynamically allocated memory
+
+Deallocate memory in the heap using free
+
+*/
+
+
+    //! showMemory(start=438, cursors=[a,b,c])
+    int *a, *b, *c;
+    a = (int *) malloc(sizeof(int));
+    *a = 1;
+    printf("I stored %d at memory location %p.\n", *a, a);
+    b = (int *) malloc(sizeof(int));
+    *b = 2;
+    free(a);
+    c = (int *) malloc(sizeof(int));
+    *c = 3;
+    printf("Can I still access a?\n");
+    printf("I stored %d at memory location %p.\n", *a, a);
+    free(b);
+    free(c);
+
+
+///Unit 4.3: Dynamic memory allocation //Storing and addressing arrays in dynamically allocated
+
+/// Allocate memory for arrays using malloc
+
+
+    //! showMemory(start=272)
+    int * array;
+    array = (int *) malloc(5*sizeof(int));
+    array[0] = 3;
+    array[1] = 44;
+    array[2] = 2;
+    * (array + 3) = 7;
+    * (array + 4) = -1;
+    free(array);
+
+
+    /// Learn from another example of array memory allocation
+
+    /// Learn from another example of array memory allocation
+
+
+
+
+    //! showMemory(start=272)
+    int num, i;
+    int * array;
+    double average;
+    printf("How many grades would you like to enter?");
+    scanf("%d",&num);
+    array = allocateIntArray(num);
+    printf("Please enter %d grades: ",num);
+    for(i=0;i<num;i++){
+        scanf("%d",array+i);
+    }
+    average = findAverage(array,num);
+    printf("The average grade is %.2f.\n",average);
+    free(array);
+
 
 
 
@@ -775,4 +868,19 @@ void setToZero(short ** t){
     *((*t) + 2) = 0;//t[0][2]  OR *(t[0] + 2)
     *(*(t+1)) = 0;//t[1][0]  OR *(t[1] + 0)
     *(*(t+1)+1) = 0;//t[1][1]  OR *(t[1] + 1)
+}
+
+int * allocateIntArray(int num){
+    int * ptr = (int *) malloc(num * sizeof(int));
+    return ptr;
+}
+
+double findAverage(int * array, int num){
+    int i;
+    double average = 0.0;
+    for(i=0;i<num;i++){
+        average += array[i];
+    }
+    average = average / num;
+    return average;
 }
