@@ -37,8 +37,13 @@ struct date {
         int day;
     };
 
-void readDate(struct date *);
+void ReadDate(struct date *);
+void Print_Date(struct date);
+
+/* function prototypes */
 void printDate(struct date);
+void readDate(struct date *);
+struct date advanceDay(struct date);
 
 
 int main()
@@ -101,16 +106,16 @@ int main()
 
  You'd like to implement a date feature in the C programming language.
 To this end you are provided with a structure definition, a main function, and two function prototypes:
-"readDate()" and "printDate()". All that is left for you to do is to write these two functions.
+"ReadDate()" and "Print_Date()". All that is left for you to do is to write these two functions.
 
 Here are the exact specifications:
 
-The function readDate() should read 3 integers from the user input. The first integer is the year
+The function ReadDate() should read 3 integers from the user input. The first integer is the year
 (a 4-digit number), the second integer is the month, and the third integer is the day of the date
 being read. The function should store these three numbers in the appropriate parts of the structure
 being passed into it.
 
-The function printDate() should print the date stored in the variable passed into it in the
+The function Print_Date() should print the date stored in the variable passed into it in the
 following format: mm/dd/yyyy with a new line afterwards. So the month should be printed with
 two digits (01, 02, 03, ..., 11, 12), the day should be printed as two digits (01, 02, 03, ..., 30, 31),
 and the year should be printed as a 4-digit number.
@@ -145,14 +150,15 @@ Output:
 
 
 	struct date today;
-	readDate(&today);
-	printDate(today);
+	ReadDate(&today);
+	Print_Date(today);
 
 
 
 ///Unit 5.1: Structures/Work with structures
 /// Access and modify structure’s members with the arrow operator
 
+     struct student *studptr;
 
     printf("\nEnter a new student record: \n");
     printf("First name: ");
@@ -173,7 +179,7 @@ Output:
 /// Get the size of a structure in memory
 
 
-	struct student me;
+	/// struct student me;
     printf("Size of struct student is %zu.\n", sizeof(struct student));
     printf("Size of struct student is %zu.\n", sizeof(me));
     printf("Size of firstName is %zu.\n", sizeof(me.firstName));
@@ -184,28 +190,131 @@ Output:
 
 
 
+/// Activity: manipulate structures with functions
+
+
+/// Activity: manipulate structures with functions (External resource)
+
+
+/*
+In this problem you will continue developing the data feature which you started implementing in the previous problem. You will implement a "tomorrow" feature in the C programming language via a function called "advanceDay()". The function advanceDay() should take as input a date (stored in a struct date) and return the date of the following day. You do not have to take into account leap years (although you may if you wish to). That is, it is okay for your function to always return March 1 as the day following February 28, no matter the year.
+
+You are provided with a familiar date structure definition, a main function as well as the function prototypes for the readDate(), printDate(), and advanceDate() functions. Do not modify any of the given code. Simply add your function definitions underneath the main() function. For the readDate() and printDate() functions you may simply copy and paste the code you developed in the previous task.
 
 
 
+Examples
+Input:
+2018 10 2
+Output:
+10/02/2018
+
+10/03/2018
+
+
+Input:
+2018 10 31
+Output:
+10/31/2018
+
+11/01/2018
+
+
+Input:
+2018 11 30
+Output:
+11/30/2018
+
+12/01/2018
+
+
+Input:
+2018 12 31
+Output:
+12/31/2018
+
+01/01/2019
 
 
 
+#include <stdio.h>
+
+struct date {
+        int year;
+        int month;
+        int day;
+    };
+
+// function prototypes
+void printDate(struct date);
+void readDate(struct date *);
+struct date advanceDay(struct date);
+
+int main(void) {
+	struct date today, tomorrow;
+	readDate(&today);
+	printDate(today);
+	tomorrow = advanceDay(today);
+	printDate(tomorrow);
+	return 0;
+}
+
+// function definitions
+void readDate(struct date *nowptr) {
+    scanf("%d%d%d", &((*nowptr).year), &((*nowptr).month), &((*nowptr).day));
+}
+
+void printDate(struct date now) {
+    printf("%02d/%02d/%4d\n", now.month, now.day, now.year);
+}
+
+struct date advanceDay(struct date today) {
+    int d = today.day;
+    int m = today.month;
+    int y = today.year;
+    int days;
+    struct date tomorrow;
+    if ((m==1) || (m==3) || (m==5) || (m==7) || (m==8) || (m==10) || (m==12)) {
+        days = 31;
+    } else if (m==2) {
+        if (y%4==0) {
+            if (y%100 == 0) {
+                if (y%400 ==0) {
+                    days = 29;
+                } else {
+                    days = 28;
+                }
+            } else {
+                days = 29;
+            }
+        } else {
+            days = 28;
+        }
+    } else {
+        days = 30;
+    }
+    if (d<days) d++;
+    else {
+        d=1;
+        if (m==12) {
+            m = 1;
+            y++;
+        } else m++;
+    }
+    tomorrow.year = y;
+    tomorrow.month = m;
+    tomorrow.day = d;
+    return(tomorrow);
+}
+*/
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+	struct date today, tomorrow;
+	readDate(&today);
+	printDate(today);
+	tomorrow = advanceDay(today);
+	printDate(tomorrow);
 
 
 
@@ -329,7 +438,7 @@ void printStudent(struct student stud){
 }
 
 
-void readDate(struct date *dateptr)
+void ReadDate(struct date *dateptr)
 {
     //printf("\nEnter a new student record: \n");
     printf("Enter Year: ");
@@ -342,7 +451,7 @@ void readDate(struct date *dateptr)
     //scanf("%lf", &(*dateptr).aveGrade);
 }
 
-void printDate(struct date ddyymm)
+void Print_Date(struct date ddyymm)
 
 {
     //printf("Enter Date: ");
@@ -351,3 +460,65 @@ void printDate(struct date ddyymm)
     printf("%02d/%02d/%d \n", ddyymm.day, ddyymm.month, ddyymm.year);
 }
 
+void readDate(struct date *dateptr)
+{
+    //printf("\nEnter a new student record: \n");
+    ///printf("Enter Year: ");
+    scanf("%d", &(*dateptr).year);
+    ///printf("Enter month: ");
+    scanf("%d", &(*dateptr).month);
+    ///printf("Enter Day: ");
+    scanf("%d", &(*dateptr).day);
+   // printf("Average grade: ");
+    //scanf("%lf", &(*dateptr).aveGrade);
+}
+
+
+void printDate(struct date ddyymm)
+
+{
+    printf("%02d/%02d/%d \n", ddyymm.month, ddyymm.day, ddyymm.year);
+}
+
+
+
+struct date advanceDay(struct date nextDay)
+{
+     int year, month, day;
+  // set year, month, day in some fashion
+
+  year  = nextDay.year;
+  month = nextDay.month;
+  day   = nextDay.day;
+
+  day++;  // tomorrow
+  //printf("%02d/%02d/%d \n", day, month, year);
+  int days_per_month = 31;
+  if (month == 4 || month == 6 || month == 9 || month == 11) {
+    days_per_month = 30;
+  } else if (month == 2) {
+    days_per_month = 28;
+    if (year % 4 == 0) {
+      days_per_month = 29;
+      if (year % 100 == 0) {
+        days_per_month = 28;
+        if (year % 400 == 0) {
+          days_per_month = 29;
+        }
+      }
+    }
+  }
+  if (day > days_per_month) {
+    day = 1;
+    month++;
+    if (month > 12) {
+      month = 1;
+      year++;
+    }
+  }
+    //printf("%02d/%02d/%d \n", day, month, year);
+      nextDay.year =  year;
+      nextDay.month = month;
+      nextDay.day = day;
+    return nextDay;
+}
