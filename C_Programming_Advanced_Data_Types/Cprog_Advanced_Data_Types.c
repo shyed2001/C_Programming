@@ -31,6 +31,16 @@ void readStudent(struct student *studptr);
 
 void printStudent(struct student stud);
 
+struct date {
+        int year;
+        int month;
+        int day;
+    };
+
+void readDate(struct date *);
+void printDate(struct date);
+
+
 int main()
 
 {
@@ -134,22 +144,42 @@ Output:
  */
 
 
+	struct date today;
+	readDate(&today);
+	printDate(today);
+
+
+
+///Unit 5.1: Structures/Work with structures
+/// Access and modify structure’s members with the arrow operator
+
+
+    printf("\nEnter a new student record: \n");
+    printf("First name: ");
+    scanf("%s", studptr->firstName);
+    printf("Last name: ");
+    scanf("%s", studptr->lastName);
+    printf("Birth year: ");
+    scanf("%d", &studptr->birthYear);  /// & get executed last, -> has higher order of precedence.
+    printf("Average grade: ");
+    scanf("%lf", &studptr->aveGrade);
 
 
 
 
 
 
+/// Get the size of a structure in memory
+/// Get the size of a structure in memory
 
 
-
-
-
-
-
-
-
-
+	struct student me;
+    printf("Size of struct student is %zu.\n", sizeof(struct student));
+    printf("Size of struct student is %zu.\n", sizeof(me));
+    printf("Size of firstName is %zu.\n", sizeof(me.firstName));
+    printf("Size of lastName is %zu.\n", sizeof(me.lastName));
+    printf("Size of birthYear is %zu.\n", sizeof(me.birthYear));
+    printf("Size of aveGrade is %zu.\n", sizeof(me.aveGrade));
 
 
 
@@ -297,3 +327,27 @@ void printStudent(struct student stud){
 	printf("Year of birth: %d\n",stud.birthYear);
 	printf("Average grade: %.2lf\n",stud.aveGrade);
 }
+
+
+void readDate(struct date *dateptr)
+{
+    //printf("\nEnter a new student record: \n");
+    printf("Enter Year: ");
+    scanf("%d", &(*dateptr).year);
+    printf("Enter Day: ");
+    scanf("%d", &(*dateptr).day);
+    printf("Enter month: ");
+    scanf("%d", &(*dateptr).month);
+   // printf("Average grade: ");
+    //scanf("%lf", &(*dateptr).aveGrade);
+}
+
+void printDate(struct date ddyymm)
+
+{
+    //printf("Enter Date: ");
+    //printf("Enter Date: ");
+    //printf("Enter month: ");
+    printf("%02d/%02d/%d \n", ddyymm.day, ddyymm.month, ddyymm.year);
+}
+
