@@ -87,20 +87,20 @@ You may submit as many solutions as you wish. Only your highest score will be ke
 
  */
    int ARRAY[6];
-    puts (" Please enter 6 array integer elements with spaces")
+    puts (" Please enter 6 array integer elements with spaces");
 
 
-    for ( i = 0, i < 6, i++)
+    for ( int i = 0; i < 6; i++)
     {
         int value = 0;
-        scanf("%d",&values);
+        scanf("%d",&value);
         ARRAY[i] = value;
 
     }
 
     reverseArray(ARRAY);
 
-       for ( i = 0, i < 6, i++)
+       for (int i = 0; i < 6; i++)
     {
 
         printf("%d",ARRAY[i]);

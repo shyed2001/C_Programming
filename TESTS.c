@@ -28,7 +28,7 @@ s[9] = argv[1];
 printf("%s", s);
 puts("\n");
 
-
+ puts("Use gcc -save-temps testC.c -o testC.exe for getting all the preprossed and object and assembly source files saved with chosen name");
 
     return 0;
 }

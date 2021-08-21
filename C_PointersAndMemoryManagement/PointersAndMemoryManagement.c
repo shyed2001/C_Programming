@@ -603,9 +603,9 @@ Allocating memory at runtime
     //! showMemory(start=272)
     int * intptr;
     double * doubleptr;
-    intptr = (int *) malloc(sizeof(int)); // casting
+    intptr = (int *) malloc(sizeof(int)); // casting pointer to a memory
     * intptr = 5;
-    doubleptr = (double *) malloc(sizeof(double)); // casting
+    doubleptr = (double *) malloc(sizeof(double)); // casting pointer to a memory
     * doubleptr = 9.0;
 
     free (intptr);

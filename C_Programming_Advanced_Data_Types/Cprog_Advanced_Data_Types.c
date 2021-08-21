@@ -43,8 +43,19 @@ void Print_Date(struct date);
 /* function prototypes */
 void printDate(struct date);
 void readDate(struct date *);
-struct date advanceDay(struct date);
+/// struct date advanceDay(struct date);
+struct date advanceDay(struct date nextDay);
 
+struct point{
+    int x;
+    int y;
+};
+void printPoint(struct point pt);
+void readPoint(struct point * ptr);
+
+void printTriangle(struct point *ptr);
+
+void printPoly(struct point *ptr, int vertices);
 
 int main()
 
@@ -99,7 +110,7 @@ int main()
 /// pass struct to function using scanf and pointer
 
 
-    readStudent(&me);  /// address needed for use with pointer and scanf input
+    readStudent(&me);  /// address needed for use with pointer and scanf input or modify
     printStudent(me);
 
  /*
@@ -150,7 +161,7 @@ Output:
 
 
 	struct date today;
-	ReadDate(&today);
+	ReadDate(&today);  /// to modify the struct we need &
 	Print_Date(today);
 
 
@@ -168,12 +179,12 @@ Output:
     printf("Birth year: ");
     scanf("%d", &studptr->birthYear);  /// & get executed last, -> has higher order of precedence.
     printf("Average grade: ");
-    scanf("%lf", &studptr->aveGrade);
+    scanf("%lf", &(studptr->aveGrade));
+    /// scanf("%lf", &(studptr).aveGrade);
 
 
-
-
-
+/// Remember : t[4] equal to *(t+4), , and  " (* ). " equal to "-> " Dereferencing
+/// Remember : t[4] equal to *(t+4), , and  " (* ). " equal to "-> "
 
 /// Get the size of a structure in memory
 /// Get the size of a structure in memory
@@ -307,25 +318,271 @@ struct date advanceDay(struct date today) {
     return(tomorrow);
 }
 */
+/// Remember! pentagon[4].y == (pentagon+4)->y.
+
+/// Remember : t[4] equal to *(t+4), , and  " (* ). " equal to "-> " Dereferencing
+
+/// Remember : t[4] equal to *(t+4), , and  " (* ). " equal to "-> "
 
 
 
-	struct date today, tomorrow;
-	readDate(&today);
-	printDate(today);
-	tomorrow = advanceDay(today);
+	struct date Today, tomorrow;
+
+	readDate(&Today);  /// & is needed to be able to modify struct
+	printDate(Today);
+	tomorrow = advanceDay(Today);
 	printDate(tomorrow);
 
 
+///Unit 5.2: Structures and pointers/Create a structure to store the coordinates of a point/// /Unit 5.2: Structures and pointers
+///Create a structure to store the coordinates of a point
+
+/// Create structures from user input
+
+
+    //! showMemory(start=65520)
+    struct point z;
+    readPoint(&z); /// & is needed to be able to modify struct
+    printPoint(z);
+
+
+/// Unit 5.2: Structures and pointers//Create a structure to store the coordinates of a point
+
+/// Use an array of structures without loop
+
+
+    //! showMemory(start=65520)
+    struct point triangle[3];
+    readPoint(&triangle[0]);
+    readPoint(&triangle[1]);
+    readPoint(&triangle[2]);
+
+
+
+/// Unit 5.2: Structures and pointers//Create a structure to store the coordinates of a point
+
+/// Use an array of structures with loop
+
+
+    //! showMemory(start=65520)
+    /// struct point triangle[3];
+
+    int i;
+    for (i=0; i<3; i++){
+        readPoint(&triangle[i]);
+    }
+    printTriangle(triangle);
+
+/// Remember! pentagon[4].y == (pentagon+4)->y.
+
+/// Remember : t[4] equal to *(t+4), , and  " (* ). " equal to "-> " Dereferencing
+
+/// Remember : t[4] equal to *(t+4), , and  " (* ). " equal to "-> "
+
+
+///Create a structure to store the coordinates of a point
+
+/// Create structures from user input
+
+///Unit 5.2: Structures and pointers ///Allocate memory for structures
+
+/// Allocate memory for structures
+
+
+    //! showMemory(start=65520)
+    struct point * polygon;
+    int i, num;
+    printf("How many vertices does your polygon have? ");
+    scanf("%d", &num);
+    polygon = (struct point *) malloc(num * sizeof(struct point)); // casting pointer to a memory
+    for (i=0; i<num; i++){
+        readPoint(&polygon[i]);
+    }
+    printPoly(polygon, num);
+    free(polyg
+
+
+/// Activity: allocate memory for structures
+
+/// Activity: allocate memory for polygon structures (External resource)
+
+/*
+
+
+In this task, we will continue to work with polygons.
+You are provided with the following:
+- A familiar structure definition for a 2-dimensional point.
+- Two familiar functions and their prototypes, "printPoint()"
+and "printPoly()".
+- A prototype for "initializePoly()", a function that you must write.
+
+- An empty main function which you must complete.
+
+
+Please do not alter the provided code (except to fill in the main function
+and add your initializePoly() function).
+
+initializePoly() should receive as input a pointer to the first structure
+in an array of structures as well as in integer, indicating how many points
+can be stored in the array. Your job is to initialize these points in the
+following way: Using a for loop with i starting at 0, initialize the
+x-coordinate of the point at index i as -i, and the y-coordinate as i*i.
+
+
+Your main function should read the number of vertices to store in the array
+of points from the user, then allocate the appropriate amount of memory,
+initialize the array with the function initializePoly, and finally print
+the vertices of the polygon using the function printPoly().
+
+Use a loop in your initializePoly() function, where the index of the loop
+corresponds to the index of the array.
+
+
+Example
+Input:
+4
+Output:
+(0, 0)
+(-1, 1)
+(-2, 4)
+(-3, 9)
+
+
+Provided code
+#include <stdio.h>
+#include <stdlib.h>
+
+struct point{
+	int x;
+	int y;
+};
+
+void printPoint(struct point);
+void printPoly(struct point *, int);
+void initializePoly(struct point *, int);
+
+int main(void) {
+
+    // Fill in your main function here
+
+}
+
+void printPoint(struct point pt) {
+    printf("(%d, %d)\n", pt.x, pt.y);
+}
+
+void printPoly(struct point *ptr, int N) {
+    int i;
+    for (i=0; i<N; i++) {
+        printPoint(ptr[i]);
+    }
+}
+
+// Write your initializePoly() function here
+
+
+
+*/
+
+
+/// Hint, refrain from using a loop in the main and find a way to traverse
+/// the array starting from index zero, using array indexing or Pointer
+///arithmetic maybe ;-) Remember! pentagon[4].y == (pentagon+4)->y.
+///Good luck! :-)
+#include <stdio.h>
+#include <stdlib.h>
+struct point
+{
+	int x;
+	int y;
+};
+void printPoint(struct point);
+void printPoly(struct point *, int);
+void initializePoly(struct point *, int);
+int main(void)
+{
+   //! showMemory(start=65520)
+/// Fill in your main function here
+/// Your main function should read the number of vertices to store in the array \
+of points from the user,
+/// then allocate the appropriate amount of memory,
+/// initialize the array with the function initializePoly,
+/// and finally print the vertices of the polygon using the function printPoly().
+
+    struct point * POLYGON;
+    int NUM;
+    printf("How many vertices does your polygon have ? \n ");
+    scanf("%d", &NUM);
+
+    POLYGON = (struct point *) malloc(NUM * sizeof(struct point)); // casting pointer to a memory
+
+    initializePoly(POLYGON, NUM);
+    printPoly(POLYGON, NUM);
+    free(POLYGON);
+
+    return 0;
+
+}
+
+void printPoint(struct point pt) {
+    printf("(%d, %d)\n", pt.x, pt.y);
+}
+
+void printPoly(struct point *ptr, int N) {
+    int i;
+    for (i=0; i<N; i++) {
+        printPoint(ptr[i]);
+    }
+}
+
+// Write your initializePoly() function here
+
+void initializePoly(struct point *Poly, int NUMofvertices)
+{
+ /*  initializePoly() should receive as input a pointer to the first structure
+in an array of structures as well as in integer, indicating how many points
+can be stored in the array.
+
+Your job is to initialize these points in the following way:
+Using a for loop with i starting at 0, initialize the x-coordinate of the point
+at index i as -i,
+and the y-coordinate as i*i.
+
+Use a loop in your initializePoly() function, where the index of the loop
+corresponds to the index of the array.
+*/
+     /// struct point  Poly->x = -i;
+      /// struct point  Poly->y = i*i;
+      int i=0;
+    for (i=0; i<NUMofvertices; i++)
+    {
+
+      Poly[i].x = -i;
+      Poly[i].y = i*i;
+    }
+    /// here Poly is a pointer to a struct address
+    /// printf("\nEnter a new point: \n");
+   /// printf("x-coordinate: ");
+    ///scanf("%d", &Poly[i]->x); ///first the dereferencing -> works then the & works
+    ///printf("y-coordinate: ");
+    ///scanf("%d", &Poly[i]->y);
+}
+
+
+/// Remember! pentagon[4].y == (pentagon+4)->y.
+
+/// Remember : t[4] equal to *(t+4), , and  " (* ). " equal to "-> " Dereferencing
+
+/// Remember : t[4] equal to *(t+4), , and  " (* ). " equal to "-> " Dereferencing
 
 
 
 
+/// Unit 5.2: Structures and pointers /// Get to know the concept of a linked list
 
+/// Link structures together in a linked list
 
-
-
-
+/// linked list
 
 
 
@@ -356,7 +613,7 @@ struct date advanceDay(struct date today) {
 /// line comment  Ctrl+Shift+C
 /// Abbreviations Ctrl+j
 /// open new file  Ctrl+Shift+n
-
+///  puts("Use gcc -save-temps testC.c -o testC.exe for getting all the preprossed and object and assembly source files saved with chosen name");
 /*
 You can use the OS commands to clear the contents of the console.
 
@@ -522,3 +779,33 @@ struct date advanceDay(struct date nextDay)
       nextDay.day = day;
     return nextDay;
 }
+void readPoint(struct point * ptr) { /// here ptr is a pointer to a struct address
+    printf("\nEnter a new point: \n");
+    printf("x-coordinate: ");
+    scanf("%d", &ptr->x); ///first the dereferencing -> works then the & works
+    printf("y-coordinate: ");
+    scanf("%d", &ptr->y);
+}
+/// Remember : t[4] equal to *(t+4), , and  " (* ). " equal to "-> "
+void printPoint(struct point pt){  /// pt is the struct inself
+    printf("(%d, %d)\n", pt.x, pt.y);
+}
+
+
+void printTriangle(struct point *ptr) {
+    int i;
+    for (i=0; i<3; i++) {
+        printPoint(ptr[i]);
+    }
+}
+
+/// Remember : t[4] equal to *(t+4), , and  " (* ). " equal to "-> " Dereferencing
+
+void printPoly(struct point *ptr, int vertices) {
+    int i;
+    for (i=0; i<vertices; i++) {
+        printPoint(ptr[i]);
+    }
+}
+
+
