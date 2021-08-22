@@ -57,6 +57,32 @@ void printTriangle(struct point *ptr);
 
 void printPoly(struct point *ptr, int vertices);
 
+struct POINT{
+    int x;
+    int y;
+    struct POINT * next;
+};
+
+struct point2{
+    int x;
+    int y;
+    struct point2 * next;
+};
+void printPoints(struct point2 *start);
+struct point * createPoint(int x, int y) ;
+void append (struct point * end, struct point * newpt);
+
+struct point * append (struct point * end, struct point * newpt);
+void freePoints(struct point * start);
+
+struct digit {
+    int num;
+    struct digit * next;
+};
+struct digit * createDigit(int dig);
+
+
+
 int main()
 
 {
@@ -406,6 +432,7 @@ struct date advanceDay(struct date today) {
 
 /// Activity: allocate memory for polygon structures (External resource)
 
+
 /*
 
 
@@ -489,6 +516,8 @@ void printPoly(struct point *ptr, int N) {
 /// the array starting from index zero, using array indexing or Pointer
 ///arithmetic maybe ;-) Remember! pentagon[4].y == (pentagon+4)->y.
 ///Good luck! :-)
+
+/*
 #include <stdio.h>
 #include <stdlib.h>
 struct point
@@ -553,6 +582,8 @@ corresponds to the index of the array.
 */
      /// struct point  Poly->x = -i;
       /// struct point  Poly->y = i*i;
+
+
       int i=0;
     for (i=0; i<NUMofvertices; i++)
     {
@@ -583,6 +614,132 @@ corresponds to the index of the array.
 /// Link structures together in a linked list
 
 /// linked list
+
+    //! showMemory(start=65520)
+    struct POINT  pt1 = {1, 2, NULL};
+    struct POINT pt2 = {-2, 3, NULL};
+    struct POINT pt3 = {5, -4, NULL};
+    struct POINT * start, * PTR;
+
+    start = &pt1;
+    pt1.next = &pt2;
+    pt2.next = &pt3;
+
+    PTR = start;
+    while (PTR!=NULL) {
+        printf("(%d, %d)\n", PTR->x, PTR->y);
+        PTR = PTR->next;
+    }
+
+/// Remember! pentagon[4].y == (pentagon+4)->y.
+/// Remember : t[4] equal to *(t+4), , and  " (* ). " equal to "-> " Dereferencing
+/// Remember : t[4] equal to *(t+4), , and  " (* ). " equal to "-> " Dereferencing
+
+/// Link structures together in a linked list
+
+/// linked list
+/// Print a linked list . With a function
+
+
+    //! showMemory(start=65520)
+    struct point2 pt1 = {1, 2, NULL};
+    struct point2 * start;
+    struct point2 pt2 = {-2, 3, NULL};
+    struct point2 pt3 = {5, -4, NULL};
+
+    start = &pt1;
+    pt1.next = &pt2;
+    pt2.next = &pt3;
+
+    printPoints(start);
+
+/// Remember! pentagon[4].y == (pentagon+4)->y.
+/// Remember : t[4] equal to *(t+4), , and  " (* ). " equal to "-> " Dereferencing
+/// Remember : t[4] equal to *(t+4), , and  " (* ). " equal to "-> " Dereferencing
+
+
+
+/// Append new nodes to a linked list
+
+/// Append new nodes to a linked list
+
+
+
+    start = &pt1;
+    append(&pt1, &pt2);
+    append(&pt2, &pt3);
+
+    printPoints(start);
+
+
+
+/// Append new nodes to a linked list
+
+/// Append new nodes to a linked list
+
+
+   //! showMemory(start=65520)
+    struct point pt1 = {1, 2, NULL};
+    struct point pt2 = {-2, 3, NULL};
+    struct point pt3 = {5, -4, NULL};
+    struct point * start, * end;
+
+    start = end = &pt1;
+    end = append(end, &pt2);
+    end = append(end, &pt3);
+
+    printPoints(start);
+
+
+/// Delete a linked list
+/// Delete a linked list
+
+
+
+
+    //! showMemory(start=65520)
+    struct point * start, * end, * newpt;
+    int num, i;
+    int x, y;
+
+    printf("How many points? ");
+    scanf("%d", &num);
+    for (i=0; i<num; i++) {
+        printf("x = ");
+        scanf("%d", &x);
+        printf("y = ");
+        scanf("%d", &y);
+        newpt = createPoint(x,y);
+        if (i==0) {
+            start = end = newpt;
+        } else {
+            end = append(end,newpt);
+        }
+    }
+    printf("You entered: ");
+    printPoints(start);
+    freePoints(start);
+
+
+
+    ///Unit 5.3: Linked lists///Creating a single node
+
+    /// Create a node of a linked list
+
+
+    //! stack=showMemory(start=65520, showcursor[numberptr])
+    struct digit * numberptr;
+    int digitToStore = 5;
+    numberptr = createDigit(digitToStore);
+    printf("We are storing the digit %d and the pointer %p at memory location %p.\n", numberptr->num, numberptr->next, numberptr);
+    free(numberptr);
+
+
+
+
+
+
+
 
 
 
@@ -807,5 +964,57 @@ void printPoly(struct point *ptr, int vertices) {
         printPoint(ptr[i]);
     }
 }
+
+void printPoints(struct point2 *start) {
+    //! showMemory(start = 65520, cursors=[ptr])
+    struct point2 * ptr;
+    ptr = start;
+    while (ptr!=NULL) {
+        printf("(%d, %d)\n", ptr->x, ptr->y);
+        ptr = ptr->next;
+    }
+}
+/// Remember! pentagon[4].y == (pentagon+4)->y.
+/// Remember : t[4] equal to *(t+4), , and  " (* ). " equal to "-> " Dereferencing
+/// Remember : t[4] equal to *(t+4), , and  " (* ). " equal to "-> " Dereferencing
+
+
+void append (struct point * end, struct point * newpt) {
+    end->next = newpt;
+}
+
+
+struct point * append (struct point * end, struct point * newpt) {
+    end->next = newpt;
+    return(end->next);
+}
+
+struct point * createPoint(int x, int y) {
+    struct point *ptr;
+    ptr = (struct point *)malloc(sizeof(struct point));
+    ptr->x = x;
+    ptr->y = y;
+    ptr->next = NULL;
+    return(ptr);
+}
+
+void freePoints(struct point * start) {
+    struct point * ptr = start;
+    while (ptr!=NULL) {
+        start = ptr;
+        ptr = ptr->next;
+        free(start);
+    }
+}
+
+struct digit * createDigit(int dig) {
+    //! heap=showMemory(start=330, cursors=[ptr])
+    struct digit *ptr;
+    ptr = (struct digit *) malloc(sizeof(struct digit));
+    ptr->num = dig;
+    ptr->next = NULL;
+    return ptr;
+}
+
 
 
