@@ -80,7 +80,7 @@ struct digit {
     struct digit * next;
 };
 struct digit * createDigit(int dig);
-
+struct digit * append(struct digit * end, struct digit * newDigitptr);
 struct student {
       char name[50];
       int age;
@@ -91,6 +91,30 @@ struct student *createStudent(char studentName[], int studentAge);
 
 // Write other function prototypes here (if any)
 
+struct student {
+      char name[50];
+      int age;
+      struct student *next;
+};
+void copyStr(char *source, char *target);
+struct student *createStudent(char studentName[], int studentAge);
+struct student *append(struct student * end, struct student * newStudptr);
+/* add other prototypes here if needed */
+
+void printStudents(struct student *start);
+
+struct digit {
+    int num;
+    struct digit *next;
+};
+/// Activity: check divisibility (External resource)
+// Write your prototypes here
+struct digit *createDigit(int dig) ;
+struct digit * append(struct digit * end, struct digit * newDigptr) ;
+void printNumber(struct digit *start);
+void freeNumber(struct digit *start) ;
+struct digit *readNumber(void) ;
+struct digit *divisibleByThree(struct digit *numberptr);
 
 int main()
 
@@ -851,6 +875,562 @@ void copyStr(char *source, char *target) {
     return 0;
 
 
+/// Unit 5.3: Linked lists//Linking nodes
+/// Append a node to a linked list
+///Append a node to a linked list
+
+
+ //! stack=showMemory(start=65520,cursors=[start,newDigitptr,end,tmp])
+    struct digit *start, *newDigitptr, *end, *tmp;
+    int first = 5;
+    int second = 3;
+    int third = 7;
+    start = createDigit(first);
+    end = start;
+    newDigitptr = createDigit(second);
+    end = append(end, newDigitptr);
+    newDigitptr = createDigit(third);
+    end = append(end, newDigitptr);
+    ///Unit 5.3: Linked lists//Printing a linked list
+     printNumber(start);
+/// Unit 5.3: Linked lists//Free an entire linked list
+
+/// Free all space allocated for a linked list
+
+///freeNumber(start);
+    // free needs to be added  here
+    tmp = start->next;
+    free(start);
+    start = tmp;
+    tmp = start->next;
+    free(start);
+    free(tmp);
+
+
+
+
+/// Activity: append a node with student data
+
+///Activity: append a node with student data (External resource)
+
+
+/*
+In this task you will continue working on the linked list of students in which
+ you would like to store, for each student, their name and age. As before you
+ are provided with some code that you should not modify:
+
+    A structure definition for the storage of each student's information.
+    A main() function to test your code.
+    Prototypes for the functions createStudent() (from the previous task) and
+     append() (from the current task).
+
+You will need the function definition (from the previous task) for createStudent(),
+ as well as any other functions you added, such as copyStr() for example. If you were
+ unable to solve the previous task you have the option to be given the code for the
+  createStudent() function (see the quiz preceding this task) so that you can work on
+  the current task.
+
+Your new task is to write a function append() which takes as input two pointers: the
+first pointer holds the address of the current end of the linked list of students, the
+second pointer points to a newly created student. Your function should append this new
+student to the linked list and return the address (a struct student *) of the new end of the list.
+
+Provided code
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct student {
+      char name[50];
+      int age;
+      struct student *next;
+};
+
+struct student *createStudent(char studentName[], int studentAge);
+struct student *append(struct student * end, struct student * newStudptr);
+ add other prototypes here if needed *
+
+int main(void) {
+    struct student *start, *newStudptr, *end, *tmp;
+    int ageP, ageR, ageM;
+
+    scanf("%d %d %d", &ageP, &ageR, &ageM);
+    start = createStudent("Petra", ageP);
+    end = start;
+    newStudptr = createStudent("Remi", ageR);
+    end = append(end, newStudptr);
+    newStudptr = createStudent("Mike", ageM);
+    end = append(end, newStudptr);
+
+    printf("%s is %d years old.\n", start->name, start->age);
+    printf("%s is %d years old.\n", start->next->name, start->next->age);
+    printf("%s is %d years old.\n", start->next->next->name, start->next->next->age);
+
+    tmp = start->next;
+    free(start);
+    start = tmp;
+    tmp = start->next;
+    free(start);
+    free(tmp);
+
+    return 0;
+}
+
+Place your function definitions here. Be sure to include the definition for
+   createStudent() and any other functions you created for the previous task.
+
+Example
+Input:
+
+25 18 32
+
+Output:
+
+Petra is 25 years old.
+Remi is 18 years old.
+Mike is 32 years old.
+
+
+Update the *next pointer of the current end to point to your new end, and make sure that your new end points to NULL.
+
+solution:
+
+struct student *createStudent(char studentName[], int studentAge) {
+    struct student *ptr;
+    ptr = (struct student *) malloc(sizeof(struct student));
+    copyStr(studentName, ptr->name);
+    ptr->age = studentAge;
+    ptr->next = NULL;
+    return ptr;
+}
+
+void copyStr(char *source, char *target) {
+    int i = 0;
+    while (source[i]!='\0') {
+        target[i] = source[i];
+        i++;
+    }
+    target[i] = '\0';
+}
+
+struct student * append(struct student * end, struct student * newStudptr) {
+    end->next = newStudptr;
+    return(end->next);
+}
+
+*/
+
+
+
+ struct student *start, *newStudptr, *end, *tmp;
+    int ageP, ageR, ageM;
+
+    scanf("%d %d %d", &ageP, &ageR, &ageM);
+    start = createStudent("Petra", ageP);
+    end = start;
+    newStudptr = createStudent("Remi", ageR);
+    end = append(end, newStudptr);
+    newStudptr = createStudent("Mike", ageM);
+    end = append(end, newStudptr);
+
+    printf("%s is %d years old.\n", start->name, start->age);
+    printf("%s is %d years old.\n", start->next->name, start->next->age);
+    printf("%s is %d years old.\n", start->next->next->name, start->next->next->age);
+
+    /// Unit 5.3: Linked lists
+///Printing a linked list Activity: print a linked list of student data (External resource)
+/*
+Your new task is to write a function printStudents() which takes as input a pointer that holds
+ the address of the start of a linked list of students. Your function should then print this list
+  of students to the screen as specified in the example below. Your function should not return anything.
+
+
+*/
+printStudents(start);
+
+
+
+
+/// free for 3 elements
+    tmp = start->next;
+    free(start);
+    start = tmp;
+    tmp = start->next;
+    free(start);
+    free(tmp);
+
+  freeStudents(start); /// free all element nodes pointers heap memory
+
+
+
+
+///Unit 5.3: Linked lists//Printing a linked list
+/// printNumber(start);
+
+
+
+/// Activity: free a linked list of students (External resource)
+/// Activity: free a linked list of students (External resource)
+
+
+/*
+Your current task is to write a function freeStudents() which takes as input
+ a pointer that holds the address of the start of a linked list of students.
+  Your function should then free the space allocated for each student in this
+  list of students. Your function should not return anything.
+
+  This task offers 1 hint :
+
+Hint 1 :
+
+Make sure to store the next pointer before freeing the one you're on! Otherwise,
+ you run the risk of losing that pointer when you free the space storing it.
+
+
+/// Unit 5.3: Linked lists//Free an entire linked list
+
+/// Free all space allocated for a linked list
+
+void freeStudents(struct student *start) {
+    //! heap=showMemory(start=277, cursors=[ptr,start,tmp])
+    struct student * ptr = start;
+    struct student * tmp;
+    while (ptr!='\0') {
+        tmp = ptr->next;
+        free(ptr);
+        ptr = tmp;
+    }
+}
+#include <stdio.h>
+#include <stdlib.h>
+
+struct digit {
+    int num;
+    struct digit *next;
+};
+
+struct digit * createDigit(int);
+struct digit * append(struct digit * end, struct digit * newDigptr);
+void printNumber(struct digit *);
+void freeNumber(struct digit *start);
+struct digit * readNumber();
+
+int main(void) {
+    //! stack = showMemory(start=65520)
+    struct digit *start;
+    printf("Please enter a number: ");
+    start = readNumber();
+    printNumber(start);
+    freeNumber(start);
+    return 0;
+}
+
+struct digit *createDigit(int dig) {
+    struct digit *ptr;
+    ptr = (struct digit *) malloc(sizeof(struct digit));
+    ptr->num = dig;
+    ptr->next = NULL;
+    return ptr;
+}
+
+struct digit * append(struct digit * end, struct digit * newDigptr) {
+    end->next = newDigptr;
+    return(end->next);
+}
+
+void printNumber(struct digit *start) {
+    struct digit * ptr = start;
+    while (ptr!=NULL) {
+        printf("%d", ptr->num);
+        ptr = ptr->next;
+    }
+    printf("\n");
+}
+
+void freeNumber(struct digit *start) {
+    struct digit * ptr = start;
+    struct digit * tmp;
+    while (ptr!=NULL) {
+        tmp = ptr->next;
+        free(ptr);
+        ptr = tmp;
+    }
+}
+
+struct digit * readNumber() {
+    //! heap=showMemory(start=309, cursors=[start, end, newptr])
+    char c;
+    int d;
+    struct digit *start, *end, *newptr;
+    start = NULL;
+    scanf("%c", &c);
+    while (c!='\n') {
+        d = c - 48;
+        newptr = createDigit(d);
+        if (start==NULL) {
+            start = newptr;
+            end = start;
+        } else {
+            end = append(end, newptr);
+        }
+        scanf("%c", &c);
+    }
+    return start;
+}
+
+*/
+
+
+/// Create a linked list of digits from user input
+
+/*
+
+
+
+*/
+
+
+    printf("Please enter a number: ");
+    start = readNumber();
+
+
+
+
+///Activity: check divisibility (External resource)
+
+/// Activity: check divisibility (External resource)
+
+
+
+
+    /*
+
+    In this task you will work with the linked list of digits we have created in the lessons up to this point. As before you are provided with some code that you should not modify:
+
+    A structure definition for the storage of each digit's information.
+    A main() function to test your code.
+    The functions createDigit(), append(), printNumber(), freeNumber() and readNumber() which we have written in the lectures.
+
+Your task is to write a new function divisibleByThree() which takes as input a pointer that holds the address of the start of a linked list of digits. Your function should then check whether the number stored in this linked list of digits is divisible by three. The function should return the value 1 if indeed the number is divisible by three and it should return the value 0 otherwise.
+Provided code
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct digit {
+    int num;
+    struct digit *next;
+};
+
+// Write your prototypes here
+
+int main(void) {
+    struct digit *start;
+    start = readNumber();
+    printf("The number ");
+    printNumber(start);
+    if (divisibleByThree(start))
+        printf("is divisible by 3.\n");
+    else
+        printf("is not divisible by 3.\n");
+    freeNumber(start);
+    return 0;
+}
+
+struct digit *createDigit(int dig) {
+    struct digit *ptr;
+    ptr = (struct digit *) malloc(sizeof(struct digit));
+    ptr->num = dig;
+    ptr->next = NULL;
+    return ptr;
+}
+
+struct digit * append(struct digit * end, struct digit * newDigptr) {
+    end->next = newDigptr;
+    return(end->next);
+}
+
+void printNumber(struct digit *start) {
+    struct digit * ptr = start;
+    while (ptr!=NULL) {
+        printf("%d", ptr->num);
+        ptr = ptr->next;
+    }
+    printf("\n");
+}
+
+void freeNumber(struct digit *start) {
+    struct digit * ptr = start;
+    struct digit * tmp;
+    while (ptr!=NULL) {
+        tmp = ptr->next;
+        free(ptr);
+        ptr = tmp;
+    }
+}
+
+struct digit *readNumber(void) {
+    char c;
+    int d;
+    struct digit *start, *end, *newptr;
+    start = NULL;
+    scanf("%c", &c);
+    while (c != '\n') {
+        d = c-48;
+        newptr = createDigit(d);
+        if (start == NULL) {
+            start = newptr;
+            end = start;
+        } else {
+            end = append(end, newptr);
+        }
+        scanf("%c", &c);
+    }
+    return(start);
+}
+
+// Write your divisibleByThree() function here
+
+Examples
+Input:
+
+234
+
+Output:
+
+The number 234
+is divisible by 3.
+
+Input:
+
+74658
+
+Output:
+
+The number 74658
+is divisible by 3.
+
+Input:
+
+245
+
+Output:
+
+The number 245
+is not divisible by 3.
+
+solution:
+#include <stdio.h>
+#include <stdlib.h>
+
+struct digit {
+    int num;
+    struct digit *next;
+};
+
+struct digit * createDigit(int);
+struct digit * append(struct digit * end, struct digit * newDigptr);
+void printNumber(struct digit *);
+void freeNumber(struct digit *);
+struct digit *readNumber(void);
+int divisibleByThree(struct digit * start);
+
+int main(void) {
+    struct digit *start;
+    start = readNumber();
+    printf("The number ");
+    printNumber(start);
+    if (divisibleByThree(start))
+        printf("is divisible by 3.\n");
+    else
+        printf("is not divisible by 3.\n");
+    freeNumber(start);
+    return 0;
+}
+
+struct digit *createDigit(int dig) {
+    struct digit *ptr;
+    ptr = (struct digit *) malloc(sizeof(struct digit));
+    ptr->num = dig;
+    ptr->next = NULL;
+    return ptr;
+}
+
+struct digit * append(struct digit * end, struct digit * newDigptr) {
+    end->next = newDigptr;
+    return(end->next);
+}
+
+void printNumber(struct digit *start) {
+    struct digit * ptr = start;
+    while (ptr!=NULL) {
+        printf("%d", ptr->num);
+        ptr = ptr->next;
+    }
+    printf("\n");
+}
+
+void freeNumber(struct digit *start) {
+    struct digit * ptr = start;
+    struct digit * tmp;
+    while (ptr!=NULL) {
+        tmp = ptr->next;
+        free(ptr);
+        ptr = tmp;
+    }
+}
+
+struct digit *readNumber(void) {
+    char c;
+    int d;
+    struct digit *start, *end, *newptr;
+    start = NULL;
+    scanf("%c", &c);
+    while (c != '\n') {
+        d = c-48;
+        newptr = createDigit(d);
+        if (start == NULL) {
+            start = newptr;
+            end = start;
+        } else {
+            end = append(end, newptr);
+        }
+        scanf("%c", &c);
+    }
+    return(start);
+}
+
+int divisibleByThree(struct digit * start) {
+    struct digit * ptr = start;
+    int qsum = 0;
+    while (ptr!=NULL) {
+        qsum += ptr->num;
+        ptr = ptr->next;
+    }
+    if (qsum%3==0) return 1;
+    else return 0;
+}
+
+    */
+
+
+ struct digit *start;
+    start = readNumber();
+    printf("The number ");
+    printNumber(start);
+    if (divisibleByThree(start))
+        printf("is divisible by 3.\n");
+    else
+        printf("is not divisible by 3.\n");
+    freeNumber(start);
+
+
+
+
+
+
+
+
 
 
 
@@ -1137,7 +1717,7 @@ struct student *createStudent(char studentName[], int studentAge)
     struct student *CreateStudent;
     char StudentName[50];
     CreateStudent = (struct student *) malloc(sizeof(struct student));
-    while(studentName[i]!= NULL) https://overiq.com/c-programming-101/array-of-pointers-to-strings-in-c/
+    while(studentName[i]!= NULL) /// or (studentName[i]!= '0') /// https://overiq.com/c-programming-101/array-of-pointers-to-strings-in-c/
     { CreateStudent->name[i]=studentName[i]; i=i+1; } /// write a function to convert array of shar into a string in c
 
 /// As you can see not all strings are long enough to fill all the rows of the array, that's why compiler fills these empty spaces (highlighted using light grey color) with the null characters ('\0').
@@ -1146,7 +1726,7 @@ struct student *createStudent(char studentName[], int studentAge)
     return CreateStudent;
 }
 
-/// write a function to convert array of shar into a string in c
+/// write a function to convert array of Char into a string in c
 
 void copyStr(char *source, char *target) {
     int i = 0;
@@ -1158,5 +1738,146 @@ void copyStr(char *source, char *target) {
     }
     target[i] = '\0';
 }
+
+
+struct digit * append(struct digit * end, struct digit * newDigitptr) {
+    //! heap=showMemory(start=260, cursors=[end,newDigitptr])
+    end->next = newDigitptr;
+    end = newDigitptr;
+    return(end);
+}
+
+
+/* Place your function definitions here. Be sure to include the definition for
+   createStudent() and any other functions you created for the previous task.
+
+
+ Write your createStudent function here (and any other functions you see fit)
+struct student *createStudent(char studentName[], int studentAge)
+{
+    int i = 0;
+    struct student *CreateStudent;
+
+    CreateStudent = (struct student *) malloc(sizeof(struct student));
+    while(studentName[i]!= '\0')
+    { CreateStudent->name[i]=studentName[i]; i=i+1; } /// write a function to convert array of shar into a string in c
+
+/// As you can see not all strings are long enough to fill all the rows of the array, that's why compiler fills these empty spaces (highlighted using light grey color) with the null characters ('\0').
+    CreateStudent->age = studentAge;
+    CreateStudent->next = NULL;
+    return CreateStudent;
+}
+*/
+
+struct student *append(struct student * end, struct student * newStudptr) {
+    //! heap=showMemory(start=260, cursors=[end,newDigitptr])
+    end->next = newStudptr;
+    end = newStudptr;
+    return(end);
+}
+
+
+///Unit 5.3: Linked lists//Printing a linked list
+
+void printNumber(struct digit *start){
+    //! heap=showMemory(start=277, cursors=[ptr,start])
+    struct digit * ptr = start;
+    while (ptr!=NULL) {   /// (ptr!='0')
+        printf("%d", ptr->num);
+        ptr = ptr->next;
+    }
+    printf("\n");
+}
+
+///Activity: print a linked list of student data (External resource)
+void printStudents(struct student *start)
+{
+        struct student * ptr = start;
+        while (ptr!=NULL) {
+        printf("%s is %d years old.\n", ptr->name, ptr->age);
+        ptr = ptr->next;
+    }
+    printf("\n");
+}
+
+/// Unit 5.3: Linked lists//Free an entire linked list
+
+/// Free all space allocated for a linked list
+
+
+
+
+
+void freeNumber(struct digit *start) {
+    //! heap=showMemory(start=277, cursors=[ptr,start,tmp])
+    struct digit * ptr = start;
+    struct digit * tmp;
+    while (ptr!=NULL) {
+        tmp = ptr->next;
+        free(ptr);
+        ptr = tmp;
+    }
+
+
+/// Unit 5.3: Linked lists//Free an entire linked list
+
+/// Free all space allocated for a linked list
+
+void freeStudents(struct student *start) {
+    //! heap=showMemory(start=277, cursors=[ptr,start,tmp])
+    struct student * ptr = start;
+    struct student * tmp;
+    while (ptr!='\0') {
+        tmp = ptr->next;
+        free(ptr);
+        ptr = tmp;
+    }/// free all element nodes pointers heap memory
+}
+
+
+/// Create a linked list of digits from user input
+
+struct digit * readNumber() {
+    //! heap=showMemory(start=309, cursors=[start, end, newptr])
+    char c;
+    int d;
+    struct digit *start, *end, *newptr;
+    start = NULL;
+    scanf("%c", &c);
+    while (c!='\n') {
+        d = c - 48;
+        newptr = createDigit(d);
+        if (start==NULL) {
+            start = newptr;
+            end = start;
+        } else {
+            end = append(end, newptr);
+        }
+        scanf("%c", &c);
+    }
+    return start;
+}
+
+/// Activity: check divisibility (External resource)
+struct digit *divisibleByThree(struct digit *numberptr)
+{
+    ///https://www.geeksforgeeks.org/check-large-number-divisible-3-not/
+    /// A number is divisible by 3 if sum of its digits is divisible by 3.
+    int i, digitSum = 0;
+    struct digit * ptr = numberptr;
+    while (ptr!=NULL) {
+
+    digitSum = 10 * digitSum + ptr->num;
+    ptr = ptr->next;
+    }
+    // Check if sum of digits is divisible by 3.
+    if (digitSum % 3 == 0)
+    {
+    return 1;
+    }
+    else
+    return 0;
+}
+
 
 
