@@ -127,11 +127,13 @@ which file
 
 
 pwd
+nano fileooo
 touch file
 ls
 rm file
 ls
-touch my file
+touch my file // will create two files
+touch "your file" or touch your\ file
 ls
 rm my
 rm file
