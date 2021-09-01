@@ -39,8 +39,8 @@ work with nano
 vim // :q and also escape then :q
 ed
 //CTRL + C expanation (sometimes quits the program, but not always)
-
-
+man du
+du --help
 
 hello
 worm
@@ -48,4 +48,19 @@ firework
 rain
 hanoi
 knight
+
+Filesystem, 
+history, FSSTND, 
+/bin, 
+/sbin, 
+/home, 
+/root, 
+/etc, 
+/lib, 
+/tmp, 
+/var, 
+/usr, 
+/dev
+
+
 
