@@ -26,3 +26,26 @@ man date
 man cal
 q // to quit or exit out of man
 
+man top
+top --help //how to quit + 
+top  //q to quit
+top  // ^+C to quit
+sudo snap install htop
+htop
+htop --help
+htop // F1
+nano // ^ = ctrl  carret (circumflex accent)
+work with nano
+vim // :q and also escape then :q
+ed
+//CTRL + C expanation (sometimes quits the program, but not always)
+
+
+
+hello
+worm
+firework
+rain
+hanoi
+knight
+
