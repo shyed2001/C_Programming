@@ -1,0 +1,28 @@
+whoami
+whoami --help
+id
+logname
+logname --help
+echo hello
+echo $0   // shows the name of the interpretor application bash or shell
+hostname
+hostname --help
+uname --help
+uname
+uname -a
+history  //AND UP ARROW 
+clear
+uptime
+cal
+cal --help
+cal -j
+date
+date --help
+date +"%T"
+date +"%A %d %B %Y"
+man
+man man
+man date
+man cal
+q // to quit or exit out of man
+
