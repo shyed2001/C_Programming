@@ -115,6 +115,9 @@ void printNumber(struct digit *start);
 void freeNumber(struct digit *start) ;
 struct digit *readNumber(void) ;
 struct digit *divisibleByThree(struct digit *numberptr);
+struct digit * searchNumber(struct digit * start, int number);
+
+
 
 int main()
 
@@ -1427,6 +1430,961 @@ int divisibleByThree(struct digit * start) {
 
 
 
+    ///Linked lists // Searching a linked list
+///Linked lists // Searching a linked list
+
+int searchNum = 5;
+
+    ptr = searchNumber(start, searchNum);
+    if (ptr!=NULL) {
+        printf("Found digit %d at location %p.\n", searchNum, ptr);
+    } else {
+        printf("Digit %d not found.\n", searchNum);
+    }
+
+
+
+/*
+
+This problem or code is / was not added to the source code.
+In this task you will work with the linked list of digits we have created in the lessons up to this point. As before you are provided with some code that you should not modify:
+
+    A structure definition for the storage of each digit's information.
+    A main() function to test your code.
+    The functions createDigit(), append(), printNumber(), freeNumber(), readNumber() and divisibleByThree() (although you may not need to use all of these).
+
+Your task is to write a new function changeThrees() which takes as input a pointer that holds the address of the start of a linked list of digits. Your function should change all of those digits in this linked list that equal 3 to the digit 9, and count how many replacements were made. The function should return this number of replacements.
+Provided code
+
+This problem or code is / was not added to the source code.
+#include <stdio.h>
+#include <stdlib.h>
+
+struct digit {
+    int num;
+    struct digit *next;
+};
+
+struct digit * createDigit(int dig);
+struct digit * append(struct digit * end, struct digit * newDigptr);
+void printNumber(struct digit *start);
+void freeNumber(struct digit *start);
+int divisibleByThree(struct digit * start);
+struct digit * readNumber(void);
+//Add your own function prototypes here
+int changeThrees(struct digit * start)
+int main(void) {
+    struct digit *start;
+    start = readNumber();
+
+    printf("The number ");
+    printNumber(start);
+    printf("was modified in %d places.\n", changeThrees(start));
+
+    printf("The new number is ");
+    printNumber(start);
+    freeNumber(start);
+
+    return 0;
+}
+
+struct digit * createDigit(int dig) {
+    struct digit *ptr;
+    ptr = (struct digit *) malloc(sizeof(struct digit));
+    ptr->num = dig;
+    ptr->next = NULL;
+    return ptr;
+}
+
+struct digit * append(struct digit * end, struct digit * newDigptr) {
+    end->next = newDigptr;
+    return(end->next);
+}
+
+void printNumber(struct digit *start) {
+    struct digit * ptr = start;
+    while (ptr!=NULL) {
+        printf("%d", ptr->num);
+        ptr = ptr->next;
+    }
+    printf("\n");
+}
+
+void freeNumber(struct digit *start) {
+    struct digit * ptr = start;
+    struct digit * tmp;
+    while (ptr!=NULL) {
+        tmp = ptr->next;
+        free(ptr);
+        ptr = tmp;
+    }
+}
+
+struct digit * readNumber(void) {
+    char c;
+    int d;
+    struct digit *start, *end, *newptr;
+    start = NULL;
+    scanf("%c", &c);
+    while (c != '\n') {
+        d = c-48;
+        newptr = createDigit(d);
+        if (start == NULL) {
+            start = newptr;
+            end = start;
+        } else {
+            end = append(end, newptr);
+        }
+        scanf("%c", &c);
+    }
+    return(start);
+}
+
+int divisibleByThree(struct digit * start) {
+    struct digit * ptr = start;
+    int qsum = 0;
+    while (ptr!=NULL) {
+        qsum += ptr->num;
+        ptr = ptr->next;
+    }
+    if (qsum%3==0) return 1;
+    else return 0;
+}
+
+// Write your changeThrees() function here
+
+int changeThrees(struct digit * start)
+{
+  struct digit * ptr = start;
+  int ThreeCount = 0;
+  while (ptr!=NULL) {
+    if (ptr->num ==3){
+        ptr->num = 9 ;
+     ThreeCount++;
+    }
+    else {
+         ptr = ptr->next;
+    }
+}
+ return ThreeCount;
+
+}
+
+
+Examples
+Input:
+
+234345632
+
+Output:
+
+The number 234345632
+was modified in 3 places.
+The new number is 294945692
+
+
+Input:
+
+4393293
+
+Output:
+
+The number 4393293
+was modified in 3 places.
+The new number is 4999299
+
+
+Input:
+
+475692
+
+Output:
+
+The number 475692
+was modified in 0 places.
+The new number is 475692
+
+
+This problem or code is / was not added to the source code.
+
+*/
+
+
+/// Integer number of arbitrary list
+
+/// Unit 5.3: Linked lists/// Sorting a linked list using Insertion Sort
+
+/// Unit 5.3: Linked lists/// Sorting a linked list using Insertion Sort
+
+/// Insert a new node at the start of a linked list
+
+/// Print number backwards
+
+/*
+This problem or code is / was not added to the source code.
+#include <stdio.h>
+#include <stdlib.h>
+
+struct digit {
+    int num;
+    struct digit *next;
+};
+
+struct digit * createDigit(int);
+struct digit * append(struct digit * end, struct digit * newDigptr);
+void printNumber(struct digit *);
+void freeNumber(struct digit *start);
+struct digit * readNumber();
+struct digit * searchNumber(struct digit * start, int number);
+struct digit * reverseNumber(struct digit * start);
+struct digit * insertAtFront(struct digit * start, struct digit * newptr);
+
+int main(void) {
+    //! stack = showMemory(start=65520)
+    struct digit *start, *ptr, *backwards;
+    printf("Please enter a number: ");
+    start = readNumber();
+    printNumber(start);
+    backwards = reverseNumber(start);
+    printNumber(backwards);
+    freeNumber(start);
+    return 0;
+}
+
+struct digit *createDigit(int dig) {
+    struct digit *ptr;
+    ptr = (struct digit *) malloc(sizeof(struct digit));
+    ptr->num = dig;
+    ptr->next = NULL;
+    return ptr;
+}
+
+struct digit * append(struct digit * end, struct digit * newDigptr) {
+    end->next = newDigptr;
+    return(end->next);
+}
+
+void printNumber(struct digit *start) {
+    struct digit * ptr = start;
+    while (ptr!=NULL) {
+        printf("%d", ptr->num);
+        ptr = ptr->next;
+    }
+    printf("\n");
+}
+
+void freeNumber(struct digit *start) {
+    struct digit * ptr = start;
+    struct digit * tmp;
+    while (ptr!=NULL) {
+        tmp = ptr->next;
+        free(ptr);
+        ptr = tmp;
+    }
+}
+
+struct digit * readNumber() {
+    char c;
+    int d;
+    struct digit *start, *end, *newptr;
+    start = NULL;
+    scanf("%c", &c);
+    while (c!='\n') {
+        d = c - 48;
+        newptr = createDigit(d);
+        if (start==NULL) {
+            start = newptr;
+            end = start;
+        } else {
+            end = append(end, newptr);
+        }
+        scanf("%c", &c);
+    }
+    return start;
+}
+
+struct digit * searchNumber(struct digit * start, int number) {
+    //! heap=showMemory(start=348, cursors=[ptr,start])
+    struct digit * ptr = start;
+    while ((ptr!=NULL) && (ptr->num!=number)) {
+        ptr = ptr->next;
+    }
+    return(ptr);
+}
+
+struct digit * insertAtFront(struct digit * start, struct digit * newptr) {
+    //! heap=showMemory(start=348, cursors=[newptr,start])
+    newptr->next = start;
+    return(newptr);
+}
+
+struct digit * reverseNumber(struct digit * start) {
+    //! heap=showMemory(start=336, cursors=[ptr,start,bstart,newdigit])
+    struct digit *ptr = start;
+    struct digit *bstart = NULL;
+    struct digit *newdigit;
+
+    if (start!=NULL) {
+        bstart = createDigit(start->num);
+        ptr = ptr->next;
+    }
+    while (ptr != NULL) {
+        newdigit = createDigit(ptr->num);
+        bstart = insertAtFront(bstart, newdigit);
+        ptr = ptr->next;
+    }
+    return(bstart);
+}
+
+This problem or code is / was not added to the source code.
+*/
+
+
+
+///Unit 5.3: Linked lists/Sorting a linked list using Insertion Sort
+///Create a sorted copy of a linked list
+/// Create a sorted copy of a linked list
+
+
+/*
+This problem or code is / was not added to the source code.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct digit {
+    int num;
+    struct digit *next;
+};
+
+struct digit * createDigit(int);
+struct digit * append(struct digit * end, struct digit * newDigptr);
+void printNumber(struct digit *);
+void freeNumber(struct digit *);
+struct digit * readNumber(void);
+struct digit * searchNumber(struct digit * start, int number);
+struct digit * insertAtFront(struct digit * start, struct digit * newptr);
+struct digit * reverseNumber(struct digit * start);
+struct digit * sortedCopy(struct digit * start);
+struct digit * insertIntoSorted(struct digit *start, struct digit *newDig);
+
+int main(void) {
+    //! showMemory(start=65520)
+    struct digit *start, *backwards, *sorted;
+    printf("Please enter a number: ");
+    start = readNumber();
+    printf("You entered: ");
+    printNumber(start);
+    printf("Backwards: ");
+    backwards = reverseNumber(start);
+    printNumber(backwards);
+    printf("Sorted by digit:");
+    sorted = sortedCopy(start);
+    printNumber(sorted);
+    freeNumber(start);
+    freeNumber(backwards);
+    freeNumber(sorted);
+    return 0;
+}
+
+struct digit *createDigit(int dig) {
+    struct digit *ptr;
+    ptr = (struct digit *) malloc(sizeof(struct digit));
+    ptr->num = dig;
+    ptr->next = NULL;
+    return ptr;
+}
+
+struct digit * append(struct digit * end, struct digit * newDigptr) {
+    end->next = newDigptr;
+    return(end->next);
+}
+
+void printNumber(struct digit *start) {
+    struct digit * ptr = start;
+    while (ptr!=NULL) {
+        printf("%d", ptr->num);
+        ptr = ptr->next;
+    }
+    printf("\n");
+}
+
+void freeNumber(struct digit *start) {
+    struct digit * ptr = start;
+    struct digit * tmp;
+    while (ptr!=NULL) {
+        tmp = ptr->next;
+        free(ptr);
+        ptr = tmp;
+    }
+}
+
+struct digit * readNumber(void) {
+    char c;
+    int d;
+    struct digit *start, *end, *newptr;
+    start = NULL;
+    scanf("%c", &c);
+    while (c != '\n') {
+        d = c-48;
+        newptr = createDigit(d);
+        if (start == NULL) {
+            start = newptr;
+            end = start;
+        } else {
+            end = append(end, newptr);
+        }
+        scanf("%c", &c);
+    }
+    return(start);
+}
+
+struct digit * searchNumber(struct digit * start, int number) {
+    struct digit * ptr = start;
+    while ((ptr!=NULL) && (ptr->num!=number)) {
+        ptr = ptr->next;
+    }
+    return(ptr);
+}
+
+struct digit * insertAtFront(struct digit * start, struct digit * newptr) {
+    newptr->next = start;
+    return(newptr);
+}
+
+struct digit * reverseNumber(struct digit * start) {
+    struct digit *ptr = start;
+    struct digit *bstart = start;
+    struct digit *newdigit;
+
+    if (start!=NULL) {
+        bstart = createDigit(start->num);
+        ptr = ptr->next;
+    }
+    while (ptr != NULL) {
+        newdigit = createDigit(ptr->num);
+        bstart = insertAtFront(bstart, newdigit);
+        ptr = ptr->next;
+    }
+    return(bstart);
+}
+
+struct digit * insertIntoSorted(struct digit *start, struct digit *newDig) {
+    struct digit *ptr = start;
+    struct digit *prev = NULL;
+    while ((ptr!=NULL) && (ptr->num < newDig->num)) {
+        prev = ptr;
+        ptr = ptr->next;
+    }
+    if (prev == NULL) {
+        start = insertAtFront(start, newDig);
+    } else {
+        prev->next = newDig;
+        newDig->next = ptr;
+    }
+    return(start);
+}
+
+struct digit * sortedCopy(struct digit * start) {
+    //! heap1=showMemory(start=348, cursors=[start, ptr, sortedStart, newDigit])
+    //! heap2=showMemory(start=519, cursors=[start, newDigit, ptr, prev])
+    struct digit *ptr = start;
+    struct digit *sortedStart = NULL;
+    struct digit *newDigit;
+
+    if (start!=NULL) {
+        sortedStart = createDigit(start->num);
+        ptr = ptr->next;
+    }
+    while (ptr!=NULL) {
+        newDigit = createDigit(ptr->num);
+        sortedStart = insertIntoSorted(sortedStart, newDigit);
+        ptr = ptr->next;
+    }
+    return(sortedStart);
+}
+
+
+This problem or code is / was not added to the source code.
+*/
+
+
+/*
+This problem or code is / was not added to the source code.
+/// Activity: count redundancies in number (External resource)
+///Activity: count redundancies in number (External resource)
+
+In this task you will again work with the linked list of digits we created during the lessons up to this point.
+
+You are provided with (but are not required to use) the functions and prototypes we have written so far. You are also provided with a main() function to test your code. Please do not modify this main() function.
+
+Your task is to write a new function countRedun() which takes as input a pointer that holds the address of the start of a linked list of digits. Your function should count how many redundancies can be observed in the number stored in this list and return this count of redundancies. A redundancy is a digit which has previously already occurred in the number. For example, in the number 39534, the second '3' is a redundancy.
+Provided code
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct digit {
+    int num;
+    struct digit *next;
+};
+
+
+// Add a prototype for countRedun() here
+struct digit * createDigit(int);
+struct digit * append(struct digit * end, struct digit * newDigptr);
+void printNumber(struct digit *);
+void freeNumber(struct digit *);
+struct digit *readNumber(void);
+int divisibleByThree(struct digit * start);
+int changeThrees(struct digit * start);
+
+
+// Do not modify this main() function
+int main(void) {
+    struct digit *start;
+    start = readNumber();
+
+    printf("The number ");
+    printNumber(start);
+    printf("contains %d redundancies.\n", countRedun(start));
+
+    freeNumber(start);
+
+    return 0;
+}
+
+struct digit *createDigit(int dig) {
+    struct digit *ptr;
+    ptr = (struct digit *) malloc(sizeof(struct digit));
+    ptr->num = dig;
+    ptr->next = NULL;
+    return ptr;
+}
+
+struct digit * append(struct digit * end, struct digit * newDigptr) {
+    end->next = newDigptr;
+    return(end->next);
+}
+
+void printNumber(struct digit *start) {
+    struct digit * ptr = start;
+    while (ptr!=NULL) {
+        printf("%d", ptr->num);
+        ptr = ptr->next;
+    }
+    printf("\n");
+}
+
+void freeNumber(struct digit *start) {
+    struct digit * ptr = start;
+    struct digit * tmp;
+    while (ptr!=NULL) {
+        tmp = ptr->next;
+        free(ptr);
+        ptr = tmp;
+    }
+}
+
+struct digit *readNumber(void) {
+    char c;
+    int d;
+    struct digit *start, *end, *newptr;
+    start = NULL;
+    scanf("%c", &c);
+    while (c != '\n') {
+        d = c-48;
+        newptr = createDigit(d);
+        if (start == NULL) {
+            start = newptr;
+            end = start;
+        } else {
+            end = append(end, newptr);
+        }
+        scanf("%c", &c);
+    }
+    return(start);
+}
+
+int divisibleByThree(struct digit * start) {
+    struct digit * ptr = start;
+    int qsum = 0;
+    while (ptr!=NULL) {
+        qsum += ptr->num;
+        ptr = ptr->next;
+    }
+    if (qsum%3==0) return 1;
+    else return 0;
+}
+
+int changeThrees(struct digit * start) {
+    struct digit * ptr = start;
+    int sum = 0;
+    while (ptr!=NULL) {
+        if (ptr->num == 3) {
+            ptr->num = 9;
+            sum++;
+        }
+        ptr = ptr->next;
+    }
+    return(sum);
+}
+
+// Write your countRedun() function here
+
+
+Examples
+Input:
+
+5243
+
+Output:
+
+The number 5243
+contains 0 redundancies.
+
+Input:
+
+5256202
+
+Output:
+
+The number 5256202
+contains 3 redundancies.
+
+Input:
+
+7777
+
+Output:
+
+The number 7777
+contains 3 redundancies.
+
+
+
+
+
+
+
+
+
+
+This task offers 2 hints :
+
+Hint 1 :
+
+One way to solve this problem is to create a sorted copy of the linked list and count redundancies in this copy - it's easier in a sorted list. Just remember to free your sorted copy after its use.
+
+Hint 2 :
+
+In a sorted linked list of digits, a redundancy occurrs for each digit that equals the previous digit.
+
+
+This problem or code is / was not added to the source code.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct digit
+{
+    int num;
+    struct digit *next;
+};
+
+struct digit * createDigit(int);
+struct digit * append(struct digit * end, struct digit * newDigptr);
+void printNumber(struct digit *);
+void freeNumber(struct digit *);
+struct digit * readNumber(void);
+struct digit * searchNumber(struct digit * start, int number);
+struct digit * insertAtFront(struct digit * start, struct digit * newptr);
+struct digit * insertIntoSorted(struct digit *start, struct digit *newDig);
+struct digit * sortedCopy(struct digit *);
+int countRedun(struct digit * start);
+
+int main(void) {
+    struct digit *start;
+    start = readNumber();
+    printf("The number ");
+    printNumber(start);
+    printf("contains %d redundancies.\n", countRedun(start));
+    freeNumber(start);
+    return 0;
+}
+
+struct digit *createDigit(int dig) {
+    struct digit *ptr;
+    ptr = (struct digit *) malloc(sizeof(struct digit));
+    ptr->num = dig;
+    ptr->next = NULL;
+    return ptr;
+}
+
+struct digit * append(struct digit * end, struct digit * newDigptr) {
+    end->next = newDigptr;
+    return(end->next);
+}
+
+void printNumber(struct digit *start) {
+    struct digit * ptr = start;
+    while (ptr!=NULL) {
+        printf("%d", ptr->num);
+        ptr = ptr->next;
+    }
+    printf("\n");
+}
+
+void freeNumber(struct digit *start) {
+    struct digit * ptr = start;
+    struct digit * tmp;
+    while (ptr!=NULL) {
+        tmp = ptr->next;
+        free(ptr);
+        ptr = tmp;
+    }
+}
+
+struct digit * readNumber(void) {
+    char c;
+    int d;
+    struct digit *start, *end, *newptr;
+    start = NULL;
+    scanf("%c", &c);
+    while (c != '\n') {
+        d = c-48;
+        newptr = createDigit(d);
+        if (start == NULL) {
+            start = newptr;
+            end = start;
+        } else {
+            end = append(end, newptr);
+        }
+        scanf("%c", &c);
+    }
+    return(start);
+}
+
+struct digit * insertAtFront(struct digit * start, struct digit * newptr) {
+    newptr->next = start;
+    return(newptr);
+}
+
+struct digit * insertIntoSorted(struct digit *start, struct digit *newDig){
+    struct digit * ptr = start;
+    struct digit * prev = NULL;
+    while ((ptr!=NULL) && (ptr->num < newDig->num)) {
+        prev = ptr;
+        ptr = ptr->next;
+    }
+    if (prev==NULL) {
+        start = insertAtFront(start, newDig);
+    } else {
+        prev->next = newDig;
+        newDig->next = ptr;
+    }
+    return(start);
+}
+
+struct digit * sortedCopy(struct digit * start){
+    struct digit *ptr = start;
+    struct digit *sortedStart=NULL;
+    struct digit *newDigit;
+
+    if (start!=NULL) {
+        sortedStart = createDigit(start->num);
+        ptr = start->next;
+    }
+    while (ptr != NULL) {
+        newDigit = createDigit(ptr->num);
+        sortedStart = insertIntoSorted(sortedStart, newDigit);
+        ptr = ptr->next;
+    }
+    return(sortedStart);
+}
+
+int countRedun(struct digit * start) {
+    struct digit *sorted = sortedCopy(start);
+    struct digit *ptr = sorted;
+    int redun = 0;
+    int prev = -1;
+
+    while (ptr != NULL) {
+        if (ptr->num == prev)
+            redun++;
+        else
+            prev = ptr->num;
+        ptr = ptr->next;
+    }
+    freeNumber(sorted);
+    return redun;
+}
+
+
+This problem or code is / was not added to the source code.
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct digit {
+    int num;
+    struct digit *next;
+};
+
+
+// Add a prototype for countRedun() here
+struct digit * createDigit(int);
+struct digit * append(struct digit * end, struct digit * newDigptr);
+void printNumber(struct digit *);
+void freeNumber(struct digit *);
+struct digit *readNumber(void);
+int divisibleByThree(struct digit * start);
+int changeThrees(struct digit * start);
+int countRedun(struct digit* head);
+
+// Do not modify this main() function
+int main(void) {
+    struct digit *start;
+    start = readNumber();
+
+    printf("The number ");
+    printNumber(start);
+    printf("contains %d redundancies.\n", countRedun(start));
+
+    freeNumber(start);
+
+    return 0;
+}
+
+struct digit *createDigit(int dig) {
+    struct digit *ptr;
+    ptr = (struct digit *) malloc(sizeof(struct digit));
+    ptr->num = dig;
+    ptr->next = NULL;
+    return ptr;
+}
+
+struct digit * append(struct digit * end, struct digit * newDigptr) {
+    end->next = newDigptr;
+    return(end->next);
+}
+
+void printNumber(struct digit *start) {
+    struct digit * ptr = start;
+    while (ptr!=NULL) {
+        printf("%d", ptr->num);
+        ptr = ptr->next;
+    }
+    printf("\n");
+}
+
+void freeNumber(struct digit *start) {
+    struct digit * ptr = start;
+    struct digit * tmp;
+    while (ptr!=NULL) {
+        tmp = ptr->next;
+        free(ptr);
+        ptr = tmp;
+    }
+}
+
+struct digit *readNumber(void) {
+    char c;
+    int d;
+    struct digit *start, *end, *newptr;
+    start = NULL;
+    scanf("%c", &c);
+    while (c != '\n') {
+        d = c-48;
+        newptr = createDigit(d);
+        if (start == NULL) {
+            start = newptr;
+            end = start;
+        } else {
+            end = append(end, newptr);
+        }
+        scanf("%c", &c);
+    }
+    return(start);
+}
+
+int divisibleByThree(struct digit * start) {
+    struct digit * ptr = start;
+    int qsum = 0;
+    while (ptr!=NULL) {
+        qsum += ptr->num;
+        ptr = ptr->next;
+    }
+    if (qsum%3==0) return 1;
+    else return 0;
+}
+
+int changeThrees(struct digit * start) {
+    struct digit * ptr = start;
+    int sum = 0;
+    while (ptr!=NULL) {
+        if (ptr->num == 3) {
+            ptr->num = 9;
+            sum++;
+        }
+        ptr = ptr->next;
+    }
+    return(sum);
+}
+
+// Write your countRedun() function here
+
+
+// The function removes duplicates from a sorted list
+int countRedun(struct digit * head)
+{
+    int count = 0;
+
+    while (head->next != NULL) {
+
+        // Starting from the next node
+        struct digit *ptr = head->next;
+        while (ptr != NULL) {
+
+            // If some duplicate node is found
+            if (head->num == ptr->num) {
+                count++;
+                break;
+            }
+            ptr = ptr->next;
+        }
+
+        head = head->next;
+    }
+
+    // Return the count of duplicate nodes
+    return count;
+}
+
+
+
+
+This problem or code is / was not added to the source code.
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1877,6 +2835,16 @@ struct digit *divisibleByThree(struct digit *numberptr)
     }
     else
     return 0;
+}
+
+///Linked lists // Searching a linked list
+struct digit * searchNumber(struct digit * start, int number) {
+//! heap=showMemory(start=348, cursors=[ptr,start])
+    struct digit * ptr = start;
+    while ((ptr!=NULL) && (ptr->num!=number)) {
+        ptr = ptr->next;
+    }
+    return(ptr);
 }
 
 
