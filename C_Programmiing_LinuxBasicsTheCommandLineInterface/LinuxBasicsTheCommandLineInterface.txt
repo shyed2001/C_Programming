@@ -25,7 +25,7 @@ man man
 man date
 man cal
 q // to quit or exit out of man
-
+==========================================================================
 man top
 top --help //how to quit + 
 top  //q to quit
@@ -41,14 +41,14 @@ ed
 //CTRL + C expanation (sometimes quits the program, but not always)
 man du
 du --help
-
+=============================================================================
 hello
 worm
 firework
 rain
 hanoi
 knight
-
+====================================================================
 
 pwd
 whoami
@@ -70,7 +70,7 @@ cd /sys
 ls
 cd // always go to home directory
 
-
+=======================================================================
 //RELATIVE PATHS
 
 pwd
@@ -101,7 +101,7 @@ ls
 cd program.c
 
 absouloute path always start with /
-
+==============================================================================
 ls
 file program.c
 nano f
@@ -125,7 +125,7 @@ which cat
 which which
 which file
 
-
+=======================================================================
 pwd
 nano fileooo
 touch file
@@ -154,8 +154,44 @@ rm '
 touch my_file (with underscore)
 rm my_file
 
+=================================================================
 
 
+nano file.txt
+here is a text file
+with a second line
+cat file.txt
+echo "hello world"
+echo "hello world" > file2.txt
+cat file2.txt
+cat file2.txt > file3.txt
+cat file3.txt
+cat > anotherfile.txt
+this is anotherfile
+with a new second also (CTRL + D twice!)
+cat anotherfile.txt
+cat /etc/services
+cat /etc/services > listOfServices.txt
+nano listOfServices.txt
+cat /etc/services | more
+cat /etc/services | less    (navigating: space bar, arrows or j,k, G, g)
+more anotherfile.txt
+less anotherfile.txt
+ls /usr/bin
+ls /usr/bin | less
+searching: Forward Search
+/ – search for a pattern which will take you to the next occurrence.
+n – for next match in forward
+N – for previous match in backward
+Backward Search
+? – search for a pattern which will take you to the previous occurrence.
+n – for next match in backward direction
+N – for previous match in forward direction
+less --help  (see N and M options)
+ls /usr/bin | less -NM
+
+
+========================================================================
 
 
 
