@@ -260,8 +260,12 @@ ESCAPE + :q or sometimes :q!
 "
 "
 "  CTRL + D
+Enter
+CTRL + D
 (
 )
+CTRL + z
+
 cat > file.txt
 this is a file   CTRL + D twice
 cat file.txt
@@ -272,8 +276,44 @@ cat file2.txt
 
 worst case : kill a program
 rain
+// we are stuck in rain
 open second terminal
 htop  F9  send the SIGKILL signal 
+
+=================================================================================
+
+
+
+touch f1
+mkdir d1
+mv f1 d1
+mv d1/f1 .  (or mv ./d1/f1 .)
+mkdir bigdir
+mv d1 bigdir
+cd bigdir/d1
+ls
+mv f1 ../..
+ls ../..
+mkdir ../../otherdir
+mv ../../f1 ../../otherdir
+pwd
+mv . ../..    ERROR
+cd
+mv bigdir smalldir   (RENAMING)
+mv otherdir/f1 f2    (MOVING AND RENAMING at the same time)
+mv smalldir/d1 otherdir/d2   (MOVING AND RENANMING at the same time)
+cat > f5
+hello
+CTRL + D
+cat > f6
+world
+CTRL + D
+cat f5
+cat f6
+mv f6 f5
+f5 is lost ! BE CAREFUL
+mv --help
+mv -i   or  mv -n  TO NOT OVERWRITE! FOR MORE SECURITY
 
 
 
