@@ -328,13 +328,219 @@ mkdir d1
 mv f1 d1
 cp d1 d2  // will be error
 cp -r d1 d2
-cp -r d1 d2
-cp -r d1 d2
+cp -r d1 d2 /// copy d1 folder inside d2 folder
+cp -r d1 d2 /// overwrite the existing d1 folder
+
 cp --help
 cp -ri d1 d2
 
 
+=========================================================
+
+locate file // find a file
+
+updatedb // update database
+
+echo p* /// search
+echo /usr/bin/a* /// search
+echo /usr/bin/a?? /// search three letter long start with a
+
+echo /usr/bin/??? /// search three letter long
+
+find  // all the files in the directory
+
+find /
+find .
+find . -name "program.c"
+find . -name "prog*"
+find / -name "hello"
+find / -name "hello" 2>/dev/null
+find / -name "*joe*" 2>/dev/null
+find / -iname "*joe*" 2>/dev/null /// ignoring lower or upper case
+
+find / -ipath "*joe*" 2>/dev/null  /// search directory also
+find / -ipath "*joe*" 2>/dev/null | less
+
+(2>/dev/null) //redirect all error messages to 
+(2>/dev/errormessage.txt) //redirect all error messages to 
+
+===============================================================
+
+build cmd
+>gcc -std=c11 -Wall -fmax-errors=10 -Wextra program.c -o program
+
+./program
+ls
+file program.c
+file program
+cp program.c otherprogram.c
+./otherprogram
+ls
+=======================================
+
+ls
+gcc program.c
+ls
+file a.out
+./a.out
+gcc program.c -o program
+ls
+file program
+./program
+gcc -std=c11 -Wall -fmax-errors=10 -Wextra program.c -o program
+cd
+pwd
+/home/user
+mkdir folder
+mv program folder
+./folder/program
+cd folder
+./program
+/home/user/folder/program  /// execute with abs path not with .
+
 =================================================================================
+
+Memory representation, RAM, cells, word, byte, bit, memory address
+===================================================================
+
+Manage the memory with the command line: free, top, htop
+
+free --help
+free
+free -b
+free -k
+free -m
+free -g
+top --help
+s
+(VSZ - or VIRT for other top versions) : virtual size (memory quantity used by the program)  1496 KB used for top
+htop
+(visual representation)
+(VIRT)
+F6 (sort by) then choose M_SIZE (Memory_SIZE)
+
+=====================================================
+#include <stdio.h>
+
+int main(){
+    char arr[1000000];
+    char c;
+    printf("please enter to exit");
+    scanf("%c",&c);
+    return 0;
+}
+
+go to the second terminal
+htop
+program is using 1800
+quit htop
+go back to the first terminal
+
+change to int instead of char for arr
+second terminal 
+htop 
+program is using 4728
+quit htop
+go back to the first terminal
+
+change to double instead of char for arr
+second terminal 
+htop 
+program is using 8632
+quit htop
+go back to the first terminal
+
+===========================================================
+
+Interactive programs in C using scanf, fflush
+
+Code discussed in this :
+
+
+    #include <stdio.h>
+
+    int main(){
+        char familyName[50];
+        char firstName[50];
+        int age;
+        printf("What is your family name?\n");
+        scanf("%s", familyName);
+        printf("What is your first name?\n");
+        scanf("%s", firstName);
+        printf("What is your age?");
+        fflush(stdout)
+        scanf("%d",&age);
+        printf("%s %s %d\n",familyName,firstName,age);
+        return 0;
+    }
+
+Change discussed in this video:
+    must use newline after asking for input \n should be used.
+
+    then without \n \n \n
+    then with fflush(stdout) after each printf
+
+==========================================================
+Use scanf and file redirection to simulate an input
+
+Commands discussed in this video:
+
+    cat > responses
+    sharrock
+    remi
+    18
+
+    cat responses | ./program
+
+    ./program < responses
+
+    never use scanf with user interaction to get a string. It's too dangerous!
+    use fgets instead, it is better:
+    }
+==================================================
+
+Don’t use scanf, use fgets getline or readline
+
+
+
+Code discussed in this video:
+
+    #include <stdio.h>
+
+    int main(){
+        char familyName[50];
+        char firstName[50];
+        int age;
+        printf("What is your family name?\n");
+        scanf("%s", familyName);
+        printf("What is your first name?\n");
+        scanf("%s", firstName);
+        printf("What is your age?\n");
+        scanf("%d",&age);
+        printf("%s %s %d\n",familyName,firstName,age);
+        return 0;
+    }
+
+Commands discussed in this video:
+
+    sharrock remi 18
+
+    never use scanf with user interaction to get a string. It's too dangerous!
+
+    you can use fgets and you will get all spaces but also the new line at the end.
+
+    On POSIX systems, you have getline. It is able to read an arbitrarily wide line.
+
+    You can also repeatedly call fgetc ... 
+
+    On Linux, you can read an editable line from the terminal (that is, stdin when it is a tty) using GNU readline.
+
+
+
+
+
+
+==================================
 
 Filesystem,  - http://manpages.ubuntu.com/manpages/impish/en/man7/hier.7.html
 
