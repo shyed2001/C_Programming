@@ -326,7 +326,7 @@ cat f1
 cat f2
 mkdir d1
 mv f1 d1
-cp d1 d2
+cp d1 d2  // will be error
 cp -r d1 d2
 cp -r d1 d2
 cp -r d1 d2
