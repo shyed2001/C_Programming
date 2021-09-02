@@ -158,13 +158,16 @@ rm my_file
 
 
 nano file.txt
+
 here is a text file
 with a second line
+
 cat file.txt
 echo "hello world"
-echo "hello world" > file2.txt
+echo "hello world" > file2.txt ///for put output of echo into the input of other file use >
 cat file2.txt
-cat file2.txt > file3.txt
+cat file2.txt > file3.txt 
+///for put output of a file into the input of other file use >
 cat file3.txt
 cat > anotherfile.txt
 this is anotherfile
@@ -173,28 +176,110 @@ cat anotherfile.txt
 cat /etc/services
 cat /etc/services > listOfServices.txt
 nano listOfServices.txt
-cat /etc/services | more
+cat /etc/services | more  // see one page at a time.
+// for starting, put output of a file into the input of other command use | (pipe)
 cat /etc/services | less    (navigating: space bar, arrows or j,k, G, g)
 more anotherfile.txt
 less anotherfile.txt
 ls /usr/bin
 ls /usr/bin | less
-searching: Forward Search
+
+searching: Forward Search  // in less within the file/feed
 / – search for a pattern which will take you to the next occurrence.
 n – for next match in forward
 N – for previous match in backward
+
 Backward Search
 ? – search for a pattern which will take you to the previous occurrence.
 n – for next match in backward direction
 N – for previous match in forward direction
+
 less --help  (see N and M options)
-ls /usr/bin | less -NM
+ls /usr/bin | less -N -M
 
 
 ========================================================================
 
 
+mkdir folder
+ls
+ls -l
+cd folder
+touch f1
+touch f2
+mkdir subfolder
+ls
+cd subfolder
+pwd
+touch f3
+touch f4
+touch f5
+cd
+pwd
+rm folder   (error: is a directory)
+rm -r folder
+mkdir folder
+cd folder
+touch f1
+touch f2
+cd
+rm -ri folder
+y y y
+mkdir folder
+cd folder
+touch f1
+touch f2
+cd
+yes   (CTR + C)
+ls
+yes | rm -ri folder // | to input output of yes to a command
 
+mkdir d1 d2 d3
+
+mkdir D1/D2/D3/D4/D5
+
+mkdir -p D1/D2/D3/D4/D5  // create all folders at once
+
+rm -ri D1/D2/D3/D4/D5 
+
+mkdir -p D1/D2/D3/D4/D5
+
+yes | rm -ri D1/D2/D3/D4/D5 
+
+=====================================================================================
+
+
+get out of vim:
+vim
+i
+insert some text
+ESCAPE + :q or sometimes :q!
+'
+'
+'  CTRL + D
+"
+"
+"  CTRL + D
+(
+)
+cat > file.txt
+this is a file   CTRL + D twice
+cat file.txt
+cat > file2.txt
+this is a file
+CTRL + D  (only once because empty line)
+cat file2.txt
+
+worst case : kill a program
+rain
+open second terminal
+htop  F9  send the SIGKILL signal 
+
+
+
+
+
+=================================================================================
 
 Filesystem,  - http://manpages.ubuntu.com/manpages/impish/en/man7/hier.7.html
 
