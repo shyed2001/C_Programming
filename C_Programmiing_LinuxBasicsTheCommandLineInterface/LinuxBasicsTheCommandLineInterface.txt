@@ -292,9 +292,9 @@ mkdir bigdir
 mv d1 bigdir
 cd bigdir/d1
 ls
-mv f1 ../..
+mv f1 ../.. // move f1 to home
 ls ../..
-mkdir ../../otherdir
+mkdir ../../otherdir /// create otherdir on home
 mv ../../f1 ../../otherdir
 pwd
 mv . ../..    ERROR
@@ -316,7 +316,22 @@ mv --help
 mv -i   or  mv -n  TO NOT OVERWRITE! FOR MORE SECURITY
 
 
+===========================================================================
 
+cat > f1
+hello
+CTRL + D
+cp f1 f2
+cat f1
+cat f2
+mkdir d1
+mv f1 d1
+cp d1 d2
+cp -r d1 d2
+cp -r d1 d2
+cp -r d1 d2
+cp --help
+cp -ri d1 d2
 
 
 =================================================================================
