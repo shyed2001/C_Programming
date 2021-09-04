@@ -1,9 +1,13 @@
 
+=========================================================
+Distinguish between function declaration and function definition
+
 
 Code discussed in this video:
 
     #include <stdio.h>
 
+    /// function declaration
     double square(double);
 
     int main(void) {
@@ -13,7 +17,37 @@ Code discussed in this video:
         return 0;
     }
 
-    double square(double x) {
+    double square(double x)
+    /// function definition
+   {
         return x*x;
     }
+
+
+========================================================
+Use the math library
+Use the math library
+
+Code discussed in this video:
+
+    #include <stdio.h>
+    #include <math.h>
+
+    int main(){
+        double a = 2.5;
+        double asquared = pow(a,2);
+        printf("%.2lf squared = %.2lf\n",a,asquared);
+        return 0;
+    }
+
+Commands and changes discussed in this video:
+
+    x is raised to the power of y
+    a is raised to the power of 2  (squared)
+    look at the documentation when you click on pow
+
+    find / -name "math.h" 2>/dev/null
+    ls /usr/include | less
+    ls /usr/include > includes.txt  (open with editor)
+
 
