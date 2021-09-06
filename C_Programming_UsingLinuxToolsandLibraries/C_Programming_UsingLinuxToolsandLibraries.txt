@@ -28,6 +28,8 @@ Code discussed in this video:
 Use the math library
 Use the math library
 
+/
+Unit 7.1: Libraries in C
 Code discussed in this video:
 
     #include <stdio.h>
@@ -69,6 +71,7 @@ Add –lm linker flag with compilation command.
     ...
 2- Compile command
     gcc  main.c -o main -lm
+    gcc program.c (/usr/lib/x86_64-linux-gnu/)=l (lib delete first three letters of the definition file name) m (.a delete the extention) -o program
 
 
     Compiling C program with math.h library in Linux.
@@ -130,4 +133,45 @@ Number: 3
 Square Root: 1.732051
 Cube: 27
 
+/// Activity: use the math library (External resource)
+/*
+You are teaching a class on C-programming. The topic of your next lecture is libraries (what a coincidence!).
+You would like to teach about the use of the mathematics library in C. To accomplish this, you have written a
+program which you intend to discuss with your students during the next class.
 
+Your program should first read from the user an integer, and next take the square root of that integer and print
+it out with 8 decimal places. Next, your program should find and print out (on a new line) the mathematical constant
+e (Euler's constant) with 10 decimal places. To find e, use the mathematical function exp() and note that e = exp(1).
+
+Finally, in order to remind your students how to use the compiler, please print (on a new line) the correct compiler
+command to link the mathematics library with your program. Note that in the example given below this line needs to be
+correctly completed. Your program's source code is stored in program.c, and your compilation command should produce an
+executable titled program.
+
+Example
+Input:
+2
+Output:
+1.41421356
+2.7182818285
+gcc -std=c11 -Wall -fmax-errors=10 -Wextra (... you need to complete this line correctly ...)
+
+This task offers 1 hint :
+
+Hint 1 :
+
+You can use the -lm flag to include the math library.
+*/
+/*Write your C code here*/
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+	int a = 0;
+	puts ("Please enter an integer");
+	scanf("%d", &a);
+	printf("%.8lf\n",sqrt(a));
+	printf("%.10lf\n",exp(1));
+	printf("gcc -std=c11 -Wall -fmax-errors=10 -Wextra -lm program.c -o program\n");
+	return 0;
+}
