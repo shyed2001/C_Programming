@@ -45,7 +45,10 @@ Commands and changes discussed in this video:
     x is raised to the power of y
     a is raised to the power of 2  (squared)
     look at the documentation when you click on pow
-
+    cd /usr/lib
+    ls
+    or ~ls /usr/lib
+    libm.a is the compiled binary file for math library
     find / -name "math.h" 2>/dev/null
     ls /usr/include | less
     ls /usr/include > includes.txt  (open with editor)

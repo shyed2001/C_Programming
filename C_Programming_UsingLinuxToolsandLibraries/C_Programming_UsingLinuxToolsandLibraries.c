@@ -36,6 +36,8 @@ You can use the format specifier %.1lf to print a double with one decimal point 
 double ftoc(int x);
 // insert prototype for function ctof() here
 double ctof(int x);
+double ftoc(int x); /// prototype declaration header signature
+
 
 int main(void) {
     int usertemp;
@@ -87,5 +89,10 @@ double ftoc(int x){
     return(5.0/9*(x-32));
 }
 
+    double square(double x)
+    /// function definition
+   {
+        return x*x;
+    }
 
 
