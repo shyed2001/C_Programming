@@ -49,8 +49,85 @@ Commands and changes discussed in this video:
     ls
     or ~ls /usr/lib
     libm.a is the compiled binary file for math library
+    find / -name "libm.a" 2>/dev/null
+    /usr/lib/x86_64-linux-gnu/libm.a
     find / -name "math.h" 2>/dev/null
     ls /usr/include | less
     ls /usr/include > includes.txt  (open with editor)
+
+Error - undefined reference to 'pow' with C program in GCC Linux
+Fixing undefined reference to 'pow' in Linux
+This is a common error while compiling C program in GCC/G++ Linux. This error occurs when you are using pow function to calculate power of a number in your programs.
+
+To fix this problem ensure following points:
+Include header file math.h in your program.
+Add –lm linker flag with compilation command.
+1- Include Header file
+    #include <stdio.h>
+    #include <math.h>
+    ...
+    ...
+2- Compile command
+    gcc  main.c -o main -lm
+
+
+    Compiling C program with math.h library in Linux.
+The solution is:
+Use -lm after the compile command.
+Please read complete article to learn better.
+
+Compile C program with math.h in Linux
+Many of the programmer's don't know how to compile a C program which is using math.h library functions? After including math.h header file, program does not compile and return error(s).
+
+Let's understand with an example: Here is a program that will read an integer number and we want to get square root and cube of entered integer number.
+As we are aware that sqrt() is used to get square root and pow() is used to get power of any number.
+
+Program - number.c
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    int num;
+    float sqrRoot;
+    long cube;
+
+    printf("Enter any integer number: ");
+    scanf("%d",&num);
+
+    sqrRoot=sqrt(num);
+    cube=pow(num,3);
+
+    printf("Number: %d \nSquare Root: %f \nCube: %ld \n",num,sqrRoot,cube);
+
+    return 0;
+}
+Now compile program as normally (as usual we compile any c program),
+The compile command is:
+
+gcc number.c -o number
+program will throw an error, and the error is:
+
+sh-4.3$ gcc number.c -o number
+number.c: undefined reference to 'sqrt'
+number.c: undefined reference to 'pow'
+Then, how to compile C program with math.h library?
+To compile C program with math.h library, you have to put -lm just after the compile command gcc number.c -o number, this command will tell to the compiler to execute program with math.h library.
+
+The command is:
+
+gcc number.c -o number -lm
+gcc is the compiler command.
+number.c is the name of c program source file.
+-o is option to make object file.
+number is the name of object file.
+-lm is option to execute math.h library file.
+See the output after running this command
+sh-4.3$ gcc number.c -o number -lm
+sh-4.3$ ./number
+Enter any integer number: 3
+Number: 3
+Square Root: 1.732051
+Cube: 27
 
 
