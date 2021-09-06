@@ -36,7 +36,8 @@ You can use the format specifier %.1lf to print a double with one decimal point 
 double ftoc(int x);
 // insert prototype for function ctof() here
 double ctof(int x);
-double ftoc(int x); /// prototype declaration header signature
+double square(double x); /// prototype declaration header signature
+
 
 
 int main(void) {
@@ -62,7 +63,7 @@ int main(void) {
 
     /// Use the math library
     /// Use the math library
-
+    ///Unit 7.1: Libraries in C
 
      double a = 2.5;
     double asquared = pow(a,2);
