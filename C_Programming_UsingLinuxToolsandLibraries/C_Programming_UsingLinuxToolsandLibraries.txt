@@ -175,3 +175,316 @@ int main(){
 	printf("gcc -std=c11 -Wall -fmax-errors=10 -Wextra -lm program.c -o program\n");
 	return 0;
 }
+
+
+
+/// Use multiple libraries in C
+///Use multiple libraries in C
+
+
+
+Code discussed in this video:
+
+    #include <stdio.h>
+    #include <curses.h>
+    #include <menu.h>
+    #include <stdlib.h>
+
+    int main(void) {
+    	ITEM **my_items;
+    	int c;
+    	MENU *my_menu;
+    	int n_choices, i;
+    	char *choices[] = {
+    	    "Menu 1",
+    	    "Menu 2",
+    	    "Menu 3",
+    	    "Menu 4"
+    	};
+    	char *descriptions[] = {
+    		"do this",
+    		"do that",
+    		"do ....",
+    		"do ????"
+    	};
+
+    	initscr();
+    	cbreak();
+    	noecho();
+    	keypad(stdscr, TRUE);
+
+    	n_choices = sizeof(choices) / sizeof(choices[0]);
+    	my_items = (ITEM **)calloc(n_choices + 1, sizeof(ITEM *));
+
+    	for (i=0; i<n_choices; i++) {
+    	    my_items[i] = new_item(choices[i], descriptions[i]);
+    	}
+    	my_items[n_choices] = (ITEM *)NULL;
+
+    	my_menu = new_menu((ITEM **)my_items);
+    	mvprintw(LINES - 2, 0, "q to quit");
+    	post_menu(my_menu);
+    	refresh();
+
+    	while ((c = getch()) != 'q') {
+    	    if (c==KEY_DOWN) {
+    	        menu_driver(my_menu, REQ_DOWN_ITEM);
+    	    } else if (c==KEY_UP) {
+    	        menu_driver(my_menu, REQ_UP_ITEM);
+    	    }
+    	}
+
+    	for (i=0; i<=n_choices; i++) {
+    		free_item(my_items[i]);
+    	}
+    	free_menu(my_menu);
+    	endwin();
+    	return 0;
+    }
+
+~$
+
+You are still teaching that unit on libraries to your students! This time you want to
+demonstrate how to invoke the JPEG library (libjpeg.so), which can be used to read and
+write image files in JPEG format (feel free to play around here - this is pretty neat!).
+
+You ask your students to write a program with source code stored in vizplus.c and
+which uses the JPEG library. In order to help your students you decide to print out the
+compilation command for them that creates an executable file called vizplus from vizplus.c
+along with linking the JPEG library during the translation process.
+
+Please write a program that prints the necessary compilation command with a simple printf().
+Again, your students' source code is provided in vizplus.c. You only need to link the JPEG
+library and produce an executable file called vizplus.
+
+#include <stdio.h>
+  int main () {
+    printf("gcc -std=c11 -Wall -fmax-errors=10 -Wextra vizplus.c -ljpeg -o vizplus\n");
+    printf("gcc -std=c11 -Wall -fmax-errors=10 -Wextra /usr/lib/libjpeg.so vizplus.c -o vizplus");
+    return 0;
+}
+
+
+Course
+/
+Unit 7.2: Modularization Libraries and Makefiles
+/
+Modularizing a program
+
+GCC details
+
+
+
+Code discussed in this video:
+
+    #include <stdio.h>
+    #include "weather.h"
+
+    int main(void) {
+    	double temperatures[7] = {6.9, 12.3, 9.0, 5.3, 9.8, 1.8, 0.3};
+    	double average = averageTemp(temperatures, 7);
+    	printf("Average 7-day temp: %.2lf\n", average);
+    	return 0;
+    }
+
+    // and header file weather.h:
+    double averageTemp(double *temps, int numOfTemps);
+
+    // source file weather.c:
+    double averageTemp(double *temps, int numOfTemps) {
+    	double result = 0.0;
+    	int i;
+    	for (i=0; i<numOfTemps; i++) {
+    		result = result + temps[i];
+    	}
+    	result = result / (double) numOfTemps;
+    	return result;
+    }
+
+gcc -c -o program.o program.c   /// command to get the binary output object file
+
+
+gcc -o program program.o  /// to get the executable file.
+
+
+/// Object file
+/// Object file
+
+
+
+
+Code discussed in this video:
+
+    #include <stdio.h>
+    #include "weather.h"
+
+    int main(void) {
+    	double temperatures[7] = {6.9, 12.3, 9.0, 5.3, 9.8, 1.8, 0.3};
+    	printAverageTemp(temperatures, 7);
+    	return 0;
+    }
+
+Commands discussed in this video:
+
+    compile weatherstats.c to weatherstats.o using
+
+    gcc -std=c11 -Wall -fmax-errors=10 -Wextra -c weatherstats.c -o weatherstats.o
+
+    either make program.o object file similarly and then link using
+
+    gcc -std=c11 -Wall -fmax-errors=10 -Wextra weatherstats.o program.o -o program
+
+    or do both at once using
+
+    gcc -std=c11 -Wall -fmax-errors=10 -Wextra weatherstats.o program.c -o program
+
+____________________________________________________________________________________________________________________________________
+
+Header file weatherstats.h:
+
+    double averageTemp(double *temps, int numOfTemps);
+
+Source file weatherstats.c:
+
+    double averageTemp(double *temps, int numOfTemps) {
+    	double result = 0.0;
+    	int i;
+    	for (i=0; i<numOfTemps; i++) {
+    		result = result + temps[i];
+    	}
+    	result = result / (double) numOfTemps;
+    	return result;
+    }
+
+
+
+
+/// Modify object files
+/// Modify object files
+
+Code discussed in this video:
+
+#include <stdio.h>
+#include "weatherstats.h"
+
+int main(void) {
+	double temperatures[7] = {6.9, 12.3, 9.0, 5.3, 9.8, 1.8, 0.3};
+	double average = averageTemp(temperatures, 7);
+        double max = maxTemp(temperatures, 7);
+        printf("Average 7-day temp: %.2lf\n",average);
+        printf("Highest temp: %.2lf\n", max);
+	return 0;
+}
+
+________________________________________________________________________________________
+
+Header file weatherstats.h:
+
+    double averageTemp(double *temps, int numOfTemps);
+    double maxTemp(double *temps, int numOfTemps);
+
+Source file weatherstats.c
+
+    double averageTemp(double *temps, int numOfTemps) {
+    	double result = 0.0;
+    	int i;
+    	for (i=0; i<numOfTemps; i++) {
+    		result = result + temps[i];
+    	}
+    	result = result / (double) numOfTemps;
+    	return result;
+    }
+
+    double maxTemp(double *temps, int numOfTemps) {
+    	double max = temps[0];
+    	int i;
+    	for (i=0; i<numOfTemps; i++) {
+    		if (max < temps[i]) {
+    			max = temps[i];
+    		}
+    	}
+    	return max;
+    }
+
+
+
+
+    Course
+/
+Unit 7.2: Modularization Libraries and Makefiles
+/
+Creating and using a Makefile
+
+
+Code discussed in this video:
+
+#include <stdio.h>
+#include "weatherstats.h"
+
+int main(void) {
+	double temperatures[7] = {6.9, 12.3, 9.0, 15.3, 9.8, 1.8, 0.3};
+	double average = averageTemp(temperatures, 7);
+	double max = maxTemp(temperatures, 7);
+	printf("Average 7-day temp: %.2lf\n", average);
+	printf("Highest temp: %.2lf\n", max);
+	printf("Lowest temperature: %.2lf\n", minTemp(temperatures,7));
+	return 0;
+}
+
+Makefile commands discussed in this video:
+
+target (what is to be produced): what is needed to do so
+    how to do/produce
+
+Makefile-
+    program: program.o weatherstats.o
+    	gcc -std=c11 -Wall -fmax-errors=10 -Wextra program.o weatherstats.o -o program
+
+    program.o: program.c weatherstats.h
+    	gcc -std=c11 -Wall -fmax-errors=10 -Wextra -c program.c -o program.o
+
+    weatherstats.o: weatherstats.c
+    	gcc -std=c11 -Wall -fmax-errors=10 -Wextra -c weatherstats.c -o weatherstats.o
+
+________________________________________________________________________________________
+
+Header file weatherstats.h:
+
+    double averageTemp(double *temps, int numOfTemps);
+    double maxTemp(double *temps, int numOfTemps);
+    double minTemp(double *temps, int numOfTemps);
+
+Source file weatherstats.c
+
+    double averageTemp(double *temps, int numOfTemps) {
+    	double result = 0.0;
+    	int i;
+    	for (i=0; i<numOfTemps; i++) {
+    		result = result + temps[i];
+    	}
+    	result = result / (double) numOfTemps;
+    	return result;
+    }
+
+    double maxTemp(double *temps, int numOfTemps) {
+    	double max = temps[0];
+    	int i;
+    	for (i=0; i<numOfTemps; i++) {
+    		if (max < temps[i]) {
+    			max = temps[i];
+    		}
+    	}
+    	return max;
+    }
+
+    double minTemp(double *temps, int numOfTemps) {
+    	double min = temps[0];
+    	int i;
+    	for (i=0; i<numOfTemps; i++) {
+    		if (min > temps[i]) {
+    			min = temps[i];
+    		}
+    	}
+    	return min;
+    }
+
