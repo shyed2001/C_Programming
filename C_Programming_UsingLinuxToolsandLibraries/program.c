@@ -1,4 +1,5 @@
     #include <stdio.h>
+    
     #include <math.h>
     /// double pow(double, double); 
     int main()
