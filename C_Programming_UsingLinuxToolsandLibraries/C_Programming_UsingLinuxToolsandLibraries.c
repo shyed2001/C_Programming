@@ -31,6 +31,7 @@ You can use the format specifier %.1lf to print a double with one decimal point 
 */
 
 #include <stdio.h>
+#include <math.h>   /// Use the math library
 // insert prototype for function ftoc() here
 double ftoc(int x);
 // insert prototype for function ctof() here
@@ -55,6 +56,22 @@ int main(void) {
         // complete this line to print out the conversion result
         printf("%.1lf C", convertedtemp);
     }
+
+
+    /// Use the math library
+    /// Use the math library
+
+
+     double a = 2.5;
+    double asquared = pow(a,2);
+    printf("%.2lf squared = %.2lf\n",a,asquared);
+    return 0;
+
+
+
+
+
+
     return 0;
 }
 
