@@ -636,4 +636,797 @@ $(MAIN): $(OBJFILES)
 clean:
 	rm -f $(OBJFILES) $(MAIN)
 
+/// Run a program with a Makefile
+/// Run a program with a Makefile
+
+
+Makefile code discussed in this video:
+
+    program: program.o weatherstats.o
+    	gcc -std=c11 -Wall -fmax-errors=10 -Wextra program.o weatherstats.o -o program
+
+    program.o: program.c weatherstats.h
+    	gcc -std=c11 -Wall -fmax-errors=10 -Wextra -c program.c -o program.o
+
+    weatherstats.o: weatherstats.c
+    	gcc -std=c11 -Wall -fmax-errors=10 -Wextra -c weatherstats.c -o weatherstats.o
+
+    launch: program
+    	./program
+
+
+    	~$ make launch
+
+
+
+    ///Course ///Unit 7.2: Modularization Libraries and Makefiles
+///Creating a static Library
+    ///Course ///Unit 7.2: Modularization Libraries and Makefiles
+///Creating a static Library
+
+
+Create library: Use the ar (archive) utility:
+
+    ar rcs libweather.a weatherstats.o
+
+    r - replace (if already in)
+
+    c - create if doesn't exist yet
+
+    s - create index for fast access
+
+    (there are the most popular options)
+
+link program: The linker is able to read ar files and extract object file(s) from it.
+
+    gcc -std=c11 -Wall -fmax-errors=10 -Wextra -o program program.o libweather.a
+
+Still doesn't look quite like the first example of a library use with the -l flag. Here goes:
+
+    gcc -std=c11 -Wall -fmax-errors=10 -Wextra -o program program.o -L. -lweather
+
+_______________________________________________________________________________________________________________________
+
+program.c
+
+    #include <stdio.h>
+    #include "weatherstats.h"
+
+    int main(void) {
+    	double temperatures[7] = {6.9, 12.3, 9.0, 15.3, 9.8, 1.8, 0.3};
+    	double average = averageTemp(temperatures, 7);
+    	double max = maxTemp(temperatures, 7);
+    	printf("Average 7-day temp: %.2lf\n", average);
+    	printf("Highest temp: %.2lf\n", max);
+    	printf("Lowest temperature: %.2lf\n", minTemp(temperatures,7));
+    	return 0;
+    }
+
+Header file weatherstats.h:
+
+    double averageTemp(double *temps, int numOfTemps);
+    double maxTemp(double *temps, int numOfTemps);
+    double minTemp(double *temps, int numOfTemps);
+
+Source file weatherstats.c
+
+    double averageTemp(double *temps, int numOfTemps) {
+    	double result = 0.0;
+    	int i;
+    	for (i=0; i<numOfTemps; i++) {
+    		result = result + temps[i];
+    	}
+    	result = result / (double) numOfTemps;
+    	return result;
+    }
+
+    double maxTemp(double *temps, int numOfTemps) {
+    	double max = temps[0];
+    	int i;
+    	for (i=0; i<numOfTemps; i++) {
+    		if (max < temps[i]) {
+    			max = temps[i];
+    		}
+    	}
+    	return max;
+    }
+
+    double minTemp(double *temps, int numOfTemps) {
+    	double min = temps[0];
+    	int i;
+    	for (i=0; i<numOfTemps; i++) {
+    		if (min > temps[i]) {
+    			min = temps[i];
+    		}
+    	}
+    	return min;
+    }
+
+
+/// Course//Unit 7.2: Modularization Libraries and Makefiles//Creating a static Library
+/// Modify your library /// Modify your library
+
+
+
+
+Commands discussed in this video:
+
+Update library:
+
+    ar rcs libweather.a weatherio.o weatherstats.o
+
+link program:
+
+    gcc -std=c11 -Wall -fmax-errors=10 -Wextra -o program program.o -L. -lweather
+
+_______________________________________________________________________________________________________________________
+
+Code discussed in this video:
+
+program.c
+
+    #include <stdio.h>
+    #include "weatherstats.h"
+
+    int main(void) {
+    	double temperatures[7] = {6.9, 12.3, 9.0, 15.3, 9.8, 1.8, 0.3};
+    	double average = averageTemp(temperatures, 7);
+    	double max = maxTemp(temperatures, 7);
+            printTemps(temperatures, 7);
+    	printf("Average 7-day temp: %.2lf\n", average);
+    	printf("Highest temp: %.2lf\n", max);
+    	printf("Lowest temperature: %.2lf\n", minTemp(temperatures,7));
+    	return 0;
+    }
+
+Header file weatherstats.h:
+
+    double averageTemp(double *temps, int numOfTemps);
+    double maxTemp(double *temps, int numOfTemps);
+    double minTemp(double *temps, int numOfTemps);
+
+Source file weatherstats.c
+
+    double averageTemp(double *temps, int numOfTemps) {
+    	double result = 0.0;
+    	int i;
+    	for (i=0; i<numOfTemps; i++) {
+    		result = result + temps[i];
+    	}
+    	result = result / (double) numOfTemps;
+    	return result;
+    }
+
+    double maxTemp(double *temps, int numOfTemps) {
+    	double max = temps[0];
+    	int i;
+    	for (i=0; i<numOfTemps; i++) {
+    		if (max < temps[i]) {
+    			max = temps[i];
+    		}
+    	}
+    	return max;
+    }
+
+    double minTemp(double *temps, int numOfTemps) {
+    	double min = temps[0];
+    	int i;
+    	for (i=0; i<numOfTemps; i++) {
+    		if (min > temps[i]) {
+    			min = temps[i];
+    		}
+    	}
+    	return min;
+    }
+
+header file weather.h
+
+    #include "weatherio.h"
+    #include "weatherstats.h"
+
+header file weatherio.h
+
+    void printTemps(double *temps, int numOfTemps);
+
+source file weatherio.c:
+
+    #include
+
+    void printTemps(double *temps, int numOfTemps) {
+    	int i;
+    	printf("Over the past %d days, the temperatures were: \n", numOfTemps);
+    	for (i=0; i<numOfTemps; i++) {
+    		printf("%d: %.2lf\n", i+1, temps[i]);
+    	}
+    }
+
+
+    Course
+    /
+    Unit 7.2: Modularization Libraries and Makefiles
+    /
+    Creating a static Library
+
+Ultimate makefile
+
+
+
+    Course
+    /
+    Unit 7.2: Modularization Libraries and Makefiles
+    /
+    Creating a static Library
+
+Ultimate makefile
+
+Commands discussed in this video:
+
+Makefile:
+
+    # define the C compiler to use
+    CC       = gcc
+    # define comipler flags
+    CFLAGS   = -std=c11 -Wall -fmax-errors=10 -Wextra
+    # define library paths in addition to /usr/lib
+    LFLAGS   = -L.
+    # define libraries to use
+    LIBS     = -lweather
+    # define the object files that this project needs
+    OBJFILES = program.o
+    # define the name of the executable file
+    MAIN     = program
+
+    # all of the below is generic - one typically only adjusts the above
+
+    all: $(MAIN)
+
+    $(MAIN): $(OBJFILES)
+        $(CC) $(CFLAGS) -o $(MAIN) $(OBJFILES) $(LFLAGS) $(LIBS)
+
+    %.o: %.c
+        $(CC) $(CFLAGS) -c -o $@ $<
+
+    launch: program
+    	./program
+
+    clean:
+        rm -f $(OBJFILES) $(MAIN)
+
+Intermediate step:
+
+    program: program.o
+    	gcc -std=c11 -Wall -fmax-errors=10 -Wextra program.o -L. -lweather -o program
+
+    program.o: program.c
+    	gcc -std=c11 -Wall -fmax-errors=10 -Wextra -c program.c -o program.o
+
+    launch: program
+    	./program
+
+_______________________________________________________________________________________________________________________
+
+program.c
+
+    #include <stdio.h>
+    #include "weatherstats.h"
+
+    int main(void) {
+    	double temperatures[7] = {6.9, 12.3, 9.0, 15.3, 9.8, 1.8, 0.3};
+    	double average = averageTemp(temperatures, 7);
+    	double max = maxTemp(temperatures, 7);
+            printTemps(temperatures, 7);
+    	printf("Average 7-day temp: %.2lf\n", average);
+    	printf("Highest temp: %.2lf\n", max);
+    	printf("Lowest temperature: %.2lf\n", minTemp(temperatures,7));
+    	return 0;
+    }
+
+Header file weatherstats.h:
+
+    double averageTemp(double *temps, int numOfTemps);
+    double maxTemp(double *temps, int numOfTemps);
+    double minTemp(double *temps, int numOfTemps);
+
+Source file weatherstats.c
+
+    double averageTemp(double *temps, int numOfTemps) {
+    	double result = 0.0;
+    	int i;
+    	for (i=0; i<numOfTemps; i++) {
+    		result = result + temps[i];
+    	}
+    	result = result / (double) numOfTemps;
+    	return result;
+    }
+
+    double maxTemp(double *temps, int numOfTemps) {
+    	double max = temps[0];
+    	int i;
+    	for (i=0; i<numOfTemps; i++) {
+    		if (max < temps[i]) {
+    			max = temps[i];
+    		}
+    	}
+    	return max;
+    }
+
+    double minTemp(double *temps, int numOfTemps) {
+    	double min = temps[0];
+    	int i;
+    	for (i=0; i<numOfTemps; i++) {
+    		if (min > temps[i]) {
+    			min = temps[i];
+    		}
+    	}
+    	return min;
+    }
+
+header file weather.h
+
+    #include "weatherio.h"
+    #include "weatherstats.h"
+
+header file weatherio.h
+
+    void printTemps(double *temps, int numOfTemps);
+
+source file weatherio.c:
+
+    #include
+
+    void printTemps(double *temps, int numOfTemps) {
+    	int i;
+    	printf("Over the past %d days, the temperatures were: \n", numOfTemps);
+    	for (i=0; i<numOfTemps; i++) {
+    		printf("%d: %.2lf\n", i+1, temps[i]);
+    	}
+    }
+
+
+    Course
+/
+Unit 7.3: File operations in C
+/
+Using arguments for main()
+Pass arguments to a program from the command line
+
+Course
+/
+Unit 7.3: File operations in C
+/
+Using arguments for main()
+Pass arguments to a program from the command line
+
+
+
+
+Code discussed in this video:
+
+    #include <stdio.h>
+
+    int main(int argc, char *argv[])
+    /// or int main(int argc, char **argv)
+    /// or int main(int argc, char argv[][])
+
+
+    {
+        int i;
+        printf("I have %d arguments from the command line: \n", argc);
+        for (i = 0; i<argc; i++) {
+            printf("Argument %d: %s\n", i, argv[i]);
+        }
+
+        return 0;
+    }
+
+
+
+// Use arguments passed to a program from the command line
+
+/// Use arguments passed to a program from the command line
+
+#include <stdio.h>
+#include <stdlib.h> // for atoi and atof
+#include <string.h> // for strcmp
+
+int main(int argc, char *argv[]) {
+    int i, compare, wholeNumber;
+    double decimalNumber;
+
+    printf("I have %d arguments from the command line: \n", argc);
+    for (i = 0; i<argc; i++) {
+        printf("Argument %d: %s\n", i, argv[i]);
+    }
+
+    if (argc == 4) {
+        compare = strcmp(argv[1], "-e");
+        if (compare ==0) {
+            printf("argv[1] equals -e \n");
+        } else {
+            printf("argv[1] does not equal -e \n");
+        }
+        wholeNumber = atoi(argv[2]);
+        printf("%s as an integer is %d.\n", argv[2], wholeNumber);
+        decimalNumber = atof(argv[3]);
+        printf("%s as a double is %lf.\n", argv[3], decimalNumber);
+    }
+    return 0;
+}
+
+You are selling plants and are working on creating invoices for customer orders. You are testing a program that should receive, as arguments passed in from the command line, a number of plants to be purchased (an integer) and the price per plant (a decimal number). Your job is to create an invoice for the customer (see examples) that prints out the total price of the order (which can be found by multiplying the price per plant by the number of plants purchased).
+
+If your program is called with an incorrect number of arguments the user should receive the message "Invalid input" (see Example 3).
+
+Be sure to print prices with two decimal places, and to print the invoice exactly as presented in the examples below.
+
+When testing your program in Weblinux, you need to provide the command line arguments in the same way you just learned in the video. When you submit your program to taskgrader however, we will be supplying those arguments in order to test your program. In your submission you thus do not have to worry about providing command line arguments to your program.
+Examples
+Input from the command line (via argv):
+
+5 2.39
+
+Output:
+
+5 plants for 2.39 dollars each cost 11.95 dollars.
+
+
+Input from the command line (via argv):
+
+2 48.99
+
+Output:
+
+2 plants for 48.99 dollars each cost 97.98 dollars.
+
+
+Input from the command line (via argv):
+
+48.99
+
+Output:
+
+Invalid input.
+
+This task offers 2 hints :
+
+Hint 1 :
+
+Be sure to validate the number of arguments before you attempt to calculate the cost.
+
+Hint 2 :
+
+Make sure to define your main function using
+
+int main(int argc, char *argv[])
+
+
+
+solution Code:
+
+#include <stdio.h>
+#include <stdlib.h> // for atoi and atof
+#include <string.h> // for strcmp
+
+int main(int argc, char *argv[]) {
+    int wholeNumber;
+    double decimalNumber;
+
+    if (argc == 3)
+    {
+        wholeNumber = atoi(argv[1]);
+        decimalNumber = atof(argv[2]);
+        printf("%d plants for %.2lf dollars each cost %.2lf dollars.\n",  wholeNumber, decimalNumber, wholeNumber*decimalNumber);
+    }
+
+    else
+    {
+        printf("Invalid input.\n");
+    }
+
+
+    return 0;
+}
+
+///     Course
+    /
+    Unit 7.3: File operations in C
+    /
+    Reading from a file
+
+Read numbers (integers and doubles) from a file using fscanf()
+
+///     Course
+    /
+    Unit 7.3: File operations in C
+    /
+    Reading from a file
+
+Read numbers (integers and doubles) from a file using fscanf()
+
+
+Code discussed in this video:
+
+    #include <stdio.h>
+
+    int main(void) {
+        FILE *ifile;  /* ifile is a variable name - you could use any other name here.
+                         However, the '*' is important - we are working with a pointer.
+                         We call this a file pointer. */
+        int i, num, N;
+
+        ifile = fopen("my_first_file.txt", "r"); /* open file for reading.
+                                                         The "r" stands for reading. */
+
+        fscanf(ifile, "%d", &N); /* Read first number from the file.
+                                    Just like scanf(), the only difference is the
+                                    file pointer that gets passed in as well. */
+
+        printf("There are %d numbers in the file.\n", N);
+
+        for (i = 0; i<N; i++) {
+            fscanf(ifile, "%d", &num);
+            printf("I read %d from the file. \n", num);
+        }
+
+        fclose(ifile); /* closes the file */
+
+        return 0;
+    }
+
+______________________________________________________________________________________________________________________
+
+This requires a file by the name of "my_first_file.txt" to exist in the same directory as the code.Here is a sample file:
+
+9
+56  3  8  -11  0  -45  55  2  78
+
+Then change the code slightly to read from "my_second_file.txt" which contains doubles rather than integers. Sample:
+
+6
+13.5 22.7 8.0 -4.3 2.99 6.66
+
+
+
+
+/// Activity: read numbers from a file (External resource)
+/// Activity: read numbers from a file (External resource)
+
+
+You are teaching a class on C-programming! You would like to find out whether your teaching has been effective, and so you need to compute the average grade your students have received on the most recent assignment. These grades (integers) are stored in the file studentGrades.txt.
+
+The first entry in the file (an integer) is the number of student grades that are stored in the file. For example, if the file was as follows:
+
+9
+56 3 8 11 0 45 55 2 78
+
+this would mean that there are 9 grades stored in the file (starting with 56 and ending with 78).
+
+Your job is to calculate and print out the average of the grades stored in the file. Please print the average grade with two decimal places.
+Things to consider:
+
+To test your program you need to create your own file "studentGrades.txt" with grades stored as described. In weblinux you can do so by first typing "touch studentGrades.txt" at the command prompt and then opening, editing and saving the file studentGrades.txt in the file editor. When you submit your program to taskgrader we will provide an input file for testing purposes. It is thus crucially important that the file from which you are reading in your program is indeed named "studentGrades.txt".
+
+
+Examples
+Input file "studentGrades.txt":
+
+4
+100 99 90 98
+
+Output:
+
+96.75
+
+
+Input file "studentGrades.txt":
+
+2
+100 50
+
+Output:
+
+75.00
+
+
+Input file "studentGrades.txt":
+
+7
+90 88 76 93 44 98 33
+
+Output:
+
+74.57
+
+
+This task offers 3 hints :
+
+Hint 1 :
+
+Use a loop to read and sum the grades, then divide by the number of grades and output the correct average.
+
+Hint 2 :
+
+The first number in the file indicates how many grades are stored in the file, so this number itself is not a grade. Do not include it in your grade computation.
+
+
+
+Hint 3 :
+
+Remember that C will perform an integer division when both numbers in your division problem are integers. This means that you will need to cast at least one of them to a double.
+
+
+
+ #include <stdio.h>
+
+    int main(void) {
+        FILE *ifile;  /* ifile is a variable name - you could use any other name here.
+                         However, the '*' is important - we are working with a pointer.
+                         We call this a file pointer. */
+        int i, num, N = 0 ;
+        double  sum = 0;
+
+        ifile = fopen("studentGrades.txt", "r"); /* open file for reading.
+                                                         The "r" stands for reading. */
+
+        fscanf(ifile, "%d", &N); /* Read first number from the file.
+                                    Just like scanf(), the only difference is the
+                                    file pointer that gets passed in as well. */
+
+
+
+        for (i = 0; i<N; i++) {
+            fscanf(ifile, "%d", &num);
+            sum = num + sum ;
+        }
+        double Avg = (sum / N);
+
+        printf("%.2lf", Avg );
+
+        fclose(ifile); /* closes the file */
+
+        return 0;
+    }
+
+
+    Course
+    /
+    Unit 7.3: File operations in C
+    /
+    Reading until the end of the file
+
+Read until the end of the file
+    Course
+    /
+    Unit 7.3: File operations in C
+    /
+    Reading until the end of the file
+
+Read until the end of the file
+
+Code discussed in this video:
+
+    #include <stdio.h>
+
+    int main(void) {
+        FILE *ifile;
+        int i, num, sum;
+        int N, done, message;
+
+        ifile = fopen("my_third_file.txt", "r");
+
+        N=0;
+        sum = 0;
+        done = 0;
+
+        while (!done) {
+            message = fscanf(ifile, "%d", &num); /// fscanf returns an integer
+            /// at end of file, fscanf will return EOF
+            if (message == EOF) done = 1; /// eof= end of file
+            else {
+                printf("I read %d from the file. \n", num);
+                sum += num;
+                N++;
+            }
+        }
+
+        fclose(ifile);
+
+        printf("There are %d numbers in the file.\n", N);
+        printf("The sum of the numbers read is %d.\n", sum);
+        printf("The average is %.2f.", (float) sum / N);
+
+        return 0;
+    }
+
+
+
+     You are still teaching a class on C-programming! You would like to find out whether the students in your class did better on the most recent assignment than the students in your colleagues' classes. The average grades of all these classes are stored in a file called "gradeComparison.txt". The first number stored in the file represents the average grade of the students in your class. All of the subsequent numbers represent the average grades of students from other sections. For example, if the file contained the following:
+
+95.23 94.80 91.56
+
+this would mean that the students in your class received an average grade of 95.23 on the last assignment, which is higher than the average grades received by students in the other sections.
+
+If, on the other hand, the file was
+
+95.23 94.80 91.56 96.40 93.25
+
+then this would mean that the students in the fourth class received a slightly higher grade than the students in your class.
+
+Your job is to find out whether the students in your class did better than the students in the other classes and if so, print out the word "Yes". If on the other hand students in another class did better than your students then you should print out "No", followed by one space, followed by the number of the first class in the file that had a better grade average.
+
+
+Things to consider:
+
+(1) Unlike in the previous task, this time the file contains only average grades (and does not start with the number of average grades stored in the file).
+
+(2) To test your program you will need to create your own file "gradeComparison.txt" with average grades stored as described. In weblinux you can do so by first typing "touch gradeComparison.txt" at the command prompt and then opening, editing, and saving the file "gradeComparison.txt" in the file editor. When you submit your program to taskgrader we will provide an input file for testing purposes. It is thus crucially important that the file from which you are reading in your program is indeed named "gradeComparison.txt".
+
+
+Examples
+Input file "gradeComparison.txt":
+
+95.23 94.80 91.56
+
+Output:
+
+Yes
+
+
+Input file "gradeComparison.txt":
+
+95.23 94.80 91.56 96.40 93.25 99.64
+
+Output:
+
+No 4
+
+This task offers 1 hint :
+
+Hint 1 :
+
+Continue scanning averages until you reach EOF, while comparing each average to the average of your class.
+
+
+ #include <stdio.h>
+
+    int main(void)
+
+    {
+        FILE *ifile;
+        double num =0 ;
+        int N =0;
+        int done, message =0 ;
+
+        ifile = fopen("gradeComparison.txt", "r");
+
+        double myavg = 0;
+        done = 0;
+        fscanf(ifile, "%d", &myavg);
+        N++;
+        while (!done)
+
+        {
+            message = fscanf(ifile, "%lf", &num); /// fscanf returns an integer
+            /// at end of file, fscanf will return EOF
+            if (message == EOF)
+            {
+                done = 1; /// eof= end of file
+            }
+            else {
+
+                N++;
+
+                if ( num > myavg)
+                {
+                    done = 1;
+                }
+
+            }
+                /// printf("I read %d from the file. \n", num);
+
+        }
+        printf("No %d\n", N);
+        fclose(ifile);
+        return 0;
+    }
 
