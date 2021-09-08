@@ -9,7 +9,7 @@
         int NUM, num, message;
         int i, done = 0;
 
-        puts("please enter a integet number \n");
+        /// puts("please enter a integet number \n");
         scanf("%d", &NUM);
 
         ofile = fopen(filename, "r");
@@ -30,15 +30,28 @@
                if (myavg[i-1] == NUM)
                 {
                  fclose(ofile);
-                 return 0;
                 }
                  else {
                  ofile = fopen(filename, "a");
+                 fprintf(ofile, " %d", NUM);
                       }
 
 
-           fprintf(ofile, " %d", NUM);
+
+           num, message, done = 0;
+           ofile = fopen(filename, "r");
+            while (!done) {
+            message = fscanf(ofile, "%d", &num); /// fscanf returns an integer
+            /// at end of file, fscanf will return EOF
+            if (message == EOF) done = 1; /// eof= end of file
+            else {
+                printf("%d ", num);
+
+            }
+        }
            fclose(ofile);
+
+
 
         return 0;
     }
