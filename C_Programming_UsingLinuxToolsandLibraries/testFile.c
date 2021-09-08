@@ -34,6 +34,7 @@
                  else {
                  ofile = fopen(filename, "a");
                  fprintf(ofile, " %d", NUM);
+                 fclose(ofile);
                       }
 
 
@@ -49,8 +50,18 @@
 
             }
         }
-           fclose(ofile);
-
+        fclose(ofile);
+//        if (myavg[i-1] == NUM)
+//                {
+//                 fclose(ofile);
+//                }
+//                 else {
+//                      printf("%d ", NUM);
+//                    fclose(ofile);
+//                      }
+//
+//           fclose(ofile);
+//
 
 
         return 0;
