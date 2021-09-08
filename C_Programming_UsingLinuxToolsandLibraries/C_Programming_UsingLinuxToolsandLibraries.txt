@@ -1340,6 +1340,7 @@ Code discussed in this video:
 
 
 
+
      You are still teaching a class on C-programming! You would like to find out whether the students in your class did better on the most recent assignment than the students in your colleagues' classes. The average grades of all these classes are stored in a file called "gradeComparison.txt". The first number stored in the file represents the average grade of the students in your class. All of the subsequent numbers represent the average grades of students from other sections. For example, if the file contained the following:
 
 95.23 94.80 91.56
@@ -1401,8 +1402,10 @@ Continue scanning averages until you reach EOF, while comparing each average to 
 
         double myavg = 0;
         done = 0;
-        fscanf(ifile, "%d", &myavg);
+        fscanf(ifile, "%lf", &myavg);
+        //printf("I read %lf from the file. \n", myavg);
         N++;
+        //printf("No %d\n", N);
         while (!done)
 
         {
@@ -1422,11 +1425,190 @@ Continue scanning averages until you reach EOF, while comparing each average to 
                 }
 
             }
-                /// printf("I read %d from the file. \n", num);
+                //printf("I read %lf from the file. \n", num);
 
         }
         printf("No %d\n", N);
         fclose(ifile);
         return 0;
     }
+
+
+
+
+
+        Course
+    /
+    Unit 7.3: File operations in C
+    /
+    Writing to a file
+
+Write numbers to a file using fprintf()
+
+        Course
+    /
+    Unit 7.3: File operations in C
+    /
+    Writing to a file
+
+Write numbers to a file using fprintf()
+
+
+
+
+Code discussed in this video:
+
+    #include <stdio.h>
+
+    int main(void) {
+        FILE *ofile;  /* You can use any variable name here, just make sure you
+                         include the '*'. */
+        char filename[] = "my_first_output_file.txt";
+        int num;
+
+        ofile = fopen(filename, "w");
+
+        do {
+            printf("Please enter a grade. Enter -1 to quit: \n");
+            scanf("%d", &num);
+            if (num != -1)
+                fprintf(ofile, "%d ", num);
+        } while (num != -1);
+        fclose(ofile);
+
+        return 0;
+    }
+
+
+
+        Course
+    /
+    Unit 7.3: File operations in C
+    /
+    Writing to a file
+
+Append numbers to a file at the end
+
+
+
+
+Code discussed in this video:
+
+    #include <stdio.h>
+    #include <string.h>
+
+    int main(void) {
+        FILE *ofile;  /* You can use any variable name here, just make sure you
+                         include the '*'. */
+        char filename[] = "my_first_output_file.txt";
+        int num, selection;
+        selection = 1;
+
+        /* Check whether the file already exists: */
+        ofile = fopen(filename, "r");
+        if (ofile != NULL) {
+            printf("You already have a file named %s.\n", filename);
+            fclose(ofile);
+            printf("Do you wish to (1) append or (2) overwrite? Enter 1 or 2: \n");
+            scanf("%d", &selection);
+        }
+
+        if (selection == 1) {
+            ofile = fopen(filename, "a");
+        } else {
+            ofile = fopen(filename, "w");
+        }
+
+        do {
+            printf("Please enter a grade. Enter -1 to quit: \n");
+            scanf("%d", &num);
+            if (num != -1)
+                fprintf(ofile, "%d ", num);
+        } while (num != -1);
+        fclose(ofile);
+
+        return 0;
+    }
+
+    Course
+    /
+    Unit 7.3: File operations in C
+    /
+    Writing to a file
+
+Activity: write numbers to a file
+
+    Course
+    /
+    Unit 7.3: File operations in C
+    /
+    Writing to a file
+
+Activity: write numbers to a file
+
+
+You are grading final exams and you are recording grades (integers) in a file "myGrades.txt". You just got distracted by a phone call and can't remember whether or not you already recorded the grade of the student whose paper you just finished grading.
+
+Expecting that this may not be the last time your phone rings you decide to write a C-program to help you out. The program should first read, from the user input, the grade (an integer) that you need to check on. Next, the program should open the file "myGrades.txt", find the last number in the file, close the file, and compare the last number from the file to the grade read from the user input. If the two grades are equal then you presumably already recorded the grade and don't have to do anything. If on the other hand the two grades do not equal each other then you have not yet recorded this new grade and need to do so by appending this new grade to the file.
+
+Finally, reopen the file and print its new contents to the screen.
+
+
+Things to consider:
+
+(1) Be sure to separate grades in the file by printing one space between the grades.
+
+(2) To test your program you need to create your own file titled "myGrades.txt" with grades stored as described. In weblinux you can do so by first typing "touch myGrades.txt" at the command prompt and then opening, editing and saving the file "myGrades.txt" in the file editor. When you submit your program to taskgrader we will provide an input file for testing purposes. It is thus crucially important that the file from which you are reading in your program is indeed named "myGrades.txt".
+
+(3) You may assume that you have already recorded some grades in the file "myGrades.txt"; you therefore do not have to check whether the file indeed exists (although you may, of course, do so!)
+
+
+Examples
+User input:
+
+83
+
+Input file "myGrades.txt":
+
+90 88 84 76
+
+File "myGrades.txt" after program terminates:
+
+90 88 84 76 83
+
+
+User input:
+
+76
+
+Input file "myGrades.txt":
+
+90 88 84 76
+
+File "myGrades.txt" after program terminates:
+
+90 88 84 76
+
+
+User input:
+
+88
+
+Input file "myGrades.txt":
+
+90 88 84 76
+
+File "myGrades.txt" after program terminates:
+
+90 88 84 76 88
+
+ This task offers 1 hint :
+
+Hint 1 :
+
+Use the "a" mode of fopen to open a file for appending!
+
+
+
+
 
