@@ -26,24 +26,40 @@
                 done = 1; /// eof= end of file
             }
         }
-
-        for (int j =0; j < i ; j++)
-           {
-               if (myavg[j] == NUM)
+         printf(" %d", myavg[i-1]);
+//        for (int j =0; j < i ; j++)
+//           {
+//               if (myavg[j] == NUM)
+//                {
+//                for (int k =0; k < i ; k++)
+//                {
+//                 fclose(ofile);
+//                 return 0;
+//
+//                }
+//
+//                }
+//                 else {
+//                 ofile = fopen(filename, "a");
+//                      }
+//           }
+               printf(" %d", myavg[i]);
+               if (myavg[i] == NUM)
                 {
                 for (int k =0; k < i ; k++)
                 {
-                    printf ("%d ",myavg[k]);
+                 fclose(ofile);
+                 return 0;
+
                 }
-                fclose(ofile);
-                return 0;
+
                 }
                  else {
                  ofile = fopen(filename, "a");
                       }
-           }
 
-           fprintf(ofile, " %d ", NUM);
+
+           fprintf(ofile, " %d", NUM);
            fclose(ofile);
 
         return 0;
