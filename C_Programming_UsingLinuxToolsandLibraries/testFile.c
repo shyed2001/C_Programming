@@ -2,6 +2,7 @@
     #include <string.h>
 
     int main(void) {
+
         FILE *ofile;  /* You can use any variable name here, just make sure you
                          include the '*'. */
         char filename[] = "myGrades.txt";
@@ -26,7 +27,6 @@
                 done = 1; /// eof= end of file
             }
         }
-
                if (myavg[i-1] == NUM)
                 {
                  fclose(ofile);
@@ -36,8 +36,6 @@
                  fprintf(ofile, " %d", NUM);
                  fclose(ofile);
                       }
-
-
 
            num, message, done = 0;
            ofile = fopen(filename, "r");
@@ -51,17 +49,6 @@
             }
         }
         fclose(ofile);
-//        if (myavg[i-1] == NUM)
-//                {
-//                 fclose(ofile);
-//                }
-//                 else {
-//                      printf("%d ", NUM);
-//                    fclose(ofile);
-//                      }
-//
-//           fclose(ofile);
-//
 
 
         return 0;
