@@ -1,9 +1,8 @@
     #include <stdio.h>
-    
     #include <math.h>
-    /// double pow(double, double); 
+    /// double pow(double, double);
     int main()
-    
+
     {
         double a = 2.5;
         double asquared = pow(a,2);
