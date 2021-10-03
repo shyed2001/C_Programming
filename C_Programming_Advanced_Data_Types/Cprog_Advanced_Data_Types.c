@@ -1,6 +1,7 @@
 /*author/owner :== Shyed Shahriar Housaini
 License :== MIT + terms and conditions of author/owner
 Copyright :== author/owner*/
+/// Structs and Unions
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,6 +20,20 @@ Copyright :== author/owner*/
 //#include <cmath>
 //#include <string>
 //#include <iomanip>
+
+typedef struct {
+int x;
+float y;
+char z;
+} mystr;
+
+typedef union {
+int x;
+float y;
+char z;
+} myunion;
+
+
 
 struct student{
     char firstName[30];
@@ -123,6 +138,11 @@ int main()
 
 {
     clock_t tStart = clock();
+
+printf("struct size: *lu\n", sizeof(mystr));
+printf("union size: &lu\n", sizeof(myunion));
+
+
 
 /// Course // Unit 5.1: Structures // Define structures
 
